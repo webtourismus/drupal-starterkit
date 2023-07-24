@@ -1,7 +1,7 @@
 {
     "name": "webtourismus/drupal-starterkit",
     "description": "Opininated starterkit based on drupal/core-recommended:^10.1 - for internal use only.",
-    "type": "project",
+    "type": "metapackage",
     "license": "GPL-2.0-or-later",
     "repositories": {
         "drupal": {
