@@ -1,15 +1,59 @@
 {
-    "name": "webtourismus/drupal-starterkit",
-    "description": "Opininated starterkit based on drupal/core-recommended:^10.1 - for internal use only.",
-    "type": "project",
-    "license": "GPL-2.0-or-later",
-    "repositories": {
-        "webtourismus/drupal-metapackage": {
-            "type": "vcs",
-            "url": "https://webtourismus@bitbucket.org/webtourismus/drupal-metapackage.git"
-        }
+  "name": "webtourismus/drupal-starterkit",
+  "description": "Opininated starterkit based on drupal/core-recommended:^10.1 - for internal use only.",
+  "type": "project",
+  "license": "GPL-2.0-or-later",
+  "repositories": {
+    "drupal": {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
     },
-    "require": {
-        "webtourismus/drupal-metapackage": "0.0.1"
+    "jjj/chosen": {
+      "type": "package",
+      "package": {
+        "name": "jjj/chosen",
+        "version": "2.2.1",
+        "type": "drupal-library",
+        "extra": {
+          "installer-name": "chosen"
+        },
+        "source": {
+          "url": "https://github.com/JJJ/chosen.git",
+          "type": "git",
+          "reference": "2.2.1"
+        }
+      }
+    },
+    "webtourismus/designsystem": {
+      "type": "vcs",
+      "url": "https://webtourismus@bitbucket.org/webtourismus/designsystem.git"
+    },
+    "webtourismus/ebr": {
+      "type": "vcs",
+      "url": "https://webtourismus@bitbucket.org/webtourismus/ebr.git"
+    },
+    "webtourismus/fa6": {
+      "type": "vcs",
+      "url": "https://webtourismus@bitbucket.org/webtourismus/fa6.git"
+    },
+    "webtourismus/gin_custom": {
+      "type": "vcs",
+      "url": "https://webtourismus@bitbucket.org/webtourismus/gin_custom.git"
+    },
+    "webtourismus/mailjet_iframe": {
+      "type": "vcs",
+      "url": "https://webtourismus@bitbucket.org/webtourismus/mailjet_iframe.git"
+    },
+    "webtourismus/drupal-metapackage": {
+      "type": "vcs",
+      "url": "https://bitbucket.org/webtourismus/drupal-metapackage.git"
+    },
+    "webtourismus/seasonal_paragraphs": {
+      "type": "vcs",
+      "url": "https://webtourismus@bitbucket.org/webtourismus/seasonal_paragraphs.git"
     }
+  },
+  "require": {
+    "webtourismus/drupal-metapackage": "^0.0.2"
+  }
 }
