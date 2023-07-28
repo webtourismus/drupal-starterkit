@@ -8,6 +8,7 @@
 # Ignore sensitive information
 .env
 .env.*
+!.env.example
 /web/sites/*/settings.php
 /web/sites/*/settings.*.php
 
