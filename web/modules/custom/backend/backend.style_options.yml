@@ -1,0 +1,706 @@
+reuseable_anchors:
+  width_options: &width_options
+    'grow shrink basis-0': distribute automatically
+    'grow-0 shrink-0 basis-full': 100%
+    'grow-0 shrink-0 basis-11/12': 91.67.33% - 11/12
+    'grow-0 shrink-0 basis-9/10': 90% - 9/10
+    'grow-0 shrink-0 basis-5/6': 83.33% - 5/6
+    'grow-0 shrink-0 basis-4/5': 80% - 4/5
+    'grow-0 shrink-0 basis-3/4': 75% - 3/4
+    'grow-0 shrink-0 basis-7/10': 70% - 7/10
+    'grow-0 shrink-0 basis-2/3': 66.67% - 2/3
+    'grow-0 shrink-0 basis-3/5': 60% - 3/5
+    'grow-0 shrink-0 basis-7/12': 58.33% - 7/12
+    'grow-0 shrink-0 basis-1/2': 50% - 1/2
+    'grow-0 shrink-0 basis-5/12': 41.67% - 5/12
+    'grow-0 shrink-0 basis-2/5': 40% - 2/5
+    'grow-0 shrink-0 basis-1/3': 33.33% - 1/3
+    'grow-0 shrink-0 basis-3/10': 30% - 3/10
+    'grow-0 shrink-0 basis-1/4': 25% - 1/4
+    'grow-0 shrink-0 basis-1/5': 20% - 1/5
+    'grow-0 shrink-0 basis-1/6': 16.67% - 1/6
+    'grow-0 shrink-0 basis-1/10': 10% - 1/10
+    'grow-0 shrink-0 basis-1/12': 8.33% - 1/12
+    'grow-0 shrink basis-0': as narrow as possible
+    'grow-0 shrink-0 basis-full max-w-screen-lg': laptop width
+    'grow-0 shrink-0 basis-full max-w-screen-md': tablet landscape width
+    'grow-0 shrink-0 basis-full max-w-screen-sm': tablet portrait width
+    'grow-0 shrink-0 basis-full sm:max-w-[360px]': mobile width
+  justify_content_options: &justify_content_options
+    'justify-center': center
+    'justify-start': left
+    'justify-end': right
+    'justify-between': distribute free space only in between
+    'justify-around': distribute free space around and in between (more in between)
+    'justify-evenly': distribute free space around and in between (evenly)
+  gap_horizontal_options: &gap_horizontal_options
+    'max-sm:gap-horizontal-[4px] sm:gap-horizontal-[8px] lg:gap-horizontal-[16px]':
+      - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
+      -
+        '%number_with_unit1': '8px'
+        '%number_with_unit2': '32px'
+    'max-sm:gap-horizontal-[4px] sm:gap-horizontal-[8px] lg:gap-horizontal-[32px]':
+      - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
+      -
+        '%number_with_unit1': '8px'
+        '%number_with_unit2': '64px'
+    'gap-horizontal-0': 'no padding'
+    'gap-horizontal-px': 'thin'
+    'gap-horizontal-[4px]': 8px
+    'gap-horizontal-[8px]': 16px
+    'gap-horizontal-[12px]': 24px
+    'gap-horizontal-[16px]': 32px
+    'gap-horizontal-[24px]': 48px
+    'gap-horizontal-[32px]': 64px
+    'gap-horizontal-[48px]': 96px
+  gap_vertical_options: &gap_vertical_options
+    'max-sm:gap-vertical-[8px] sm:gap-vertical-[12px] lg:gap-vertical-[32px]':
+      - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
+      -
+        '%number_with_unit1': '8px'
+        '%number_with_unit2': '32px'
+    'max-sm:gap-vertical-[8px] sm:gap-vertical-[12px] lg:gap-vertical-[64px]':
+      - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
+      -
+        '%number_with_unit1': '8px'
+        '%number_with_unit2': '64px'
+    'gap-vertical-0': 'no padding'
+    'gap-vertical-[2px]': 'thin'
+    'gap-vertical-[8px]': 8px
+    'gap-vertical-[16px]': 16px
+    'gap-vertical-[24px]': 24px
+    'gap-vertical-[32px]': 32px
+    'gap-vertical-[48px]': 48px
+    'gap-vertical-[64px]': 64px
+    'gap-vertical-[96px]': 96px
+  gallery_thumbnail_options: &gallery_thumbnail_options
+    'full': 100%
+    '1/2': 50% - 1/2
+    '1/3': 33.33% - 1/3
+    '1/4': 25% - 1/4
+    '1/5': 20% - 1/5
+    '1/6': 16.67% - 1/6
+
+options:
+  colorschema:
+    plugin: html_attribute
+    label: 'Colorschema'
+    attribute_name: class
+    twig_attribute_object: '#bg_wrapper_attributes'
+    input_type: select
+    options:
+      'cs-white': pure white background
+      'cs-neutral-100': light background
+      'cs-neutral-900': dark background
+      'cs-black': pure black background
+      'cs-flashy': flashy background
+      'cs-lightimg': light image as background, black text
+      'cs-darkimg': dark image as background, white text
+    weight: -1000
+  background_media:
+    plugin: background_media
+    label: 'Background image'
+    input_type: media_library
+    media_view_mode: layout_bg
+    twig_variable: background_media
+    form_api:
+      '#wrapper_attributes':
+        class: 'claro-details'
+      '#allowed_bundles':
+        - image
+      '#states':
+        visible:
+          -
+            ':input[name=''layout_paragraphs[config][layout][colorschema][html_attribute]'']':
+              value: cs-darkimg
+          -
+            ':input[name=''layout_paragraphs[config][layout][colorschema][html_attribute]'']':
+              value: cs-lightimg
+    weight: -990
+  layout_width_predefined_options:
+    plugin: html_attribute
+    label: 'Max. width of of this section'
+    twig_attribute_object: '#width_wrapper_attributes'
+    attribute_name: class
+    input_type: select
+    default: max-w-screen-lg
+    form_api:
+      '#required': FALSE
+      '#empty_value': ''
+      '#empty_option': 'Specify custom width'
+    options:
+      'max-w-full': always full width
+      'max-w-screen-lg': max. laptop width
+      'max-w-screen-md': max. tablet landscape width
+      'max-w-screen-sm': max. tablet portrait width
+    weight: -900
+  layout_width_custom_number:
+    plugin: html_attribute
+    label: 'Custom layout width'
+    description: 'Enter a CSS length unit (e.g. "500px" or "33.33%").'
+    twig_attribute_object: '#width_wrapper_attributes'
+    attribute_name: class
+    input_type: textfield
+    form_api:
+      '#pattern': '^(\d+)(\.[0-9]+)?(px|%|rem|em|vw)$'
+      '#states':
+        visible:
+          -
+            ':input[name=''layout_paragraphs[config][layout][layout_width_predefined_options][html_attribute]'']':
+              value: ''
+        required:
+          -
+            ':input[name=''layout_paragraphs[config][layout][layout_width_predefined_options][html_attribute]'']':
+              value: ''
+        enabled:
+          -
+            ':input[name=''layout_paragraphs[config][layout][layout_width_predefined_options][html_attribute]'']':
+              value: ''
+    value_preg_replace:
+      pattern: '/^(\d+)(\.[0-9]+)?(px|%|rem|em|vw))$/'
+      replacement: 'max-w-[${0}]'
+    weight: -890
+  layout_padding_side:
+    plugin: html_attribute
+    label: 'Min. padding to the side of the screen'
+    attribute_name: class
+    twig_attribute_object: '#bg_wrapper_attributes'
+    input_type: select
+    options:
+      'max-sm:px-[8px] sm:px-[12px] lg:px-[32px]':
+        - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
+        -
+          '%number_with_unit1': '8px'
+          '%number_with_unit2': '32px'
+      'max-sm:px-[8px] sm:px-[12px] lg:px-[64px]':
+        - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
+        -
+          '%number_with_unit1': '8px'
+          '%number_with_unit2': '64px'
+      'px-0': 'no padding'
+      'px-[2px]': 'thin'
+      'px-[8px]': 8px
+      'px-[16px]': 16px
+      'px-[24px]': 24px
+      'px-[32px]': 32px
+      'px-[48px]': 48px
+      'px-[64px]': 64px
+      'px-[96px]': 96px
+    default: 'max-sm:px-[8px] sm:px-[12px] lg:px-[32px]'
+    weight: -800
+  layout_gap_horizontal:
+    plugin: html_attribute
+    label: 'Horizontal padding in between areas'
+    attribute_name: class
+    input_type: select
+    options: *gap_horizontal_options
+    default: 'max-sm:gap-horizontal-[4px] md:gap-horizontal-[8px] lg:gap-horizontal-[16px]'
+    weight: -790
+  layout_gap_vertical:
+    plugin: html_attribute
+    label: 'Vertical padding in between areas'
+    description: 'Only effective on small screens, when columns are stacked.'
+    attribute_name: class
+    input_type: select
+    options: *gap_vertical_options
+    default: 'gap-vertical-[64px]'
+    weight: -780
+  padding_top:
+    plugin: html_attribute
+    label: 'Padding above'
+    attribute_name: class
+    input_type: select
+    options:
+      'max-sm:pt-[8px] sm:pt-[12px] lg:pt-[32px]':
+        - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
+        -
+          '%number_with_unit1': '8px'
+          '%number_with_unit2': '32px'
+      'max-sm:pt-[8px] sm:pt-[12px] lg:pt-[64px]':
+        - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
+        -
+          '%number_with_unit1': '8px'
+          '%number_with_unit2': '64px'
+      'pt-0': 'no padding'
+      'pt-[2px]': 'thin'
+      'pt-[8px]': 8px
+      'pt-[16px]': 16px
+      'pt-[24px]': 24px
+      'pt-[32px]': 32px
+      'pt-[48px]': 48px
+      'pt-[64px]': 64px
+      'pt-[96px]': 96px
+      'pt-[60vh]': 'very large'
+    default: 'pt-[32px]'
+    weight: -770
+  padding_bottom:
+    plugin: html_attribute
+    label: 'Padding below'
+    attribute_name: class
+    input_type: select
+    options:
+      'max-sm:pb-[8px] sm:pb-[12px] lg:pb-[32px]':
+        - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
+        -
+          '%number_with_unit1': '8px'
+          '%number_with_unit2': '32px'
+      'max-sm:pb-[8px] sm:pb-[12px] lg:pb-[64px]':
+        - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
+        -
+          '%number_with_unit1': '8px'
+          '%number_with_unit2': '64px'
+      'pb-0': 'no padding'
+      'pb-[2px]': 'thin'
+      'pb-[8px]': 8px
+      'pb-[16px]': 16px
+      'pb-[24px]': 24px
+      'pb-[32px]': 32px
+      'pb-[48px]': 48px
+      'pb-[64px]': 64px
+      'pb-[96px]': 96px
+      'pb-[60vh]': 'very large'
+    default: 'pb-[32px]'
+    weight: -760
+  children_margin_top_evenodd:
+    plugin: html_attribute
+    label: 'Alternate padding above'
+    description: 'Every 2nd column has an additional padding above. Only effective on large screens, when columns are not stacked.'
+    attribute_name: class
+    input_type: select
+    options:
+      'sm:children-odd:mt-[48px] md:children-odd:mt-[64px]': 'odd columns have an additional padding above'
+      'sm:children-even:mt-[48px] md:children-even:mt-[64px]': 'even columns have an additional padding above'
+    form_api:
+      '#required': FALSE
+      '#empty_value': ''
+      '#empty_option': 'no alternate padding'
+    weight: -750
+  area_gap:
+    plugin: html_attribute
+    label: 'Vertical padding in between content blocks'
+    attribute_name: class
+    input_type: select
+    options: *gap_vertical_options
+    default: 'gap-vertical-[64px]'
+    weight: -740
+  animation:
+    plugin: html_attribute
+    attribute_name: 'data-aos'
+    weight: 8000
+    label: 'Animation'
+    input_type: select
+    options:
+      'fade': Fade in
+      'fade-up': Fade in & up
+      'fade-left': Fade in & left
+      'fade-right': Fade in & right
+      'fade-down': Fade in & down
+      'zoom-in': Zoom & Fade in
+    form_api:
+      '#required': FALSE
+      '#empty_value': ''
+      '#empty_option': 'no animation'
+    library: 'designsystem/aos'
+  html_id:
+    plugin: html_attribute
+    label: 'Unique ID for deep scroll links'
+    attribute_name: id
+    input_type: textfield
+    description: 'Must be unique per page, only numbers, lowercase letters, underscore and minus allowed.'
+    weight: 9000
+    form_api:
+      '#replace': '-'
+      '#replace_pattern':  '[^a-z0-9_-]+'
+  tailwind_classes_bg_wrapper:
+    plugin: html_attribute
+    label: 'Advanced styling options for the background container'
+    attribute_name: class
+    twig_attribute_object: '#bg_wrapper_attributes'
+    input_type: textfield
+    description: 'For experienced users only. CSS classes provided by <a href="https://tailwindcss.com/docs" target="blank">TailwindCSS.</a>'
+    weight: 9100
+  tailwind_classes_width_wrapper:
+    plugin: html_attribute
+    label: 'Advanced styling options for the width container'
+    attribute_name: class
+    twig_attribute_object: '#width_wrapper_attributes'
+    input_type: textfield
+    description: 'For experienced users only. CSS classes provided by <a href="https://tailwindcss.com/docs" target="blank">TailwindCSS.</a>'
+    weight: 9110
+  tailwind_classes_layout_and_region:
+    plugin: html_attribute
+    label: 'Advanced styling options for this container'
+    attribute_name: class
+    input_type: textfield
+    description: 'For experienced users only. CSS classes provided by <a href="https://tailwindcss.com/docs" target="blank">TailwindCSS.</a>'
+    weight: 9120
+  column_width:
+    plugin: responsive_class
+    weight: -950
+    description: 'Only for screens larger than selected above. On smaller screens all columns are fullwidth and stacked below each other.'
+    prefix:
+      label: 'Column width'
+    otherwise_classes: 'grow-0 shrink-0 basis-full'
+    classes:
+      label: 'Column width'
+      form_api:
+        '#label_attributes':
+          class: 'invisible'
+      input_type: select
+      options: *width_options
+  justify_content:
+    plugin: html_attribute
+    label: 'Horizontal alignment of columns'
+    description: 'Only effective when the sum of all column widths is not equal to the section width.'
+    attribute_name: class
+    input_type: select
+    weight: -880
+    options: *justify_content_options
+  align_items:
+    plugin: html_attribute
+    label: 'Vertical alignment of content blocks in this area'
+    attribute_name: class
+    input_type: select
+    weight: -800
+    options:
+      'justify-start': top
+      'justify-center': middle
+      'justify-end': bottom
+      'justify-between': distribute free space only in between
+      'justify-around': distribute free space around and in between (more in between)
+      'justify-evenly': distribute free space around and in between (evenly)
+  fluid_width_xs:
+    plugin: html_attribute
+    label: 'Column width on mobile'
+    input_type: hidden
+    form_api:
+      '#value': 'max-sm:components:basis-full components:grow-0 components:shrink-0'
+    weight: -880
+  fluid_width_sm:
+    plugin: html_attribute
+    label: 'Column width on tablet portrait'
+    input_type: select
+    weight: -879
+    options:
+      'sm:max-md:components:basis-1/2': 50% - 1/2
+      'sm:max-md:components:basis-1/3': 33.33% - 1/3
+      'sm:max-md:components:basis-1/4': 25% - 1/4
+      'sm:max-md:components:basis-1/5': 20% - 1/5
+      'sm:max-md:components:basis-1/6': 16.67% - 1/6
+    default: 'sm:max-md:components:w-1/2'
+  fluid_width_md:
+    plugin: html_attribute
+    weight: -878
+    label: 'Column width on tablet landscape'
+    input_type: select
+    options:
+      'md:max-lg:components:basis-1/2': 50% - 1/2
+      'md:max-lg:components:basis-1/3': 33.33% - 1/3
+      'md:max-lg:components:basis-1/4': 25% - 1/4
+      'md:max-lg:components:basis-1/5': 20% - 1/5
+      'md:max-lg:components:basis-1/6': 16.67% - 1/6
+    default: 'md:max-lg:components:basis-1/3'
+  fluid_width_lg:
+    plugin: html_attribute
+    weight: -877
+    label: 'Column width on laptop and above'
+    input_type: select
+    options:
+      'lg:components:basis-1/2': 50% - 1/2
+      'lg:components:basis-1/3': 33.33% - 1/3
+      'lg:components:basis-1/4': 25% - 1/4
+      'lg:components:basis-1/5': 20% - 1/5
+      'lg:components:basis-1/6': 16.67% - 1/6
+    default: 'lg:components:basis-1/4'
+  fluid_gap_horizontal:
+    plugin: html_attribute
+    label: 'Horizontal padding in between areas'
+    input_type: select
+    options: *gap_horizontal_options
+    default: 'max-sm:gap-horizontal-[4px] md:gap-horizontal-[8px] lg:gap-horizontal-[16px]'
+    weight: -870
+  grid_template_columns_2:
+    plugin: html_attribute
+    weight: -877
+    label: 'Cell width on large screens'
+    input_type: select
+    options:
+      'max-sm:grid-cols-1 sm:[grid-template-columns:33.3333%_66.3337%]': 33.33% / 66.67%
+      'max-sm:grid-cols-1 sm:[grid-template-columns:40%_60%]': 40% / 60%
+      'max-sm:grid-cols-1 sm:[grid-template-columns:50%_50%]': 50% / 50%
+      'max-sm:grid-cols-1 sm:[grid-template-columns:60%_40%]': 60% / 40%
+      'max-sm:grid-cols-1 sm:[grid-template-columns:66.3337%_33.3333%]': 66.67% / 33.33%
+    default: 'max-sm:grid-cols-1 sm:[grid-template-columns:50%_50%]'
+  grid_template_columns_3:
+    plugin: html_attribute
+    weight: -877
+    label: 'Cell width on large screens'
+    input_type: select
+    options:
+      'max-sm:grid-cols-1 sm:[grid-template-columns:33.3333%_33.3333%_33.3333%]': 33.33% / 33.33% / 33.33%
+      'max-sm:grid-cols-1 sm:[grid-template-columns:40%_30%_30%]': 40% / 30% / 30%
+      'max-sm:grid-cols-1 sm:[grid-template-columns:30%_40%_30%]': 30% / 40% / 30%
+      'max-sm:grid-cols-1 sm:[grid-template-columns:30%_30%_40%]': 30% / 30% / 40%
+    default: 'max-sm:grid-cols-1 sm:[grid-template-columns:33.3333%_33.3333%_33.3333%]'
+  gallery_width_xs:
+    plugin: html_attribute
+    attribute_name: 'data-thumbnail-xs'
+    label: 'Thumbnail width on mobile'
+    input_type: select
+    weight: -879
+    options: *gallery_thumbnail_options
+    default: '1/2'
+  gallery_width_sm:
+    plugin: html_attribute
+    attribute_name: 'data-thumbnail-sm'
+    label: 'Thumbnail width on tablet portrait'
+    input_type: select
+    weight: -878
+    options: *gallery_thumbnail_options
+    default: '1/3'
+  gallery_width_md:
+    plugin: html_attribute
+    attribute_name: 'data-thumbnail-md'
+    label: 'Thumbnail width on tablet landscape'
+    input_type: select
+    weight: -877
+    options: *gallery_thumbnail_options
+    default: '1/4'
+  gallery_width_lg:
+    plugin: html_attribute
+    attribute_name: 'data-thumbnail-lg'
+    label: 'Thumbnail width on laptop and above'
+    input_type: select
+    weight: -876
+    options: *gallery_thumbnail_options
+    default: '1/5'
+
+
+
+contexts:
+  paragraphs:
+    gallery:
+      options:
+        gallery_width_xs: true
+        gallery_width_sm: true
+        gallery_width_md: true
+        gallery_width_lg: true
+        justify_content: true
+  layout:
+    _defaults:
+      options:
+        colorschema:
+          layout: true
+          regions: false
+        background_media:
+          layout: true
+          regions: false
+        layout_width_predefined_options:
+          layout: true
+          regions: false
+        layout_width_custom_number:
+          layout: true
+          regions: false
+        layout_padding_side:
+          layout: true
+          regions: false
+        padding_top:
+          layout: true
+          regions: false
+        padding_bottom:
+          layout: true
+          regions: false
+        animation:
+          layout: false
+          regions: true
+        html_id:
+          layout: false
+          regions: true
+        tailwind_classes_bg_wrapper:
+          layout: true
+          regions: false
+        tailwind_classes_width_wrapper:
+          layout: true
+          regions: false
+        tailwind_classes_layout_and_region:
+          layout: true
+          regions: true
+    columns1:
+      options:
+        justify_content:
+          layout: true
+          regions: false
+        align_items:
+          layout: false
+          regions: true
+        column_width:
+          layout: false
+          regions: true
+        area_gap:
+          layout: false
+          regions: true
+    columns2:
+      options:
+        layout_gap_horizontal:
+          layout: true
+          regions: false
+        layout_gap_vertical:
+          layout: true
+          regions: false
+        children_margin_top_evenodd:
+          layout: true
+          regions: false
+        justify_content:
+          layout: true
+          regions: false
+        align_items:
+          layout: false
+          regions: true
+        column_width:
+          layout: false
+          regions: true
+        area_gap:
+          layout: false
+          regions: true
+    columns3:
+      options:
+        layout_gap_horizontal:
+          layout: true
+          regions: false
+        layout_gap_vertical:
+          layout: true
+          regions: false
+        children_margin_top_evenodd:
+          layout: true
+          regions: false
+        justify_content:
+          layout: true
+          regions: false
+        align_items:
+          layout: false
+          regions: true
+        column_width:
+          layout: false
+          regions: true
+        area_gap:
+          layout: false
+          regions: true
+    columns4:
+      options:
+        layout_gap_horizontal:
+          layout: true
+          regions: false
+        layout_gap_vertical:
+          layout: true
+          regions: false
+        children_margin_top_evenodd:
+          layout: true
+          regions: false
+        justify_content:
+          layout: true
+          regions: false
+        align_items:
+          layout: false
+          regions: true
+        column_width:
+          layout: false
+          regions: true
+        area_gap:
+          layout: false
+          regions: true
+    columns5:
+      options:
+        layout_gap_horizontal:
+          layout: true
+          regions: false
+        layout_gap_vertical:
+          layout: true
+          regions: false
+        children_margin_top_evenodd:
+          layout: true
+          regions: false
+        justify_content:
+          layout: true
+          regions: false
+        align_items:
+          layout: false
+          regions: true
+        column_width:
+          layout: false
+          regions: true
+        area_gap:
+          layout: false
+          regions: true
+    fluidcolumns:
+      options:
+        children_margin_top_evenodd:
+          layout: false
+          regions: true
+        justify_content:
+          layout: false
+          regions: true
+        align_items:
+          layout: false
+          regions: true
+        fluid_gap_horizontal:
+          layout: false
+          regions: true
+        fluid_width_xs:
+          layout: false
+          regions: true
+        fluid_width_sm:
+          layout: false
+          regions: true
+        fluid_width_md:
+          layout: false
+          regions: true
+        fluid_width_lg:
+          layout: false
+          regions: true
+        area_gap:
+          layout: false
+          regions: true
+    grid_2cells:
+      options:
+        layout_gap_horizontal:
+          layout: true
+          regions: false
+        layout_gap_vertical:
+          layout: true
+          regions: false
+        grid_template_columns_2:
+          layout: true
+          regions: false
+    grid_3cells:
+      options:
+        layout_gap_horizontal:
+          layout: true
+          regions: false
+        layout_gap_vertical:
+          layout: true
+          regions: false
+        grid_template_columns_3:
+          layout: true
+          regions: false
+    grid_1lg_2sm:
+      options:
+        layout_gap_horizontal:
+          layout: true
+          regions: false
+        layout_gap_vertical:
+          layout: true
+          regions: false
+        grid_template_columns_2:
+          layout: true
+          regions: false
+    grid_2sm_1lg:
+      options:
+        layout_gap_horizontal:
+          layout: true
+          regions: false
+        layout_gap_vertical:
+          layout: true
+          regions: false
+        grid_template_columns_2:
+          layout: true
+          regions: false

@@ -1,0 +1,100 @@
+
+
+/**
+ * #####################################################################################################################
+ * #####################################################################################################################
+ * Custom settings by Webtourismus.at
+ * #####################################################################################################################
+ * #####################################################################################################################
+ */
+
+/**
+ * Credentials are stored in .env files
+ * @see \load.environment.php
+ * @see \.env
+ */
+$databases['default']['default'] = [
+  'database' => $_ENV['DB_NAME'],
+  'username' => $_ENV['DB_USER'],
+  'password' => $_ENV['DB_PASS'],
+  'prefix' => '',
+  'host' => $_ENV['DB_HOST'] ?? 'localhost',
+  'port' => $_ENV['DB_PORT'] ?? 3306,
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
+];
+
+/**
+ * Enable assetions only on dev environments
+ * @see https://www.drupal.org/node/2492225
+ */
+assert_options(ASSERT_ACTIVE, $_ENV['ENV'] === 'dev');
+
+/**
+ * Disable permission hardening to avoid deployment problems
+ */
+$settings['skip_permissions_hardening'] = TRUE;
+
+/**
+ * Move config sync outside of web-directory
+ */
+$settings['config_sync_directory'] = '../config/sync';
+
+/**
+ * Directory for private user-uploaded files outside of web-directory
+ */
+# $settings['file_private_path'] = '../private/files';
+
+/**
+ * Always trust our own dev and prod server
+ */
+$settings['trusted_host_patterns'] = [
+  '\.webtourismus\.at$',
+  '\.dedi103\.your-server\.de$',
+  '\.dedi1661\.your-server\.de$',
+];
+
+/**
+ * Trust prod domain from .env file
+ */
+if (!empty($_ENV['PROD_DOMAIN'])) {
+  $settings['trusted_host_patterns'][] = '^' . str_replace('.', '\.', $_ENV['PROD_DOMAIN']) . '$';
+}
+
+/**
+ * Performance settings
+ */
+$config['system.performance']['css']['preprocess'] = ($_ENV['ENV'] === 'prod');
+$config['system.performance']['js']['preprocess'] = ($_ENV['ENV'] === 'prod');
+
+/**
+ * include environment specific settings
+ */
+if (file_exists("{$app_root}/{$site_path}/services.{$_ENV['ENV']}.yml")) {
+  $settings['container_yamls'][] = "{$app_root}/{$site_path}/services.{$_ENV['ENV']}.yml";
+}
+if (file_exists("{$app_root}/{$site_path}/settings.{$_ENV['ENV']}.php")) {
+  include "{$app_root}/{$site_path}/settings.{$_ENV['ENV']}.php";
+}
+
+/**
+ * include local overrides
+ */
+if (file_exists("{$app_root}/{$site_path}/services.local.yml")) {
+  $settings['container_yamls'][] = "{$app_root}/{$site_path}/services.local.yml";
+}
+if (file_exists("{$app_root}/{$site_path}/settings.local.php")) {
+  include "{$app_root}/{$site_path}/settings.local.php";
+}
+
+/**
+ * Exclude dev modules from config/sync.
+ * WARNING: Do not exclude modules providing config dependencies (roles!).
+ */
+$settings['config_exclude_modules'] = ['devel', 'potx'];
+
+/**
+ * Tailwind JIT
+ */
+$settings['tailwind_jit_executable'] = '../vendor/bin/tailwindcss --postcss ./themes/custom/frontend/tailwind/postcss.config.cjs';

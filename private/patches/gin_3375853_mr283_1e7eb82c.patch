@@ -1,0 +1,13 @@
+diff --git a/templates/admin/admin-block-content.html.twig b/templates/admin/admin-block-content.html.twig
+index 169c7949eb92fa41ae0d85b0107e0f1be02308a2..95054774878ec66588390cb4e44da1d472f73049 100644
+--- a/templates/admin/admin-block-content.html.twig
++++ b/templates/admin/admin-block-content.html.twig
+@@ -23,7 +23,7 @@
+ {% if content %}
+   <div{{ attributes.addClass('admin-list', 'gin-layer-wrapper') }}>
+     {% for item in content %}
+-      {% set description_id = item.title|clean_id ~ '-desc' %}
++      {% set description_id = item.title|render|clean_id ~ '-desc' %}
+       <div{{ create_attribute({class: item_classes}) }}>
+         {{ item.link }}
+         <div class="admin-item__title" aria-details="{{ description_id }}">{{ item.title }}</div>

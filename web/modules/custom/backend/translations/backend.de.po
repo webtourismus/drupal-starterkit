@@ -1,0 +1,299 @@
+# $Id$
+#
+# Deutsch translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  modules/custom/backend/backend.breakpoints.yml: n/a
+#  modules/custom/backend/backend.info.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2023-07-10 18:29+0200\n"
+"PO-Revision-Date: 2023-07-10 18:29+0200\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Deutsch <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "① Columns layout: multiple content blocks per column"
+msgstr "① Spalten-Layout: Mehrere Inhalts-Blöcke pro Spalte"
+
+msgid "1 column"
+msgstr "1 Spalte"
+
+msgid "2 columns"
+msgstr "2 Spalten"
+
+msgid "3 columns"
+msgstr "3 Spalten"
+
+msgid "4 columns"
+msgstr "4 Spalten"
+
+msgid "5 columns"
+msgstr "5 Spalten"
+
+msgid "Column 1"
+msgstr "Spalte 1"
+
+msgid "Column 2"
+msgstr "Spalte 2"
+
+msgid "Column 3"
+msgstr "Spalte 3"
+
+msgid "Column 4"
+msgstr "Spalte 4"
+
+msgid "Column 5"
+msgstr "Spalte 5"
+
+msgid "③ Other layouts"
+msgstr "③ Sonstige Layouts"
+
+msgid "Unlimited columns: 1 content block = 1 column, all same width"
+msgstr "Unbegrenzte Spaltenanzahl: 1 Inhalts-Block = 1 Spalte, alle gleiche Breite"
+
+msgid "All columns"
+msgstr "Alle Spalten"
+
+msgid "② Grid with fixed height: 1 content block per cell"
+msgstr "② Gitter mit fester Höhe: 1 Inhalts-Block pro Zelle"
+
+msgid "Tall cell left and 2 small right"
+msgstr "Große Zelle links und 2 Kleine rechts"
+
+msgid "Tall cell right and 2 small left"
+msgstr "Große Zelle rechts und 2 Kleine links"
+
+msgid "Large cell"
+msgstr "Große Zelle"
+
+msgid "Top small cell"
+msgstr "Obere kleine Zelle"
+
+msgid "Bottom small cell"
+msgstr "Untere kleine Zelle"
+
+msgid "Column width"
+msgstr "Spaltenbreite"
+
+msgid "Only for screens larger than selected above. On smaller screens all columns are fullwidth and stacked below each other."
+msgstr "Nur für Bildschirme größer als oben ausgewählt. Auf kleineren Bildschirmen haben alle Spalten volle Breite und sind untereinander."
+
+msgid "distribute automatically"
+msgstr "automatisch aufteilen"
+
+msgid "laptop width"
+msgstr "Laptop Breite"
+
+msgid "tablet landscape width"
+msgstr "Tablet Querformat Breite"
+
+msgid "tablet portrait width"
+msgstr "Tablet Hochformat Breite"
+
+msgid "mobile width"
+msgstr "Handy Breite"
+
+msgid "Horizontal alignment of columns"
+msgstr "Horizontale Ausrichtung der Spalten"
+
+msgid "Only effective when the sum of all column widths is not equal to the section width."
+msgstr "Nur wirksam wenn die Breite aller Spalten zusammen kleiner ist als die Breite des Abschnitts."
+
+msgid "left"
+msgstr "links"
+
+msgid "center"
+msgstr "zentriert"
+
+msgid "right"
+msgstr "rechts"
+
+msgid "distribute free space only in between"
+msgstr "Freiraum nur innen verteilen"
+
+msgid "distribute free space around and in between (more in between)"
+msgstr "Freiraum innen und außen verteilen (mehr innen)"
+
+msgid "distribute free space around and in between (evenly)"
+msgstr "Freiraum innen und außen verteilen (gleichmäßig)"
+
+msgid "Horizontal alignment of columns"
+msgstr "Horizontale Ausrichtung der Spalten"
+
+msgid "top"
+msgstr "oben"
+
+msgid "middle"
+msgstr "mittig"
+
+msgid "bottom"
+msgstr "unten"
+
+msgid "Vertical alignment of content blocks in this area"
+msgstr "Vertikale Ausrichtung der Inhalts-Blöcke innerhalb der Spalte"
+
+msgid "growing from %number_with_unit1 on mobile to %number_with_unit2 on PC"
+msgstr "wachsend von %number_with_unit1 am Handy bis zu %number_with_unit2 am PC"
+
+msgid "Horizontal padding in between areas"
+msgstr "Horizontaler Abstand zwischen den Spalten"
+
+msgid "Vertical padding in between areas"
+msgstr "Vertikaler Abstand zwischen den Spalten"
+
+msgid "Only effective on small screens, when columns are stacked."
+msgstr "Nur wirksam auf kleinen Bildschirmen, wenn die Spalten untereinander statt nebeneinander sind."
+
+msgid "no padding"
+msgstr "kein Abstand"
+
+msgid "thin"
+msgstr "dünn"
+
+msgid "very large"
+msgstr "riesig"
+
+msgid "Padding above"
+msgstr "Abstand oben vor dem Abschnitt"
+
+msgid "Padding below"
+msgstr "Abstand unten nach dem Abschnitt"
+
+msgid "Alternate padding above"
+msgstr "Wechselnder Abstand oben vor dem Abschnitt"
+
+msgid "Every 2nd column has an additional padding above. Only effective on large screens, when columns are not stacked."
+msgstr "Jede zweite Spalte hat oben zusätzlichen Abstand. Nur wirksam auf großen Bildschirmen, wenn die Spalten nebeneinander sind."
+
+msgid "odd columns have an additional padding above"
+msgstr "ungerade Spalten haben oben zusätzlichen Abstand"
+
+msgid "even columns have an additional padding above"
+msgstr "gerade Spalten haben oben zusätzlichen Abstand"
+
+msgid "no alternate padding"
+msgstr "kein wechselnder Abstand"
+
+msgid "Vertical padding in between content blocks"
+msgstr "Vertikaler Abstand zwischen den Inhalts-Blöcken innerhalb der Spalte"
+
+msgid "Colorschema"
+msgstr "Farbschema"
+
+msgid "pure white background"
+msgstr "rein weißer Hintergrund"
+
+msgid "light background"
+msgstr "heller Hintergrund"
+
+msgid "dark background"
+msgstr "dunkler Hintergrund"
+
+msgid "pure black background"
+msgstr "rein schwarzer Hintergrund"
+
+msgid "flashy background"
+msgstr "färbiger Hintergrund"
+
+msgid "light image as background, black text"
+msgstr "helles Bild als Hintergrund, schwarzer Text"
+
+msgid "dark image as background, white text"
+msgstr "dunkles Bild als Hintergrund, weißer Text"
+
+msgid "Background image"
+msgstr "Hintergrundbild"
+
+msgid "Max. width of of this section"
+msgstr "Max. Breite des Abschnitts"
+
+msgid "Specify custom width"
+msgstr "eigene Breite eintippen"
+
+msgid "always full width"
+msgstr "immer volle Breite"
+
+msgid "max. laptop width"
+msgstr "max. Laptop Breite"
+
+msgid "max. tablet landscape width"
+msgstr "max. Tablet Querformat Breite"
+
+msgid "max. tablet portrait width"
+msgstr "max. Tablet Hochformat Breite"
+
+msgid "Custom layout width"
+msgstr "Eigene Abschnitts-Breite"
+
+msgid "Enter a CSS length unit (e.g. "500px" or "33.33%")."
+msgstr "Eine CSS-Längeneinheit eintippen (z.B. \"500px\" oder \"33.33%\")"
+
+msgid "Min. padding to the side of the screen"
+msgstr "Minimaler Abstand zur seitlichen Bildschirmkante"
+
+msgid "Unique ID for deep scroll links"
+msgstr "Einzigartige ID für Scroll-Links in tiefe Seitenabschnitte"
+
+msgid "Must be unique per page, only numbers, lowercase letters, underscore and minus allowed."
+msgstr "Muss einzigartig sein pro Seite. Nur Kleinbuchstaben, Ziffern, Unterstrich und Bindestrich erlaubt."
+
+msgid "Advanced styling options for the background container"
+msgstr "Fortgeschrittene Style-Option für den Abschnitts-Hintergrund-Container"
+
+msgid "Advanced styling options for the width container"
+msgstr "Fortgeschrittene Style-Option für den Abschnitts-Breiten-Container"
+
+msgid "Advanced styling options for this container"
+msgstr "Fortgeschrittene Style-Option für diesen Container"
+
+msgid "For experienced users only. CSS classes provided by <a href="https://tailwindcss.com/docs" target="blank">TailwindCSS.</a>"
+msgstr "Nur für fortgeschrittene Benutzer. CSS Klassen von <a href="https://tailwindcss.com/docs" target="blank">TailwindCSS.</a>"
+
+msgid "Column width on tablet portrait"
+msgstr "Spaltenbreite auf Tablet Hochformat"
+
+msgid "Column width on tablet landscape"
+msgstr "Spaltenbreite auf Tablet Querformat"
+
+msgid "Column width on laptop and above"
+msgstr "Spaltenbreite auf Laptop und größer"
+
+msgid "Cell width on large screens"
+msgstr "Zellenbreite auf großen Bildschirmen"
+
+msgid "Thumbnail width on mobile"
+msgstr "Vorschau-Bild Breite auf Handy"
+
+msgid "Thumbnail width on tablet portrait"
+msgstr "Vorschau-Bild Breite auf Tablet Hochformat"
+
+msgid "Thumbnail width on tablet landscape"
+msgstr "Vorschau-Bild Breite auf Tablet Querformat"
+
+msgid "Thumbnail width on laptop and above"
+msgstr "Vorschau-Bild Breite auf Laptops und größer"
+
+msgid "no animation"
+msgstr "keine Animation"
+
+msgid "tablet portrait"
+msgstr "Tablet Hochformat"
+
+msgid "tablet portrait"
+msgstr "Tablet Hochformat"
+
+msgid "tablet landscape"
+msgstr "Tablet Querformat"
+
+msgid "laptop"
+msgstr "Laptop"
+
+msgid "Layout Settings"
+msgstr "Layout Einstellungen"

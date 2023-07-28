@@ -1,0 +1,56 @@
+<div {{ attributes }}
+     x-data="{
+      {%- for text in content.field_accordion|children -%}idx_{{ loop.index }}: {{ loop.index in paragraph.field_accordion_expanded.0.value|split(',') ? 'true' : 'false' }}, {% endfor -%}
+     }"
+>
+  {% for text in content.field_accordion|children %}
+    {% set current_idx_is_visible = loop.index in paragraph.field_accordion_expanded.0.value|split(',') %}
+    <div class="accordion-item mb-[1rem] last:mb-0" id="accordion-item-{{ paragraph.id() }}-{{ loop.index }}">
+      <button class="accordion-header btn-outline w-full !justify-start !text-left px-[8px] py-[4px]"
+              id="accordion-header-{{ paragraph.id() }}-{{ loop.index }}"
+              @click="idx_{{ loop.index }} = !idx_{{ loop.index }}"
+              aria-controls="accordion-body-{{ paragraph.id() }}-{{ loop.index }}"
+              :aria-expanded="idx_{{ loop.index }}"
+              aria-expanded="{{ current_idx_is_visible ? 'true' : 'false' }}"
+      >
+        {{ source('@fa6/regular/chevron-right.svg')|add_to_svg(
+            'accordion-icon inline h-[1em] w-[1.5em] mr-1 align-[-0.125em] transition' ~ (current_idx_is_visible ? ' rotate-90'),
+            { 'id':     'accordion-icon-'~paragraph.id()~'-'~loop.index,
+              ':class': '{\'rotate-90\': idx_'~loop.index~'}'
+            }
+        ) }}
+        {{ paragraph.field_accordion[loop.index0].summary }}
+      </button>
+      <div class="accordion-body"
+           id="accordion-body-{{ paragraph.id() }}-{{ loop.index }}"
+           x-show="idx_{{ loop.index }}"
+           {% if not(current_idx_is_visible) %} x-cloak {% endif %}
+           x-collapse
+           aria-labelledby="accordion-header-{{ paragraph.id() }}-{{ loop.index }}"
+      >
+        <div class="mt-[1rem] ck-content">
+          {{ text }}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for text in content.field_accordion|children -%}
+      {
+        "@type": "Question",
+        "name": "{{ paragraph.field_accordion[loop.index0].summary }}",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "{{ paragraph.field_accordion[loop.index0].value|striptags }}"
+        }
+      }{% if not loop.last %},{% endif %}
+    {%- endfor -%}
+  ]
+}
+</script>

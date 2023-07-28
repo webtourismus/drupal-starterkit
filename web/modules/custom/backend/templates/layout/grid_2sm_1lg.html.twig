@@ -1,0 +1,24 @@
+{% extends '@backend/layout/grid_rows_2.html.twig' %}
+
+{% block regions %}
+  <div {{ region_attributes['small_top'].addClass([
+    'sm:row-start-1',
+    'sm:col-start-1'
+  ]) }}>
+    {{ content.small_top }}
+  </div>
+  <div {{ region_attributes['small_bottom'].addClass([
+    'sm:row-start-2',
+    'sm:col-start-1'
+  ]) }}>
+    {{ content.small_bottom }}
+  </div>
+  <div {{ region_attributes['large'].addClass([
+    'sm:row-start-1',
+    'sm:col-start-2',
+    'sm:row-span-2',
+    'sm:[--grid-img-height:calc(var(--gap-vertical)+2*var(--grid-row-height))]'
+  ]) }}>
+    {{ content.large }}
+  </div>
+{% endblock regions %}

@@ -1,0 +1,75 @@
+<?php
+
+declare(strict_types=1);
+
+use Drupal\block\Entity\Block;
+use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\ebr_teaser\Entity\ParagraphTeaserableInterface;
+
+function frontend_theme_suggestions_block_alter(array &$suggestions, array $variables): void {
+  $blockId = NULL;
+  if (isset($variables['elements']['#id'])) {
+    $blockId = $variables['elements']['#id'];
+  }
+  $blockConfig = Block::load($blockId);
+  $region = $blockConfig?->getRegion();
+
+  if (isset($variables['elements']['content']['#block_content']) &&
+    $variables['elements']['content']['#block_content'] instanceof ContentEntityInterface
+  ) {
+    $blockContentEntity = $variables['elements']['content']['#block_content'];
+    if ($suggestions[0] == 'block__block_content' && $suggestions[1] == 'block__block_content') {
+      unset($suggestions[1]);
+      $suggestions = array_values($suggestions);
+    }
+    if ($region) {
+      array_splice($suggestions, 1, 0, "block__region__{$region}__block_content__{$blockContentEntity->bundle()}");
+    }
+    array_splice($suggestions, 1, 0, "block__block_content__{$blockContentEntity->bundle()}");
+  }
+
+  if ($region) {
+    array_splice($suggestions, 1, 0, "block__region__{$region}");
+  }
+}
+function frontend_preprocess_block(array &$variables): void {
+  if ($variables['base_plugin_id'] !== 'system_menu_block') {
+    return;
+  }
+  $blockId = $variables['elements']['#id'];
+  $blockConfig = Block::load($blockId);
+  $region = $blockConfig?->getRegion();
+  if ($region) {
+    $variables['content']['#attributes']['data-drupal-region'] = $region;
+  }
+}
+
+function frontend_theme_suggestions_menu_alter(array &$suggestions, array $variables): void {
+  if (isset($variables['attributes']['data-drupal-region'])) {
+    array_unshift($suggestions, 'menu__region__' . str_replace('-', '_', $variables['attributes']['data-drupal-region']));
+  }
+}
+function frontend_theme_suggestions_field_alter(array &$suggestions, array $variables): void {
+  $entityType = $variables['element']['#entity_type'];
+  $bundle = $variables['element']['#bundle'];
+  $fieldName = $variables['element']['#field_name'];
+  $viewMode = $variables['element']['#view_mode'];
+
+  if (isset($variables['element']['#view_mode'])) {
+    $suggestions[] = "field__{$entityType}__{$fieldName}__{$bundle}__{$viewMode}";
+    array_splice($suggestions, 2, 0, "field__{$fieldName}__{$viewMode}");
+  }
+
+  if (isset($variables['element']['#teaser_fieldname'])) {
+    if ($variables['element']['#object'] instanceof ParagraphTeaserableInterface) {
+      $targetEntity = $variables['element']['#object']->getReferencedEntity();
+    }
+    if (empty($targetEntity)) {
+      $targetEntity = $variables['element']['#object'];
+    }
+    array_splice($suggestions, -1, 0, "teaserfield__{$targetEntity->bundle()}__{$variables['element']['#teaser_fieldname']}");
+    $suggestions[] = "teaserfield__{$targetEntity->bundle()}__{$variables['element']['#teaser_fieldname']}__{$viewMode}";
+    array_splice($suggestions, 3, 0, "teaserfield__{$variables['element']['#teaser_fieldname']}__{$viewMode}");
+    array_splice($suggestions, 2, 0, "teaserfield__{$variables['element']['#teaser_fieldname']}");
+  }
+}

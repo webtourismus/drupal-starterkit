@@ -1,0 +1,16 @@
+{##
+ # Style node titles similar uniform with paragraph field_title (text_long).
+ #
+ # @todo Delete as part of https://www.drupal.org/node/3015623
+ #/
+##}
+
+{% if not is_inline %}
+  {% include "field.html.twig" %}
+{% else %}
+<p {{ attributes }}>
+  {%- for item in items -%}
+    {{ item.content }}
+  {%- endfor -%}
+</p>
+{% endif %}

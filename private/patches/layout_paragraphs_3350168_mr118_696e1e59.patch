@@ -1,0 +1,65 @@
+diff --git a/layout_paragraphs.services.yml b/layout_paragraphs.services.yml
+index 19a626d9b3514be51c957ccf3384c0b4b7e75ddc..5b5259324710ed62eccec5b41f17c065fa1c579d 100644
+--- a/layout_paragraphs.services.yml
++++ b/layout_paragraphs.services.yml
+@@ -26,3 +26,8 @@ services:
+      - '@entity_type.manager'
+     tags:
+       - { name: access_check, applies_to: _layout_paragraphs_builder_access }
++  layout_paragraphs.admin_path.route_subscriber:
++    class: Drupal\layout_paragraphs\EventSubscriber\LayoutParagraphsAdminRouteSubscriber
++    arguments: ['@config.factory']
++    tags:
++      - { name: event_subscriber }
+diff --git a/src/EventSubscriber/LayoutParagraphsAdminRouteSubscriber.php b/src/EventSubscriber/LayoutParagraphsAdminRouteSubscriber.php
+new file mode 100644
+index 0000000000000000000000000000000000000000..7d4e9d3e80ba7409a0ae0cf42ea41b2c1e3323d6
+--- /dev/null
++++ b/src/EventSubscriber/LayoutParagraphsAdminRouteSubscriber.php
+@@ -0,0 +1,46 @@
++<?php
++
++namespace Drupal\layout_paragraphs\EventSubscriber;
++
++use Drupal\Core\Config\ConfigFactoryInterface;
++use Drupal\Core\Routing\RouteSubscriberBase;
++use Symfony\Component\Routing\RouteCollection;
++
++/**
++ * Sets the _admin_route for specific node-related routes.
++ */
++class LayoutParagraphsAdminRouteSubscriber extends RouteSubscriberBase {
++
++  /**
++   * The config factory.
++   *
++   * @var \Drupal\Core\Config\ConfigFactoryInterface
++   */
++  protected $configFactory;
++
++  /**
++   * Constructs a new LayoutParagraphsAdminRouteSubscriber.
++   *
++   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
++   *   The config factory.
++   */
++  public function __construct(ConfigFactoryInterface $config_factory) {
++    $this->configFactory = $config_factory;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  protected function alterRoutes(RouteCollection $collection) {
++    if (
++      $this->configFactory->get('node.settings') &&
++      $this->configFactory->get('node.settings')->get('use_admin_theme')
++    ) {
++      foreach ($collection->all() as $route) {
++        if ($route->hasRequirement('_layout_paragraphs_builder_access')) {
++          $route->setOption('_admin_route', TRUE);
++        }
++      }
++    }
++  }
++}

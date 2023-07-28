@@ -1,0 +1,6 @@
+{% extends '@backend/layout/default.html.twig' %}
+
+{% set attributes = attributes.addClass('grid', 'align-stretch') %}
+{% for key, region_attribute in region_attributes %}
+  {% set region_attribute = region_attribute.addClass('flex', 'flex-row', 'items-stretch', 'components:w-full') %}
+{% endfor %}

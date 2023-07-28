@@ -1,0 +1,27 @@
+From 758a6fbc7457ef9e43e565a5e82144b4d6a96134 Mon Sep 17 00:00:00 2001
+From: Reinhard Hutter <17421-hudri@users.noreply.drupalcode.org>
+Date: Wed, 1 Mar 2023 16:19:45 +0000
+Subject: [PATCH] CSS class validation too strict
+
+---
+ src/FieldGroupFormatterBase.php | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/FieldGroupFormatterBase.php b/src/FieldGroupFormatterBase.php
+index a3b5840..fd372b5 100644
+--- a/src/FieldGroupFormatterBase.php
++++ b/src/FieldGroupFormatterBase.php
+@@ -218,8 +218,8 @@ abstract class FieldGroupFormatterBase extends PluginSettingsBase implements Fie
+   public static function validateCssClass(array $element, FormStateInterface $form_state) {
+     $form_state_values = $form_state->getValues();
+     $plugin_name = $form_state->get('plugin_settings_edit');
+-    if (!empty($form_state_values['fields'][$plugin_name]['settings_edit_form']['settings']['classes']) && !preg_match('!^[A-Za-z0-9-_ ]+$!', $form_state_values['fields'][$plugin_name]['settings_edit_form']['settings']['classes'])) {
+-      $form_state->setError($element, t('The css class must include only letters, numbers, underscores and dashes.'));
++    if (!empty($form_state_values['fields'][$plugin_name]['settings_edit_form']['settings']['classes']) && preg_match('/[^\x{0020}\x{0021}\x{002D}\x{002E}\x{002F}\x{003A}\x{005B}\x{005D}\x{0030}-\x{005A}\x{005F}\x{0061}-\x{007A}\x{00A1}-\x{FFFF}]/u', $form_state_values['fields'][$plugin_name]['settings_edit_form']['settings']['classes'])) {
++      $form_state->setError($element, t('This value contains characters that are not valid in CSS classes.'));
+     }
+   }
+ 
+-- 
+GitLab
+

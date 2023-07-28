@@ -1,0 +1,22 @@
+{% extends "@frontend/paragraph/paragraph.html.twig" %}
+{% set layout = _context['#layout_paragraphs'] %}
+{% set areaName = layout.region %}
+{# each gallery thumbnail should behave like a layout area #}
+{% set attributes = attributes.addClass([
+  'flex',
+  'flex-wrap',
+  layout.config[areaName].area_gap.html_attribute,
+  layout.config.layout.layout_gap_horizontal.html_attribute,
+]) %}
+{% set breakpoints = ['xs', 'sm', 'md', 'lg'] %}
+{% for idx, bp in breakpoints %}
+  {% set flexbasis = '' %}
+  {% if not loop.first %}
+    {% set flexbasis = bp ~ ':' %}
+  {% endif %}
+  {% if not loop.last %}
+    {% set flexbasis = flexbasis ~ 'max-' ~ breakpoints[loop.index] ~ ':' %}
+  {% endif %}
+  {% set flexbasis = flexbasis ~ 'components:basis-' ~ attributes['data-thumbnail-' ~ bp] %}
+  {% set attributes = attributes.addClass(flexbasis) %}
+{% endfor %}

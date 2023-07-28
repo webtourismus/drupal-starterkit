@@ -1,0 +1,27 @@
+{% extends "@frontend/paragraph/paragraph.html.twig" %}
+{% set attributes = attributes.addClass([
+  'splide',
+  'components:w-full',
+  'components:display-block',
+]) %}
+{% set splidejs_config = {
+  'type': 'loop',
+  'perPage': 1,
+  'arrows': true,
+  'pagination': false,
+} %}
+{% set attributes = attributes.setAttribute('data-splide', splidejs_config|json_encode(constant('JSON_UNESCAPED_SLASHES'))) %}
+
+{% block content %}
+  {{ attach_library('designsystem/splidejs') }}
+  {% set layout = _context['#layout_paragraphs'] %}
+  {{ {'#theme': 'splidejs_arrows'}
+        |add_suggestion('gallery')
+        |add_suggestion('paragraph--' ~ paragraph.id())
+  }}
+  <div class="splide__track">
+    <div class="splide__list">
+      {{ parent() }}
+    </div>
+  </div>
+{% endblock %}

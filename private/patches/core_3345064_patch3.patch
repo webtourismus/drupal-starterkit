@@ -1,0 +1,21 @@
+diff --git a/core/modules/media_library/src/Plugin/Field/FieldWidget/MediaLibraryWidget.php b/core/modules/media_library/src/Plugin/Field/FieldWidget/MediaLibraryWidget.php
+index a1141ff9b5..0074e9e48f 100644
+--- a/core/modules/media_library/src/Plugin/Field/FieldWidget/MediaLibraryWidget.php
++++ b/core/modules/media_library/src/Plugin/Field/FieldWidget/MediaLibraryWidget.php
+@@ -3,6 +3,7 @@
+ namespace Drupal\media_library\Plugin\Field\FieldWidget;
+ 
+ use Drupal\Component\Render\FormattableMarkup;
++use Drupal\Component\Utility\Html;
+ use Drupal\Component\Utility\NestedArray;
+ use Drupal\Component\Utility\SortArray;
+ use Drupal\Core\Ajax\AjaxResponse;
+@@ -314,7 +315,7 @@ public function formElement(FieldItemListInterface $items, $delta, array $elemen
+     $field_name = $this->fieldDefinition->getName();
+     $parents = $form['#parents'];
+     // Create an ID suffix from the parents to make sure each widget is unique.
+-    $id_suffix = $parents ? '-' . implode('-', $parents) : '';
++    $id_suffix = $parents ? '-' . implode('-', $parents) : $this->fieldDefinition->getUniqueIdentifier();
+     $field_widget_id = implode(':', array_filter([$field_name, $id_suffix]));
+     $wrapper_id = $field_name . '-media-library-wrapper' . $id_suffix;
+     $limit_validation_errors = [array_merge($parents, [$field_name])];

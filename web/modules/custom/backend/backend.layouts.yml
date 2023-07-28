@@ -1,0 +1,143 @@
+columns1:
+  label: '1 column'
+  category: '① Columns layout: multiple content blocks per column'
+  class: 'Drupal\designsystem\Plugin\Layout\StyleOptionsLayout'
+  template: templates/layout/columns
+  default_region: one
+  regions:
+    one:
+      label: 'Column 1'
+  icon: 'assets/columns1.svg'
+
+columns2:
+  label: '2 columns'
+  category: '① Columns layout: multiple content blocks per column'
+  class: 'Drupal\designsystem\Plugin\Layout\StyleOptionsLayout'
+  template: templates/layout/columns
+  default_region: one
+  regions:
+    one:
+      label: 'Column 1'
+    two:
+      label: 'Column 2'
+  icon: 'assets/columns2.svg'
+
+columns3:
+  label: '3 columns'
+  category: '① Columns layout: multiple content blocks per column'
+  class: 'Drupal\designsystem\Plugin\Layout\StyleOptionsLayout'
+  template: templates/layout/columns
+  default_region: one
+  regions:
+    one:
+      label: 'Column 1'
+    two:
+      label: 'Column 2'
+    three:
+      label: 'Column 3'
+  icon: 'assets/columns3.svg'
+
+columns4:
+  label: '4 columns'
+  category: '① Columns layout: multiple content blocks per column'
+  class: 'Drupal\designsystem\Plugin\Layout\StyleOptionsLayout'
+  template: templates/layout/columns
+  default_region: one
+  regions:
+    one:
+      label: 'Column 1'
+    two:
+      label: 'Column 2'
+    three:
+      label: 'Column 3'
+    four:
+      label: 'Column 4'
+  icon: 'assets/columns4.svg'
+
+columns5:
+  label: '5 columns'
+  category: '① Columns layout: multiple content blocks per column'
+  class: 'Drupal\designsystem\Plugin\Layout\StyleOptionsLayout'
+  template: templates/layout/columns
+  default_region: one
+  regions:
+    one:
+      label: 'Column 1'
+    two:
+      label: 'Column 2'
+    three:
+      label: 'Column 3'
+    four:
+      label: 'Column 4'
+    five:
+      label: 'Column 5'
+  icon: 'assets/columns5.svg'
+
+fluidcolumns:
+  label: 'Unlimited columns: 1 content block = 1 column, all same width'
+  category: '③ Other layouts'
+  class: 'Drupal\designsystem\Plugin\Layout\StyleOptionsLayout'
+  template: templates/layout/fluidcolumns
+  default_region: one
+  regions:
+    one:
+      label: All columns
+  icon: 'assets/fluidcolumns.svg'
+
+grid_2cells:
+  label: '2 columns'
+  category: '② Grid with fixed height: 1 content block per cell'
+  class: 'Drupal\designsystem\Plugin\Layout\StyleOptionsLayout'
+  template: templates/layout/grid_rows_1
+  default_region: one
+  regions:
+    one:
+      label: 'Column 1'
+    two:
+      label: 'Column 2'
+  icon: 'assets/grid_2cells.svg'
+
+grid_3cells:
+  label: '3 columns'
+  category: '② Grid with fixed height: 1 content block per cell'
+  class: 'Drupal\designsystem\Plugin\Layout\StyleOptionsLayout'
+  template: templates/layout/grid_rows_1
+  default_region: one
+  regions:
+    one:
+      label: 'Column 1'
+    two:
+      label: 'Column 2'
+    three:
+      label: 'Column 3'
+  icon: 'assets/grid_3cells.svg'
+
+grid_1lg_2sm:
+  label: 'Tall cell left and 2 small right'
+  category: '② Grid with fixed height: 1 content block per cell'
+  class: 'Drupal\designsystem\Plugin\Layout\StyleOptionsLayout'
+  template: templates/layout/grid_1lg_2sm
+  default_region: large
+  regions:
+    large:
+      label: 'Large cell'
+    small_top:
+      label: 'Top small cell'
+    small_bottom:
+      label: 'Bottom small cell'
+  icon: 'assets/grid_1lg_2sm.svg'
+
+grid_2sm_1lg:
+  label: 'Tall cell right and 2 small left'
+  category: '② Grid with fixed height: 1 content block per cell'
+  class: 'Drupal\designsystem\Plugin\Layout\StyleOptionsLayout'
+  template: templates/layout/grid_2sm_1lg
+  default_region: large
+  regions:
+    small_top:
+      label: 'Top small cell'
+    small_bottom:
+      label: 'Bottom small cell'
+    large:
+      label: 'Large cell'
+  icon: 'assets/grid_2sm_1lg.svg'

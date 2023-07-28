@@ -1,0 +1,31 @@
+{% extends "@frontend/paragraph/paragraph.html.twig" %}
+{% set layout = _context['#layout_paragraphs'] %}
+{% set areaName = layout.region %}
+{# each gallery thumbnail should behave like a layout area #}
+{% set attributes = attributes.addClass([
+  'display-block',
+  layout.config[areaName].area_gap.html_attribute,
+  layout.config.layout.layout_gap_horizontal.html_attribute,
+  'components:mb-[--gap-vertical]'
+]) %}
+{% set breakpoints = ['xs', 'sm', 'md', 'lg'] %}
+{% for idx, bp in breakpoints %}
+  {% set width = '' %}
+  {% if not loop.first %}
+    {% set width = bp ~ ':' %}
+  {% endif %}
+  {% if not loop.last %}
+    {% set width = width ~ 'max-' ~ breakpoints[loop.index] ~ ':' %}
+  {% endif %}
+  {% set width = width ~ 'components:w-' ~ attributes['data-thumbnail-' ~ bp] %}
+  {% set attributes = attributes.addClass(width) %}
+{% endfor %}
+{% set masonry_config = {
+  'itemSelector': '.gallery-thumbnail',
+} %}
+{% set attributes = attributes.setAttribute('data-masonry', masonry_config|json_encode(constant('JSON_UNESCAPED_SLASHES'))) %}
+
+{% block content %}
+  {{ attach_library('designsystem/masonry') }}
+  {{ parent() }}
+{% endblock %}

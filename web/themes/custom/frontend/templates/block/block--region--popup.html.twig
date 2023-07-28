@@ -1,0 +1,26 @@
+{% block wrapper %}
+  {% if block_content.isPublished %}
+    {% set popup_id = block_content.internal_id.0.value %}
+    <div {{ attributes.addClass('cs-neutral-900 fixed top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%] z-modal min-w-[320px] max-w-full sm:max-w-[480px] pt-[40px] pb-[1rem] px-[1rem]') }}
+          x-data="{ {{ popup_id }} : $persist(true).using(sessionStorage)}"
+          x-show="{{ popup_id }}"
+          x-transition
+          x-cloak
+          {# @click.outside="{{ popup_id }} = false" #}
+    >
+      {% block content %}
+        {{ content }}
+      {% endblock content %}
+
+      {% block button %}
+        <button class="absolute top-[10px] right-[10px] display-block w-[30px] h-[30px] hocus:text-flashy transition"
+                @click="{{ popup_id }} = false"
+        >
+          {{ source('@fa6/regular/circle-xmark.svg') }}
+        </button>
+      {% endblock %}
+    </div>
+  {% else %}
+    {% set dummy_force_cache_bubbling = content|render %}
+  {% endif %}
+{% endblock wrapper %}

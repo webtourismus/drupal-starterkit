@@ -1,0 +1,35 @@
+backend.banner.xxs:
+  label: 'up to 360px'
+  mediaQuery: ''
+  weight: 0
+  multipliers:
+    - 1x
+  group: backend.banner
+backend.banner.xs:
+  label: '361px - 767px'
+  mediaQuery: '(min-width: 361px)'
+  weight: 10
+  multipliers:
+    - 1x
+  group: backend.banner
+backend.banner.sm:
+  label: '768px - 1023px'
+  mediaQuery: '(min-width: 768px)'
+  weight: 20
+  multipliers:
+    - 1x
+  group: backend.banner
+backend.banner.md:
+  label: '1024px - 1399px'
+  mediaQuery: '(min-width: 1024px)'
+  weight: 30
+  multipliers:
+    - 1x
+  group: backend.banner
+backend.banner.lg:
+  label: 'from 1400px'
+  mediaQuery: '(min-width: 1400px)'
+  weight: 40
+  multipliers:
+    - 1x
+  group: backend.banner

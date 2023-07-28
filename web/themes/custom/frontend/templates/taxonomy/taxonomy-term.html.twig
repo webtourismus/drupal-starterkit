@@ -1,0 +1,13 @@
+{% block wrapper %}
+<div {{ attributes }}>
+  {% block label %}
+    {% if name and not page %}
+      <h3 {{ title_attributes }}><a href="{{ url }}">{{ name }}</a></h3>
+    {% endif %}
+  {% endblock label %}
+
+  {% block content %}
+    {{ content }}
+  {% endblock content %}
+</div>
+{% endblock wrapper %}

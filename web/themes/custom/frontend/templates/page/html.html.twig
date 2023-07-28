@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html{{ html_attributes.addClass('no-js').setAttribute('data-scrolled', 'false') }}>
+<head>
+  <script>
+    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.add('js');
+    document.documentElement.style.setProperty('--vh100', `${window.innerHeight}px`);
+    const mediaQueries = {
+      'xs': window.matchMedia('screen and (max-width: 767px)'),
+      'sm': window.matchMedia('screen and (min-width: 768px) and (max-width: 1023px)'),
+      'md': window.matchMedia('screen and (min-width: 1024px) and (max-width: 1399px)'),
+      'lg': window.matchMedia('screen and (min-width: 1400px)'),
+    };
+    for (let [breakpoint, mql] of Object.entries(mediaQueries)) {
+      mql.addEventListener('change', setCurrentBreakpoint);
+    }
+    function setCurrentBreakpoint() {
+        for (let [breakpoint, mql] of Object.entries(mediaQueries)) {
+          if (mql.matches) {
+            document.documentElement.setAttribute('data-breakpoint', breakpoint);
+            if (window?.Alpine) {
+              Alpine.store('breakpoint', breakpoint);
+            }
+            return;
+          }
+        }
+    }
+    setCurrentBreakpoint();
+  </script>
+  <head-placeholder token="{{ placeholder_token }}">
+  <title>{{ head_title|safe_join(' | ') }}</title>
+  <css-placeholder token="{{ placeholder_token }}">
+  <js-placeholder token="{{ placeholder_token }}">
+  {{ drupal_region('html_head') }}
+</head>
+<body{{ attributes }}>
+  <a href="#main" class="visually-hidden focusable skip-link">
+    {{ 'Skip to main content'|t }}
+  </a>
+  <data id="scroll_observer"
+        aria-hidden="true"
+        {# height class determines "scrolled down" variable #}
+        class="absolute top-0 left-0 h-[100px] w-px pointer-events-none opacity-0"
+        x-data x-init="$store.scrolled=false; "
+        x-intersect:enter="$store.scrolled=false"
+        x-intersect:leave="$store.scrolled=true"
+        x-effect="document.documentElement.setAttribute('data-scrolled', $store.scrolled);"></data>
+  {{ page_top }}
+  {{ page }}
+  {{ page_bottom }}
+  <script defer src="/libraries/alpinejs-persist/dist/cdn.min.js"></script>
+  <script defer src="/libraries/alpinejs-intersect/dist/cdn.min.js"></script>
+  <script defer src="/libraries/alpinejs-collapse/dist/cdn.min.js"></script>
+  <script defer src="/libraries/alpinejs/dist/cdn.min.js"></script>
+  <js-bottom-placeholder token="{{ placeholder_token }}">
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% block wrapper %}
+  <div {{ attributes }}>
+    {% block label %}
+      {% if label and not (page ?? false) %}
+        <h3 {{ title_attributes }}>
+          <a href="{{ url }}">{{ label }}</a>
+        </h3>
+      {% endif %}
+    {% endblock label %}
+
+    {% block content %}
+      {{ content }}
+    {% endblock content %}
+  </div>
+{% endblock wrapper %}

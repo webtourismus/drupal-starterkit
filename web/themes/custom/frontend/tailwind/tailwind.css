@@ -1,0 +1,5 @@
+@import "./base.default.css";
+@import "./components.default.css";
+@import "./utilities.default.css";
+@import "./frontend.css";
+@config "tailwind.config.js";

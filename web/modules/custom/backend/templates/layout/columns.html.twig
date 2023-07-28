@@ -1,0 +1,16 @@
+{% extends '@backend/layout/default.html.twig' %}
+
+{% set attributes = attributes.addClass('flex', 'flex-row', 'flex-wrap') %}
+{% for key, region_attribute in region_attributes %}
+  {% set region_attribute = region_attribute.addClass('flex', 'flex-col', 'items-strech') %}
+{% endfor %}
+
+{% block regions %}
+  {% for key, region in content|children %}
+    <div {{ region_attributes[key] }}>
+      {% block region %}
+        {{ region }}
+      {% endblock region %}
+    </div>
+  {% endfor %}
+{% endblock regions %}

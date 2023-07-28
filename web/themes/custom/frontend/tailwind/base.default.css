@@ -1,0 +1,136 @@
+@tailwind base;
+
+/**
+  * Base rules should have a specifity of 0-0-1,
+  * so component and utility classes can overrule them.
+  */
+@layer base {
+  html {
+    --drupal-displace-offset-top: 0px;
+    --drupal-displace-offset-left: 0px;
+    --fixed-top: calc(var(--drupal-displace-offset-top, 0px) + var(--fixed-header, 0px));
+    scroll-behavior: smooth;
+  }
+  /* set by JS observer */
+  :where([id]) {
+    scroll-margin-top: calc(var(--fixed-top, 0px) + 2rem);
+  }
+  :where(:not(:focus-visible)) {
+    @apply outline-none;
+  }
+  a {
+    @apply underline decoration-transparent transition-all;
+  }
+  a:where(:not([class])) {
+    @apply hocus:decoration-inherit;
+  }
+  h1 {
+    @apply h1;
+  }
+  h2 {
+    @apply h2;
+  }
+  h3 {
+    @apply h3;
+  }
+  h4 {
+    @apply h4;
+  }
+  h5 {
+    @apply h5;
+  }
+  h6 {
+    @apply h6;
+  }
+  hr {
+    @apply border-foreground/20 my-[1rem];
+  }
+
+  /* responsive remote videos */
+  :where(.field--name--field_media_oembed_video) iframe {
+    @apply w-full aspect-video;
+  }
+  /* undo preflight, style icons within links/buttons as inline graphic */
+  a > svg {
+    @apply inline-block h-[1em];
+  }
+
+  /* fix 0px height when empty on safari https://bugs.webkit.org/show_bug.cgi?id=198959 */
+  input:where([type=time],[type=date],[type=tel],[type=datetime-local]) {
+    min-height: calc(1em * 1.5 + 2 * var(--input-padding-vertical));
+  }
+
+  :where(.form-item) {
+    --input-padding-vertical: 6px;
+    --input-padding-horizontal: 12px;
+    --input-border-width: 1px;
+    --input-border-color: rgb(var(--rgb-color-foreground) / 0.25);
+    --input-border-radius: 4px;
+    @apply accent-flashy;
+
+    select, input {
+      background-color: transparent;
+    }
+
+    :focus-visible {
+      outline-style: solid;
+      outline-color: var(--color-flashy);
+      outline-width: var(--input-border-width);
+      outline-offset: calc(-1 * var(--input-border-width));
+    }
+
+    select, textarea, input:where(:not([type=radio],[type=checkbox])),
+    .chosen-container-multi .chosen-choices, .chosen-container-single .chosen-single {
+      border: var(--input-border-width) solid var(--input-border-color);
+      padding: var(--input-padding-vertical) var(--input-padding-horizontal);
+      border-radius: var(--input-border-radius);
+      font-size: 1rem;
+    }
+
+    .chosen-container-multi .chosen-choices li.search-choice {
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+
+    .chosen-container-multi .chosen-choices li.search-field input.chosen-search-input {
+      padding: 3px 0;
+    }
+
+    .chosen-container-active .chosen-single, .chosen-container-active .chosen-choices, .chosen-container-active .chosen-drop.chosen-choices,
+    .chosen-container-active.chosen-dropup .chosen-single, .chosen-container-active.chosen-dropup .chosen-choices, .chosen-container-active.chosen-dropup .chosen-drop,
+    .chosen-container-active .chosen-single, .chosen-container-active .chosen-choices, .chosen-container-active .chosen-drop {
+      border-color: var(--color-flashy);
+    }
+  }
+
+  :where(.form-item:not(.webform-element--title-inline)) {
+    label {
+      @apply display-block pb-[4px];
+    }
+    select, textarea, input:where(:not([type=radio],[type=checkbox])) {
+      @apply display-block w-full;
+    }
+  }
+
+  :where(input[type=checkbox], input[type=radio]) ~ label {
+    @apply inline-block align-top pb-[0.5em];
+  }
+
+  input:where([type=checkbox], [type=radio]) {
+    width: 1em;
+    height: 1em;
+    margin-right: 0.25em;
+  }
+
+  label {
+    @apply font-weight-thick text-[0.875em] cursor-pointer;
+
+    &[class*=required]::after {
+      content: ' *';
+    }
+  }
+
+  form :where(.description) {
+    @apply text-foreground text-[12px] pt-[4px];
+  }
+}

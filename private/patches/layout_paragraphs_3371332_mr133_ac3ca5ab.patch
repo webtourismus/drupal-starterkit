@@ -1,0 +1,169 @@
+diff --git a/config/schema/layout_paragraphs.schema.yml b/config/schema/layout_paragraphs.schema.yml
+index f0e21cc1a283011c9e0d90096f60435b4e5ccd91..e2bf33756160d41398940f138ae5dcce38a9b933 100644
+--- a/config/schema/layout_paragraphs.schema.yml
++++ b/config/schema/layout_paragraphs.schema.yml
+@@ -98,6 +98,9 @@ paragraphs.behavior.settings.layout_paragraphs:
+     enabled:
+       type: boolean
+       label: 'Use as a Layout Section'
++    group_by_categories:
++      type: boolean
++      label: 'Group layouts by categories'
+     available_layouts:
+       type: sequence
+       label: 'Available Layouts'
+diff --git a/css/layout-select.css b/css/layout-select.css
+index d84ddeb2fb03112ec33bb8e99434548165afade9..f22742962578d0f98cee767278b1637e1706d1c4 100644
+--- a/css/layout-select.css
++++ b/css/layout-select.css
+@@ -3,6 +3,9 @@
+   flex-wrap: wrap;
+   justify-content: flex-start;
+ }
++.layout-select__group {
++  flex-basis: 100%;
++}
+ .layout-select__item {
+   flex: 0 1 150px;
+   margin-right: 10px;
+diff --git a/src/Element/LayoutSelect.php b/src/Element/LayoutSelect.php
+index d0e03208b1c21d26c706a24c9d1ddc2e11c54e27..d41ad7bd3d3eaa5790569f32925770c50f05c504 100644
+--- a/src/Element/LayoutSelect.php
++++ b/src/Element/LayoutSelect.php
+@@ -19,6 +19,7 @@ use Drupal\Component\Render\FormattableMarkup;
+  *   '#title' => t('Choose a layout'),
+  *   '#options' => ['layout1', 'layout2'],
+  *   '#default_value' => 'layout1',
++ *   '#group_by_categories' => true,
+  * ];
+  * @endcode
+  *
+@@ -54,10 +55,20 @@ class LayoutSelect extends Radios {
+   public static function processLayoutSelect(
+     &$element,
+     FormStateInterface $form_state,
+-    &$complete_form) {
++    &$complete_form
++  ) {
++    $currentCategory = FALSE;
+     foreach (Element::children($element) as $key) {
+       $layout_name = $key;
++      /** @var \Drupal\Core\Layout\LayoutDefinition $definition */
+       $definition = \Drupal::service('plugin.manager.core.layout')->getDefinition($layout_name);
++      $elementCategory = (string) $definition->getCategory();
++      if ($element['#group_by_categories'] && $currentCategory != $elementCategory) {
++        $element[$key]['#prefix'] = new FormattableMarkup('<h4 class="layout-select__group">@category</h4>', [
++          '@category' => $elementCategory
++        ]);
++        $currentCategory = $elementCategory;
++      }
+       $icon = $definition->getIcon($element['#width'], $element['#height'], $element['#stroke_width'], $element['#padding']);
+       $rendered_icon = \Drupal::service('renderer')->render($icon);
+       $element[$key]['#icon'] = $icon;
+diff --git a/src/Plugin/paragraphs/Behavior/LayoutParagraphsBehavior.php b/src/Plugin/paragraphs/Behavior/LayoutParagraphsBehavior.php
+index efd0bff5711eb75f389401bcf7f36ee7f51cb834..9ce2dc4d513490cd6debb98d58336ac6ff84a9e3 100644
+--- a/src/Plugin/paragraphs/Behavior/LayoutParagraphsBehavior.php
++++ b/src/Plugin/paragraphs/Behavior/LayoutParagraphsBehavior.php
+@@ -141,6 +141,7 @@ class LayoutParagraphsBehavior extends ParagraphsBehaviorBase {
+         ],
+       ],
+       '#weight' => 0,
++      '#group_by_categories' => $this->configuration['group_by_categories'],
+     ];
+     if ($plugin_form) {
+       $form['config'] = [
+@@ -216,6 +217,7 @@ class LayoutParagraphsBehavior extends ParagraphsBehaviorBase {
+   public function defaultConfiguration() {
+     return [
+       'available_layouts' => [],
++      'group_by_categories' => FALSE,
+     ];
+   }
+ 
+@@ -234,6 +236,11 @@ class LayoutParagraphsBehavior extends ParagraphsBehaviorBase {
+       '#size' => count($options) < 8 ? count($options) * 2 : 10,
+       '#required' => FALSE,
+     ];
++    $form['group_by_categories'] = [
++      '#title' => $this->t('Group layouts by categories'),
++      '#type' => 'checkbox',
++      '#default_value' => $this->configuration['group_by_categories']
++    ];
+     return $form;
+   }
+ 
+@@ -255,6 +262,7 @@ class LayoutParagraphsBehavior extends ParagraphsBehaviorBase {
+       $layout = $this->layoutPluginManager->getDefinition($layout_name);
+       $this->configuration['available_layouts'][$layout_name] = $layout->getLabel();
+     }
++    $this->configuration['group_by_categories'] = $form_state->getValue('group_by_categories');
+   }
+ 
+   /**
+diff --git a/tests/src/FunctionalJavascript/GroupByCategoriesTest.php b/tests/src/FunctionalJavascript/GroupByCategoriesTest.php
+new file mode 100644
+index 0000000000000000000000000000000000000000..554a44581a7b16ac5f2b0636e9ca49e9c95355ad
+--- /dev/null
++++ b/tests/src/FunctionalJavascript/GroupByCategoriesTest.php
+@@ -0,0 +1,61 @@
++<?php
++
++namespace Drupal\Tests\layout_paragraphs\FunctionalJavascript;
++
++/**
++ * Tests grouping of layouts by categories in section select form.
++ *
++ * @group layout_paragraphs
++ */
++class GroupByCategoriesTest extends BuilderTestBase {
++
++  /**
++   * The URL to use to add content.
++   *
++   * @var string
++   */
++  protected $contentAddUrl = 'node/add/page';
++
++  /**
++   * Returns the layout grouping headlines in the section form.
++   */
++  private function getGroupingHeadlines() {
++    $this->loginWithPermissions($this->contentPermissions);
++    $this->drupalGet($this->contentAddUrl);
++    $page = $this->getSession()->getPage();
++
++    // Click the Add Component button.
++    $page->find('css', '.lpb-btn--add')->click();
++    $this->assertSession()->assertWaitOnAjaxRequest(10000, 'Unable to click add a component.');
++
++    // Add a section.
++    $page->clickLink('section');
++    $this->assertSession()->assertWaitOnAjaxRequest(10000, 'Unable to select section component.');
++    return $page->find('css', '.layout-select__group');
++  }
++
++  /**
++   * Tests if layout grouping headlines are not rendered.
++   */
++  public function testGroupingDisabled() {
++    $this->assertEmpty($this->getGroupingHeadlines());
++  }
++
++  /**
++   * Tests if layout grouping headlines are rendered.
++   */
++  public function testGroupingEnabled() {
++    // Switch config to group by categories.
++    $this->loginWithPermissions($this->adminPermissions);
++    $this->drupalGet('admin/structure/paragraphs_type/section');
++    $this->submitForm([
++      'behavior_plugins[layout_paragraphs][settings][group_by_categories]' => TRUE,
++    ], 'Save');
++    $this->assertSession()->pageTextContains('Saved the section Paragraphs type.');
++    $this->drupalLogout();
++
++    // Check if layout categories are now rendered.
++    $this->assertNotEmpty($this->getGroupingHeadlines());
++  }
++
++}

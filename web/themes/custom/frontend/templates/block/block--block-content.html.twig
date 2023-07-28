@@ -1,0 +1,8 @@
+{% extends "block.html.twig" %}
+{% block wrapper %}
+  {% if block_content.isPublished %}
+    {{ parent() }}
+  {% else %}
+    {% set dummy_force_cache_bubbling = content|render %}
+  {% endif %}
+{% endblock wrapper %}

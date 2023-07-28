@@ -1,0 +1,14 @@
+{% for item in items %}
+  {% set title = {
+    '#type': 'inline_template',
+    '#template': '{{ original_title }} {{ icon|raw }}',
+    '#context': {
+      'original_title': item.content['#title'],
+      'icon': source('@lucide/arrow-right.svg'),
+    }
+
+  } %}
+  {% set item = item|set('content.#title', title) %}
+  {{ item.content }}
+{% endfor %}
+

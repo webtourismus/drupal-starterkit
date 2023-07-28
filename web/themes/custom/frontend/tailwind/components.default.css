@@ -1,0 +1,218 @@
+@tailwind components;
+
+/**
+  * Component rules should have a specifity of 0-1-0,
+  * so utility classes can overrule them.
+  */
+@layer components {
+  /**
+   * ###################################################################################################################
+   * ###################################################################################################################
+   * AlpineJS
+   * ###################################################################################################################
+   * ###################################################################################################################
+   */
+   [x-cloak] {
+    display: none !important;
+  }
+
+  /**
+   * ###################################################################################################################
+   * ###################################################################################################################
+   * Typography
+   * ###################################################################################################################
+   * ###################################################################################################################
+   */
+  /**
+   * Font shorthands
+   */
+  .font-running {
+    font: theme('fontWeight.weight-default') 1rem theme('fontFamily.family-running');
+  }
+  /**
+   * Relative font sizes
+   *
+   * Used in ~/config/sync/editor.editor.*.yml
+   */
+  .text-smaller {
+    font-size: 0.9em;
+  }
+  .text-larger {
+    font-size: 1.25em;
+  }
+  /**
+   * Font size with a significant scaling factor based on screen width ("fluid typography")
+   * @see https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=360&minRatio=1.5&maxFontSize=40&maxWidth=1400&maxRatio=2&steps=&baseStep=&prefix=font-size&decimals=2&useRems=on&remValue=16&previewFont=Inter
+   * Typically used for text within hero images or for customer reviews within blockquotes
+   *
+   * Used in ~/config/sync/editor.editor.banner_html.yml
+   */
+  .text-fluid {
+    /**
+     * 16px @360w, 40px @1400w
+     */
+    font-size: clamp(1rem, 2.31vw + 0.48rem, 2.5rem);
+  }
+  .text-banner {
+    /**
+     * 24px @360w, 560px @1920w
+     */
+    font-size: clamp(1.5rem, 2.05vw + 1.04rem, 3.5rem);
+  }
+  /**
+   * Editorial content from formatted running text fields
+   */
+  .ck-content {
+    :where(p, h1, h2, h3, h4, h5, h6, ol, ul, dl, table, blockquote) {
+      margin: 1em 0 0.5em 0;
+    }
+    :where(:first-child) {
+      margin-top: 0;
+    }
+    :where(:last-child) {
+      margin-bottom: 0;
+    }
+    :where(ol, ul) {
+      @apply pl-0 list-inside;
+    }
+    :where(ul) {
+      @apply list-disc;
+    }
+    :where(ol) {
+      @apply list-decimal;
+    }
+    /**
+    * Links without classes are assumed to be inline links within running text
+    */
+    :where(a:not([class])) {
+      @apply decoration-inherit hocus:text-flashy;
+    }
+    /**
+    * Links inside headers should look like their header parent
+    */
+    :where(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .h1 a, .h2 a, .h3 a, .h4 a, .h5 a, .h6 a) {
+      @apply decoration-transparent hocus:text-inherit hocus:decoration-inherit;
+    }
+  }
+
+
+
+  /**
+   * ###################################################################################################################
+   * ###################################################################################################################
+   * Buttons and links
+   * ###################################################################################################################
+   * ###################################################################################################################
+   */
+  /**
+   * It is recommended to use ".btn" as an abstract base class for all button's layout and size,
+   * and apply only colors to the actually used buttons like ".btn-filled-flashy" etc.
+   *
+   * Used in ~/config/sync/editor.editor.*.yml
+   */
+  .btn {
+    @apply inline-flex justify-center items-center border border-transparent;
+  }
+  .btn-filled-flashy {
+    @apply btn bg-flashy text-onflashy hocus:bg-flashyhocus;
+  }
+  .btn-filled-foreground {
+    @apply btn text-onforeground bg-forground hocus:bg-foreground/80;
+  }
+  .btn-outline {
+    @apply btn bg-transparent border-inherit hocus:text-flashy;
+  }
+
+
+
+  /**
+   * ###################################################################################################################
+   * ###################################################################################################################
+   * Animations
+   * ###################################################################################################################
+   * ###################################################################################################################
+   */
+   @media (prefers-reduced-motion: no-preference) {
+    :where(html:not(.no-js)) [data-aos^='fade'],
+    :where(html:not(.no-js)) [data-aos^='zoom'],
+    :where(html:not(.no-js) [data-aos='children-sideward']) > :first-child,
+    :where(html:not(.no-js) [data-aos='children-sideward']) > :last-child {
+      opacity: 0;
+      transition-property: opacity, transform;
+      pointer-events: none;
+    }
+    :where([data-aos^='fade']).aos-animate,
+    :where([data-aos^='zoom']).aos-animate,
+    :where([data-aos='children-sideward'].aos-animate) > :first-child,
+    :where([data-aos='children-sideward'].aos-animate) > :last-child {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+    [data-aos='fade-up'] {
+      transform: translate3d(0, 100px, 0);
+    }
+    [data-aos='fade-down'] {
+      transform: translate3d(0, -100px, 0);
+    }
+    [data-aos='fade-left'] {
+      transform: translate3d(100px, 0, 0);
+    }
+    [data-aos='fade-right'] {
+      transform: translate3d(-100px, 0, 0);
+    }
+    :where([data-aos='children-sideward']) > :first-child {
+      transform: translate3d(-100px, 0, 0);
+    }
+    :where([data-aos='children-sideward']) > :last-child {
+      transform: translate3d(100px, 0, 0);
+    }
+    [data-aos='zoom-in'] {
+      transform: scale(.8);
+    }
+  }
+  @media (prefers-reduced-motion) {
+    [data-aos^='fade'],
+    [data-aos^='zoom'],
+    :where([data-aos='children-sideward']) > :first-child,
+    :where([data-aos='children-sideward']) > :last-child {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+  }
+
+  /**
+   * ###################################################################################################################
+   * ###################################################################################################################
+   * All regions inside a layout starting with name "grid" are assumed to be single component regions with
+   * a fixed height and top & bottom aligned borders
+   * ###################################################################################################################
+   * ###################################################################################################################
+   */
+  :where([class*=component--grid]) {
+    &.paragraph--type--image img,
+    &.paragraph--type--icon img,
+    &.paragraph--type--icon svg,
+    &.paragraph--type--linkblock .teaserable-image-container img {
+      width: 100%;
+      height: var(--grid-img-height);
+      object-fit: cover;
+    }
+  }
+
+  /**
+   * ###################################################################################################################
+   * ###################################################################################################################
+   * SVGs inline in running text
+   * ###################################################################################################################
+   * ###################################################################################################################
+   */
+  .inline-svg {
+    @apply inline-block h-[1em] align-[-1.25em];
+  }
+  .inline-svg-fw {
+    @apply inline-svg w[1.5em];
+  }
+
+}

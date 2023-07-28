@@ -1,0 +1,24 @@
+name: Frontend
+type: theme
+base theme: false
+description: The design of this website's frontend.
+logo: 'webtourismus-logo.svg'
+screenshot: 'images/webtourismus_theme_logo.svg'
+core_version_requirement: ^10
+features: {}
+dependencies:
+  - backend:backend
+libraries:
+  - designsystem/glightbox
+  - designsystem/splide
+  - frontend/base
+regions:
+  html_head: HTML Head
+  header: Header
+  # header_banner: Banner
+  # header_mainnav: Main navigation
+  content: Content
+  footer: Footer
+  # footer_bottom: Footer bottom
+  popup: Popup
+  invisible: Invisible region

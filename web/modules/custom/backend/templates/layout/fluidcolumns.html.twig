@@ -1,0 +1,6 @@
+{% extends '@backend/layout/default.html.twig' %}
+
+{% set attributes = attributes.addClass('display-block') %}
+{% for key, region_attribute in region_attributes %}
+  {% set region_attribute = region_attribute.addClass('flex', 'flex-row', 'flex-wrap', 'items-strech', 'children:box-border') %}
+{% endfor %}

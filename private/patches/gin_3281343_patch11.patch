@@ -1,0 +1,16 @@
+diff --git a/src/GinContentFormHelper.php b/src/GinContentFormHelper.php
+index 4c7de93..a9a65bc 100644
+--- a/src/GinContentFormHelper.php
++++ b/src/GinContentFormHelper.php
+@@ -248,6 +248,11 @@ class GinContentFormHelper implements ContainerInjectionInterface {
+       'entity.node.content_translation_edit',
+       'quick_node_clone.node.quick_clone',
+       'entity.node.edit_form',
++      'entity.media.add_form',
++      'entity.media.canonical',
++      'entity.media.content_translation_add',
++      'entity.media.content_translation_edit',
++      'entity.media.edit_form',
+     ];
+ 
+     $additional_routes = $this->moduleHandler->invokeAll('gin_content_form_routes');

@@ -1,0 +1,45 @@
+{#
+/**
+ * Available variables:
+ * - content: The content for this layout. Due all the special wrappers and attributes not rendered,
+       but only used to trigger a proper cache propagation.
+ * - bg_wrapper_attributes:
+ *     HTML attributes for outermost `<div class="bg-wrapper ...">` container, spanning from screen edge to edge,
+ *     holding the background color of a layout and the padding to the side edge of a screen.
+ * - width_wrapper_attributes:
+ *     HTML attributes for `<div class="width-wrapper ...">` container,
+ *     limiting the max-width of a layout.
+ * - attributes: HTML attributes for the actual layout `<div class="layout ...">`.
+ * - region_attributes[]: HTML attributes individual sub-regions of a layout `<div class="area ...">`.
+ *
+ * @ingroup themeable
+ */
+#}
+{% set dummy_ensure_cache_processing = content|render %}
+{% set width_wrapper_attributes = width_wrapper_attributes.addClass('overflow-x-hidden', 'mx-auto') %}
+{% set bg_wrapper_attributes = bg_wrapper_attributes.addClass('relative') %}
+
+{% if content %}
+  {% block bg_wrapper %}
+    <div {{ bg_wrapper_attributes }}>
+      {{ background_media }}
+      {% block width_wrapper %}
+        <div {{ width_wrapper_attributes }}>
+          {% block layout %}
+            <div {{ attributes }}>
+              {% block regions %}
+                {% for key, region in content|children %}
+                  <div {{ region_attributes[key] }}>
+                    {% block region %}
+                      {{ region }}
+                    {% endblock region %}
+                  </div>
+                {% endfor %}
+              {% endblock regions %}
+            </div>
+          {% endblock layout %}
+        </div>
+      {% endblock width_wrapper %}
+    </div>
+  {% endblock bg_wrapper %}
+{% endif %}

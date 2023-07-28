@@ -1,0 +1,6 @@
+{# removing any wrappers, no div allowed in HTML head #}
+{% if block_content.isPublished ?? true %}
+  {{ content }}
+{% else %}
+  {% set dummy_force_cache_bubbling = content|render %}
+{% endif %}

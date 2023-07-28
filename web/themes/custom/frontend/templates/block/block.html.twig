@@ -1,0 +1,13 @@
+{% block wrapper %}
+  <div {{ attributes }}>
+    {% block label %}
+      {% if label %}
+        <h3 {{ title_attributes }}>{{ label }}</h3>
+      {% endif %}
+    {% endblock label %}
+
+    {% block content %}
+      {{ content }}
+    {% endblock content %}
+  </div>
+{% endblock wrapper %}
