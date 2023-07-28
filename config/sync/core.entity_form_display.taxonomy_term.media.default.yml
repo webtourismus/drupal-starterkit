@@ -1,0 +1,41 @@
+uuid: e0d7677f-98d7-4a69-8b86-81f384b10baf
+langcode: de
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.media
+id: taxonomy_term.media.default
+targetEntityType: taxonomy_term
+bundle: media
+mode: default
+content:
+  internal_id:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 2
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  description: true
+  langcode: true
+  path: true
+  remote_datasource: true
+  remote_id: true
+  translation: true

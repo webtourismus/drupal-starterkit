@@ -1,0 +1,48 @@
+uuid: 614aadca-1baa-4fb5-b0e2-6b8654a6caf1
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_ratio
+    - paragraphs.paragraphs_type.gallery
+    - responsive_image.styles.16_9
+  module:
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: paragraph.gallery.field_image_ratio
+field_name: field_image_ratio
+entity_type: paragraph
+bundle: gallery
+label: Bildformat
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 1f19d980-b444-4a6a-9ede-eeb3d096a8de
+default_value_callback: ''
+settings:
+  handler: 'config:responsive_image_style'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+    filter:
+      negate: 1
+      allowed_ids:
+        - banner_lg
+        - banner_sm
+        - banner_text
+        - inline
+        - linkblock
+        - original
+        - h300_single
+        - h400_double
+        - h400_single
+        - h600_double
+field_type: entity_reference

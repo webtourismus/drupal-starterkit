@@ -1,0 +1,56 @@
+title: Enquiry
+elements: |
+  text_mydata:
+    '#text': '<h3>My data</h3>'
+  title:
+    '#title': Title
+  firstname:
+    '#title': 'First name'
+  lastname:
+    '#title': 'Last name'
+    '#description': '<p>required</p>'
+  street:
+    '#title': Street
+  postcode:
+    '#title': Postcode
+  city:
+    '#title': City
+  country:
+    '#title': Country
+  phone:
+    '#title': Phone
+    '#description': '<p>Please include international dialing code</p>'
+  email:
+    '#title': Email
+    '#description': '<p>required</p>'
+  text_travel:
+    '#text': '<h3>Travel data</h3>'
+  dates:
+    '#title': 'Arrival - Departure'
+  adults:
+    '#title': Adults
+  children:
+    '#title': Children
+  children_age:
+    '#title': 'Age of children'
+  text_interested:
+    '#text': "<h3>I'm interested in...</h3>"
+  room_quantity:
+    '#title': 'No. rooms'
+  room:
+    '#title': Rooms
+  package:
+    '#title': Offers
+  message:
+    '#title': 'Questions, remarks,...'
+  actions:
+    '#title': Submit
+handlers:
+  mail_customer:
+    settings:
+      subject: 'My enquiry on [site:url-brief]'
+      body: "<p>Thanks for your enquiry on [current-date:long]. We'll answer your questions as soon as possible.<br><br><br>Your [site:name] Team.<br><br><br>This is an automated mail containing your submitted data on our site [site:url-brief].<br><br>[webform_submission:values]</p>"
+  mail_siteowner:
+    settings:
+      subject: 'Enquiry [webform_submission:values:dates],  [webform_submission:values:adults] Pers.'
+      body: '<p>_default</p>'

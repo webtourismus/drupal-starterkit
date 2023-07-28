@@ -1,0 +1,18 @@
+uuid: 09ae2843-bebb-42de-8ac1-a0b4d9f67511
+langcode: de
+status: true
+dependencies:
+  config:
+    - system.menu.main
+id: menu_link_content.main.changed
+field_name: changed
+entity_type: menu_link_content
+bundle: main
+label: Geändert
+description: 'Der Zeitpunkt an dem der Menülink zuletzt bearbeitete wurde.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

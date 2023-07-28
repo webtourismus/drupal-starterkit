@@ -1,0 +1,20 @@
+uuid: da77fced-59fd-48ba-8b89-ceaf539aaf73
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_occupancy_std
+field_name: field_occupancy_std
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,10 @@
+uuid: f3d671fd-e302-464a-8caf-36d23cfd2ef6
+langcode: de
+status: true
+dependencies:
+  module:
+    - media
+id: media.admin_list
+label: 'Admin List'
+targetEntityType: media
+cache: true

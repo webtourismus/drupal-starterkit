@@ -1,0 +1,56 @@
+uuid: 1d107265-a4fe-470e-b9dd-927aa4b7015a
+langcode: de
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.layout
+  module:
+    - field_group
+third_party_settings:
+  field_group:
+    group_container:
+      children:
+        - status
+        - seasonal
+      label: Container
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: 'grid grid-cols-1 sm:grid-cols-[max-content_max-content] gap-4 items-center'
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: false
+id: paragraph.layout.default
+targetEntityType: paragraph
+bundle: layout
+mode: default
+content:
+  layout_paragraphs_fields:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  seasonal:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  created: true

@@ -1,0 +1,6 @@
+gin_toolbar_force_darkmode: 1
+tailwind_jit:
+  compile_html_requests: 1
+  html_input_file: themes/custom/frontend/tailwind/tailwind.css
+  compile_ajax_requests: 1
+  ajax_input_file: themes/custom/frontend/tailwind/tailwind_ajax.css

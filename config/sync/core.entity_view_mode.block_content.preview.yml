@@ -1,0 +1,10 @@
+uuid: 78ac6974-ec46-430d-912f-b22472cd40a6
+langcode: de
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.preview
+label: Vorschau
+targetEntityType: block_content
+cache: true

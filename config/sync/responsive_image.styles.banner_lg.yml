@@ -1,0 +1,44 @@
+uuid: e1d699ee-f463-4551-9bf4-f094aeef85ee
+langcode: de
+status: true
+dependencies:
+  config:
+    - image.style.16_9_1400x788
+    - image.style.16_9_1920x1080
+    - image.style.1_2_360x720
+    - image.style.1_2_768x1536
+    - image.style.4_5_1024_x_1280
+  module:
+    - backend
+_core:
+  default_config_hash: M_pU6ywvbgiq7b10iOpODr0vbXw21apFkDodKVNkkzY
+id: banner_lg
+label: 'Banner groß'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: 16_9_1920x1080
+    breakpoint_id: backend.banner.lg
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 16_9_1400x788
+    breakpoint_id: backend.banner.md
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 4_5_1024_x_1280
+    breakpoint_id: backend.banner.sm
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 1_2_768x1536
+    breakpoint_id: backend.banner.xs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 1_2_360x720
+    breakpoint_id: backend.banner.xxs
+    multiplier: 1x
+breakpoint_group: backend.banner
+fallback_image_style: 16_9_1920x1080

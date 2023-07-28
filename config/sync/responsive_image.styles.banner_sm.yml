@@ -1,0 +1,44 @@
+uuid: 18d2cc38-2779-4aae-8f1b-46e078f04626
+langcode: de
+status: true
+dependencies:
+  config:
+    - image.style.1_1_1024x1024
+    - image.style.3_1_1400x467
+    - image.style.3_1_1920x640
+    - image.style.4_5_360x450
+    - image.style.4_5_768x960
+  module:
+    - backend
+_core:
+  default_config_hash: BtlIGJk2svoXcuVp03auiDCAxvsOyOKTJbgadFgSjLE
+id: banner_sm
+label: 'Banner klein'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: 3_1_1920x640
+    breakpoint_id: backend.banner.lg
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 3_1_1400x467
+    breakpoint_id: backend.banner.md
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 1_1_1024x1024
+    breakpoint_id: backend.banner.sm
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 4_5_768x960
+    breakpoint_id: backend.banner.xs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 4_5_360x450
+    breakpoint_id: backend.banner.xxs
+    multiplier: 1x
+breakpoint_group: backend.banner
+fallback_image_style: 3_1_1920x640

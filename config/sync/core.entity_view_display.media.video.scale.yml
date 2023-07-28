@@ -1,0 +1,39 @@
+uuid: 391d444b-2c90-44dd-ae71-90e9cdfa9254
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.scale
+    - field.field.media.video.field_category
+    - field.field.media.video.field_copyright
+    - field.field.media.video.field_media_video_file
+    - media.type.video
+  module:
+    - file
+id: media.video.scale
+targetEntityType: media
+bundle: video
+mode: scale
+content:
+  field_media_video_file:
+    type: file_video
+    label: visually_hidden
+    settings:
+      controls: false
+      autoplay: true
+      loop: true
+      multiple_file_display_type: sources
+      muted: true
+      width: 1920
+      height: 1080
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_category: true
+  field_copyright: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

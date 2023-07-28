@@ -1,0 +1,47 @@
+uuid: 81f5b8be-dc89-455c-aed8-8551f97ff836
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.inline
+    - field.field.media.vector_image.field_category
+    - field.field.media.vector_image.field_copyright
+    - field.field.media.vector_image.field_css
+    - field.field.media.vector_image.field_media_svg
+    - media.type.vector_image
+  module:
+    - designsystem
+_core:
+  default_config_hash: PT3jQd1NB43feufORG6rekhHOsDvv1gDY6slYytUkNQ
+id: media.vector_image.inline
+targetEntityType: media
+bundle: vector_image
+mode: inline
+content:
+  field_media_svg:
+    type: svg_image_field_formatter_css
+    label: hidden
+    settings:
+      inline: '1'
+      width: '25'
+      height: '25'
+      sanitize: '1'
+      link: ''
+      enable_alt: '1'
+      apply_dimensions: 0
+      force_fill: 0
+      sanitize_remote: 0
+      enable_title: 0
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  created: true
+  field_category: true
+  field_copyright: true
+  field_css: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

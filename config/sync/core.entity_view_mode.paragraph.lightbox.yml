@@ -1,0 +1,10 @@
+uuid: 781d8d30-383d-490a-a826-0f8243d80d56
+langcode: de
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.lightbox
+label: 'mit Lightbox'
+targetEntityType: paragraph
+cache: true

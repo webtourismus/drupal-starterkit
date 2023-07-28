@@ -1,0 +1,35 @@
+uuid: 08052d86-86cc-45ef-8d9b-f66b97e86615
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_banner_text
+    - filter.format.banner_html
+    - node.type.package
+  module:
+    - allowed_formats
+    - field_config_cardinality
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: node.package.field_banner_text
+field_name: field_banner_text
+entity_type: node
+bundle: package
+label: 'Banner Text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - banner_html
+field_type: text_long

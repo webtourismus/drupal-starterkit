@@ -1,0 +1,10 @@
+uuid: a488b48b-fd3f-40ed-9044-4b8e286fb981
+langcode: de
+status: true
+dependencies:
+  module:
+    - media
+id: media.banner_sm
+label: 'Banner klein'
+targetEntityType: media
+cache: true

@@ -1,0 +1,21 @@
+uuid: c7e0495d-8c66-4a15-8d95-980901c3eba8
+langcode: de
+status: true
+dependencies: {  }
+name: w1920
+label: 'Scale width 1920px'
+effects:
+  fac298cd-d64e-459b-9e45-a077ddae1d23:
+    uuid: fac298cd-d64e-459b-9e45-a077ddae1d23
+    id: image_convert
+    weight: 1
+    data:
+      extension: webp
+  1e5e1b57-c436-4e4c-b8fa-f53831903fee:
+    uuid: 1e5e1b57-c436-4e4c-b8fa-f53831903fee
+    id: image_scale
+    weight: 2
+    data:
+      width: 1920
+      height: null
+      upscale: false

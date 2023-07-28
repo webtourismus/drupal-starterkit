@@ -1,0 +1,34 @@
+title: 'Book a table'
+elements: |
+  persons:
+    '#title': 'No. persons'
+  date:
+    '#title': Date
+    '#placeholder': DD.MM.YYYY
+  time:
+    '#title': Time
+  title:
+    '#title': Title
+  firstname:
+    '#title': 'First name'
+  lastname:
+    '#title': 'Last name'
+  phone:
+    '#title': Phone
+    '#description': '<p>Please include international dialing code</p>'
+  email:
+    '#title': Email
+  message:
+    '#title': 'Questions, remarks,...'
+  actions:
+    '#title': Submit
+    '#submit__label': 'Book a table'
+handlers:
+  mail_customer:
+    settings:
+      subject: 'My table reserveration on [site:url-brief]'
+      body: "<p>Thanks for your table booking on [current-date:long]. We'll answer your to your order as soon as possible.<br><br><br>Please note that this mail is NO CONFIRMATION yet.<br><br><br>Your [site:name] Team.<br><br><br>This is an automated mail containing your submitted data on our site [site:url-brief].<br><br>[webform_submission:values]</p>"
+  mail_siteowner:
+    settings:
+      subject: 'Table booking [webform_submission:values:date] [webform_submission:values:time], [webform_submission:values:persons] pers.'
+      body: '<p>_default</p>'

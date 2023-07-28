@@ -1,0 +1,18 @@
+uuid: acebdd70-e502-43dd-83d6-e3cc57994443
+langcode: de
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.map
+id: paragraph.map.created
+field_name: created
+entity_type: paragraph
+bundle: map
+label: 'Geschrieben am'
+description: 'Der Zeitpunkt, zu dem der Seitenabschnittstyp erstellt wurde.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

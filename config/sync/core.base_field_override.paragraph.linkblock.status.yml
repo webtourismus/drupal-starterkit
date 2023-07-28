@@ -1,0 +1,22 @@
+uuid: 8bcc72da-9c07-45bd-9306-04a6dbc6a2fc
+langcode: de
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.linkblock
+id: paragraph.linkblock.status
+field_name: status
+entity_type: paragraph
+bundle: linkblock
+label: Veröffentlicht
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: An
+  off_label: Aus
+field_type: boolean

@@ -1,0 +1,64 @@
+uuid: d3cc3b08-7f4f-40fd-8976-89e043e3eb3b
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.gallery.field_image_ratio
+    - field.field.paragraph.gallery.field_images
+    - field.field.paragraph.gallery.field_viewmode
+    - paragraphs.paragraphs_type.gallery
+  module:
+    - field_group
+    - media_library
+    - view_mode_switch
+third_party_settings:
+  field_group:
+    group_container:
+      children:
+        - field_image_ratio
+        - field_viewmode
+      label: Container
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: 'grid grid-cols-1 sm:grid-cols-2 gap-4'
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: false
+id: paragraph.gallery.default
+targetEntityType: paragraph
+bundle: gallery
+mode: default
+content:
+  field_image_ratio:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_images:
+    type: media_library_widget
+    weight: 0
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_viewmode:
+    type: view_mode_switch
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  seasonal: true
+  status: true

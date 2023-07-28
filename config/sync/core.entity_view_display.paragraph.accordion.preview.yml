@@ -1,0 +1,27 @@
+uuid: 01dc2db5-1c38-451a-ac9b-80b8045638f7
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.accordion.field_accordion
+    - field.field.paragraph.accordion.field_accordion_expanded
+    - paragraphs.paragraphs_type.accordion
+  module:
+    - text
+id: paragraph.accordion.preview
+targetEntityType: paragraph
+bundle: accordion
+mode: preview
+content:
+  field_accordion:
+    type: text_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_accordion_expanded: true
+  seasonal: true

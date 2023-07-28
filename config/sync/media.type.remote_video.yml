@@ -1,0 +1,23 @@
+uuid: 56bddd02-0722-42ae-aeaf-909225bc50f7
+langcode: de
+status: true
+dependencies:
+  module:
+    - crop
+third_party_settings:
+  crop:
+    image_field: null
+id: remote_video
+label: 'Remote Video'
+description: 'Ein Video von YouTube oder Vimeo.'
+source: 'oembed:video'
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_oembed_video
+  thumbnails_directory: 'public://oembed_thumbnails/[date:custom:Y-m]'
+  providers:
+    - YouTube
+    - Vimeo
+field_map:
+  title: name

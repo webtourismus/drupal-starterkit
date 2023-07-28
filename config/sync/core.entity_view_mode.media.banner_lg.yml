@@ -1,0 +1,10 @@
+uuid: 71099cb6-3b91-4f75-938c-97d2b63442df
+langcode: de
+status: true
+dependencies:
+  module:
+    - media
+id: media.banner_lg
+label: 'Banner groß'
+targetEntityType: media
+cache: true

@@ -1,0 +1,19 @@
+uuid: 6d7436d0-b4d1-40f2-afc6-2412655d92f1
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_banner_text
+field_name: field_banner_text
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

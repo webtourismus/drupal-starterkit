@@ -1,0 +1,23 @@
+uuid: 17936097-9288-4d9e-8e1d-b649edd226e9
+langcode: de
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 3_2_768x512
+label: '3:2 (768x512)'
+effects:
+  d3f6304a-6a8c-45cf-b46a-80dfbb930023:
+    uuid: d3f6304a-6a8c-45cf-b46a-80dfbb930023
+    id: focal_point_scale_and_crop
+    weight: -9
+    data:
+      width: 768
+      height: 512
+      crop_type: focal_point
+  36820f14-8156-413d-971e-1f0eda51e5f0:
+    uuid: 36820f14-8156-413d-971e-1f0eda51e5f0
+    id: image_convert
+    weight: -10
+    data:
+      extension: webp

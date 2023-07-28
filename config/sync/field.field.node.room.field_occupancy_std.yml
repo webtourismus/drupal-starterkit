@@ -1,0 +1,32 @@
+uuid: 2759ba52-1a72-4818-b041-2372d9e65299
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_occupancy_std
+    - node.type.room
+  module:
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: node.room.field_occupancy_std
+field_name: field_occupancy_std
+entity_type: node
+bundle: room
+label: Standardbelegung
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

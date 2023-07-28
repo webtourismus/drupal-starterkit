@@ -1,0 +1,8 @@
+uuid: c4bab9f9-a328-451c-987d-3366059eb593
+langcode: de
+status: true
+dependencies: {  }
+name: Seiten-Kategorien
+vid: page
+description: ''
+weight: 0

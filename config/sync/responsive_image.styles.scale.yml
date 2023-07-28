@@ -1,0 +1,29 @@
+uuid: 2d830e80-d67b-47c0-a1d9-c60b4f002def
+langcode: de
+status: true
+dependencies:
+  config:
+    - image.style.w1024
+    - image.style.w1400
+    - image.style.w1920
+    - image.style.w360
+    - image.style.w512
+    - image.style.w768
+id: scale
+label: 'Skalieren (nicht beschneiden)'
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - w1024
+        - w1400
+        - w1920
+        - w360
+        - w512
+        - w768
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+breakpoint_group: responsive_image
+fallback_image_style: w1920

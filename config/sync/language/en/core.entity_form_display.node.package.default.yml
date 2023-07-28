@@ -1,0 +1,17 @@
+third_party_settings:
+  field_group:
+    group_base_data:
+      label: 'Base data'
+      format_settings:
+        description: 'Base data is used for teaser views, search engines and social media sharing.'
+    group_banner:
+      format_settings:
+        description: 'Banners are only displayed in the full view of a page.'
+    group_full_content:
+      label: 'Full content'
+      format_settings:
+        description: "To create new content, click the <kbd>Add section</kbd> button. Then add components by hovering and clicking the <kbd>+</kbd> icon inside a section's area.<br>\r\nTo edit existing content, hover over the component and click the <kbd><img src=\"/libraries/fa6/svgs/regular/pencil.svg\" width=\"11\" height=\"11\" alt=\"pencil\"></kbd> icon."
+    group_list_settings:
+      label: 'List settings'
+      format_settings:
+        description: 'These settings are used to filter and sort in automated lists.'

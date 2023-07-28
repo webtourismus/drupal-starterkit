@@ -1,0 +1,38 @@
+uuid: d4ee6ea6-ee42-4214-a452-53fbf7f48a24
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.grid
+    - core.entity_view_mode.paragraph.masonry
+    - core.entity_view_mode.paragraph.slider
+    - field.storage.paragraph.field_viewmode
+    - paragraphs.paragraphs_type.gallery
+  module:
+    - field_config_cardinality
+    - view_mode_switch
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: paragraph.gallery.field_viewmode
+field_name: field_viewmode
+entity_type: paragraph
+bundle: gallery
+label: Modus
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: grid
+default_value_callback: ''
+settings:
+  allowed_view_modes:
+    grid: grid
+    masonry: masonry
+    slider: slider
+field_type: view_mode_switch

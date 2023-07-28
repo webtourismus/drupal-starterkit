@@ -1,0 +1,32 @@
+uuid: cb883f10-06a0-4073-bc3d-041c726a6d21
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_minlos
+    - node.type.package
+  module:
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: node.package.field_minlos
+field_name: field_minlos
+entity_type: node
+bundle: package
+label: Mindestaufenthalt
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: Nacht|Nächte
+field_type: integer

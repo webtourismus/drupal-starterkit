@@ -1,0 +1,39 @@
+uuid: e3eaf96e-cff9-42c6-816d-ccdd13e94f58
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.banner_scale
+    - field.field.paragraph.banner_image.field_images
+    - field.field.paragraph.banner_image.field_text
+    - paragraphs.paragraphs_type.banner_image
+  module:
+    - field_formatter_range
+    - text
+id: paragraph.banner_image.banner_scale
+targetEntityType: paragraph
+bundle: banner_image
+mode: banner_scale
+content:
+  field_images:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: scale
+      link: false
+    third_party_settings:
+      field_formatter_range:
+        order: 0
+        limit: 1
+        offset: 0
+    weight: 0
+    region: content
+  field_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  seasonal: true

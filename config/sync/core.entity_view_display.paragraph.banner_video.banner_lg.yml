@@ -1,0 +1,36 @@
+uuid: 512e2f9e-9646-4331-97cf-93041bbd643f
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.banner_lg
+    - field.field.paragraph.banner_video.field_text
+    - field.field.paragraph.banner_video.field_video
+    - field.field.paragraph.banner_video.field_video_length
+    - paragraphs.paragraphs_type.banner_video
+  module:
+    - text
+id: paragraph.banner_video.banner_lg
+targetEntityType: paragraph
+bundle: banner_video
+mode: banner_lg
+content:
+  field_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_video:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: banner_lg
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_video_length: true
+  seasonal: true

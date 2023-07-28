@@ -1,0 +1,10 @@
+uuid: f73fcf23-5e31-4f02-b52c-d4fb0e9735c9
+langcode: de
+status: true
+dependencies: {  }
+id: image
+label: Bild
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

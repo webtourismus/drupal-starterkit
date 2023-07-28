@@ -1,0 +1,105 @@
+uuid: d76ca8b8-6f89-4878-ac28-5d0dcdaa4842
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.package.body
+    - field.field.node.package.field_banner
+    - field.field.node.package.field_banner_text
+    - field.field.node.package.field_banner_viewmode
+    - field.field.node.package.field_category
+    - field.field.node.package.field_images
+    - field.field.node.package.field_mealplan
+    - field.field.node.package.field_minlos
+    - field.field.node.package.field_pagebuilder
+    - field.field.node.package.field_price
+    - field.field.node.package.field_seo
+    - field.field.node.package.field_subtitle
+    - field.field.node.package.field_weight
+    - node.type.package
+  module:
+    - ebr
+    - layout_paragraphs
+    - link
+    - metatag
+    - user
+id: node.package.full
+targetEntityType: node
+bundle: package
+mode: full
+content:
+  field_pagebuilder:
+    type: layout_paragraphs
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_seo:
+    type: metatag_empty_formatter
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  link_book:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  link_enquiry:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+  price:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  widget_calendar:
+    type: widget_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+hidden:
+  body: true
+  field_banner: true
+  field_banner_text: true
+  field_banner_viewmode: true
+  field_category: true
+  field_images: true
+  field_mealplan: true
+  field_minlos: true
+  field_price: true
+  field_subtitle: true
+  field_weight: true
+  langcode: true
+  link_readmore: true

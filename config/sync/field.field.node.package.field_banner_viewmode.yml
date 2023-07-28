@@ -1,0 +1,40 @@
+uuid: 0c832cb7-8bbb-4451-8b01-6d0b49309994
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.banner_lg
+    - core.entity_view_mode.node.banner_scale
+    - core.entity_view_mode.node.banner_sm
+    - core.entity_view_mode.node.banner_text
+    - field.storage.node.field_banner_viewmode
+    - node.type.package
+  module:
+    - field_config_cardinality
+    - view_mode_switch
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: node.package.field_banner_viewmode
+field_name: field_banner_viewmode
+entity_type: node
+bundle: package
+label: 'Banner Format'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: banner_lg
+default_value_callback: ''
+settings:
+  allowed_view_modes:
+    banner_lg: banner_lg
+    banner_scale: banner_scale
+    banner_sm: banner_sm
+    banner_text: banner_text
+field_type: view_mode_switch

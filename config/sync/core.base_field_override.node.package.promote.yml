@@ -1,0 +1,22 @@
+uuid: eda03ec5-865f-4cb8-ab2f-e32b22326caf
+langcode: de
+status: true
+dependencies:
+  config:
+    - node.type.package
+id: node.package.promote
+field_name: promote
+entity_type: node
+bundle: package
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

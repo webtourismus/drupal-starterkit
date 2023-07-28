@@ -1,0 +1,37 @@
+uuid: 806ff0a1-c1c6-493b-b9ca-ad10239cd144
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.3_2
+    - field.field.media.image.field_category
+    - field.field.media.image.field_copyright
+    - field.field.media.image.field_media_image
+    - media.type.image
+    - responsive_image.styles.3_2
+  module:
+    - responsive_image
+id: media.image.3_2
+targetEntityType: media
+bundle: image
+mode: '3_2'
+content:
+  field_media_image:
+    type: responsive_image
+    label: hidden
+    settings:
+      responsive_image_style: '3_2'
+      image_link: ''
+      image_loading:
+        attribute: eager
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_category: true
+  field_copyright: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

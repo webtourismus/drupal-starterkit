@@ -1,0 +1,30 @@
+uuid: 25dc76d5-8790-4ec3-9af6-dcd12f24892a
+langcode: de
+status: true
+dependencies:
+  config:
+    - filter.format.banner_html
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.webform_default
+  module:
+    - file
+    - filter
+    - media
+    - media_entity_download
+    - system
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Angemeldeter Benutzer'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'delete own files'
+  - 'download media'
+  - 'use text format banner_html'
+  - 'use text format basic_html'
+  - 'use text format full_html'
+  - 'use text format webform_default'
+  - 'view media'

@@ -1,0 +1,25 @@
+uuid: ddfa4e89-e4d1-406f-83c9-11d3eba790f8
+langcode: de
+status: true
+dependencies:
+  config:
+    - image.style.1_1_1024x1024
+    - image.style.1_1_360x360
+    - image.style.1_1_512x512
+    - image.style.1_1_768x768
+id: '1_1'
+label: '1:1'
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - 1_1_1024x1024
+        - 1_1_360x360
+        - 1_1_512x512
+        - 1_1_768x768
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+breakpoint_group: responsive_image
+fallback_image_style: 1_1_1024x1024

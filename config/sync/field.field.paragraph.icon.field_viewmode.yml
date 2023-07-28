@@ -1,0 +1,38 @@
+uuid: b1cf6d53-12a0-4c12-9679-fb1f55e58762
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.teaser
+    - core.entity_view_mode.paragraph.teaser_imgleft
+    - core.entity_view_mode.paragraph.teaser_imgright
+    - field.storage.paragraph.field_viewmode
+    - paragraphs.paragraphs_type.icon
+  module:
+    - field_config_cardinality
+    - view_mode_switch
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: paragraph.icon.field_viewmode
+field_name: field_viewmode
+entity_type: paragraph
+bundle: icon
+label: Layout
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: teaser
+default_value_callback: ''
+settings:
+  allowed_view_modes:
+    teaser: teaser
+    teaser_imgleft: teaser_imgleft
+    teaser_imgright: teaser_imgright
+field_type: view_mode_switch

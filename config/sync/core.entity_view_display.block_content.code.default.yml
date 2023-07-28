@@ -1,0 +1,23 @@
+uuid: 13d6ec93-0776-4c64-9d79-c95f47af1190
+langcode: de
+status: true
+dependencies:
+  config:
+    - block_content.type.code
+    - field.field.block_content.code.field_code
+  module:
+    - twig_field
+id: block_content.code.default
+targetEntityType: block_content
+bundle: code
+mode: default
+content:
+  field_code:
+    type: twig
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true

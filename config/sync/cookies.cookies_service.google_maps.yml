@@ -1,0 +1,24 @@
+uuid: ec0e100c-7559-470a-b11d-80479add619f
+langcode: de
+status: true
+dependencies:
+  enforced:
+    module:
+      - cookies_geolocation
+_core:
+  default_config_hash: RH1DfSgdQCkatFqxpzLu6WRM1R9P3wPgA-Y1heCq-3A
+id: google_maps
+label: 'Google Maps'
+group: maps
+info:
+  value: '<p>Google Maps ist ein Kartendienst, der in unserer Webseite zur Darstellung von Satellitenbildern, Straßenkarten und zur Wegbeschreibung verwendet wird.</p><table><thead><tr><th>Cookie-Name</th><th>Standard Ablaufzeit</th><th>Beschreibung</th></tr></thead><tbody><tr><td>NID</td><td>6 Monate</td><td>Google verwendet dieses Cookies um Ihre bevorzugten Einstellungen und andere Informationen zu speichern, zum Beispiel Ihre bevorzugte Sprache, wie viele Suchergebnisse pro Seite angezeigt werden sollen und ob der Google SafeSearch-Filter aktiviert sein soll.</td></tr></tbody></table>'
+  format: full_html
+consentRequired: true
+purpose: 'Google Maps'
+placeholderMainText: 'Dieser Dienst wurde blockiert, da Google Maps Cookies (noch) nicht akzeptiert wurden.'
+placeholderAcceptText: 'Nur Google Maps Cookies akzeptieren.'
+processor: Google
+processorContact: ''
+processorUrl: 'https://www.google.com/maps'
+processorPrivacyPolicyUrl: 'https://policies.google.com/privacy'
+processorCookiePolicyUrl: 'https://policies.google.com/technologies/cookies'

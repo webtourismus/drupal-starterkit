@@ -1,0 +1,34 @@
+uuid: c467b6aa-308f-49c1-9940-e32225c0e252
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.grid
+    - field.field.paragraph.gallery.field_image_ratio
+    - field.field.paragraph.gallery.field_images
+    - field.field.paragraph.gallery.field_viewmode
+    - paragraphs.paragraphs_type.gallery
+  module:
+    - field_formatter_range
+id: paragraph.gallery.grid
+targetEntityType: paragraph
+bundle: gallery
+mode: grid
+content:
+  field_images:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: scale
+      link: false
+    third_party_settings:
+      field_formatter_range:
+        order: 0
+        limit: 0
+        offset: 0
+    weight: 0
+    region: content
+hidden:
+  field_image_ratio: true
+  field_viewmode: true
+  seasonal: true

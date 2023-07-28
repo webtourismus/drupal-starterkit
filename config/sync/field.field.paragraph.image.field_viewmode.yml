@@ -1,0 +1,24 @@
+uuid: ac9007fb-6b9e-4d79-914a-12aee6139804
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.lightbox
+    - field.storage.paragraph.field_viewmode
+    - paragraphs.paragraphs_type.image
+  module:
+    - view_mode_switch
+id: paragraph.image.field_viewmode
+field_name: field_viewmode
+entity_type: paragraph
+bundle: image
+label: 'Bei Klick vergrößern'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_view_modes:
+    lightbox: lightbox
+field_type: view_mode_switch

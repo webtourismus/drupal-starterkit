@@ -1,0 +1,10 @@
+uuid: 255b981d-2e6f-4b26-8180-4826dd53a9a4
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+id: node.teaser_imgleft
+label: 'Teaser (Bild links)'
+targetEntityType: node
+cache: true

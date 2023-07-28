@@ -1,0 +1,22 @@
+uuid: a9d1e185-b4d8-4111-82b8-d0f575071dad
+langcode: de
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.viewsreference
+id: paragraph.viewsreference.status
+field_name: status
+entity_type: paragraph
+bundle: viewsreference
+label: Veröffentlicht
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: An
+  off_label: Aus
+field_type: boolean

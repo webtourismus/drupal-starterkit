@@ -1,0 +1,22 @@
+uuid: 21df24dc-70bb-42ea-8f0f-1893d9f2c713
+langcode: de
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.icon
+id: paragraph.icon.status
+field_name: status
+entity_type: paragraph
+bundle: icon
+label: Veröffentlicht
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: An
+  off_label: Aus
+field_type: boolean

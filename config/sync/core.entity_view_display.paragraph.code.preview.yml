@@ -1,0 +1,16 @@
+uuid: e05bcc7c-7170-409b-8dba-4be3e9fbcf7b
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.code.field_code
+    - paragraphs.paragraphs_type.code
+id: paragraph.code.preview
+targetEntityType: paragraph
+bundle: code
+mode: preview
+content: {  }
+hidden:
+  field_code: true
+  seasonal: true

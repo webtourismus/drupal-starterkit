@@ -1,0 +1,142 @@
+uuid: 2acc80ea-4095-4937-9dec-11fb7e42850a
+langcode: de
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+  module:
+    - ckeditor5
+format: full_html
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - undo
+      - redo
+      - '|'
+      - heading
+      - style
+      - alignment
+      - '|'
+      - bold
+      - italic
+      - underline
+      - removeFormat
+      - '|'
+      - link
+      - '|'
+      - bulletedList
+      - numberedList
+      - indent
+      - outdent
+      - '|'
+      - insertTable
+      - drupalMedia
+      - blockQuote
+      - horizontalLine
+      - specialCharacters
+      - '|'
+      - sourceEditing
+  plugins:
+    ckeditor5_alignment:
+      enabled_alignments:
+        - center
+        - justify
+        - left
+        - right
+    ckeditor5_heading:
+      enabled_headings:
+        - heading1
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+    ckeditor5_list:
+      reversed: true
+      startIndex: true
+    ckeditor5_sourceEditing:
+      allowed_tags:
+        - '<br class id data-*>'
+        - '<span class id data-*>'
+        - '<a class id data-* target rel>'
+        - '<p class id data-*>'
+        - '<div class id data-*>'
+        - '<ul class id data-*>'
+        - '<ol class id data-*>'
+        - '<li class id data-*>'
+        - '<strong class id data-*>'
+        - '<em class id data-*>'
+        - '<u class id data-*>'
+        - '<table class id data-*>'
+        - '<thead class id data-*>'
+        - '<tbody class id data-*>'
+        - '<tr class id data-*>'
+        - '<th class id data-*>'
+        - '<td class id data-*>'
+        - '<h1 class id data-*>'
+        - '<h2 class id data-*>'
+        - '<h3 class id data-*>'
+        - '<h4 class id data-*>'
+        - '<h5 class id data-*>'
+        - '<h6 class id data-*>'
+        - '<drupal-media data-entity-type data-entity-uuid alt class id>'
+    ckeditor5_style:
+      styles:
+        -
+          label: 'P wie Überschrift 1'
+          element: '<p class="h1">'
+        -
+          label: 'H2 wie Überschrift 1'
+          element: '<h2 class="h1">'
+        -
+          label: 'wie Überschrift 2'
+          element: '<p class="h2">'
+        -
+          label: 'wie Überschrift 3'
+          element: '<p class="h3">'
+        -
+          label: 'wie Überschrift 4'
+          element: '<p class="h4">'
+        -
+          label: 'wie Überschrift 5'
+          element: '<p class="h5">'
+        -
+          label: 'wie Überschrift 6'
+          element: '<p class="h6">'
+        -
+          label: 'Schriftgröße klein'
+          element: '<span class="text-smaller">'
+        -
+          label: 'Schriftgröße groß'
+          element: '<span class="text-larger">'
+        -
+          label: 'Schriftgröße nach Bildschirm'
+          element: '<span class="text-fluid">'
+        -
+          label: 'Schriftfarbe auffällig'
+          element: '<span class="text-flashy">'
+        -
+          label: 'Schriftfarbe reduziert'
+          element: '<span class="opacity-80">'
+        -
+          label: 'Button auffällig'
+          element: '<a class="btn-filled-flashy">'
+        -
+          label: 'Button Textfarbe'
+          element: '<a class="btn-filled-foreground">'
+        -
+          label: 'Button gerahmt'
+          element: '<a class="btn-outline">'
+        -
+          label: 'Link dekoriert'
+          element: '<a class="link-decorated">'
+        -
+          label: 'responsive Tabelle'
+          element: '<table class="responsive-table">'
+    linkit_extension:
+      linkit_enabled: true
+      linkit_profile: backend
+    media_media:
+      allow_view_mode_override: false
+image_upload: {  }

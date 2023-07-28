@@ -1,0 +1,25 @@
+uuid: 291e4c4e-1b7a-4994-b818-9704bbd6d149
+langcode: de
+status: true
+dependencies:
+  content:
+    - 'block_content:code:7c1b3dd5-adac-4562-81f7-6d0f73ee4984'
+  module:
+    - block_content
+  theme:
+    - frontend
+id: ganzamende
+theme: frontend
+region: footer
+weight: -1
+provider: null
+plugin: 'block_content:7c1b3dd5-adac-4562-81f7-6d0f73ee4984'
+settings:
+  id: 'block_content:7c1b3dd5-adac-4562-81f7-6d0f73ee4984'
+  label: 'ganz am ende'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

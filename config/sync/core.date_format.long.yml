@@ -1,0 +1,10 @@
+uuid: 239b9dae-8829-4fd7-a50d-dffe78c1716f
+langcode: de
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: og8sWXhBuHbLMw3CoiBEZjgqSyhFBFmcbUW_wLcfNbo
+id: long
+label: 'Standard lang "Donnerstag, 31. Dezember 2099 - 23:59"'
+locked: false
+pattern: 'l, j. F Y - H:i'

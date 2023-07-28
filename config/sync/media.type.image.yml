@@ -1,0 +1,19 @@
+uuid: ba309e2d-e992-4a2c-ab09-9c0430659b7f
+langcode: de
+status: true
+dependencies:
+  module:
+    - crop
+third_party_settings:
+  crop:
+    image_field: _none
+id: image
+label: Bild
+description: 'Ein Bild, das auf mehreren Seiten verwendet werden kann.'
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image
+field_map:
+  name: name

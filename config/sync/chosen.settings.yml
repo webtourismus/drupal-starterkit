@@ -1,0 +1,21 @@
+_core:
+  default_config_hash: exRaKE0s6uZbfQrl_2WFEcTlc_1t81xEqCLuCCteUSk
+langcode: de
+minimum_single: 25
+minimum_multiple: 0
+disable_search_threshold: 25
+minimum_width: 100
+max_shown_results: null
+use_relative_width: true
+jquery_selector: 'select:visible'
+search_contains: false
+disable_search: false
+allow_single_deselect: true
+disabled_themes:
+  claro: '0'
+  gin: '0'
+  frontend: '0'
+chosen_include: 2
+placeholder_text_multiple: '- Bitte auswählen -'
+placeholder_text_single: '- Bitte auswählen -'
+no_results_text: 'Keine passenden Resultate'

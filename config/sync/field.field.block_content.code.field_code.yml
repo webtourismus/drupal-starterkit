@@ -1,0 +1,30 @@
+uuid: 8d87e85e-2465-4441-b9a4-e0cf61ef0f44
+langcode: de
+status: true
+dependencies:
+  config:
+    - block_content.type.code
+    - field.storage.block_content.field_code
+  module:
+    - field_config_cardinality
+    - twig_field
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: block_content.code.field_code
+field_name: field_code
+entity_type: block_content
+bundle: code
+label: Code
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_mode: ''
+field_type: twig

@@ -1,0 +1,145 @@
+uuid: e9696e57-ad53-4114-8925-d3a86a603a8f
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.room.body
+    - field.field.node.room.field_banner
+    - field.field.node.room.field_banner_text
+    - field.field.node.room.field_banner_viewmode
+    - field.field.node.room.field_category
+    - field.field.node.room.field_images
+    - field.field.node.room.field_occupancy_max
+    - field.field.node.room.field_occupancy_std
+    - field.field.node.room.field_pagebuilder
+    - field.field.node.room.field_price
+    - field.field.node.room.field_roomsize
+    - field.field.node.room.field_seo
+    - field.field.node.room.field_subtitle
+    - field.field.node.room.field_weight
+    - node.type.room
+  module:
+    - ebr
+    - layout_paragraphs
+    - link
+    - metatag
+    - user
+id: node.room.full
+targetEntityType: node
+bundle: room
+mode: full
+content:
+  field_pagebuilder:
+    type: layout_paragraphs
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_seo:
+    type: metatag_empty_formatter
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  link_book:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  link_enquiry:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  occupancy:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  price:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  roomsize:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 18
+    region: content
+  widget_availability:
+    type: widget_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 28
+    region: content
+  widget_calendar:
+    type: widget_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  widget_pricecomparison:
+    type: widget_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 29
+    region: content
+  widget_rates:
+    type: widget_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 27
+    region: content
+hidden:
+  body: true
+  field_banner: true
+  field_banner_text: true
+  field_banner_viewmode: true
+  field_category: true
+  field_images: true
+  field_occupancy_max: true
+  field_occupancy_std: true
+  field_price: true
+  field_roomsize: true
+  field_subtitle: true
+  field_weight: true
+  langcode: true
+  link_readmore: true
+  occupancy_max: true

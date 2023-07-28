@@ -1,0 +1,23 @@
+uuid: 11f50faf-714e-49b6-b7be-eeab644a24e5
+langcode: de
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 3_2_1400x933
+label: '3:2 (1400x933)'
+effects:
+  8bb10dc5-0a82-4fe3-9007-6341df7549bc:
+    uuid: 8bb10dc5-0a82-4fe3-9007-6341df7549bc
+    id: image_convert
+    weight: 1
+    data:
+      extension: webp
+  fd94514b-257e-4511-87eb-d76035c1a4ec:
+    uuid: fd94514b-257e-4511-87eb-d76035c1a4ec
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 1400
+      height: 933
+      crop_type: focal_point

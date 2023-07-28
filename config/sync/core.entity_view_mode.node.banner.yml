@@ -1,0 +1,10 @@
+uuid: 0074c3f8-2162-45df-8e63-18c23ba2ad2f
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+id: node.banner
+label: 'Banner (viewmode switcher origin)'
+targetEntityType: node
+cache: true

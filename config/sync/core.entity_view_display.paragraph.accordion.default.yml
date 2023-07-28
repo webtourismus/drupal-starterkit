@@ -1,0 +1,25 @@
+uuid: 10103fd7-4133-4dbc-bfbc-7b25e39fdc82
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.accordion.field_accordion
+    - field.field.paragraph.accordion.field_accordion_expanded
+    - paragraphs.paragraphs_type.accordion
+  module:
+    - text
+id: paragraph.accordion.default
+targetEntityType: paragraph
+bundle: accordion
+mode: default
+content:
+  field_accordion:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_accordion_expanded: true
+  seasonal: true

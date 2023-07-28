@@ -1,0 +1,38 @@
+uuid: b1660d71-524e-49e4-9d2f-3697cb041684
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_images
+    - media.type.vector_image
+    - paragraphs.paragraphs_type.icon
+  module:
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: paragraph.icon.field_images
+field_name: field_images
+entity_type: paragraph
+bundle: icon
+label: Icon
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      vector_image: vector_image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,14 @@
+uuid: a4bb0486-4d2c-4755-a2c0-688bd84351d3
+langcode: de
+status: true
+dependencies:
+  module:
+    - designsystem
+id: gallery
+label: Bildergalerie
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins:
+  inline_style_options:
+    enabled: true

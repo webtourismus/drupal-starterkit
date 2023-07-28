@@ -1,0 +1,46 @@
+uuid: 809b2c77-66ef-4571-9895-b5e6a4ddaded
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.banner_image.field_images
+    - field.field.paragraph.banner_image.field_text
+    - paragraphs.paragraphs_type.banner_image
+  module:
+    - field_formatter_range
+    - options
+    - text
+id: paragraph.banner_image.preview
+targetEntityType: paragraph
+bundle: banner_image
+mode: preview
+content:
+  field_images:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: media_library
+      link: false
+    third_party_settings:
+      field_formatter_range:
+        order: 0
+        limit: 0
+        offset: 0
+    weight: 0
+    region: content
+  field_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  seasonal:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

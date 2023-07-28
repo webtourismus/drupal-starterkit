@@ -1,0 +1,120 @@
+uuid: a3d41d7f-be10-4e40-8a50-51c87a5ab568
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.banner_text
+    - field.field.node.room.body
+    - field.field.node.room.field_banner
+    - field.field.node.room.field_banner_text
+    - field.field.node.room.field_banner_viewmode
+    - field.field.node.room.field_category
+    - field.field.node.room.field_images
+    - field.field.node.room.field_occupancy_max
+    - field.field.node.room.field_occupancy_std
+    - field.field.node.room.field_pagebuilder
+    - field.field.node.room.field_price
+    - field.field.node.room.field_roomsize
+    - field.field.node.room.field_seo
+    - field.field.node.room.field_subtitle
+    - field.field.node.room.field_weight
+    - node.type.room
+  module:
+    - entity_reference_revisions
+    - field_formatter_range
+    - text
+    - user
+id: node.room.banner_text
+targetEntityType: node
+bundle: room
+mode: banner_text
+content:
+  field_banner:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: banner_text
+      link: ''
+    third_party_settings:
+      field_formatter_range:
+        order: 0
+        limit: 0
+        offset: 0
+    weight: 1
+    region: content
+  field_banner_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  occupancy:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  price:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  roomsize:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 18
+    region: content
+  widget_availability:
+    type: widget_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  widget_pricecomparison:
+    type: widget_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  widget_rates:
+    type: widget_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+hidden:
+  body: true
+  field_banner_viewmode: true
+  field_category: true
+  field_images: true
+  field_occupancy_max: true
+  field_occupancy_std: true
+  field_pagebuilder: true
+  field_price: true
+  field_roomsize: true
+  field_seo: true
+  field_subtitle: true
+  field_weight: true
+  langcode: true
+  link_book: true
+  link_enquiry: true
+  link_readmore: true
+  occupancy_max: true
+  widget_calendar: true

@@ -1,0 +1,33 @@
+uuid: 97425b20-ea74-41d0-8f5e-0b8a84301228
+langcode: de
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: package_de
+label: 'Prefix /angebote'
+type: 'canonical_entities:node'
+pattern: '/angebote/[node:title]'
+selection_criteria:
+  a15f5a1a-bde1-4982-90fa-93878aac5308:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: a15f5a1a-bde1-4982-90fa-93878aac5308
+    context_mapping:
+      node: node
+    bundles:
+      package: package
+  246d35b6-3210-4b41-b62c-e2dbdc6b7117:
+    id: language
+    negate: false
+    uuid: 246d35b6-3210-4b41-b62c-e2dbdc6b7117
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      de: de
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language

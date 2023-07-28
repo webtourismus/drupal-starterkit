@@ -1,0 +1,6 @@
+third_party_settings:
+  field_group:
+    group_description:
+      label: 'Texts and images'
+      format_settings:
+        description: 'If left empty, fields from the linked page will be used. Should be filled if linking to external pages.'

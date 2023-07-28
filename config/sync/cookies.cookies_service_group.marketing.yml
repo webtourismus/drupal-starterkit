@@ -1,0 +1,11 @@
+uuid: fcfc052d-f9a4-41fa-b632-b3fe735f71e8
+langcode: de
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: JkP6try0AxX_f4RpFEletep5NHSlVB1BbGw0snW4MO8
+id: marketing
+label: Marketing
+weight: 20
+title: Marketing
+details: 'Marketing-Cookies speichern personenbezogene Daten. Sie erlauben es, zielgerichtete Werbung anzuzeigen und die Effizienz dieser Werbung zu messen.'

@@ -1,0 +1,18 @@
+uuid: 2ae119f7-ed22-4e05-95cd-374b50108e34
+langcode: de
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+id: menu_link_content.footer.title
+field_name: title
+entity_type: menu_link_content
+bundle: footer
+label: 'Linktitel des Menüpunkts'
+description: 'Der Link-Anzeigetext für die Verwendung im Menü.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,10 @@
+uuid: 4bf8523e-bd4d-46fa-8fcd-4552f7c474d7
+langcode: de
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 7yrlW5z9zdg2eBucB2GPqXKSMQfH9lSRSO4DbWF7AFc
+id: footer
+label: Fußzeile
+description: 'Links im unteren Bereich der Webseite'
+locked: true

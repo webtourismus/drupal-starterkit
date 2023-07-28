@@ -1,0 +1,22 @@
+uuid: e345e2b2-4cb0-43b4-a46a-e33e722372f4
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_code
+    - paragraphs.paragraphs_type.code
+  module:
+    - twig_field
+id: paragraph.code.field_code
+field_name: field_code
+entity_type: paragraph
+bundle: code
+label: Code
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_mode: ''
+field_type: twig

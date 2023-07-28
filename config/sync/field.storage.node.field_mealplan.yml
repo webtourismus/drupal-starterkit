@@ -1,0 +1,36 @@
+uuid: d8543258-44a6-4832-ad64-03728a2f1ac5
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_mealplan
+field_name: field_mealplan
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: BF
+      label: 'Bed & Breakfast'
+    -
+      value: HB
+      label: Halbpension
+    -
+      value: EHB
+      label: '3/4 Pension'
+    -
+      value: FB
+      label: Vollpension
+    -
+      value: AI
+      label: 'All inclusive'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

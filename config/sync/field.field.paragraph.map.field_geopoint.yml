@@ -1,0 +1,36 @@
+uuid: efa6d99c-9383-47b6-8442-9dab015a475c
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_geopoint
+    - paragraphs.paragraphs_type.map
+  module:
+    - field_config_cardinality
+    - geolocation
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: paragraph.map.field_geopoint
+field_name: field_geopoint
+entity_type: paragraph
+bundle: map
+label: Geo-Punkt
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    lat: '47.4335697'
+    lng: '9.737731199999985'
+    lat_sin: '0.7364935435979'
+    lat_cos: '0.67644457292421'
+    lng_rad: '0.16995547111418'
+    value: '47.4335697, 9.737731199999985'
+default_value_callback: ''
+settings: {  }
+field_type: geolocation

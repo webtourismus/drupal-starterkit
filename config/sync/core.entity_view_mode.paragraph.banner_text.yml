@@ -1,0 +1,10 @@
+uuid: bc71f5f2-3546-4ee3-ab77-323c4de86e2d
+langcode: de
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.banner_text
+label: 'Banner mit Text'
+targetEntityType: paragraph
+cache: true

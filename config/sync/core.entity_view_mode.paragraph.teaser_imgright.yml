@@ -1,0 +1,10 @@
+uuid: fcfc29fd-cdac-4960-af82-9d77d3fa451e
+langcode: de
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.teaser_imgright
+label: 'Bild rechts'
+targetEntityType: paragraph
+cache: true

@@ -1,0 +1,14 @@
+uuid: 2a58bc33-63d9-46eb-91a9-b0df1d30b24c
+langcode: de
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.media
+id: taxonomy_term.media.default
+targetEntityType: taxonomy_term
+bundle: media
+mode: default
+content: {  }
+hidden:
+  description: true
+  langcode: true

@@ -1,0 +1,26 @@
+uuid: 4894b58f-444e-4f1c-a428-6f78bffe06d3
+langcode: de
+status: true
+dependencies:
+  module:
+    - layout_paragraphs
+id: layout
+label: Layout
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins:
+  layout_paragraphs:
+    enabled: true
+    group_by_categories: true
+    available_layouts:
+      columns1: '1 Spalte'
+      columns2: '2 Spalten'
+      columns3: '3 Spalten'
+      columns4: '4 Spalten'
+      columns5: '5 Spalten'
+      grid_2cells: '2 Spalten'
+      grid_3cells: '3 Spalten'
+      grid_1lg_2sm: 'Große Zelle links und 2 Kleine rechts'
+      grid_2sm_1lg: 'Große Zelle rechts und 2 Kleine links'
+      fluidcolumns: 'Unbegrenzte Spaltenanzahl: 1 Inhalts-Block = 1 Spalte, alle gleiche Breite'

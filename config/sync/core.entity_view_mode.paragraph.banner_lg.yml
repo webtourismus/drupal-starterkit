@@ -1,0 +1,10 @@
+uuid: 91d4cf16-7cba-49e5-9535-e7f4fe79f3b5
+langcode: de
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.banner_lg
+label: 'Banner groß'
+targetEntityType: paragraph
+cache: true

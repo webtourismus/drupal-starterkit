@@ -1,0 +1,21 @@
+uuid: cc494102-8d82-4934-90ae-7fa09ac6a0c4
+langcode: de
+status: true
+dependencies: {  }
+name: w512
+label: 'Scale width 512px'
+effects:
+  3b1c0c12-0dd8-4583-9227-e8d97896c457:
+    uuid: 3b1c0c12-0dd8-4583-9227-e8d97896c457
+    id: image_convert
+    weight: 1
+    data:
+      extension: webp
+  abfa9721-b555-45df-b542-ac667ecd0d84:
+    uuid: abfa9721-b555-45df-b542-ac667ecd0d84
+    id: image_scale
+    weight: 2
+    data:
+      width: 512
+      height: null
+      upscale: false

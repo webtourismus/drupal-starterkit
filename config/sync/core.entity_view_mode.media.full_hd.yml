@@ -1,0 +1,10 @@
+uuid: babfd727-a690-4fe9-83e3-2d1ecffdd17c
+langcode: de
+status: true
+dependencies:
+  module:
+    - media
+id: media.full_hd
+label: 'Full HD'
+targetEntityType: media
+cache: true

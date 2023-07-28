@@ -1,0 +1,46 @@
+display:
+  default:
+    display_options:
+      fields:
+        status:
+          label: Published
+        info:
+          label: 'Block description'
+          separator: ', '
+        type:
+          label: 'Block type'
+          separator: ', '
+        changed:
+          label: Updated
+        operations:
+          label: Operations
+      filters:
+        langcode:
+          expose:
+            label: Language
+        info:
+          expose:
+            label: 'Block description'
+        type:
+          expose:
+            label: 'Block type'
+      title: 'Content blocks'
+      exposed_form:
+        options:
+          submit_button: Apply
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      empty:
+        area_text_custom:
+          content: 'There are no content blocks available.'
+    display_title: Default
+  page_1:
+    display_title: Page
+    display_options:
+      menu:
+        title: Blocks
+        description: 'Create and edit content blocks.'
+label: 'Content blocks'
+description: 'Find and manage content blocks.'

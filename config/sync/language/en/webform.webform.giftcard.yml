@@ -1,0 +1,47 @@
+title: 'Gift cards'
+elements: |
+  value:
+    '#title': 'Value of gift card in €'
+  dedication:
+    '#title': Dedication
+  text_mydata:
+    '#text': '<h3>Address</h3>'
+  title:
+    '#title': Title
+  firstname:
+    '#title': 'First name'
+  lastname:
+    '#title': 'Last name'
+  street:
+    '#title': Street
+  postcode:
+    '#title': Postcode
+  city:
+    '#title': City
+  country:
+    '#title': Country
+  phone:
+    '#title': Phone
+    '#description': '<p>Please include international dialing code</p>'
+  email:
+    '#title': Email
+  shipping:
+    '#title': Shipping
+    '#options':
+      email: 'by E-Mail, gift card as PDF for self-printing'
+      post: 'by mail (plus shipping costs)'
+      pickup: 'collection by customer, no shipping'
+  message:
+    '#title': 'Questions, remarks,...'
+  actions:
+    '#title': Submit
+    '#submit__label': 'Buy gift card'
+handlers:
+  mail_customer:
+    settings:
+      subject: 'My gift card from [site:url-brief]'
+      body: "<p>Thanks for your gift card order on [current-date:long]. We'll answer your to your order as soon as possible.<br><br><br>Your [site:name] Team.<br><br><br>This is an automated mail containing your submitted data on our site [site:url-brief].<br><br>[webform_submission:values]</p>"
+  mail_siteowner:
+    settings:
+      subject: 'Gift card order [webform_submission:values:value] €'
+      body: '<p>_default</p>'

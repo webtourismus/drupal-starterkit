@@ -1,0 +1,166 @@
+uuid: 628199de-54a1-49f1-a724-227be5c02930
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.linkblock.field_image_ratio
+    - field.field.paragraph.linkblock.field_images
+    - field.field.paragraph.linkblock.field_link
+    - field.field.paragraph.linkblock.field_subtitle
+    - field.field.paragraph.linkblock.field_suppress_fields
+    - field.field.paragraph.linkblock.field_text
+    - field.field.paragraph.linkblock.field_title
+    - field.field.paragraph.linkblock.field_viewmode
+    - paragraphs.paragraphs_type.linkblock
+  module:
+    - allowed_formats
+    - designsystem
+    - field_group
+    - media_library
+    - text
+    - view_mode_switch
+third_party_settings:
+  field_group:
+    group_description:
+      children:
+        - field_title
+        - field_subtitle
+        - field_text
+        - field_images
+        - group_design
+        - field_suppress_fields
+      label: 'Texte und Bilder'
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: true
+        description: 'Wenn leer werden Basisdaten der verlinkten Seite verwendet. Sollte ausgefült werden wenn auf externe Seiten verlinkt wird.'
+        required_fields: false
+    group_link:
+      children:
+        - field_link
+      label: Link
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: true
+        id: ''
+        open: true
+        description: ''
+        required_fields: false
+    group_design:
+      children:
+        - field_viewmode
+        - field_image_ratio
+      label: Design
+      region: content
+      parent_name: group_description
+      weight: 6
+      format_type: html_element
+      format_settings:
+        classes: 'grid grid-cols-1 sm:grid-cols-2 gap-4 mt-[-1.5rem]'
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: false
+id: paragraph.linkblock.default
+targetEntityType: paragraph
+bundle: linkblock
+mode: default
+content:
+  field_image_ratio:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_images:
+    type: media_library_widget
+    weight: 5
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_link:
+    type: linkit_attributes_2columns
+    weight: 9
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      linkit_profile: backend
+      enabled_attributes:
+        target: target
+        class: class
+        id: 0
+        name: 0
+        rel: 0
+        accesskey: 0
+        aria-label: 0
+        title: 0
+      linkit_auto_link_text: 0
+    third_party_settings: {  }
+  field_subtitle:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 1
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+  field_suppress_fields:
+    type: options_select
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_text:
+    type: text_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+  field_title:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 1
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+  field_viewmode:
+    type: view_mode_switch
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  seasonal: true
+  status: true
+  translation: true

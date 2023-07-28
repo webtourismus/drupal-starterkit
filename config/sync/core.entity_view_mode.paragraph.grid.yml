@@ -1,0 +1,10 @@
+uuid: cdaf4254-8f9d-468f-840c-eedf5ae3bc83
+langcode: de
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.grid
+label: Gitter
+targetEntityType: paragraph
+cache: true

@@ -1,0 +1,10 @@
+uuid: 5ceb7fc6-936b-47e8-bdcb-59614b5e7519
+langcode: de
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.teaser_imgbg
+label: 'Bild als Hintergrund'
+targetEntityType: paragraph
+cache: true

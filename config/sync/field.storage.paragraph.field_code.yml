@@ -1,0 +1,19 @@
+uuid: da206544-b677-4ccd-bf34-40a762157e80
+langcode: de
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - twig_field
+id: paragraph.field_code
+field_name: field_code
+entity_type: paragraph
+type: twig
+settings: {  }
+module: twig_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

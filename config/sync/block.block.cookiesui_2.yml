@@ -1,0 +1,20 @@
+uuid: 851160b5-dd13-40a2-8bf7-ea33e5321107
+langcode: de
+status: true
+dependencies:
+  module:
+    - cookies
+  theme:
+    - claro
+id: cookiesui_2
+theme: claro
+region: content
+weight: 0
+provider: null
+plugin: cookies_ui_block
+settings:
+  id: cookies_ui_block
+  label: 'Cookies UI'
+  label_display: visible
+  provider: cookies
+visibility: {  }

@@ -1,0 +1,29 @@
+uuid: 3ae07389-2cee-43bf-8ae4-349aabfd511b
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_seo
+    - node.type.room
+  module:
+    - field_config_cardinality
+    - metatag
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: node.room.field_seo
+field_name: field_seo
+entity_type: node
+bundle: room
+label: SEO
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

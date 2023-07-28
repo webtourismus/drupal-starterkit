@@ -1,0 +1,11 @@
+uuid: 7b375c57-bda8-4215-9b4e-921cfb95f078
+langcode: de
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: aHm4Q63Ge97tcktTa_qmUqJMir45iyGY2lEvvqPW68g
+id: functional
+label: Essenziell
+weight: 1
+title: Essenziell
+details: 'Cookies sind kleine Textdateien, die von Ihrem Browser auf Ihrem Gerät abgelegt werden, um bestimmte Informationen zu speichern. Essenzielle Cookies sind für das einwandfreie Funktionieren der Website zwingend erforderlich. Diese Kategorie umfasst nur Cookies, die grundlegende Funktionalitäten und Sicherheitsmerkmale der Website gewährleisten.'

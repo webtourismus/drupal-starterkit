@@ -1,0 +1,23 @@
+uuid: 9268d14c-80b0-4b67-8f92-4abad93caaa9
+langcode: de
+status: true
+dependencies:
+  module:
+    - ctools
+  theme:
+    - frontend
+id: banner
+theme: frontend
+region: header
+weight: 0
+provider: null
+plugin: 'entity_view:node'
+settings:
+  id: 'entity_view:node'
+  label: 'Hero banner'
+  label_display: '0'
+  provider: ctools
+  view_mode: banner
+  context_mapping:
+    entity: '@node.node_route_context:node'
+visibility: {  }

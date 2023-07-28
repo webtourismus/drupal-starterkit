@@ -1,0 +1,27 @@
+uuid: 673ef4b9-bfc8-4701-b2a4-96d824b93887
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text
+    - paragraphs.paragraphs_type.banner_video
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: paragraph.banner_video.field_text
+field_name: field_text
+entity_type: paragraph
+bundle: banner_video
+label: Text
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - banner_html
+field_type: text_long

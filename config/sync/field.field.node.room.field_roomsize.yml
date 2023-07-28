@@ -1,0 +1,32 @@
+uuid: eb42c9a9-fb76-4442-95ff-519fcf44ca18
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_roomsize
+    - node.type.room
+  module:
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: node.room.field_roomsize
+field_name: field_roomsize
+entity_type: node
+bundle: room
+label: Zimmergröße
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: m²
+field_type: decimal

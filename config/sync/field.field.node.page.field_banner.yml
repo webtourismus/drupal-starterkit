@@ -1,0 +1,77 @@
+uuid: 22a6e52b-3774-4ea1-88e8-b91efa942b46
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_banner
+    - node.type.page
+    - paragraphs.paragraphs_type.banner_image
+    - paragraphs.paragraphs_type.banner_video
+  module:
+    - entity_reference_revisions
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '-1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: node.page.field_banner
+field_name: field_banner
+entity_type: node
+bundle: page
+label: Banner
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      banner_image: banner_image
+      banner_video: banner_video
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: -25
+        enabled: false
+      banner_image:
+        weight: -27
+        enabled: true
+      banner_video:
+        weight: -26
+        enabled: true
+      code:
+        weight: -24
+        enabled: false
+      icon:
+        weight: -23
+        enabled: false
+      image:
+        weight: -22
+        enabled: false
+      layout:
+        weight: -21
+        enabled: false
+      linkblock:
+        weight: -20
+        enabled: false
+      map:
+        weight: -19
+        enabled: false
+      text:
+        weight: -18
+        enabled: false
+      video:
+        weight: -17
+        enabled: false
+      viewsreference:
+        weight: -16
+        enabled: false
+      webform:
+        weight: -15
+        enabled: false
+field_type: entity_reference_revisions

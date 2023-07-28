@@ -1,0 +1,10 @@
+uuid: e3d5c576-71ad-4e3f-82c1-5d2e5f2cb176
+langcode: de
+status: true
+dependencies: {  }
+id: accordion
+label: Klapptext
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

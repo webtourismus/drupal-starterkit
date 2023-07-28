@@ -1,0 +1,13 @@
+uuid: 2d3a3f2a-7e26-47aa-9111-097766d05147
+langcode: de
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: rpwvgyEURXLz_JjgMCrkS1rUv-0k3L79BpO-ReN7fDI
+id: node
+label: Inhalt
+tags:
+  canonical_url: '[node:url]'
+  description: '[node:summary]'
+  image_src: '[node:field_images:0:entity:field_media_image:16_9_1920x1080:url]'
+  title: '[node:title] | [site:name]'

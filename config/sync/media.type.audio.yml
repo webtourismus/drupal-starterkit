@@ -1,0 +1,19 @@
+uuid: 75018c9b-6167-45c3-a34d-11660f65f2bb
+langcode: de
+status: true
+dependencies:
+  module:
+    - crop
+third_party_settings:
+  crop:
+    image_field: _none
+id: audio
+label: Audio
+description: 'Eine lokal gespeicherte Audio-Datei, z.B. ein MP3.'
+source: audio_file
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_audio_file
+field_map:
+  name: name

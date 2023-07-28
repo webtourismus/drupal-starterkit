@@ -1,0 +1,18 @@
+uuid: 4f96606a-2293-4e3a-aebb-3e74d82d5656
+langcode: de
+status: true
+dependencies:
+  config:
+    - system.menu.tools
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: menu_link_content.tools
+target_entity_type_id: menu_link_content
+target_bundle: tools
+default_langcode: de
+language_alterable: false

@@ -1,0 +1,10 @@
+uuid: 9f9fcab8-994a-403d-befe-2315267df4c3
+langcode: de
+status: true
+dependencies:
+  module:
+    - media
+id: media.linkblock
+label: 'Linkblock (responsiv, nach Bildschirm)'
+targetEntityType: media
+cache: true

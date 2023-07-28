@@ -1,0 +1,21 @@
+uuid: 0fa7d14b-92f8-45ef-8dce-32eb518dcc8f
+langcode: de
+status: true
+dependencies: {  }
+name: w1400
+label: 'Scale width 1400px'
+effects:
+  c9127e4e-6a53-4081-adde-35c1e5592953:
+    uuid: c9127e4e-6a53-4081-adde-35c1e5592953
+    id: image_convert
+    weight: 1
+    data:
+      extension: webp
+  5e0817e7-73b3-44ee-9b00-ca5900bf410e:
+    uuid: 5e0817e7-73b3-44ee-9b00-ca5900bf410e
+    id: image_scale
+    weight: 2
+    data:
+      width: 1400
+      height: null
+      upscale: false

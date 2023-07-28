@@ -1,0 +1,71 @@
+uuid: 7e21f365-472c-43a1-af5d-6791aa5df63b
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.node.page.body
+    - field.field.node.page.field_banner
+    - field.field.node.page.field_banner_text
+    - field.field.node.page.field_banner_viewmode
+    - field.field.node.page.field_category
+    - field.field.node.page.field_images
+    - field.field.node.page.field_pagebuilder
+    - field.field.node.page.field_seo
+    - field.field.node.page.field_subtitle
+    - field.field.node.page.field_weight
+    - node.type.page
+  module:
+    - layout_paragraphs
+    - text
+    - user
+id: node.page.default
+targetEntityType: node
+bundle: page
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_images:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_pagebuilder:
+    type: layout_paragraphs
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_subtitle:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden:
+  field_banner: true
+  field_banner_text: true
+  field_banner_viewmode: true
+  field_category: true
+  field_seo: true
+  field_weight: true
+  langcode: true
+  link_readmore: true

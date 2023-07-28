@@ -1,0 +1,10 @@
+uuid: c961353e-fae1-4fd9-a57c-1d3118b8d055
+langcode: de
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.banner_sm
+label: 'Banner klein'
+targetEntityType: paragraph
+cache: true

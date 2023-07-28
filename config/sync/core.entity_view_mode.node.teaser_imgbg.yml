@@ -1,0 +1,10 @@
+uuid: ade63bad-5a27-43d3-9432-f6d5015a9a26
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+id: node.teaser_imgbg
+label: 'Teaser (Bild als Hintergrund)'
+targetEntityType: node
+cache: true

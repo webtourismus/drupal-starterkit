@@ -1,0 +1,21 @@
+uuid: ad3dc6d0-a046-479b-9ff5-d4ef0d36c04c
+langcode: de
+status: true
+dependencies: {  }
+name: w768
+label: 'Scale width 768px'
+effects:
+  67961017-6f47-4dae-9ae2-e9713c988543:
+    uuid: 67961017-6f47-4dae-9ae2-e9713c988543
+    id: image_convert
+    weight: 1
+    data:
+      extension: webp
+  f3b7c14a-1536-4d7c-a089-92a9c183ad73:
+    uuid: f3b7c14a-1536-4d7c-a089-92a9c183ad73
+    id: image_scale
+    weight: 2
+    data:
+      width: 768
+      height: null
+      upscale: false

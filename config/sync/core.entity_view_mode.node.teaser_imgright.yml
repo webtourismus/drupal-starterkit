@@ -1,0 +1,10 @@
+uuid: 37afdb81-1067-4341-9032-045ea6d35413
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+id: node.teaser_imgright
+label: 'Teaser (Bild rechts)'
+targetEntityType: node
+cache: true

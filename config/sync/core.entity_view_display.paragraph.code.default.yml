@@ -1,0 +1,23 @@
+uuid: feade5b4-4640-4113-a833-1d039957474b
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.code.field_code
+    - paragraphs.paragraphs_type.code
+  module:
+    - twig_field
+id: paragraph.code.default
+targetEntityType: paragraph
+bundle: code
+mode: default
+content:
+  field_code:
+    type: twig
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  seasonal: true

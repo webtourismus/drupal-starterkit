@@ -1,0 +1,38 @@
+uuid: d656e9d1-f7d6-4bec-9407-d2dcbd0f0b80
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_category
+    - media.type.remote_video
+    - taxonomy.vocabulary.media
+  module:
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '-1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: media.remote_video.field_category
+field_name: field_category
+entity_type: media
+bundle: remote_video
+label: Kategorie
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      media: media
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

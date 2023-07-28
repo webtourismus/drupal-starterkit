@@ -1,0 +1,42 @@
+uuid: 8a2aca27-8442-4839-ac93-49fb6615c631
+langcode: de
+status: true
+dependencies:
+  config:
+    - image.style.1_1_1024x1024
+    - image.style.1_1_360x360
+    - image.style.1_1_768x768
+    - image.style.4_3_1024x768
+    - image.style.4_3_1400x1050
+  module:
+    - backend
+id: banner_text
+label: 'Banner mit Text'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: 4_3_1400x1050
+    breakpoint_id: backend.banner.lg
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 1_1_1024x1024
+    breakpoint_id: backend.banner.md
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 4_3_1024x768
+    breakpoint_id: backend.banner.sm
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 1_1_768x768
+    breakpoint_id: backend.banner.xs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 1_1_360x360
+    breakpoint_id: backend.banner.xxs
+    multiplier: 1x
+breakpoint_group: backend.banner
+fallback_image_style: 4_3_1400x1050

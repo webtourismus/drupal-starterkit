@@ -1,0 +1,24 @@
+uuid: 3405660c-59e4-4ef7-adf5-c6ab9ac24cb0
+langcode: de
+status: true
+dependencies:
+  enforced:
+    module:
+      - cookies_video
+_core:
+  default_config_hash: '-5_rAcqvovHOInTW143TXBCjn28Fvx62V6RaW1EVW6Y'
+id: video
+label: 'YouTube Videos'
+group: video
+info:
+  value: '<p>Youtube ist ein Video-Player-Dienst. Es kann vom Besucher verwendet werden, um Videos anzusehen, zu teilen, zu kommentieren und hochzuladen.</p><table><thead><tr><th>Cookie-Name</th><th>Standard Ablaufzeit</th><th>Beschreibung</th></tr></thead><tbody><tr><td>YEC</td><td>1 Jahr, 1 Monat</td><td>Dies wird verwendet, um die Videoplayer-Einstellungen des Benutzers mit eingebettetem YouTube-Video zu speichern.</td></tr><tr><td>YSC</td><td>2 Jahre</td><td>Diese wird durch den Videodienst YouTube auf Seiten mit eingebetteten YouTube-Videos gesetzt.</td></tr></tbody></table>'
+  format: full_html
+consentRequired: true
+purpose: 'YouTube Videos'
+placeholderMainText: 'Dieser Inhalt wurde blockiert, weil Video-Cookies (noch) nicht akzeptiert wurden.'
+placeholderAcceptText: 'Nur Video-Cookies akzeptieren.'
+processor: ''
+processorContact: ''
+processorUrl: 'https://www.youtube.com'
+processorPrivacyPolicyUrl: ''
+processorCookiePolicyUrl: 'https://policies.google.com/privacy'

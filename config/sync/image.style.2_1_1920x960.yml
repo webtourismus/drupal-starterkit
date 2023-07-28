@@ -1,0 +1,23 @@
+uuid: da2d252e-bb0d-4aa3-9ea0-ebb908320ce0
+langcode: de
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 2_1_1920x960
+label: '2:1 (1920x960)'
+effects:
+  02cc0588-7e5e-4dd6-825d-71ce3939c81b:
+    uuid: 02cc0588-7e5e-4dd6-825d-71ce3939c81b
+    id: focal_point_scale_and_crop
+    weight: -9
+    data:
+      width: 1920
+      height: 960
+      crop_type: focal_point
+  c9218cec-d2e2-465a-b258-4e0517307977:
+    uuid: c9218cec-d2e2-465a-b258-4e0517307977
+    id: image_convert
+    weight: -10
+    data:
+      extension: webp

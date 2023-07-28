@@ -1,0 +1,8 @@
+uuid: ee3c0a73-1ff3-41f1-8cab-47cac0e8c72f
+langcode: de
+status: true
+dependencies: {  }
+id: date_short
+label: 'Datum kurz "31. Dez."'
+locked: false
+pattern: 'd. F'

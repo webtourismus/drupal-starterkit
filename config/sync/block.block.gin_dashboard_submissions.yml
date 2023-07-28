@@ -1,0 +1,29 @@
+uuid: 0d89ab45-88e0-48b0-b5b9-d29a92b88650
+langcode: de
+status: true
+dependencies:
+  config:
+    - views.view.latest_webform_submissions
+  module:
+    - system
+    - views
+  theme:
+    - gin
+id: gin_dashboard_submissions
+theme: gin
+region: content
+weight: -2
+provider: null
+plugin: 'views_block:latest_webform_submissions-block'
+settings:
+  id: 'views_block:latest_webform_submissions-block'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /admin/gin_dashboard_DO_NOT_DELETE_ALL_BLOCKS_WITH_THIS_PREFIX_ARE_RENDERED_PROGRAMMATICALLY_IN_GIN_CUSTOM_ADMIN_CONTROLLER

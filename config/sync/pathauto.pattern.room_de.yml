@@ -1,0 +1,33 @@
+uuid: d9264b84-3666-407c-b7ae-714c6e5c6033
+langcode: de
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: room_de
+label: 'Prefix /zimmer'
+type: 'canonical_entities:node'
+pattern: '/zimmer/[node:title]'
+selection_criteria:
+  80d76a9c-3601-45c7-9633-1c2a27be4eaa:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 80d76a9c-3601-45c7-9633-1c2a27be4eaa
+    context_mapping:
+      node: node
+    bundles:
+      room: room
+  cff0da1b-223c-474c-8502-ec3ccb0a91a3:
+    id: language
+    negate: false
+    uuid: cff0da1b-223c-474c-8502-ec3ccb0a91a3
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      de: de
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language

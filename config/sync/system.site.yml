@@ -1,0 +1,21 @@
+_core:
+  default_config_hash: l58O_yEXSo-SeJi19LXdzTU1tNJG3lmnIhCitRkM1tk
+langcode: de
+uuid: e54c4139-9658-4451-8c42-eb8619a6b603
+name: 'DEV - Factory'
+mail: entwicklung@webtourismus.at
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node/72
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: de
+mail_notification: ''
+summer_season:
+  from: '2000-04-01'
+  to: '2000-09-30'
+seekda:
+  property_code: S000048
+  kube_domain: 'https://S000048.officialbookings.com'

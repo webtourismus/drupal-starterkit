@@ -1,0 +1,10 @@
+uuid: 4fe0e702-9149-4940-9927-c01f998c4e3f
+langcode: de
+status: true
+dependencies:
+  module:
+    - cookies
+id: cookies_service.token
+label: Token
+targetEntityType: cookies_service
+cache: true

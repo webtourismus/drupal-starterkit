@@ -1,0 +1,12 @@
+_core:
+  default_config_hash: dxY4jVn-SyqDE1cx-8nFe3gurRgQu0VqHi7xYEjiQfY
+cron_interval: 86400
+cron_allowed_environments:
+  - prod
+  - live
+cron_max_runtime: 3600
+cron_warningmail_after: 100800
+cron_warningmail_to: entwicklung@webtourismus.at
+cron_warningmail_repeat: 86400
+jsonapi_months: 14
+langcode: de

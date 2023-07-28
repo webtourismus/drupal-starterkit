@@ -1,0 +1,11 @@
+uuid: 8b970eff-4f4a-4bb7-b3ae-18c22e18d6e8
+langcode: de
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vog2tbqqQHjVkue0anA0RwlzvOTPNTvP7_JjJxRMVAQ
+id: social
+label: 'Social Media'
+weight: 30
+title: 'Social Media'
+details: 'Social Media Widgets zeigen Inhalte von Drittanbieter-Plattformen an. Dabei können personenbezogene Daten an den Drittanbieter übermittelt werden.'

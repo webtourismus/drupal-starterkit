@@ -1,0 +1,20 @@
+uuid: 5fe18b3b-a438-4895-b613-175e0518b4d5
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_minlos
+field_name: field_minlos
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

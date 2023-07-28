@@ -1,0 +1,38 @@
+uuid: 844f1460-d70c-4901-8bf7-e7bdafce3ef7
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_suppress_fields
+    - paragraphs.paragraphs_type.icon
+  module:
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '-1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: paragraph.icon.field_suppress_fields
+field_name: field_suppress_fields
+entity_type: paragraph
+bundle: icon
+label: 'Felder unterdrücken'
+description: 'Wählen Sie Texte aus, die sie NICHT anzeigen möchten. Verwenden Sie diese Option wenn Sie auf eine interne Seite verlinken, aber die Basisdaten von dieser Seite nicht anzeigt werden sollen.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'config:field_config'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+    filter:
+      negate: 0
+      allowed_ids:
+        - paragraph.icon.field_subtitle
+        - paragraph.icon.field_text
+        - paragraph.icon.field_title
+field_type: entity_reference

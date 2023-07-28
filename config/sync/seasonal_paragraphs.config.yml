@@ -1,0 +1,3 @@
+entity_field_sanity_check:
+  - 'node:field_banner'
+langcode: de

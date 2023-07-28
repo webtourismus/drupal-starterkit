@@ -1,0 +1,18 @@
+uuid: 27fc82c1-7b34-437b-a763-17db9149d5f5
+langcode: de
+status: true
+dependencies:
+  config:
+    - system.menu.admin
+id: menu_link_content.admin.changed
+field_name: changed
+entity_type: menu_link_content
+bundle: admin
+label: Geändert
+description: 'Der Zeitpunkt an dem der Menülink zuletzt bearbeitete wurde.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

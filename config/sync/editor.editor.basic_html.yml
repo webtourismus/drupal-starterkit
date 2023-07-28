@@ -1,0 +1,118 @@
+uuid: b475424d-ada5-4c3d-8220-c4d7a969c9cb
+langcode: de
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+  module:
+    - ckeditor5
+format: basic_html
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - undo
+      - redo
+      - '|'
+      - style
+      - alignment
+      - '|'
+      - bold
+      - italic
+      - underline
+      - removeFormat
+      - '|'
+      - link
+      - '|'
+      - numberedList
+      - bulletedList
+      - indent
+      - outdent
+      - '|'
+      - specialCharacters
+      - '|'
+      - sourceEditing
+  plugins:
+    ckeditor5_alignment:
+      enabled_alignments:
+        - center
+        - justify
+        - left
+        - right
+    ckeditor5_list:
+      reversed: true
+      startIndex: true
+    ckeditor5_sourceEditing:
+      allowed_tags:
+        - '<br class id data-*>'
+        - '<span class id data-*>'
+        - '<a class id data-* target rel>'
+        - '<p class id data-*>'
+        - '<div class id data-*>'
+        - '<ul class id data-*>'
+        - '<ol class id data-*>'
+        - '<li class id data-*>'
+        - '<strong class id data-*>'
+        - '<em class id data-*>'
+        - '<u class id data-*>'
+        - '<drupal-media data-entity-type data-entity-uuid alt id class>'
+    ckeditor5_style:
+      styles:
+        -
+          label: 'wie Überschrift 1'
+          element: '<p class="h1">'
+        -
+          label: 'wie Überschrift 2'
+          element: '<p class="h2">'
+        -
+          label: 'wie Überschrift 3'
+          element: '<p class="h3">'
+        -
+          label: 'wie Überschrift 4'
+          element: '<p class="h4">'
+        -
+          label: 'wie Überschrift 5'
+          element: '<p class="h5">'
+        -
+          label: 'wie Überschrift 6'
+          element: '<p class="h6">'
+        -
+          label: 'Schriftgröße klein'
+          element: '<span class="text-smaller">'
+        -
+          label: 'Schriftgröße groß'
+          element: '<span class="text-larger">'
+        -
+          label: 'Schriftgröße je nach Bildschirm'
+          element: '<span class="text-fluid">'
+        -
+          label: 'Schriftfarbe auffällig'
+          element: '<span class="text-flashy">'
+        -
+          label: 'Schriftfarbe reduziert'
+          element: '<span class="opacity-80">'
+        -
+          label: 'Button auffällig'
+          element: '<a class="btn-filled-flashy">'
+        -
+          label: 'Button Textfarbe'
+          element: '<a class="btn-filled-foreground">'
+        -
+          label: 'Button gerahmt'
+          element: '<a class="btn-outline">'
+        -
+          label: 'Link dekoriert'
+          element: '<a class="link-decorated">'
+    linkit_extension:
+      linkit_enabled: true
+      linkit_profile: backend
+    media_media:
+      allow_view_mode_override: false
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: 0
+    height: 0

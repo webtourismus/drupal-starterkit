@@ -1,0 +1,340 @@
+_core:
+  default_config_hash: 5iMAg55zVSTNmFTLPWW1HnFz4EepAhiWQDLes2K9iFI
+langcode: de
+settings:
+  default_status: open
+  default_categories: {  }
+  default_page: false
+  default_page_base_path: /form
+  default_ajax: false
+  default_ajax_progress_type: throbber
+  default_ajax_effect: fade
+  default_ajax_speed: 500
+  default_submit_button_label: Absenden
+  default_reset_button_label: Zurücksetzen
+  default_delete_button_label: Löschen
+  default_form_submit_once: true
+  default_form_open_message: '<p>Dieses Formular ist noch nicht verfügbar.</p>'
+  default_form_close_message: '<p>Dieses Formular ist nicht mehr verfügbar.</p>'
+  default_form_exception_message: '<p>Das Formular hat einen Fehler und kann zur Zeit nicht verwendet werden. Bitte kontaktieren Sie uns stattdessen per E-Mail.</p>'
+  default_form_confidential_message: '<p>Dieses Formular muss anonym verwendet werden. Bitte vorher <a href="[site:login-url]/logout?destination=[current-page:url:relative]">abmelden</a> um es zu verwenden.</p>'
+  default_form_access_denied_message: '<p>Dieses Formular steht nur angemeldeten Benutzern zur Verfügung.</p>'
+  default_form_disable_remote_addr: false
+  default_form_novalidate: false
+  default_form_disable_inline_errors: false
+  default_form_required: false
+  default_form_required_label: Pflichtfeld
+  default_form_unsaved: false
+  default_form_disable_back: false
+  default_form_submit_back: false
+  default_form_details_toggle: true
+  default_form_file_limit: ''
+  default_wizard_prev_button_label: '< Zurück'
+  default_wizard_next_button_label: 'Weiter >'
+  default_wizard_start_label: Start
+  default_wizard_confirmation_label: Fertig
+  default_wizard_toggle_show_label: 'Alle anzeigen'
+  default_wizard_toggle_hide_label: 'Alle verstecken'
+  default_preview_next_button_label: Vorschau
+  default_preview_prev_button_label: '< Zurück'
+  default_preview_label: Vorschau
+  default_preview_title: '[webform:title]: Vorschau'
+  default_preview_message: '<p>Bitte prüfen Sie noch einmal Ihre Eingaben. Klicken Sie auf "Absenden" um das Formular abzuschicken.</p>'
+  default_draft_button_label: 'Als Entwurf speichern'
+  default_draft_saved_message: '<p>Entwurf gespeichert. Sie können dieses Formular später mit den jetzt gesicherten Inhalten wieder aufrufen.</p>'
+  default_draft_loaded_message: '<p>Ein Entwurf wurde gefunden. Bitte den bestehenden Entwurf weiter ausfüllen.</p>'
+  default_draft_pending_single_message: '<p>Sie haben bereits einen Entwurf für dieses Formular. <a href="#">Bestehenden Entwurf laden</a>.</p>'
+  default_draft_pending_multiple_message: '<p>Sie haben bereits Entwürfe für dieses Formular. <a href="#">Bestehenden Entwürfe ansehen</a>.</p>'
+  default_confirmation_message: '<p>Das Formular wurde erfolgreich abgeschickt.</p>'
+  default_confirmation_back_label: 'Zurück zum Formular'
+  default_confirmation_noindex: true
+  default_limit_total_message: '<p>Keine weiteren Eingaben erlaubt.</p>'
+  default_limit_user_message: '<p>Keine weiteren Eingaben erlaubt.</p>'
+  default_submission_label: '[webform_submission:submitted-to]: Eingabe #[webform_submission:serial]'
+  default_submission_log: false
+  default_submission_views: {  }
+  default_submission_views_replace:
+    global_routes:
+      - entity.webform_submission.collection
+      - entity.webform_submission.user
+    webform_routes:
+      - entity.webform.results_submissions
+      - entity.webform.user.drafts
+      - entity.webform.user.submissions
+    node_routes: {  }
+  default_results_customize: false
+  default_submission_access_denied_message: '<p>Bitte anmelden um Eingabe zu lesen.</p>'
+  default_submission_exception_message: '<p>Eingabe kann nicht bearbeitet werden. Bitte kontaktieren Sie den Support.</p>'
+  default_submission_locked_message: '<p>Die Eingabe wurde gesperrt.</p>'
+  default_previous_submission_message: '<p>Sie haben dieses Formular bereits abgeschickt. <a href="#">Bestehende Eingabe ansehen</a>.</p>'
+  default_previous_submissions_message: '<p>Sie haben dieses Formular bereits abgeschickt. <a href="#">Bestehende Eingaben ansehen</a>.</p>'
+  default_autofill_message: '<p>Das Formular wurden mit den Werten der letzten Eingabe vorbefüllt.</p>'
+  form_classes: |-
+    flex flex-wrap gap-horizontal-[8px] gap-vertical-[24px]
+    container-inline clearfix
+    form--inline clearfix
+    messages messages--error
+    messages messages--warning
+    messages messages--status
+  button_classes: |-
+    btn-filled-flashy
+    btn-filled-foreground
+    btn-outline
+    link-decorated
+  preview_classes: |
+    messages messages--error
+    messages messages--warning
+    messages messages--status
+  confirmation_classes: |
+    messages messages--error
+    messages messages--warning
+    messages messages--status
+  confirmation_back_classes: |-
+    btn-filled-flashy
+    btn-filled-foreground
+    btn-outline
+    link-decorated
+  default_share: false
+  default_share_node: false
+  default_share_theme_name: ''
+  webform_bulk_form: true
+  webform_bulk_form_actions:
+    - webform_open_action
+    - webform_close_action
+    - webform_archive_action
+    - webform_unarchive_action
+    - webform_delete_action
+  webform_submission_bulk_form: true
+  webform_submission_bulk_form_actions:
+    - webform_submission_delete_action
+  dialog: false
+  dialog_options:
+    narrow:
+      title: Schmal
+      width: 600
+    normal:
+      title: Normal
+      width: 800
+    wide:
+      title: Breit
+      width: 1000
+assets:
+  css: ''
+  javascript: ''
+form:
+  limit: 50
+  filter_category: ''
+  filter_state: ''
+element:
+  machine_name_pattern: a-z0-9_
+  empty_message: '{Empty}'
+  allowed_tags: admin
+  wrapper_classes: |
+    basis-full
+    basis-full sm:basis-1/2
+    basis-full sm:basis-1/3
+    basis-full sm:basis-2/3
+    basis-full sm:basis-1/4
+    basis-full sm:basis-3/4
+    basis-full sm:basis-1/5
+    basis-full sm:basis-2/5
+    basis-full sm:basis-3/5
+    basis-full sm:basis-4/5
+    container-inline clearfix
+    form--inline clearfix
+    messages messages--error
+    messages messages--warning
+    messages messages--status
+  classes: |
+    container-inline clearfix
+    form--inline clearfix
+    messages messages--error
+    messages messages--warning
+    messages messages--status
+  horizontal_rule_classes: |
+    webform-horizontal-rule--solid
+    webform-horizontal-rule--dashed
+    webform-horizontal-rule--dotted
+    webform-horizontal-rule--gradient
+    webform-horizontal-rule--thin
+    webform-horizontal-rule--medium
+    webform-horizontal-rule--thick
+    webform-horizontal-rule--flaired
+    webform-horizontal-rule--glyph
+  default_description_display: ''
+  default_more_title: 'Mehr Info'
+  default_section_title_tag: h3
+  default_empty_option: true
+  default_empty_option_required: '- Bitte auswählen -'
+  default_empty_option_optional: '- Bitte auswählen -'
+  excluded_elements:
+    password: password
+    password_confirm: password_confirm
+html_editor:
+  disabled: false
+  element_format: webform_default
+  mail_format: webform_default
+  tidy: true
+  make_unused_managed_files_temporary: true
+file:
+  file_public: false
+  file_private_redirect: true
+  file_private_redirect_message: '<p>Bitte anmelden, um auf die hochgeladene Datei zugreifen zu können.</p>'
+  default_max_filesize: ''
+  default_managed_file_extensions: 'gif jpg jpeg png bmp eps tif pict psd txt rtf html odf pdf doc docx ppt pptx xls xlsx xml avi mov mp3 mp4 ogg wav bz2 dmg gz jar rar sit svg tar zip'
+  default_image_file_extensions: 'gif jpg jpeg png webp'
+  default_video_file_extensions: 'avi mov mp4 ogg wav webm'
+  default_audio_file_extensions: 'mp3 ogg wav'
+  default_document_file_extensions: 'txt rtf pdf doc docx odt ppt pptx odp xls xlsx ods'
+  make_unused_managed_files_temporary: true
+  delete_temporary_managed_files: true
+format: {  }
+mail:
+  default_to_mail: '[site:mail]'
+  default_from_mail: '[site:mail]'
+  default_from_name: '[site:name]'
+  default_reply_to: ''
+  default_return_path: ''
+  default_sender_mail: ''
+  default_sender_name: ''
+  default_subject: 'Webform submission from: [webform_submission:source-title]'
+  default_body_text: |
+    [webform_submission:values]
+  default_body_html: '[webform_submission:values]'
+  roles: {  }
+export:
+  temp_directory: ''
+  exporter: delimited
+  delimiter: ','
+  multiple_delimiter: ;
+  excel: true
+  archive_type: zip
+  header_format: label
+  header_prefix: true
+  header_prefix_key_delimiter: __
+  header_prefix_label_delimiter: ': '
+  entity_reference_items:
+    - id
+    - title
+    - url
+  options_single_format: compact
+  options_multiple_format: compact
+  options_item_format: label
+  likert_answers_format: label
+  signature_format: status
+  composite_element_item_format: label
+  excluded_exporters: {  }
+handler:
+  excluded_handlers: {  }
+variant:
+  excluded_variants: {  }
+batch:
+  default_batch_export_size: 500
+  default_batch_import_size: 100
+  default_batch_update_size: 500
+  default_batch_delete_size: 500
+  default_batch_email_size: 500
+purge:
+  cron_size: 100
+test:
+  types: |
+    checkbox:
+      - true
+    color:
+      - '#ffffcc'
+      - '#ffffcc'
+      - '#ccffff'
+    email:
+      - 'example@example.com'
+      - 'test@test.com'
+      - 'random@random.com'
+    language_select:
+      - en
+    machine_name:
+      - 'loremipsum'
+      - 'oratione'
+      - 'dixisset'
+    tel:
+      - '123-456-7890'
+      - '098-765-4321'
+    textarea:
+      - 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Negat esse eam, inquit, propter se expetendam. Primum Theophrasti, Strato, physicum se voluit; Id mihi magnum videtur. Itaque mihi non satis videmini considerare quod iter sit naturae quaeque progressio. Quare hoc videndum est, possitne nobis hoc ratio philosophorum dare. Est enim tanti philosophi tamque nobilis audacter sua decreta defendere.'
+      - 'Huius, Lyco, oratione locuples, rebus ipsis ielunior. Duo Reges: constructio interrete. Sed haec in pueris; Sed utrum hortandus es nobis, Luci, inquit, an etiam tua sponte propensus es? Sapiens autem semper beatus est et est aliquando in dolore; Immo videri fortasse. Paulum, cum regem Persem captum adduceret, eodem flumine invectio? Et ille ridens: Video, inquit, quid agas;'
+      - 'Quae cum dixisset, finem ille. Quamquam non negatis nos intellegere quid sit voluptas, sed quid ille dicat. Progredientibus autem aetatibus sensim tardeve potius quasi nosmet ipsos cognoscimus. Gloriosa ostentatio in constituendo summo bono. Qui-vere falsone, quaerere mittimus-dicitur oculis se privasse; Duarum enim vitarum nobis erunt instituta capienda. Comprehensum, quod cognitum non habet? Qui enim existimabit posse se miserum esse beatus non erit. Causa autem fuit huc veniendi ut quosdam hinc libros promerem. Nunc omni virtuti vitium contrario nomine opponitur.'
+    text_format:
+      - value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Negat esse eam, inquit, propter se expetendam. Primum Theophrasti, Strato, physicum se voluit; Id mihi magnum videtur. Itaque mihi non satis videmini considerare quod iter sit naturae quaeque progressio. Quare hoc videndum est, possitne nobis hoc ratio philosophorum dare. Est enim tanti philosophi tamque nobilis audacter sua decreta defendere.</p>'
+      - value: '<p>Huius, Lyco, oratione locuples, rebus ipsis ielunior. Duo Reges: constructio interrete. Sed haec in pueris; Sed utrum hortandus es nobis, Luci, inquit, an etiam tua sponte propensus es? Sapiens autem semper beatus est et est aliquando in dolore; Immo videri fortasse. Paulum, cum regem Persem captum adduceret, eodem flumine invectio? Et ille ridens: Video, inquit, quid agas;</p>'
+      - value: '<p>Quae cum dixisset, finem ille. Quamquam non negatis nos intellegere quid sit voluptas, sed quid ille dicat. Progredientibus autem aetatibus sensim tardeve potius quasi nosmet ipsos cognoscimus. Gloriosa ostentatio in constituendo summo bono. Qui-vere falsone, quaerere mittimus-dicitur oculis se privasse; Duarum enim vitarum nobis erunt instituta capienda. Comprehensum, quod cognitum non habet? Qui enim existimabit posse se miserum esse beatus non erit. Causa autem fuit huc veniendi ut quosdam hinc libros promerem. Nunc omni virtuti vitium contrario nomine opponitur.</p>'
+    url:
+      - 'http://example.com'
+      - 'http://test.com'
+    webform_email_confirm:
+      - 'example@example.com'
+      - 'test@test.com'
+      - 'random@random.com'
+    webform_email_multiple:
+      - 'example@example.com, test@test.com, random@random.com'
+    webform_time:
+      - '09:00'
+      - '17:00'
+  names: |
+    first_name:
+      - 'John'
+      - 'Paul'
+      - 'Ringo'
+      - 'George'
+    last_name:
+      - 'Lennon'
+      - 'McCartney'
+      - 'Starr'
+      - 'Harrison'
+    address:
+      - '10 Main Street'
+      - '11 Brook Alley Road. APT 1'
+    zip:
+      - '11111'
+      - '12345'
+      - '12345-6789'
+    postal_code:
+      - '11111'
+      - '12345'
+      - '12345-6789'
+    phone:
+      - '123-456-7890'
+      - '098-765-4321'
+    fax:
+      - '123-456-7890'
+      - '098-765-4321'
+    city:
+      - 'Springfield'
+      - 'Pleasantville'
+      - 'Hill Valley'
+    url:
+      - 'http://example.com'
+      - 'http://test.com'
+    default:
+      - 'Loremipsum'
+      - 'Oratione'
+      - 'Dixisset'
+ui:
+  video_display: dialog
+  help_disabled: false
+  dialog_disabled: false
+  offcanvas_disabled: false
+  promotions_disabled: false
+  support_disabled: false
+  details_save: true
+  description_help: true
+  toolbar_item: false
+libraries:
+  excluded_libraries:
+    - choices
+    - jquery.select2
+requirements:
+  cdn: false
+  clientside_validation: true
+  bootstrap: false
+  spam: true
+third_party_settings:
+  antibot:
+    antibot: true

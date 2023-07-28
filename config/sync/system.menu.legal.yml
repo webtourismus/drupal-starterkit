@@ -1,0 +1,8 @@
+uuid: dc71cdc5-1ef8-44b1-861b-5d88b4024c62
+langcode: de
+status: true
+dependencies: {  }
+id: legal
+label: Gesetzliches
+description: 'Uninteressante, aber rechtlich notwendige Links wie Impressum u.ä.'
+locked: false

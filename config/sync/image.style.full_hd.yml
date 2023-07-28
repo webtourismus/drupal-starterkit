@@ -1,0 +1,21 @@
+uuid: 06788c72-df1f-4c0e-846c-14e4878774a2
+langcode: de
+status: true
+dependencies: {  }
+name: full_hd
+label: 'max. Full HD'
+effects:
+  687dea63-82d9-4e82-8dd0-b634752a7d58:
+    uuid: 687dea63-82d9-4e82-8dd0-b634752a7d58
+    id: image_convert
+    weight: 1
+    data:
+      extension: webp
+  7cb1a9ea-7bc7-4787-ad6a-416d4ba4b1b1:
+    uuid: 7cb1a9ea-7bc7-4787-ad6a-416d4ba4b1b1
+    id: image_scale
+    weight: 2
+    data:
+      width: 1920
+      height: 1080
+      upscale: false

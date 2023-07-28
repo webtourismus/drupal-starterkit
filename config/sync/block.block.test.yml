@@ -1,0 +1,25 @@
+uuid: 2ae1d311-cdfe-4df8-88d3-903fb47bd096
+langcode: de
+status: true
+dependencies:
+  content:
+    - 'block_content:image:52c1b312-00a5-4055-a90d-0157672fa938'
+  module:
+    - block_content
+  theme:
+    - frontend
+id: test
+theme: frontend
+region: footer
+weight: -2
+provider: null
+plugin: 'block_content:52c1b312-00a5-4055-a90d-0157672fa938'
+settings:
+  id: 'block_content:52c1b312-00a5-4055-a90d-0157672fa938'
+  label: test
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

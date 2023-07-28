@@ -1,0 +1,33 @@
+uuid: bd4abea9-9de5-4da5-900c-81253dcce1ee
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.gallery.field_image_ratio
+    - field.field.paragraph.gallery.field_images
+    - field.field.paragraph.gallery.field_viewmode
+    - paragraphs.paragraphs_type.gallery
+  module:
+    - field_formatter_range
+id: paragraph.gallery.default
+targetEntityType: paragraph
+bundle: gallery
+mode: default
+content:
+  field_images:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: scale
+      link: false
+    third_party_settings:
+      field_formatter_range:
+        order: 0
+        limit: 0
+        offset: 0
+    weight: 0
+    region: content
+hidden:
+  field_image_ratio: true
+  field_viewmode: true
+  seasonal: true

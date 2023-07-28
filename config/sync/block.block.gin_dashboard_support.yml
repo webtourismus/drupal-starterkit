@@ -1,0 +1,25 @@
+uuid: 7aecc5bd-72ec-4bd5-9c97-4deeb4bd3c68
+langcode: de
+status: true
+dependencies:
+  module:
+    - gin_custom
+    - system
+  theme:
+    - gin
+id: gin_dashboard_support
+theme: gin
+region: content
+weight: -3
+provider: null
+plugin: webtourismus_support
+settings:
+  id: webtourismus_support
+  label: 'Hilfe & Support'
+  label_display: visible
+  provider: gin_custom
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /admin/gin_dashboard_DO_NOT_DELETE_ALL_BLOCKS_WITH_THIS_PREFIX_ARE_RENDERED_PROGRAMMATICALLY_IN_GIN_CUSTOM_ADMIN_CONTROLLER

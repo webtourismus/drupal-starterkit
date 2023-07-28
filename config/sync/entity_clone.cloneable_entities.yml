@@ -1,0 +1,13 @@
+cloneable_entities:
+  - block
+  - block_content
+  - media
+  - menu_link_content
+  - metatag_defaults
+  - node
+  - taxonomy_term
+  - user_role
+  - user
+  - webform
+  - paragraph
+  - paragraphs_library_item

@@ -1,0 +1,10 @@
+uuid: e8a3b182-2cc0-447c-a3c9-eebd1f722737
+langcode: de
+status: true
+dependencies:
+  module:
+    - media
+id: media.layout_bg
+label: 'Layout Hintergrund'
+targetEntityType: media
+cache: true

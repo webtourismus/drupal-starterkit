@@ -1,0 +1,27 @@
+uuid: c0268bf5-3ddd-4afe-8a6f-f9cf2c49b4ff
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.image.field_image
+    - field.field.paragraph.image.field_image_ratio
+    - field.field.paragraph.image.field_viewmode
+    - paragraphs.paragraphs_type.image
+id: paragraph.image.default
+targetEntityType: paragraph
+bundle: image
+mode: default
+content:
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: scale
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_image_ratio: true
+  field_viewmode: true
+  seasonal: true

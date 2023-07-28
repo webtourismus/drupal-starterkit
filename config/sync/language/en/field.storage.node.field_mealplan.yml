@@ -1,0 +1,8 @@
+settings:
+  allowed_values:
+    1:
+      label: 'Half board'
+    2:
+      label: 'Extented half board'
+    3:
+      label: 'Full board'

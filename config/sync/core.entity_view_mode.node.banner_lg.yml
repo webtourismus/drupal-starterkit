@@ -1,0 +1,10 @@
+uuid: 282c961e-1e39-4bb4-95ad-a53233f5c04e
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+id: node.banner_lg
+label: 'Banner groß'
+targetEntityType: node
+cache: true

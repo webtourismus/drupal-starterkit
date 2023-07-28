@@ -1,0 +1,76 @@
+uuid: 49e2106d-c95e-4ccf-8c74-84ea6eea4b5c
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.teaser_imgleft
+    - field.field.paragraph.linkblock.field_image_ratio
+    - field.field.paragraph.linkblock.field_images
+    - field.field.paragraph.linkblock.field_link
+    - field.field.paragraph.linkblock.field_subtitle
+    - field.field.paragraph.linkblock.field_suppress_fields
+    - field.field.paragraph.linkblock.field_text
+    - field.field.paragraph.linkblock.field_title
+    - field.field.paragraph.linkblock.field_viewmode
+    - paragraphs.paragraphs_type.linkblock
+  module:
+    - field_formatter_range
+    - linkit
+    - text
+id: paragraph.linkblock.teaser_imgleft
+targetEntityType: paragraph
+bundle: linkblock
+mode: teaser_imgleft
+content:
+  field_images:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: scale
+      link: false
+    third_party_settings:
+      field_formatter_range:
+        order: 0
+        limit: 0
+        offset: 0
+    weight: 1
+    region: content
+  field_link:
+    type: linkit
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+      linkit_profile: backend
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_subtitle:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_title:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  field_image_ratio: true
+  field_suppress_fields: true
+  field_viewmode: true
+  seasonal: true

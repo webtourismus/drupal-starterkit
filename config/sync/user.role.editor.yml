@@ -1,0 +1,129 @@
+uuid: 68486730-4ead-4f18-9c2e-e210d34d4286
+langcode: de
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+    - filter.format.full_html
+    - taxonomy.vocabulary.media
+    - taxonomy.vocabulary.page
+  module:
+    - block
+    - block_content
+    - block_permissions
+    - config_translation
+    - content_translation
+    - cookies
+    - ebr
+    - entity_clone
+    - entity_usage
+    - file
+    - filter
+    - locale
+    - media
+    - menu_admin_per_menu
+    - metatag
+    - node
+    - paragraphs
+    - path
+    - pathauto
+    - redirect
+    - simple_sitemap
+    - system
+    - taxonomy
+    - toolbar
+    - twig_field
+    - webform
+id: editor
+label: Editor
+weight: 3
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access block library'
+  - 'access content overview'
+  - 'access entity usage statistics'
+  - 'access files overview'
+  - 'access media overview'
+  - 'access site in maintenance mode'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'access twig fields'
+  - 'access user profiles'
+  - 'administer block content'
+  - 'administer block settings for theme frontend'
+  - 'administer block types'
+  - 'administer blocks'
+  - 'administer blocks provided by block_content'
+  - 'administer blocks provided by cookies'
+  - 'administer blocks provided by core'
+  - 'administer blocks provided by ctools'
+  - 'administer blocks provided by ctools_block'
+  - 'administer blocks provided by language'
+  - 'administer blocks provided by node'
+  - 'administer blocks provided by system'
+  - 'administer footer menu items'
+  - 'administer legal menu items'
+  - 'administer main menu items'
+  - 'administer media'
+  - 'administer meta tags'
+  - 'administer nodes'
+  - 'administer pathauto'
+  - 'administer redirect settings'
+  - 'administer redirects'
+  - 'administer site configuration'
+  - 'administer sitemap settings'
+  - 'administer url aliases'
+  - 'administer webform submission'
+  - 'bypass node access'
+  - 'change own username'
+  - 'clone block entity'
+  - 'clone block_content entity'
+  - 'clone media entity'
+  - 'clone node entity'
+  - 'clone paragraph entity'
+  - 'clone taxonomy_term entity'
+  - 'configure cookies widget texts'
+  - 'create content translations'
+  - 'create media'
+  - 'create terms in media'
+  - 'create terms in page'
+  - 'create url aliases'
+  - 'delete all revisions'
+  - 'delete any media'
+  - 'delete any webform submission'
+  - 'delete content translations'
+  - 'delete own files'
+  - 'delete terms in media'
+  - 'delete terms in page'
+  - 'edit any webform submission'
+  - 'edit entity business rules internal_id field'
+  - 'edit entity business rules remote_datasource field'
+  - 'edit entity business rules remote_id field'
+  - 'edit terms in media'
+  - 'edit terms in page'
+  - 'notify of path changes'
+  - 'revert all revisions'
+  - 'select account cancellation method'
+  - 'take_ownership_on_clone file entity'
+  - 'take_ownership_on_clone media entity'
+  - 'take_ownership_on_clone node entity'
+  - 'translate any entity'
+  - 'translate configuration'
+  - 'translate editable entities'
+  - 'translate interface'
+  - 'update any media'
+  - 'update content translations'
+  - 'use text format basic_html'
+  - 'use text format full_html'
+  - 'view all media revisions'
+  - 'view all revisions'
+  - 'view any webform submission'
+  - 'view entity business rules internal_id field'
+  - 'view entity business rules remote_datasource field'
+  - 'view entity business rules remote_id field'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view the administration theme'
+  - 'view unpublished paragraphs'
+  - 'view user email addresses'

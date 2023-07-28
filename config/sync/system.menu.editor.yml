@@ -1,0 +1,8 @@
+uuid: f824003b-c46e-474b-8ae2-b6df980ad05b
+langcode: de
+status: true
+dependencies: {  }
+id: editor
+label: Editor
+description: 'Kuratiertes Administrations-Menü für Redakteure'
+locked: false

@@ -1,0 +1,29 @@
+uuid: 57fc0eff-a0c8-4a41-8a70-c551a0856c35
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.viewsreference.field_viewsreference
+    - paragraphs.paragraphs_type.viewsreference
+  module:
+    - viewsreference
+id: paragraph.viewsreference.default
+targetEntityType: paragraph
+bundle: viewsreference
+mode: default
+content:
+  field_viewsreference:
+    type: viewsreference_formatter
+    label: hidden
+    settings:
+      plugin_types:
+        block: block
+        default: 0
+        page: 0
+        feed: 0
+        embed: 0
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  seasonal: true

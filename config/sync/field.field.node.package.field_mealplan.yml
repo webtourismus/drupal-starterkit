@@ -1,0 +1,29 @@
+uuid: a1090e61-c388-4609-8927-31e65271b9fd
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mealplan
+    - node.type.package
+  module:
+    - field_config_cardinality
+    - options
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: node.package.field_mealplan
+field_name: field_mealplan
+entity_type: node
+bundle: package
+label: Verpflegung
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,20 @@
+uuid: f4bbb73a-bd19-48b2-9d7b-a47f7f8ed5c9
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_occupancy_max
+field_name: field_occupancy_max
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,8 @@
+uuid: 69471a97-cebb-4e37-98b8-090da5bc3625
+langcode: de
+status: true
+dependencies: {  }
+id: date_only
+label: 'Datum mittel "31.12.2099"'
+locked: false
+pattern: d.m.Y

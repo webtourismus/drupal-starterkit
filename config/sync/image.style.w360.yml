@@ -1,0 +1,21 @@
+uuid: a435e1b2-127b-45a9-bb28-2e78e2c7bd14
+langcode: de
+status: true
+dependencies: {  }
+name: w360
+label: 'Scale width 360px'
+effects:
+  dd8a2487-de1f-4fe2-b9bb-0fe8e6562ae1:
+    uuid: dd8a2487-de1f-4fe2-b9bb-0fe8e6562ae1
+    id: image_convert
+    weight: 1
+    data:
+      extension: webp
+  0fa5f3ed-07c3-4b0e-b864-105a5a40c127:
+    uuid: 0fa5f3ed-07c3-4b0e-b864-105a5a40c127
+    id: image_scale
+    weight: 2
+    data:
+      width: 360
+      height: null
+      upscale: false

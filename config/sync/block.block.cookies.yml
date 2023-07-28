@@ -1,0 +1,20 @@
+uuid: 10270e3d-10dd-4bb4-9c8e-2b21f9fb33c3
+langcode: de
+status: true
+dependencies:
+  module:
+    - cookies
+  theme:
+    - frontend
+id: cookies
+theme: frontend
+region: footer
+weight: -3
+provider: null
+plugin: cookies_ui_block
+settings:
+  id: cookies_ui_block
+  label: Cookies
+  label_display: '0'
+  provider: cookies
+visibility: {  }

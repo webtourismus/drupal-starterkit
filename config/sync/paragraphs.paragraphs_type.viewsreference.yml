@@ -1,0 +1,10 @@
+uuid: be452849-da93-4749-ab4b-e0d6b72e8da7
+langcode: de
+status: true
+dependencies: {  }
+id: viewsreference
+label: 'Automatische Liste'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

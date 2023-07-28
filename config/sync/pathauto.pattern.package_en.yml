@@ -1,0 +1,33 @@
+uuid: 59f76d3b-19bf-41e6-ba9b-0c5f120a3650
+langcode: de
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: package_en
+label: 'Prefix /offers'
+type: 'canonical_entities:node'
+pattern: '/offers/[node:title]'
+selection_criteria:
+  870d9b21-b11d-4f65-b16c-b39fc694c4eb:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 870d9b21-b11d-4f65-b16c-b39fc694c4eb
+    context_mapping:
+      node: node
+    bundles:
+      package: package
+  797c9439-00b0-446a-9eb2-53ada3ed510b:
+    id: language
+    negate: false
+    uuid: 797c9439-00b0-446a-9eb2-53ada3ed510b
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      en: en
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language

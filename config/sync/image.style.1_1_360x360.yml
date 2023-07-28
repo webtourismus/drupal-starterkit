@@ -1,0 +1,23 @@
+uuid: 0ec4756d-6888-456c-ba7e-3e43ce862ec3
+langcode: de
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 1_1_360x360
+label: '1:1 (360x360)'
+effects:
+  8a33c243-3eff-482b-9878-d3f5916b1e5d:
+    uuid: 8a33c243-3eff-482b-9878-d3f5916b1e5d
+    id: focal_point_scale_and_crop
+    weight: -9
+    data:
+      width: 360
+      height: 360
+      crop_type: focal_point
+  51dadd6f-4400-4119-a292-7460b73ca8aa:
+    uuid: 51dadd6f-4400-4119-a292-7460b73ca8aa
+    id: image_convert
+    weight: -10
+    data:
+      extension: webp

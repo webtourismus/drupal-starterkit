@@ -1,0 +1,39 @@
+uuid: 116c9e03-d93e-4850-aa8a-e3053ce54aee
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.banner_lg
+    - field.field.media.video.field_category
+    - field.field.media.video.field_copyright
+    - field.field.media.video.field_media_video_file
+    - media.type.video
+  module:
+    - file
+id: media.video.banner_lg
+targetEntityType: media
+bundle: video
+mode: banner_lg
+content:
+  field_media_video_file:
+    type: file_video
+    label: visually_hidden
+    settings:
+      controls: false
+      autoplay: true
+      loop: true
+      multiple_file_display_type: sources
+      muted: true
+      width: 1920
+      height: 1080
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_category: true
+  field_copyright: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

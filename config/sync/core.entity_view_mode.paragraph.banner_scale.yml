@@ -1,0 +1,10 @@
+uuid: 35695947-dfa6-4b38-8d68-9680b9bbccf2
+langcode: de
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.banner_scale
+label: 'Banner skalierend'
+targetEntityType: paragraph
+cache: true

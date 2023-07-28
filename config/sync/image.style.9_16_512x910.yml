@@ -1,0 +1,23 @@
+uuid: 354e4260-ef01-4ce5-b83d-4d6a1d947a31
+langcode: de
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 9_16_512x910
+label: '9:16 (512x910)'
+effects:
+  be49c995-83be-49bb-ac42-57b9f3e4c293:
+    uuid: be49c995-83be-49bb-ac42-57b9f3e4c293
+    id: image_convert
+    weight: 1
+    data:
+      extension: webp
+  c8dec61d-426b-415d-87d4-80b3cd60f54c:
+    uuid: c8dec61d-426b-415d-87d4-80b3cd60f54c
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 512
+      height: 910
+      crop_type: focal_point

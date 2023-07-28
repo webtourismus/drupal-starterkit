@@ -1,0 +1,33 @@
+uuid: 37d644e3-b5ef-4a6a-a7c5-ba64c421b991
+langcode: de
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: room_en
+label: 'Prefix /rooms'
+type: 'canonical_entities:node'
+pattern: '/rooms/[node:title]'
+selection_criteria:
+  40676dad-2f59-459f-93ae-42f2f0c312a1:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 40676dad-2f59-459f-93ae-42f2f0c312a1
+    context_mapping:
+      node: node
+    bundles:
+      room: room
+  3f220074-6204-4d8e-adb3-f496bde63ffa:
+    id: language
+    negate: false
+    uuid: 3f220074-6204-4d8e-adb3-f496bde63ffa
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      en: en
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language

@@ -1,0 +1,25 @@
+uuid: c891fed4-b789-45d6-b818-1c3e3209b8c0
+langcode: de
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 4_3_1400x1050
+label: '4:3 (1400x1050)'
+effects:
+  adf3c34b-173f-44bc-9ac8-bb820a46d488:
+    uuid: adf3c34b-173f-44bc-9ac8-bb820a46d488
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1400
+      height: 1050
+      crop_type: focal_point
+  1e452a5f-98be-4fdc-afb6-76a7b534ff96:
+    uuid: 1e452a5f-98be-4fdc-afb6-76a7b534ff96
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1400
+      height: 1050
+      crop_type: focal_point

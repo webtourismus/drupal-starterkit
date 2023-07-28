@@ -1,0 +1,23 @@
+uuid: 55c0bb9d-95a9-438e-a749-ea538530ed5c
+langcode: de
+status: true
+dependencies:
+  module:
+    - focal_point
+name: admin_list_50x50
+label: 'Admin List (50x50)'
+effects:
+  e1d4d546-d4f4-41cc-804c-e969b2a750ae:
+    uuid: e1d4d546-d4f4-41cc-804c-e969b2a750ae
+    id: focal_point_scale_and_crop
+    weight: -9
+    data:
+      width: 50
+      height: 50
+      crop_type: focal_point
+  fc827765-d44f-484f-8c0c-9341d96715d5:
+    uuid: fc827765-d44f-484f-8c0c-9341d96715d5
+    id: image_convert
+    weight: -10
+    data:
+      extension: webp

@@ -1,0 +1,13 @@
+uuid: 48459c29-9690-4a8f-a550-68ee7c9bb300
+langcode: de
+status: true
+dependencies:
+  module:
+    - user
+_core:
+  default_config_hash: nvrL9bFilzBvm2bjO9rQnFDpBA7dBBUjShSSt6NS-DU
+id: user_cancel_user_action
+label: 'Die ausgewählten Benutzer löschen'
+type: user
+plugin: user_cancel_user_action
+configuration: {  }

@@ -1,0 +1,34 @@
+settings:
+  plugins:
+    ckeditor5_style:
+      styles:
+        -
+          label: 'like header 1'
+        -
+          label: 'like header 2'
+        -
+          label: 'like header 3'
+        -
+          label: 'like header 4'
+        -
+          label: 'like header 5'
+        -
+          label: 'like header 6'
+        -
+          label: 'Font size small'
+        -
+          label: 'Font size large'
+        -
+          label: 'Font size by screensize'
+        -
+          label: 'Font color flashy'
+        -
+          label: 'Font color restrained'
+        -
+          label: 'Button flashy'
+        -
+          label: 'Button text color'
+        -
+          label: 'Button outline'
+        -
+          label: 'Link decorated'

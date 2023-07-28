@@ -1,0 +1,11 @@
+uuid: 7ffff74f-379a-4271-be1d-f461f4c16f2a
+langcode: de
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: xwue-6gxs_0Aw-xZ-lkdisz-MKQTDJszrQ1b45cnOcU
+id: maps
+label: Karten
+weight: 60
+title: Karten
+details: 'Wir zeigen auf unserer Homepage geographische Dienste wie z.B. Karten an. Wenn Sie diese Dienste verwenden, können personenbezogene Daten an den Drittanbieter übermittelt werden.'

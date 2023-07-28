@@ -1,0 +1,23 @@
+uuid: 77c190d3-c6a0-4ae1-841b-342bab8890dd
+langcode: de
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 16_9_1920x1080
+label: '16:9 (1920x1080)'
+effects:
+  8e901428-e78b-48eb-9cc2-f51970f9da20:
+    uuid: 8e901428-e78b-48eb-9cc2-f51970f9da20
+    id: image_convert
+    weight: 1
+    data:
+      extension: webp
+  2495eba5-6f19-4cf4-b065-186f579cdfd4:
+    uuid: 2495eba5-6f19-4cf4-b065-186f579cdfd4
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 1920
+      height: 1080
+      crop_type: focal_point

@@ -1,0 +1,31 @@
+uuid: d97f7d14-310b-4073-b244-6c0e33b4bbc9
+langcode: de
+status: true
+dependencies:
+  config:
+    - system.menu.main
+id: menu_link_content.main.default
+targetEntityType: menu_link_content
+bundle: main
+mode: default
+content:
+  children:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  link:
+    type: linkit
+    label: hidden
+    settings:
+      trim_length: 1
+      url_only: false
+      url_plain: false
+      rel: nofollow
+      target: '0'
+      linkit_profile: backend
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

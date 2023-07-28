@@ -1,0 +1,73 @@
+uuid: 402edfdc-8b13-4b60-b47c-3b5cc8f106a3
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.banner_lg
+    - field.field.node.package.body
+    - field.field.node.package.field_banner
+    - field.field.node.package.field_banner_text
+    - field.field.node.package.field_banner_viewmode
+    - field.field.node.package.field_category
+    - field.field.node.package.field_images
+    - field.field.node.package.field_mealplan
+    - field.field.node.package.field_minlos
+    - field.field.node.package.field_pagebuilder
+    - field.field.node.package.field_price
+    - field.field.node.package.field_seo
+    - field.field.node.package.field_subtitle
+    - field.field.node.package.field_weight
+    - node.type.package
+  module:
+    - entity_reference_revisions
+    - field_formatter_range
+    - user
+id: node.package.banner_lg
+targetEntityType: node
+bundle: package
+mode: banner_lg
+content:
+  field_banner:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: banner_lg
+      link: ''
+    third_party_settings:
+      field_formatter_range:
+        order: 0
+        limit: 0
+        offset: 0
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+  price:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+hidden:
+  body: true
+  field_banner_text: true
+  field_banner_viewmode: true
+  field_category: true
+  field_images: true
+  field_mealplan: true
+  field_minlos: true
+  field_pagebuilder: true
+  field_price: true
+  field_seo: true
+  field_subtitle: true
+  field_weight: true
+  langcode: true
+  link_book: true
+  link_enquiry: true
+  link_readmore: true
+  widget_calendar: true

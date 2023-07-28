@@ -1,0 +1,18 @@
+uuid: 4f1b4167-6f90-433b-b5a3-db6307e00f59
+langcode: de
+status: true
+dependencies:
+  config:
+    - system.menu.main
+id: menu_link_content.main.title
+field_name: title
+entity_type: menu_link_content
+bundle: main
+label: 'Linktitel des Menüpunkts'
+description: 'Der Link-Anzeigetext für die Verwendung im Menü.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

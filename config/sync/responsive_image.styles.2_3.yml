@@ -1,0 +1,23 @@
+uuid: e5bee816-985b-41ff-bab1-0349cdd72acc
+langcode: de
+status: true
+dependencies:
+  config:
+    - image.style.2_3_360x540
+    - image.style.2_3_512x768
+    - image.style.2_3_768x1152
+id: '2_3'
+label: '2:3'
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - 2_3_360x540
+        - 2_3_512x768
+        - 2_3_768x1152
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+breakpoint_group: responsive_image
+fallback_image_style: 2_3_768x1152

@@ -1,0 +1,10 @@
+uuid: c30bf7fb-9200-4019-a452-322917f6c6f1
+langcode: de
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.teaser_imgleft
+label: 'Bild links'
+targetEntityType: paragraph
+cache: true

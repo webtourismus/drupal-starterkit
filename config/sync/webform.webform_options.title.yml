@@ -1,0 +1,11 @@
+uuid: bcd4b0a8-bb09-4aaf-b944-ac77dd9ada2e
+langcode: de
+status: true
+dependencies: {  }
+id: title
+label: Anrede
+category: Demographic
+likert: false
+options: |-
+  m: Herr
+  f: Frau

@@ -1,0 +1,20 @@
+uuid: 39b317ae-67c1-4a3f-bb85-b989c7fb25f7
+langcode: de
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - responsive_image
+id: paragraph.field_image_ratio
+field_name: field_image_ratio
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: responsive_image_style
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

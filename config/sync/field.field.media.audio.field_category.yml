@@ -1,0 +1,29 @@
+uuid: 2816e01f-ad58-46d7-a601-0da9b50d8fb2
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_category
+    - media.type.audio
+    - taxonomy.vocabulary.media
+id: media.audio.field_category
+field_name: field_category
+entity_type: media
+bundle: audio
+label: Kategorie
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      media: media
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

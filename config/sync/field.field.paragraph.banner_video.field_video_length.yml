@@ -1,0 +1,32 @@
+uuid: 7778c0d9-a254-4532-85f7-651669713a87
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_video_length
+    - paragraphs.paragraphs_type.banner_video
+  module:
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: paragraph.banner_video.field_video_length
+field_name: field_video_length
+entity_type: paragraph
+bundle: banner_video
+label: 'Länge des Videos'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: Sekunden
+field_type: integer

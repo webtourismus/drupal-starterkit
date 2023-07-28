@@ -1,0 +1,18 @@
+uuid: 675f892b-6c51-47ba-9771-581058d5a76c
+langcode: de
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Zimmer
+type: room
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

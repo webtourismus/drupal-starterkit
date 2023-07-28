@@ -1,0 +1,34 @@
+uuid: 84f339df-33a6-4e41-8bd5-a300b887ee2e
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.slider
+    - field.field.paragraph.gallery.field_image_ratio
+    - field.field.paragraph.gallery.field_images
+    - field.field.paragraph.gallery.field_viewmode
+    - paragraphs.paragraphs_type.gallery
+  module:
+    - field_formatter_range
+id: paragraph.gallery.slider
+targetEntityType: paragraph
+bundle: gallery
+mode: slider
+content:
+  field_images:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: scale
+      link: false
+    third_party_settings:
+      field_formatter_range:
+        order: 0
+        limit: 0
+        offset: 0
+    weight: 0
+    region: content
+hidden:
+  field_image_ratio: true
+  field_viewmode: true
+  seasonal: true

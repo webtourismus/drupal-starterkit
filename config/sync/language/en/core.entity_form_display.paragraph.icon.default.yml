@@ -1,0 +1,6 @@
+third_party_settings:
+  field_group:
+    group_texts:
+      label: 'Link & Texts'
+      format_settings:
+        description: 'When linking to an internal page, and these fields are empty, base data fields from the linked page will be used. Should be filled when linking to external pages.'

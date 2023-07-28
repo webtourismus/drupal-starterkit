@@ -1,0 +1,10 @@
+uuid: 4d609940-d989-45a1-8039-2ccc9b922924
+langcode: de
+status: true
+dependencies:
+  module:
+    - media
+id: media.inline
+label: 'Eingebettetes Vektorbild'
+targetEntityType: media
+cache: true

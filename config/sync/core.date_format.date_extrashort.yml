@@ -1,0 +1,8 @@
+uuid: 669f5497-f47b-46b7-b3fe-d6d1388d7aee
+langcode: de
+status: true
+dependencies: {  }
+id: date_extrashort
+label: 'Datum sehr kurz "31.12."'
+locked: false
+pattern: d.m.

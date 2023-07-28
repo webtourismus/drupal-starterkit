@@ -1,0 +1,10 @@
+uuid: 05c234f6-1299-4d7d-9029-36600e17ae56
+langcode: de
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.teaser
+label: 'Bild oben'
+targetEntityType: paragraph
+cache: true

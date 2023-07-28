@@ -1,0 +1,38 @@
+uuid: a24b5286-76f8-4ee3-99e4-89e6e0b3a398
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_category
+    - node.type.page
+    - taxonomy.vocabulary.page
+  module:
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '-1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: node.page.field_category
+field_name: field_category
+entity_type: node
+bundle: page
+label: Kategorie
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      page: page
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

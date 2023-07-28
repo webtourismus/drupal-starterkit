@@ -1,0 +1,2 @@
+label: 'Suppress fields'
+description: 'Select texts you do NOT want to render. Use this option when you link to an internal page, but you explicitly do not want to show basedata fields from the linked page.'

@@ -1,0 +1,39 @@
+uuid: 53aa6a55-41f4-4e36-a9f2-b018a1660a01
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.banner_sm
+    - field.field.paragraph.banner_image.field_images
+    - field.field.paragraph.banner_image.field_text
+    - paragraphs.paragraphs_type.banner_image
+  module:
+    - field_formatter_range
+    - text
+id: paragraph.banner_image.banner_sm
+targetEntityType: paragraph
+bundle: banner_image
+mode: banner_sm
+content:
+  field_images:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: banner_sm
+      link: false
+    third_party_settings:
+      field_formatter_range:
+        order: 0
+        limit: 1
+        offset: 0
+    weight: 0
+    region: content
+  field_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  seasonal: true

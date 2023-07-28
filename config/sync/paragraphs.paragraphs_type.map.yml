@@ -1,0 +1,10 @@
+uuid: 381e1be7-6b49-4395-9bf7-5c270570b689
+langcode: de
+status: true
+dependencies: {  }
+id: map
+label: 'Google Map'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

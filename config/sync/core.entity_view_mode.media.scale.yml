@@ -1,0 +1,10 @@
+uuid: 42ce4c11-4f95-48c4-8942-f169d2d9da69
+langcode: de
+status: true
+dependencies:
+  module:
+    - media
+id: media.scale
+label: 'Skalieren (nicht beschneiden)'
+targetEntityType: media
+cache: true

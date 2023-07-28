@@ -1,0 +1,48 @@
+uuid: e21562c0-32bd-41bc-91b9-d41d36765ed2
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.code.field_code
+    - paragraphs.paragraphs_type.code
+  module:
+    - twig_field
+id: paragraph.code.default
+targetEntityType: paragraph
+bundle: code
+mode: default
+content:
+  field_code:
+    type: twig
+    weight: 0
+    region: content
+    settings:
+      toolbar: true
+      buttons:
+        - bold
+        - italic
+        - underline
+        - strike-through
+        - list-numbered
+        - list-bullet
+        - link
+        - horizontal-rule
+        - undo
+        - redo
+        - clear-formatting
+        - enlarge
+        - shrink
+      lineWrapping: false
+      lineNumbers: true
+      foldGutter: true
+      autoCloseTags: true
+      styleActiveLine: true
+      mode: html_twig
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  seasonal: true
+  status: true
+  translation: true

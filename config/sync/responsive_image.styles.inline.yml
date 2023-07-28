@@ -1,0 +1,9 @@
+uuid: b21ad3a2-ab91-44d8-be55-bd77ed07f443
+langcode: de
+status: true
+dependencies: {  }
+id: inline
+label: 'Inline vector image'
+image_style_mappings: {  }
+breakpoint_group: responsive_image
+fallback_image_style: '_original image_'

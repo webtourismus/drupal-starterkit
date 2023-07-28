@@ -1,0 +1,171 @@
+label: 'Media Admin'
+display:
+  default:
+    display_options:
+      title: Media
+      fields:
+        media_bulk_form:
+          action_title: Action
+        thumbnail__target_id:
+          label: Thumbnail
+        operations:
+          label: Action
+        field_category:
+          label: Category
+        bundle:
+          label: Type
+        status:
+          label: Published
+        changed:
+          label: Changed
+      pager:
+        options:
+          tags:
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page_label: 'Items per page'
+            items_per_page_options_all_label: '- All -'
+            offset_label: Offset
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: reset
+          exposed_sorts_label: 'Sort by'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      empty:
+        area:
+          content:
+            value: '<p>No media found.</p>'
+            format: basic_html
+      filters:
+        field_category_target_id:
+          expose:
+            label: Category
+        status:
+          expose:
+            label: Published
+        bundle:
+          expose:
+            label: Type
+        internal_id:
+          group_info:
+            label: 'special media'
+            group_items:
+              1:
+                title: 'only special media'
+  admin_list_document:
+    display_options:
+      title: Documents
+      fields:
+        media_bulk_form:
+          action_title: Action
+        thumbnail__target_id:
+          label: Thumbnail
+        operations:
+          label: Action
+        field_category:
+          label: Category
+        bundle:
+          label: Type
+        status:
+          label: Published
+        changed:
+          label: Changed
+      filters:
+        field_category_target_id:
+          expose:
+            label: Category
+        status:
+          expose:
+            label: Published
+        bundle:
+          expose:
+            label: Type
+        internal_id:
+          group_info:
+            label: 'special media'
+            group_items:
+              1:
+                title: 'only special media'
+      menu:
+        title: Documents
+      tab_options:
+        title: Media
+        description: 'Find and manage media'
+  admin_list_image:
+    display_options:
+      title: Images
+      fields:
+        media_bulk_form:
+          action_title: Action
+        thumbnail__target_id:
+          label: Thumbnail
+        operations:
+          label: Action
+        field_category:
+          label: Category
+        bundle:
+          label: Type
+        status:
+          label: Published
+        changed:
+          label: Changed
+      filters:
+        field_category_target_id:
+          expose:
+            label: Category
+        status:
+          expose:
+            label: Published
+        bundle:
+          expose:
+            label: Type
+        internal_id:
+          group_info:
+            label: 'special media'
+            group_items:
+              1:
+                title: 'only special media'
+      menu:
+        title: Images
+      tab_options:
+        title: Media
+        description: 'Find and manage media'
+  admin_list_video:
+    display_options:
+      fields:
+        media_bulk_form:
+          action_title: Action
+        thumbnail__target_id:
+          label: Thumbnail
+        operations:
+          label: Action
+        field_category:
+          label: Category
+        bundle:
+          label: Type
+        status:
+          label: Published
+        changed:
+          label: Changed
+      filters:
+        field_category_target_id:
+          expose:
+            label: Category
+        status:
+          expose:
+            label: Published
+        bundle:
+          expose:
+            label: Type
+        internal_id:
+          group_info:
+            label: 'special media'
+            group_items:
+              1:
+                title: 'only special media'
+      tab_options:
+        title: Media
+        description: 'Find and manage media'

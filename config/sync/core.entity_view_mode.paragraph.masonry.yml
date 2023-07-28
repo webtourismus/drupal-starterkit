@@ -1,0 +1,10 @@
+uuid: 559b23ec-0bad-47ab-bd6c-5f7467d41b59
+langcode: de
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.masonry
+label: Mauerwerk
+targetEntityType: paragraph
+cache: true

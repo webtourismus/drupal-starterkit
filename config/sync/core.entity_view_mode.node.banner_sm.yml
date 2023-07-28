@@ -1,0 +1,10 @@
+uuid: 78f1f7ef-6460-4e0b-9caf-382a2fe1b303
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+id: node.banner_sm
+label: 'Banner klein'
+targetEntityType: node
+cache: true

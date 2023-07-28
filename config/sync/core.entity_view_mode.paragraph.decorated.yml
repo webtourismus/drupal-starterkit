@@ -1,0 +1,10 @@
+uuid: 5dac508c-6a97-4364-be4a-bf3648b9e9b9
+langcode: de
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.decorated
+label: Dekoriert
+targetEntityType: paragraph
+cache: true

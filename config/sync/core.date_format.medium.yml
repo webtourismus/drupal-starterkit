@@ -1,0 +1,10 @@
+uuid: 186afe6c-3cd1-4823-8360-41c144b0771b
+langcode: de
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: nzL5d024NjXIX_8TlT6uFAu973lmfkmHklJC-2i9rAE
+id: medium
+label: 'Standard mittel "Do, 31.12.2099 - 23:59"'
+locked: false
+pattern: 'D, d.m.Y - H:i'

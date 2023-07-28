@@ -1,0 +1,27 @@
+uuid: d02dffa7-ae6e-4223-8e41-a3f7d79bf42e
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_subtitle
+    - paragraphs.paragraphs_type.linkblock
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: paragraph.linkblock.field_subtitle
+field_name: field_subtitle
+entity_type: paragraph
+bundle: linkblock
+label: Untertitel
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - plain_text
+field_type: text_long

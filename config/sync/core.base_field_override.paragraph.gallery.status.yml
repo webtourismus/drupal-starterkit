@@ -1,0 +1,22 @@
+uuid: 24ade109-39a6-4685-a9af-38e53f8291ea
+langcode: de
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.gallery
+id: paragraph.gallery.status
+field_name: status
+entity_type: paragraph
+bundle: gallery
+label: Veröffentlicht
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: An
+  off_label: Aus
+field_type: boolean

@@ -1,0 +1,22 @@
+uuid: b113d478-df5a-4b74-88f9-ddff1b031598
+langcode: de
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.banner_video
+id: paragraph.banner_video.status
+field_name: status
+entity_type: paragraph
+bundle: banner_video
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

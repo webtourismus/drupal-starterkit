@@ -1,0 +1,27 @@
+uuid: 200deb2a-8dba-42ce-be21-5fbf70d2513e
+langcode: de
+status: true
+dependencies:
+  config:
+    - image.style.3_2_1024x683
+    - image.style.3_2_1400x933
+    - image.style.3_2_1920x1280
+    - image.style.3_2_360x240
+    - image.style.3_2_768x512
+id: '3_2'
+label: '3:2'
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - 3_2_1024x683
+        - 3_2_1400x933
+        - 3_2_1920x1280
+        - 3_2_360x240
+        - 3_2_768x512
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+breakpoint_group: responsive_image
+fallback_image_style: 3_2_1920x1280

@@ -1,0 +1,8 @@
+uuid: 9ae30410-38f8-4eee-ae25-fcf96bbc0914
+langcode: de
+status: true
+dependencies: {  }
+name: Medien-Kategorien
+vid: media
+description: ''
+weight: 0

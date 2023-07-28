@@ -1,0 +1,41 @@
+uuid: 70404aa6-5793-4cca-8eec-8506828828f7
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_ratio
+    - paragraphs.paragraphs_type.icon
+    - responsive_image.styles.inline
+  module:
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: paragraph.icon.field_image_ratio
+field_name: field_image_ratio
+entity_type: paragraph
+bundle: icon
+label: 'Icon Format'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: b21ad3a2-ab91-44d8-be55-bd77ed07f443
+default_value_callback: ''
+settings:
+  handler: 'config:responsive_image_style'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+    filter:
+      negate: 0
+      allowed_ids:
+        - inline
+        - original
+        - scale
+field_type: entity_reference

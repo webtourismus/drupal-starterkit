@@ -1,0 +1,21 @@
+uuid: 26e27fac-27cc-4505-9189-2298c6abeff3
+langcode: de
+status: true
+dependencies: {  }
+name: w1024
+label: 'Scale width 1024px'
+effects:
+  bdee28e3-d64c-4388-8963-74bd5b7268b1:
+    uuid: bdee28e3-d64c-4388-8963-74bd5b7268b1
+    id: image_convert
+    weight: 1
+    data:
+      extension: webp
+  a45f0059-8b98-4792-ab7e-8864fbdab90d:
+    uuid: a45f0059-8b98-4792-ab7e-8864fbdab90d
+    id: image_scale
+    weight: 2
+    data:
+      width: 1024
+      height: null
+      upscale: false

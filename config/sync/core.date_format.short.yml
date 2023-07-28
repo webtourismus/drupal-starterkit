@@ -1,0 +1,10 @@
+uuid: 7b1812de-370c-4044-bf9a-ed9dafabec2d
+langcode: de
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: AlzeyytA8InBgxIG9H2UDJYs3CG98Zj6yRsDKmlbZwA
+id: short
+label: 'Standard kurz "31.12.2099 - 23:59"'
+locked: false
+pattern: 'd.m.Y - H:i'

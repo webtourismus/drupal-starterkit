@@ -1,0 +1,84 @@
+uuid: 9a351da5-77c6-4222-92e6-010f4ffec058
+langcode: de
+status: true
+dependencies:
+  config:
+    - filter.format.banner_html
+  module:
+    - ckeditor5
+format: banner_html
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - undo
+      - redo
+      - '|'
+      - heading
+      - style
+      - '|'
+      - bold
+      - italic
+      - underline
+      - removeFormat
+      - '|'
+      - link
+      - '|'
+      - numberedList
+      - bulletedList
+      - outdent
+      - indent
+      - '|'
+      - specialCharacters
+      - horizontalLine
+      - '|'
+      - sourceEditing
+  plugins:
+    ckeditor5_heading:
+      enabled_headings:
+        - heading1
+    ckeditor5_list:
+      reversed: true
+      startIndex: true
+    ckeditor5_sourceEditing:
+      allowed_tags:
+        - '<h1 class id data-*>'
+        - '<span class id data-*>'
+        - '<a class id data-* target rel>'
+        - '<p class id data-*>'
+        - '<div class id data-*>'
+        - '<ul class id data-*>'
+        - '<ol reversed start class id data-*>'
+        - '<li class id data-*>'
+        - '<strong class id data-*>'
+        - '<em class id data-*>'
+        - '<u class id data-*>'
+        - '<br class id data-*>'
+        - '<hr class id data-*>'
+    ckeditor5_style:
+      styles:
+        -
+          label: 'Font size banner'
+          element: '<p class="text-banner">'
+        -
+          label: 'Font size by device'
+          element: '<p class="text-fluid">'
+        -
+          label: 'Font size small'
+          element: '<p class="text-smaller">'
+        -
+          label: 'Font size large'
+          element: '<p class="text-larger">'
+        -
+          label: 'Button text color'
+          element: '<a class="btn-filled-foreground">'
+        -
+          label: 'Button outlined'
+          element: '<a class="btn-outline">'
+        -
+          label: 'Link decorated'
+          element: '<a class="link-decorated">'
+    linkit_extension:
+      linkit_enabled: true
+      linkit_profile: backend
+image_upload: {  }

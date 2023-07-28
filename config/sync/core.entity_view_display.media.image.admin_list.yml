@@ -1,0 +1,37 @@
+uuid: d0a62870-7d5b-4717-b127-fe01343cc685
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.admin_list
+    - field.field.media.image.field_category
+    - field.field.media.image.field_copyright
+    - field.field.media.image.field_media_image
+    - image.style.admin_list_50x50
+    - media.type.image
+  module:
+    - image
+id: media.image.admin_list
+targetEntityType: media
+bundle: image
+mode: admin_list
+content:
+  field_media_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: admin_list_50x50
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  created: true
+  field_category: true
+  field_copyright: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

@@ -1,0 +1,32 @@
+uuid: 47c1d9a7-7763-464c-b4be-c4269e7654b3
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_price
+    - node.type.package
+  module:
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: node.package.field_price
+field_name: field_price
+entity_type: node
+bundle: package
+label: Preis
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: €
+field_type: float

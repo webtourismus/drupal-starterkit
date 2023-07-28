@@ -1,0 +1,10 @@
+uuid: e9ca24fa-4914-4536-8dcc-baec93e2c017
+langcode: de
+status: true
+dependencies:
+  module:
+    - media
+id: media.banner_text
+label: 'Banner mit Text'
+targetEntityType: media
+cache: true

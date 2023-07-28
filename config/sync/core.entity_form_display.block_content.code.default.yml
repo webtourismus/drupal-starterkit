@@ -1,0 +1,71 @@
+uuid: ffb5632d-ff40-4627-a270-1b6f9617fb46
+langcode: de
+status: true
+dependencies:
+  config:
+    - block_content.type.code
+    - field.field.block_content.code.field_code
+  module:
+    - twig_field
+id: block_content.code.default
+targetEntityType: block_content
+bundle: code
+mode: default
+content:
+  field_code:
+    type: twig
+    weight: 1
+    region: content
+    settings:
+      toolbar: true
+      buttons:
+        - bold
+        - italic
+        - underline
+        - strike-through
+        - list-numbered
+        - list-bullet
+        - link
+        - horizontal-rule
+        - undo
+        - redo
+        - clear-formatting
+        - enlarge
+        - shrink
+      lineWrapping: false
+      lineNumbers: true
+      foldGutter: true
+      autoCloseTags: true
+      styleActiveLine: true
+      mode: html_twig
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  internal_id:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  remote_datasource: true
+  remote_id: true
+  translation: true

@@ -1,0 +1,10 @@
+uuid: 92759ba7-35ad-4b3a-b1be-576396bb78fb
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+id: node.banner_text
+label: 'Banner mit Text'
+targetEntityType: node
+cache: true

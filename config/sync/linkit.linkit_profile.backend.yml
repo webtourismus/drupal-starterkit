@@ -1,0 +1,32 @@
+uuid: 3b239606-1abc-46f1-8de2-f745be334c15
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+label: 'Inhalte und PDFs'
+id: backend
+description: 'Links zu Seiten oder Datei eines Dokument-Mediums.'
+matchers:
+  fbf5a314-1b04-4006-bd52-1156191ff6a8:
+    id: 'entity:node'
+    uuid: fbf5a314-1b04-4006-bd52-1156191ff6a8
+    settings:
+      metadata: '[node:title] ([node:content-type] / [node:created:short] / ID [node:nid])'
+      bundles: {  }
+      group_by_bundle: true
+      substitution_type: canonical
+      limit: 100
+      include_unpublished: true
+    weight: 0
+  81daef92-9b10-452f-8569-9032288e0969:
+    id: 'entity:media'
+    uuid: 81daef92-9b10-452f-8569-9032288e0969
+    settings:
+      metadata: '[media:name] ([node:created:short] / ID [node:nid])'
+      bundles:
+        document: document
+      group_by_bundle: false
+      substitution_type: media_download_inline
+      limit: 100
+    weight: 0
