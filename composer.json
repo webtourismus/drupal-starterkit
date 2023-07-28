@@ -47,8 +47,8 @@
     "webtourismus/maintenance": {
         "type": "vcs",
         "url": "https://webtourismus@bitbucket.org/webtourismus/maintenance.git"
-      },
-      "webtourismus/drupal-metapackage": {
+    },
+    "webtourismus/drupal-metapackage": {
       "type": "vcs",
       "url": "https://bitbucket.org/webtourismus/drupal-metapackage.git"
     },
