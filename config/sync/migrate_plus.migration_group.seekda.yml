@@ -5,7 +5,7 @@ dependencies: {  }
 _core:
   default_config_hash: MBq1adUWxk-5nkfftN2_lIG0l1GQB9Alk3WwFk-3Kgw
 id: seekda
-label: 'Seekda import'
+label: 'Seekda Import'
 description: 'Imports rooms and packages from Seekda CM.'
 source_type: 'JSON API'
 module: null

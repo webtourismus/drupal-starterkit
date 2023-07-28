@@ -2,10 +2,7 @@ uuid: e5e4b2f4-103d-4923-a078-c08373a79ba5
 langcode: de
 status: true
 dependencies:
-  content:
-    - 'block_content:text:7365cd3f-672c-47a7-b561-5c672953ee62'
   module:
-    - block_content
     - system
   theme:
     - frontend

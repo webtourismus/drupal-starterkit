@@ -6,6 +6,7 @@ dependencies:
     - block_content.type.code
     - field.field.block_content.code.field_code
   module:
+    - ebr_popup
     - twig_field
 id: block_content.code.default
 targetEntityType: block_content
@@ -59,13 +60,20 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 3
+    weight: 4
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  uuid:
+    type: uuid
+    weight: 3
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   langcode: true
   remote_datasource: true
   remote_id: true
+  seasonal: true
   translation: true

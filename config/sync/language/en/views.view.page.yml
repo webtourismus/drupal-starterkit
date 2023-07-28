@@ -18,6 +18,8 @@ display:
           label: Published
         internal_notes:
           label: 'Internal notes'
+          alter:
+            text: "{% if internal_id %}<tt class=\"inline-block rounded-md bg-[#14b8a6] text-white px-1 cursor-help\" title=\"This page has a special purpose and can not be deleted\">{{ internal_id }}</tt>{% endif %}{% if internal_id and internal_notes%}<br>{% endif %}\r\n{{ internal_notes }}"
         field_category:
           label: Category
         changed:
@@ -46,9 +48,12 @@ display:
             label: Language
           group_info:
             label: Language
+            description: ''
         internal_id:
           expose:
             label: 'Internal ID'
+            description: ''
+            placeholder: ''
           group_info:
             label: 'special pages'
             group_items:

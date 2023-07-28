@@ -7,6 +7,7 @@ dependencies:
     - field.field.block_content.text.body
   module:
     - allowed_formats
+    - ebr_popup
     - text
 id: block_content.text.default
 targetEntityType: block_content
@@ -44,13 +45,20 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 3
+    weight: 4
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  uuid:
+    type: uuid
+    weight: 3
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   langcode: true
   remote_datasource: true
   remote_id: true
+  seasonal: true
   translation: true

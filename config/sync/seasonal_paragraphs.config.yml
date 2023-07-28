@@ -1,3 +1,5 @@
+_core:
+  default_config_hash: 6EGfOs8txlffTMd9PScSTt4izqpCNewqXo_NZrbBFec
 entity_field_sanity_check:
   - 'node:field_banner'
 langcode: de
