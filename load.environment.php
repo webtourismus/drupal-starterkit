@@ -10,9 +10,10 @@ declare(strict_types=1);
 use \Dotenv\Dotenv;
 
 /**
- * Load .env settings from either the current dir (typically on "prod" environment)
- * or the parent dir (typically on "dev" environment). If both files are found (typically dev),
- * values from the parent dir overrule values from the current dir.
+ * Load credentials and system settings.
+ *
+ * The loader also checks for the parent directory as fallback,
+ * typically used on "dev" environments.
  */
-$dotenv = Dotenv::createUnsafeMutable([__DIR__, __DIR__ . '/..'], '.env', FALSE);
+$dotenv = Dotenv::createUnsafeImmutable([__DIR__ . '/..', __DIR__], '.env', FALSE);
 $dotenv->safeLoad();
