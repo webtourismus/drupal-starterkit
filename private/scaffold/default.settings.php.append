@@ -9,21 +9,9 @@
  */
 
 /**
- * Credentials are stored in .env files
- * @see \load.environment.php
- * @see \.env
+ * Assume an unsafe environment by default
  */
-$databases['default']['default'] = [
-  'database' => $_ENV['DB_NAME'],
-  'username' => $_ENV['DB_USER'],
-  'password' => $_ENV['DB_PASS'],
-  'prefix' => '',
-  'host' => $_ENV['DB_HOST'] ?? 'localhost',
-  'port' => $_ENV['DB_PORT'] ?? 3306,
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
-  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
-];
+$_ENV['ENV'] = $_ENV['ENV'] ?? 'prod';
 
 /**
  * Enable assetions only on dev environments
@@ -98,3 +86,9 @@ $settings['config_exclude_modules'] = ['devel', 'potx'];
  * Tailwind JIT
  */
 $settings['tailwind_jit_executable'] = '../vendor/bin/tailwindcss --postcss ./themes/custom/frontend/tailwind/postcss.config.cjs';
+
+/**
+ * Credentials are stored in .env files
+ * @see \load.environment.php
+ * @see \.env
+ */
