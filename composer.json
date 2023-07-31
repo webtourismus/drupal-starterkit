@@ -90,8 +90,8 @@
         "web-root": "web/"
       },
       "file-mapping": {
-        "[web-root]/sites/default/settings.default.php": {
-          "append": "./private/scaffold/settings.default.php.append"
+        "[web-root]/sites/default/default.settings.php": {
+          "append": "./private/scaffold/default.settings.php.append"
         },
         "RoboFile.php": {
           "path": "./web/modules/contrib/maintenance/src/Robo/RoboFile.php"
