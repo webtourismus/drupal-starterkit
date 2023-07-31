@@ -79,7 +79,8 @@
       "patch -p1 < ./private/scaffold/htaccess.patch"
     ],
     "post-create-project-cmd": [
-      "./vendor/bin/robo kickoff"
+      "./vendor/bin/robo kickoff:init-dev-env",
+      "./vendor/bin/robo kickoff:install-drupal"
     ]
   },
   "extra": {
@@ -88,9 +89,6 @@
         "web-root": "web/"
       },
       "file-mapping": {
-        "[web-root]/sites/default/default.settings.php": {
-          "append": "./private/scaffold/default.settings.php.append"
-        },
         "RoboFile.php": {
           "path": "./web/modules/contrib/maintenance/src/Robo/RoboFile.php"
         }
@@ -166,6 +164,6 @@
     }
   },
   "require": {
-    "webtourismus/drupal-metapackage": "^0.9.0"
+    "webtourismus/drupal-metapackage": "^0.9.1"
   }
 }
