@@ -79,7 +79,7 @@
       "patch -p1 < ./private/scaffold/htaccess.patch"
     ],
     "post-create-project-cmd": [
-      "touch ./.env && chmod 644 ./env",
+      "touch ./.env && chmod 644 ./.env",
       "./vendor/bin/robo kickoff:init-dev",
       "./vendor/bin/robo kickoff:install-drupal"
     ]
