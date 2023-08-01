@@ -13,9 +13,6 @@ admin_compact_mode: false
 weight_select_max: 100
 default_langcode: de
 mail_notification: ''
-seekda:
-  property_code: S000048
-  kube_domain: 'https://S000048.officialbookings.com'
 summer_season:
   from: '2000-04-01'
   to: '2000-09-30'

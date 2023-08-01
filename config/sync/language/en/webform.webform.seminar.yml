@@ -1,0 +1,54 @@
+title: 'Seminar enquiry'
+elements: |
+  text_seminar:
+    '#text': '<h3>Seminar data</h3>'
+  date:
+    '#title': Date
+    '#description': '<p>You can select multiple days.</p>'
+    '#placeholder': DD.MM.YYYY
+  time:
+    '#title': Time
+    '#description': '<p>Start of seminar</p>'
+  persons:
+    '#title': 'No. participants'
+  rooms:
+    '#title': 'No. rooms'
+    '#description': '<p>Please fill if your participants want to stay overnight in our hotel.</p>'
+  seating:
+    '#title': 'Table line-up'
+    '#options':
+      t: T-shape
+      u: U-shape
+      klassenzimmer: 'Classroom seating'
+      kino: 'Cinema seating'
+      kreis: 'Circle of chairs'
+  text_contact:
+    '#text': '<h3>Contact data</h3>'
+  title:
+    '#title': Title
+  firstname:
+    '#title': 'First name'
+  lastname:
+    '#title': 'Last name'
+  company:
+    '#title': 'Company / organization'
+  phone:
+    '#title': Phone
+    '#description': '<p>Please include international dialing code</p>'
+  email:
+    '#title': Email
+  message:
+    '#title': 'Questions, wishes, remarks,...'
+    '#description': '<p>Do you have special requirements for facilities or catering? Do you need help planning outdoor teambuilding activities? We are here to help!</p>'
+  actions:
+    '#title': Submit
+    '#submit__label': 'Submit enquiry'
+handlers:
+  mail_customer:
+    settings:
+      subject: 'My seminar enquiry on [site:url-brief]'
+      body: "<p>Thanks for your seminar enquiry on [current-date:long]. We'll answer your to your order as soon as possible.<br><br><br>Your [site:name] Team.<br><br><br>This is an automated mail containing your submitted data on our site [site:url-brief].<br><br>[webform_submission:values]</p>"
+  mail_siteowner:
+    settings:
+      subject: 'Seminar enquiry [webform_submission:values:date], [webform_submission:values:persons] pers.'
+      body: '<p>_default</p>'

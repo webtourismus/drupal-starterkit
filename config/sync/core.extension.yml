@@ -32,7 +32,6 @@ module:
   dynamic_page_cache: 0
   ebr: 0
   ebr_accommodation: 0
-  ebr_accommodation_seekda: 0
   ebr_internal_notes: 0
   ebr_popup: 0
   ebr_stable_media: 0
