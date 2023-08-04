@@ -149,9 +149,21 @@ module.exports = {
 
         addVariant('frontpage', ['.is-frontpage &']);
 
+        addVariant('not-scrolled', ['[data-scrolled=false] &']);
+
+        addVariant('scrolled', ['[data-scrolled=true] &']);
+
+        addVariant('no-banner', ['.node--no-banner &']);
+
+        addVariant('has-banner', ['.node--has-banner &']);
+
+        addVariant('large-banner', ['.node--banner--banner_lg &']);
+
         addVariant('hocus', ['&:hover', '&:focus']);
 
         addVariant('children', ['& > *']);
+
+        addVariant('children-adjacent', ['& > * + *']);
 
         addVariant('children-odd', ['& > :where(:nth-child(odd))']);
 

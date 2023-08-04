@@ -212,7 +212,7 @@
     @apply inline-block h-[1em] align-[-1.25em];
   }
   .inline-svg-fw {
-    @apply inline-svg w[1.5em];
+    @apply inline-svg w-[1.5em];
   }
 
 }

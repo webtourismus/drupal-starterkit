@@ -1,15 +1,14 @@
 module.exports = {
   theme: {
-    /**
-     * See presets.config.js for typography config. e.g. stuff like
-     * fontFamily: { 'family-running': ['Montserrat', sans-serif] }
-     * fontWeight: { 'weight-default': 300, 'weight-thick': 600 }
-     */
-    fontFamily: {
-      'family-running': ['Open Sans', 'sans'],
-    },
-
     extend: {
+      /**
+       * See presets.config.js for typography config. e.g. stuff like
+       * fontFamily: { 'family-running': ['Montserrat', sans-serif] }
+       * fontWeight: { 'weight-default': 300, 'weight-thick': 600 }
+       */
+      fontFamily: {
+        'family-running': ['Open Sans', 'sans'],
+      },
       /**
        * Project specific, but within project reusebable color names here.
        * Useful if shades of the same hue are needed.
@@ -64,7 +63,7 @@ module.exports = {
         flashyhocus: theme('colors.primary.light'),
       },
       flashy: {
-        flashy: theme('colors.primary.DEFAULT'),
+        background: theme('colors.primary.DEFAULT'),
         foreground: 'white',
         onforeground: 'black',
         flashy: 'black',

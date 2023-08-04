@@ -40,7 +40,7 @@
   <data id="scroll_observer"
         aria-hidden="true"
         {# height class determines "scrolled down" variable #}
-        class="absolute top-0 left-0 h-[100px] w-px pointer-events-none opacity-0"
+        class="absolute top-0 left-0 h-[100px] w-px pointer-events-none opacity-0 z-behind"
         x-data x-init="$store.scrolled=false; "
         x-intersect:enter="$store.scrolled=false"
         x-intersect:leave="$store.scrolled=true"

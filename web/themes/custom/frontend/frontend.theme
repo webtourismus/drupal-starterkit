@@ -33,18 +33,37 @@ function frontend_theme_suggestions_block_alter(array &$suggestions, array $vari
   }
 }
 function frontend_preprocess_block(array &$variables): void {
+  _frontend_preprocess_block_blockcontent($variables);
+  _frontend_preprocess_block_menu($variables);
+}
+
+function _frontend_preprocess_block_blockcontent(array &$variables): void {
+  if ($variables['base_plugin_id'] !== 'block_content') {
+    return;
+  }
+  // Use title from "block_content" content entity instead of "block" config entity.
+  // This allows editors to edit and translate block titles.
+  if (!empty($variables['label'])) {
+    $variables['label'] = $variables['content']['#block_content']->label();
+  }
+}
+
+function _frontend_preprocess_block_menu(array &$variables): void {
   if ($variables['base_plugin_id'] !== 'system_menu_block') {
     return;
   }
+  // @see frontend_theme_suggestions_menu_alter()
   $blockId = $variables['elements']['#id'];
   $blockConfig = Block::load($blockId);
   $region = $blockConfig?->getRegion();
   if ($region) {
     $variables['content']['#attributes']['data-drupal-region'] = $region;
+    $variables['content']['#cache']['tags'][] = "block:{$blockId}";
   }
 }
 
 function frontend_theme_suggestions_menu_alter(array &$suggestions, array $variables): void {
+  // @see _frontend_preprocess_block_menu()
   if (isset($variables['attributes']['data-drupal-region'])) {
     array_unshift($suggestions, 'menu__region__' . str_replace('-', '_', $variables['attributes']['data-drupal-region']));
   }
@@ -71,5 +90,40 @@ function frontend_theme_suggestions_field_alter(array &$suggestions, array $vari
     $suggestions[] = "teaserfield__{$targetEntity->bundle()}__{$variables['element']['#teaser_fieldname']}__{$viewMode}";
     array_splice($suggestions, 3, 0, "teaserfield__{$variables['element']['#teaser_fieldname']}__{$viewMode}");
     array_splice($suggestions, 2, 0, "teaserfield__{$variables['element']['#teaser_fieldname']}");
+  }
+}
+
+function frontend_preprocess_menu(array &$variables): void {
+  if (in_array($variables['menu_name'], ['admin', 'administration', 'editor', 'toolbar'])) {
+    return;
+  }
+  $variables['attributes'] = \Drupal::service('designsystem.helper')->toAttributeObject($variables['attributes']);
+  $variables['attributes']->setAttribute('data-menu-name', $variables['menu_name']);
+  $region = NULL;
+  if (!empty($variables['attributes']['data-drupal-region'])) {
+    $region = (string) $variables['attributes']['data-drupal-region'];
+    $variables['attributes']->setAttribute('data-menu-region', $region);
+  }
+  if (!empty($variables['items'])) {
+    _frontend_preprocess_menu_items($variables['items'], $variables['menu_name'], 0, $region);
+  }
+}
+
+function _frontend_preprocess_menu_items(array &$items, string $name, int $level, string $region=NULL): void {
+  foreach($items as $idx => $item) {
+    $items[$idx]['attributes'] = \Drupal::service('designsystem.helper')->toAttributeObject($items[$idx]['attributes']);
+    $linkAttributes = \Drupal::service('designsystem.helper')->toAttributeObject($items[$idx]['url']->getOption('attributes'));
+    $items[$idx]['attributes']->setAttribute('data-menu-name', $name);
+    $items[$idx]['attributes']->setAttribute('data-menu-level', $level);
+    $linkAttributes->setAttribute('data-menu-name', $name);
+    $linkAttributes->setAttribute('data-menu-level', $level);
+    if ($region) {
+      $items[$idx]['attributes']->setAttribute('data-menu-region', $region);
+      $linkAttributes->setAttribute('data-menu-region', $region);
+    }
+    $items[$idx]['url']->setOption('attributes', $linkAttributes->toArray());
+    if (!empty($item['below'])) {
+      _frontend_preprocess_menu_items($items[$idx]['below'], $name, $level+1, $region);
+    }
   }
 }
