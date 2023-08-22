@@ -84,26 +84,113 @@ settings:
     ckeditor5_style:
       styles:
         -
-          label: 'P wie Überschrift 1'
+          label: 'Überschrift 1 <p>'
           element: '<p class="h1">'
         -
-          label: 'H2 wie Überschrift 1'
+          label: 'Überschrift 1 <h2>'
           element: '<h2 class="h1">'
         -
-          label: 'wie Überschrift 2'
+          label: 'Überschrift 1 <h3>'
+          element: '<h3 class="h1">'
+        -
+          label: 'Überschrift 1 <h4>'
+          element: '<h4 class="h1">'
+        -
+          label: 'Überschrift 1 <h5>'
+          element: '<h5 class="h1">'
+        -
+          label: 'Überschrift 1 <h6>'
+          element: '<h6 class="h1">'
+        -
+          label: 'Überschrift 2 <p>'
           element: '<p class="h2">'
         -
-          label: 'wie Überschrift 3'
+          label: 'Überschrift 2 <h1>'
+          element: '<h1 class="h2">'
+        -
+          label: 'Überschrift 2 <h3>'
+          element: '<h3 class="h2">'
+        -
+          label: 'Überschrift 2 <h4>'
+          element: '<h4 class="h2">'
+        -
+          label: 'Überschrift 2 <h5>'
+          element: '<h5 class="h2">'
+        -
+          label: 'Überschrift 2 <h6>'
+          element: '<h6 class="h2">'
+        -
+          label: 'Überschrift 3 <p>'
           element: '<p class="h3">'
         -
-          label: 'wie Überschrift 4'
+          label: 'Überschrift 3 <h1>'
+          element: '<h1 class="h3">'
+        -
+          label: 'Überschrift 3 <h2>'
+          element: '<h2 class="h3">'
+        -
+          label: 'Überschrift 3 <h4>'
+          element: '<h4 class="h3">'
+        -
+          label: 'Überschrift 3 <h5>'
+          element: '<h5 class="h3">'
+        -
+          label: 'Überschrift 3 <h6>'
+          element: '<h6 class="h3">'
+        -
+          label: 'Überschrift 4 <p>'
           element: '<p class="h4">'
         -
-          label: 'wie Überschrift 5'
+          label: 'Überschrift 4 <h1>'
+          element: '<h1 class="h4">'
+        -
+          label: 'Überschrift 4 <h2>'
+          element: '<h2 class="h4">'
+        -
+          label: 'Überschrift 4 <h3>'
+          element: '<h3 class="h4">'
+        -
+          label: 'Überschrift 4 <h5>'
+          element: '<h5 class="h4">'
+        -
+          label: 'Überschrift 4 <h6>'
+          element: '<h6 class="h4">'
+        -
+          label: 'Überschrift 5 <p>'
           element: '<p class="h5">'
         -
-          label: 'wie Überschrift 6'
+          label: 'Überschrift 5 <h1>'
+          element: '<h1 class="h5">'
+        -
+          label: 'Überschrift 5 <h2>'
+          element: '<h2 class="h5">'
+        -
+          label: 'Überschrift 5 <h3>'
+          element: '<h3 class="h5">'
+        -
+          label: 'Überschrift 5 <h4>'
+          element: '<h4 class="h5">'
+        -
+          label: 'Überschrift 5 <h6>'
+          element: '<h6 class="h5">'
+        -
+          label: 'Überschrift 6 <p>'
           element: '<p class="h6">'
+        -
+          label: 'Überschrift 6 <h1>'
+          element: '<h1 class="h6">'
+        -
+          label: 'Überschrift 6 <h2>'
+          element: '<h2 class="h6">'
+        -
+          label: 'Überschrift 6 <h3>'
+          element: '<h3 class="h6">'
+        -
+          label: 'Überschrift 6 <h4>'
+          element: '<h4 class="h6">'
+        -
+          label: 'Überschrift 6 <h5>'
+          element: '<h6 class="h6">'
         -
           label: 'Schriftgröße klein'
           element: '<span class="text-smaller">'
@@ -117,8 +204,8 @@ settings:
           label: 'Schriftfarbe auffällig'
           element: '<span class="text-flashy">'
         -
-          label: 'Schriftfarbe reduziert'
-          element: '<span class="opacity-80">'
+          label: 'Schriftfarbe blass'
+          element: '<span class="text-pale">'
         -
           label: 'Button auffällig'
           element: '<a class="btn-filled-flashy">'

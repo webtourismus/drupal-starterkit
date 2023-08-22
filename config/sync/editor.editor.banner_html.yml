@@ -58,25 +58,28 @@ settings:
     ckeditor5_style:
       styles:
         -
-          label: 'Font size banner'
-          element: '<p class="text-banner">'
+          label: 'Schriftgröße Banner'
+          element: '<span class="text-banner">'
         -
-          label: 'Font size by device'
-          element: '<p class="text-fluid">'
+          label: 'Schriftgröße je nach Bildschirm'
+          element: '<span class="text-fluid">'
         -
-          label: 'Font size small'
-          element: '<p class="text-smaller">'
+          label: 'Schriftgröße klein'
+          element: '<span class="text-smaller">'
         -
-          label: 'Font size large'
-          element: '<p class="text-larger">'
+          label: 'Schriftgröße groß'
+          element: '<span class="text-larger">'
         -
-          label: 'Button text color'
+          label: 'Schriftfarbe blass'
+          element: '<span class="text-pale">'
+        -
+          label: 'Button Textfarbe'
           element: '<a class="btn-filled-foreground">'
         -
-          label: 'Button outlined'
+          label: 'Button gerahmt'
           element: '<a class="btn-outline">'
         -
-          label: 'Link decorated'
+          label: 'Link dekoriert'
           element: '<a class="link-decorated">'
     linkit_extension:
       linkit_enabled: true

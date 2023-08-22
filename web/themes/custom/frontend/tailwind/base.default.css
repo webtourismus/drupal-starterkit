@@ -56,8 +56,9 @@
   }
 
   /* fix 0px height when empty on safari https://bugs.webkit.org/show_bug.cgi?id=198959 */
-  input:where([type=time],[type=date],[type=tel],[type=datetime-local]) {
-    min-height: calc(1em * 1.5 + 2 * var(--input-padding-vertical));
+  /* make select same height as input[type=text] */
+  input:where([type=time],[type=date],[type=tel],[type=datetime-local]), select {
+    min-height: calc(1.5em + 2 * var(--input-padding-vertical) + 2 * var(--input-border-width));
   }
 
   :where(.form-item) {

@@ -1,0 +1,149 @@
+/* Global (admin+frontend) styles */
+
+@font-face { /* ... */ }
+
+@layer components {
+  /**
+   * ###################################################################################################################
+   * ###################################################################################################################
+   * Typography
+   * ###################################################################################################################
+   * ###################################################################################################################
+   */
+  /**
+   * Font shorthands
+   */
+   .font-running {
+    font: theme('fontWeight.weight-default') 1rem theme('fontFamily.family-running');
+  }
+  /**
+   * Relative font sizes
+   *
+   * Used in ~/config/sync/editor.editor.*.yml
+   */
+  .text-smaller {
+    font-size: 0.9em;
+  }
+  .text-larger {
+    font-size: 1.25em;
+  }
+  /**
+   * Font size with a significant scaling factor based on screen width ("fluid typography")
+   * @see https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=360&minRatio=1.5&maxFontSize=40&maxWidth=1400&maxRatio=2&steps=&baseStep=&prefix=font-size&decimals=2&useRems=on&remValue=16&previewFont=Inter
+   * Typically used for text within hero images or for customer reviews within blockquotes
+   *
+   * Used in ~/config/sync/editor.editor.banner_html.yml
+   */
+  .text-fluid {
+    /**
+     * 16px @360w, 40px @1400w
+     */
+    font-size: clamp(1rem, 2.31vw + 0.48rem, 2.5rem);
+  }
+  .text-banner {
+    /**
+     * 24px @360w, 56px @1920w
+     */
+    font-size: clamp(1.5rem, 2.05vw + 1.04rem, 3.5rem);
+  }
+  /**
+   * This style should only change the color of a text
+   */
+  .text-pale {
+    opacity: 0.8;
+  }
+  /**
+   * Headlines
+   * Explicitly add _all_ text styles (weight, colors, style, letter-spacing...) so any <hX> can be restyled to any .hX
+   *
+   * Used in ~/config/sync/editor.editor.banner_html.yml
+   */
+  .h1 {
+    @apply text-[2.75rem] sm:text-[3.5rem] text-flashy font-weight-thick tracking-normal not-italic no-underline normal-case;
+  }
+  .h2 {
+    @apply text-[2.25rem] sm:text-[2.75rem] text-flashy font-weight-default tracking-normal not-italic no-underline normal-case;
+  }
+  .h3 {
+    @apply text-[2rem] sm:text-[2.25rem] text-foreground font-weight-default tracking-normal not-italic underline normal-case;
+  }
+  .h4 {
+    @apply text-[1.5rem] sm:text-[1.5rem] text-foreground font-weight-default tracking-normal italic underline normal-case;
+  }
+  .h5 {
+    @apply text-[1rem] sm:text-[1rem] text-foreground font-weight-thick tracking-[2px] not-italic no-underline uppercase;
+  }
+  .h6 {
+    @apply text-[0.9rem] sm:text-[0.9rem] text-flashy font-weight-default tracking-[2px] not-italic no-underline uppercase;
+  }
+  /**
+   * Editorial content from formatted running text fields
+   */
+  .ck-content {
+    /**
+     * Text flow with collapsing vertical margins (no flex!)
+     */
+    :where(p, h1, h2, h3, h4, h5, h6, ol, ul, dl, table, blockquote) {
+      margin: 1em 0 0.5em 0;
+    }
+    :where(:first-child) {
+      margin-top: 0;
+    }
+    :where(:last-child) {
+      margin-bottom: 0;
+    }
+    /**
+     * List bullets should also work with .text-align-center
+     */
+    :where(ol, ul) {
+      @apply pl-0 list-inside;
+    }
+    :where(ul) {
+      @apply list-disc;
+    }
+    :where(ol) {
+      @apply list-decimal;
+    }
+    /**
+     * Links without classes are assumed to be inline links within running text
+     */
+    :where(a:not([class])) {
+      @apply decoration-inherit hocus:text-flashy;
+    }
+    /**
+     * Links inside headers should look like their header parent
+     */
+    :where(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .h1 a, .h2 a, .h3 a, .h4 a, .h5 a, .h6 a) {
+      @apply decoration-transparent hocus:text-inherit hocus:decoration-inherit;
+    }
+  }
+
+
+
+  /**
+   * ###################################################################################################################
+   * ###################################################################################################################
+   * Buttons and links
+   * ###################################################################################################################
+   * ###################################################################################################################
+   */
+  /**
+   * It is recommended to use ".btn" as an abstract base class for all button's layout and size,
+   * and apply only colors to the final button styles like ".btn-filled-flashy" etc.
+   * Final button styles are applied !important to work inside admin theme.
+   *
+   * Used in ~/config/sync/editor.editor.*.yml
+   */
+  .btn {
+    @apply px-4 py-1 inline-flex justify-center items-center border border-solid border-transparent;
+  }
+  .btn-filled-flashy {
+    @apply btn bg-flashy text-onflashy hocus:bg-flashyhocus !important;
+  }
+  .btn-filled-foreground {
+    @apply btn text-onforeground bg-foreground hocus:bg-foreground/80 !important;
+  }
+  .btn-outline {
+    @apply btn text-currentcolor bg-transparent border-currentcolor hocus:text-flashy !important;
+  }
+}

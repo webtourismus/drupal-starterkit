@@ -7,7 +7,7 @@ module.exports = {
        * fontWeight: { 'weight-default': 300, 'weight-thick': 600 }
        */
       fontFamily: {
-        'family-running': ['Open Sans', 'sans'],
+        'family-running': ['Open Sans', 'sans-serif'],
       },
       /**
        * Project specific, but within project reusebable color names here.

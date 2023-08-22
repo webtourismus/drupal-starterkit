@@ -59,22 +59,22 @@ settings:
     ckeditor5_style:
       styles:
         -
-          label: 'wie Überschrift 1'
+          label: 'Überschrift 1'
           element: '<p class="h1">'
         -
-          label: 'wie Überschrift 2'
+          label: 'Überschrift 2'
           element: '<p class="h2">'
         -
-          label: 'wie Überschrift 3'
+          label: 'Überschrift 3'
           element: '<p class="h3">'
         -
-          label: 'wie Überschrift 4'
+          label: 'Überschrift 4'
           element: '<p class="h4">'
         -
-          label: 'wie Überschrift 5'
+          label: 'Überschrift 5'
           element: '<p class="h5">'
         -
-          label: 'wie Überschrift 6'
+          label: 'Überschrift 6'
           element: '<p class="h6">'
         -
           label: 'Schriftgröße klein'
@@ -89,8 +89,8 @@ settings:
           label: 'Schriftfarbe auffällig'
           element: '<span class="text-flashy">'
         -
-          label: 'Schriftfarbe reduziert'
-          element: '<span class="opacity-80">'
+          label: 'Schriftfarbe blass'
+          element: '<span class="text-pale">'
         -
           label: 'Button auffällig'
           element: '<a class="btn-filled-flashy">'

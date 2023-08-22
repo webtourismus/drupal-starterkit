@@ -3,17 +3,77 @@ settings:
     ckeditor5_style:
       styles:
         -
-          label: 'like header 1'
+          label: 'Header 1 <p>'
         -
-          label: 'like header 2'
+          label: 'Header 1 <h2>'
         -
-          label: 'like header 3'
+          label: 'Header 1 <h3>'
         -
-          label: 'like header 4'
+          label: 'Header 1 <h4>'
         -
-          label: 'like header 5'
+          label: 'Header 1 <h5>'
         -
-          label: 'like header 6'
+          label: 'Header 1 <h6>'
+        -
+          label: 'Header 2 <p>'
+        -
+          label: 'Header 2 <h1>'
+        -
+          label: 'Header 2 <h3>'
+        -
+          label: 'Header 2 <h4>'
+        -
+          label: 'Header 2 <h5>'
+        -
+          label: 'Header 2 <h6>'
+        -
+          label: 'Header 3 <p>'
+        -
+          label: 'Header 3 <h1>'
+        -
+          label: 'Header 3 <h2>'
+        -
+          label: 'Header 3 <h4>'
+        -
+          label: 'Header 3 <h5>'
+        -
+          label: 'Header 3 <h6>'
+        -
+          label: 'Header 4 <p>'
+        -
+          label: 'Header 4 <h1>'
+        -
+          label: 'Header 4 <h2>'
+        -
+          label: 'Header 4 <h3>'
+        -
+          label: 'Header 4 <h5>'
+        -
+          label: 'Header 4 <h6>'
+        -
+          label: 'Header 5 <p>'
+        -
+          label: 'Header 5 <h1>'
+        -
+          label: 'Header 5 <h2>'
+        -
+          label: 'Header 5 <h3>'
+        -
+          label: 'Header 5 <h4>'
+        -
+          label: 'Header 5 <h6>'
+        -
+          label: 'Header 6 <p>'
+        -
+          label: 'Header 6 <h1>'
+        -
+          label: 'Header 6 <h2>'
+        -
+          label: 'Header 6 <h3>'
+        -
+          label: 'Header 6 <h4>'
+        -
+          label: 'Header 6 <h5>'
         -
           label: 'Font size small'
         -

@@ -1,5 +1,11 @@
 @import "./base.default.css";
 @import "./components.default.css";
 @import "./utilities.default.css";
-@import "./frontend.css";
+@import "./global.css";
 @config "tailwind.config.js";
+
+/* Frontend styles */
+
+@layer components {
+  .region-header { }
+}

@@ -100,8 +100,29 @@ module.exports = {
       }
     }
   },
+  /* Disallow Tailwind's ".block" to avoid conflicts with Drupal's ".block" entities. Use ".display-block" instead. */
   blocklist: [
     'block',
+  ],
+  /* Safelist running text styles for CKeditor and the colorschemes class pattern. */
+  safelist: [
+    'ck-content',
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+    'btn-outline',
+    'btn-filled-foreground',
+    'btn-filled-flashy',
+    'text-align-left',
+    'text-align-center',
+    'text-align-right',
+    'text-align-justify',
+    {
+      pattern: /cs-.+/,
+    },
   ],
   plugins: [
     require('@tailwindcss/aspect-ratio'),
