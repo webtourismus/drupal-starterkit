@@ -97,7 +97,9 @@ module.exports = {
         '8/10': '80%',
         '9/10': '90%',
         '10/10': '100%',
-      }
+      },
+      minWidth: ({ theme }) => theme('flexBasis'),
+      maxWidth: ({ theme }) => theme('flexBasis'),
     }
   },
   /* Disallow Tailwind's ".block" to avoid conflicts with Drupal's ".block" entities. Use ".display-block" instead. */

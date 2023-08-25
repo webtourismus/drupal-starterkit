@@ -40,18 +40,42 @@
  #
  ##}
 
+{% set bundle = entity.getReferencedEntity.bundle ?? entity.bundle() %}
+{% set multiple_images = (entity.getTeaserImagesField.getValue|length >= 2) %}
+{% set splidejs_config = {
+    'arrows': (true and multiple_images),
+    'pagination': (false and multiple_images),
+    'drag': (true and multiple_images),
+} %}
+{% set images_attributes = create_attribute({
+  'class': ['teaserable-images', 'splide'],
+  'data-splide': splidejs_config|json_encode(constant('JSON_UNESCAPED_SLASHES'))
+}) %}
+
+{% set texts_attributes = create_attribute({'class': ['teaserable-texts']}) %}
+{% set title_attributes = create_attribute({'class': ['teaserable-title']}) %}
+
+{% set text_wrapper_attributes = create_attribute({'class': ['teaserable-text-wrapper']}) %}
+{% set link_wrapper_attributes = create_attribute({'class': ['teaserable-link-wrapper']}) %}
+
+{% if entity.getActionUrl('readmore') %}
+  {% set attributes = attributes.addClass(['teaserable-is-linked']) %}
+  {% set images_attributes = images_attributes.addClass('cursor-pointer').setAttribute('data-js-behavior-linkify', 'readmore') %}
+  {% set title_link_attributes = create_attribute({
+    'href': entity.getActionUrl('readmore').toString,
+    'target': entity.getReferencingField.0.options.attributes.target,
+    'data-action-link-type': 'readmore',
+  }) %}
+{% else %}
+  {% set attributes = attributes.addClass('teaserable-no-link') %}
+{% endif %}
+
+
+
 {% block teaserable %}
 <div {{ attributes }}>
-  {% block image_container %}
-  {% set bundle = entity.getReferencedEntity.bundle ?? entity.bundle() %}
-  {% set multiple_images = (entity.getTeaserImagesField.getValue|length >= 2) %}
-  {% set splidejs_config = {
-      'arrows': (true and multiple_images),
-      'pagination': (false and multiple_images),
-      'drag': (true and multiple_images),
-  } %}
-
-  <div class="teaserable-image-container splide" data-splide="{{ splidejs_config|json_encode(constant('JSON_UNESCAPED_SLASHES')) }}">
+  {% block images %}
+  <div {{ images_attributes }}>
     {{ {'#theme': 'splidejs_arrows'}|add_suggestion(bundle) }}
 
     <div class="splide__track">
@@ -62,19 +86,35 @@
   </div>
   {% endblock %}
 
-  {% block text_container %}
-  <div class="teaserable-text-container">
-    {{ content|without(entity.getTeaserImagesField.getName, 'field_link')|without(entity.getActionFieldnames) }}
-  </div>
-  {% endblock %}
+  {% block texts %}
+    <div {{ texts_attributes }}>
+      {% block text_wrapper %}
+      <div {{ text_wrapper_attributes }}>
+        {% block text_title %}
+          <h3 {{ title_attributes }}>
+            {% if entity.getActionUrl('readmore') %}
+              <a {{ title_link_attributes }}>
+            {% endif %}
+            {{ entity.getTeaserTitleField.0.value }}
+            {% if entity.getActionUrl('readmore') %}
+              </a>
+            {% endif %}
+          </h3>
+        {% endblock %}
+        {% block text_running %}
+          {{ content|without(entity.getTeaserImagesField.getName, entity.getTeaserTitleField.getName)|without(entity.getActionFieldnames) }}
+        {% endblock %}
+      </div>
+      {% endblock %}
 
-  {% block link_container %}
-  <div class="teaserable-link-container">
-    {{ content.field_link }}
-    {% for action_id, action_fieldname in entity.getActionFieldnames %}
-      {{ entity.getRenderedAction(action_id, view_mode) }}
-    {% endfor %}
-  </div>
+      {% block link_wrapper %}
+      <div {{ link_wrapper_attributes }}>
+        {% for action_id, action_fieldname in entity.getActionFieldnames %}
+          {{ entity.getRenderedAction(action_id, view_mode) }}
+        {% endfor %}
+      </div>
+      {% endblock %}
+    </div>
   {% endblock %}
 </div>
 {% endblock %}
