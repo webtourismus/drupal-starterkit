@@ -6,6 +6,11 @@
 
 /* Frontend styles */
 
+@layer base {
+  html {
+    @apply text-[16px] sm:text-[18px] /* [--fixed-header:3rem] sm:[--fixed-header:5rem] */;
+  }
+}
 @layer components {
   .region-header { }
 }

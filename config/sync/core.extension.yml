@@ -8,6 +8,7 @@ module:
   antibot: 0
   backend: 0
   block: 0
+  block_class: 0
   block_content: 0
   block_permissions: 0
   breakpoint: 0
@@ -90,6 +91,7 @@ module:
   path_alias: 0
   phpass: 0
   redirect: 0
+  responsive_favicons: 0
   responsive_image: 0
   seasonal_paragraphs: 0
   simple_sitemap: 0

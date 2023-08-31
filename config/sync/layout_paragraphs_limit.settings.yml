@@ -1,46 +1,91 @@
 disallowed_types:
+  columns1:
+    one:
+      negate: false
+      paragraph_types: {  }
+  columns2:
+    one:
+      negate: false
+      paragraph_types: {  }
+    two:
+      negate: false
+      paragraph_types: {  }
+  columns3:
+    one:
+      negate: false
+      paragraph_types: {  }
+    two:
+      negate: false
+      paragraph_types: {  }
+    three:
+      negate: false
+      paragraph_types: {  }
+  columns4:
+    one:
+      negate: false
+      paragraph_types: {  }
+    two:
+      negate: false
+      paragraph_types: {  }
+    three:
+      negate: false
+      paragraph_types: {  }
+    four:
+      negate: false
+      paragraph_types: {  }
+  columns5:
+    one:
+      negate: false
+      paragraph_types: {  }
+    two:
+      negate: false
+      paragraph_types: {  }
+    three:
+      negate: false
+      paragraph_types: {  }
+    four:
+      negate: false
+      paragraph_types: {  }
+    five:
+      negate: false
+      paragraph_types: {  }
   grid_2cells:
-    cell1:
+    one:
       negate: true
       paragraph_types:
         icon: icon
         image: image
         linkblock: linkblock
         text: text
-      numeric_limit: 1
-    cell2:
+    two:
       negate: true
       paragraph_types:
         icon: icon
         image: image
         linkblock: linkblock
         text: text
-      numeric_limit: 1
   grid_3cells:
-    cell1:
+    one:
       negate: true
       paragraph_types:
         icon: icon
         image: image
         linkblock: linkblock
         text: text
-      numeric_limit: 1
-    cell2:
+    two:
       negate: true
       paragraph_types:
         icon: icon
         image: image
         linkblock: linkblock
         text: text
-      numeric_limit: 1
-    cell3:
+    three:
       negate: true
       paragraph_types:
         icon: icon
         image: image
         linkblock: linkblock
         text: text
-      numeric_limit: 1
   grid_1lg_2sm:
     large:
       negate: true
@@ -49,7 +94,6 @@ disallowed_types:
         image: image
         linkblock: linkblock
         text: text
-      numeric_limit: 1
     small_top:
       negate: true
       paragraph_types:
@@ -57,7 +101,6 @@ disallowed_types:
         image: image
         linkblock: linkblock
         text: text
-      numeric_limit: 1
     small_bottom:
       negate: true
       paragraph_types:
@@ -65,7 +108,6 @@ disallowed_types:
         image: image
         linkblock: linkblock
         text: text
-      numeric_limit: 1
   grid_2sm_1lg:
     small_top:
       negate: true
@@ -74,7 +116,6 @@ disallowed_types:
         image: image
         linkblock: linkblock
         text: text
-      numeric_limit: 1
     small_bottom:
       negate: true
       paragraph_types:
@@ -82,7 +123,6 @@ disallowed_types:
         image: image
         linkblock: linkblock
         text: text
-      numeric_limit: 1
     large:
       negate: true
       paragraph_types:
@@ -90,79 +130,10 @@ disallowed_types:
         image: image
         linkblock: linkblock
         text: text
-      numeric_limit: 1
-  columns1:
-    col1:
-      negate: false
-      paragraph_types: {  }
-      numeric_limit: 0
-  columns2:
-    col1:
-      negate: false
-      paragraph_types: {  }
-      numeric_limit: 2
-    col2:
-      negate: false
-      paragraph_types: {  }
-      numeric_limit: 3
-  columns3:
-    col1:
-      negate: true
-      paragraph_types: {  }
-      numeric_limit: 0
-    col2:
-      negate: false
-      paragraph_types: {  }
-      numeric_limit: 0
-    col3:
-      negate: false
-      paragraph_types: {  }
-      numeric_limit: 0
-  columns4:
-    col1:
-      negate: false
-      paragraph_types: {  }
-      numeric_limit: 0
-    col2:
-      negate: false
-      paragraph_types: {  }
-      numeric_limit: 0
-    col3:
-      negate: false
-      paragraph_types: {  }
-      numeric_limit: 0
-    col4:
-      negate: false
-      paragraph_types: {  }
-      numeric_limit: 0
-  columns5:
-    col1:
-      negate: false
-      paragraph_types: {  }
-      numeric_limit: 0
-    col2:
-      negate: false
-      paragraph_types: {  }
-      numeric_limit: 0
-    col3:
-      negate: false
-      paragraph_types: {  }
-      numeric_limit: 0
-    col4:
-      negate: false
-      paragraph_types: {  }
-      numeric_limit: 0
-    col5:
-      negate: false
-      paragraph_types: {  }
-      numeric_limit: 0
   fluidcolumns:
-    main:
-      negate: true
+    one:
+      negate: false
       paragraph_types:
-        icon: icon
-        image: image
-        linkblock: linkblock
-        text: text
-        video: video
-      numeric_limit: 0
+        gallery: gallery
+        viewsreference: viewsreference
+        webform: webform

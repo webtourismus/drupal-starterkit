@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Main module file.
+ */
+
+ declare(strict_types = 1);
+
+ function backend_theme_registry_alter(&$theme_registry) {
+  $currentTheme = \Drupal::service('theme.manager')->getActiveTheme()->getName();
+  if ($currentTheme !== 'gin') {
+    return;
+  }
+
+  $fs = \Drupal::service('file_system');
+  $modulePath = \Drupal::service('extension.list.module')->getPath('backend');
+  $extension = '.html.twig';
+  $fileMask = '/' . preg_quote($extension) . '$/';
+  $files = $fs->scanDirectory($modulePath . '/templates', $fileMask, ['recurse' => TRUE]);
+
+  foreach ($files as $file) {
+    $template = $fs->basename($file->filename, $extension);
+    $theme    = str_replace('-', '_', $template);
+    $parts = explode('__', $theme, 2);
+    $baseHook = empty($parts[0]) ? null : $parts[0];
+    $specific = empty($parts[1]) ? null : $parts[1];
+    if (!empty($specific) && isset($theme_registry[$baseHook])) {
+      $templateOverride = [
+        'template' => $template,
+        'path' => $fs->dirname($file->uri),
+        'render element' => $theme_registry[$baseHook]['render element'],
+        'base hook' => $baseHook,
+        'type' => 'module',
+        'theme path' => $modulePath,
+        'preprocess functions' => $theme_registry[$baseHook]['preprocess functions'],
+      ];
+
+      $theme_registry[$theme] = $templateOverride;
+    }
+  }
+}

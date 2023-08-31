@@ -149,8 +149,7 @@
       "drupal/gin": {
         "3270626 - Use Gin's edit form for taxonomy terms": "./private/patches/gin_3270626_mr237_6796ae46.patch",
         "3281343 - Use Gin's edit form for media enities": "./private/patches/gin_3281343_patch11.patch",
-        "3281984 - Secondary Toolbar breadcrumb shows edit label all node routes": "./private/patches/gin_3281984_mr177_34e15b5d.patch",
-        "3375853 - WSOD when using icons in administrative lists": "./private/patches/gin_3375853_mr283_1e7eb82c.patch"
+        "3281984 - Secondary Toolbar breadcrumb shows edit label all node routes": "./private/patches/gin_3281984_mr177_34e15b5d.patch"
       },
       "drupal/gin_toolbar": {
         "3319445 - The breadcrumb shows Edit label when user has no permission": "./private/patches/gin_toolbar_3319445_mr25_a862bc27.patch"
@@ -168,6 +167,6 @@
     }
   },
   "require": {
-    "webtourismus/drupal-metapackage": "^0.9.10"
+    "webtourismus/drupal-metapackage": "^0.9.14"
   }
 }

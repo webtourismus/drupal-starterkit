@@ -9,6 +9,7 @@ dependencies:
     - taxonomy.vocabulary.page
   module:
     - block
+    - block_class
     - block_content
     - block_permissions
     - config_translation
@@ -28,6 +29,7 @@ dependencies:
     - path
     - pathauto
     - redirect
+    - responsive_favicons
     - simple_sitemap
     - system
     - taxonomy
@@ -50,6 +52,7 @@ permissions:
   - 'access toolbar'
   - 'access twig fields'
   - 'access user profiles'
+  - 'administer block classes'
   - 'administer block content'
   - 'administer block settings for theme frontend'
   - 'administer block types'
@@ -71,6 +74,7 @@ permissions:
   - 'administer pathauto'
   - 'administer redirect settings'
   - 'administer redirects'
+  - 'administer responsive favicons'
   - 'administer site configuration'
   - 'administer sitemap settings'
   - 'administer url aliases'

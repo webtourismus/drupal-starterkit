@@ -1,0 +1,19 @@
+_core:
+  default_config_hash: u2wQ4ot4t4xKOJKWxoKwelgzx8j37Ve5SQ0qqxtVXlQ
+langcode: de
+maxlength_block_class_field: 4000
+field_type: textfield
+default_case: standard
+enable_attributes: true
+enable_auto_complete: true
+qty_classes_per_block: 10
+items_per_page: 50
+enable_special_chars: true
+qty_attributes_per_block: 10
+enable_id_replacement: false
+weight_attributes: null
+weight_class: null
+weight_id: null
+filter_html_clean_css_identifier: ''
+maxlength_attributes: 4000
+maxlength_id: 255

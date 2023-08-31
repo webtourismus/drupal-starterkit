@@ -262,7 +262,7 @@ module.exports = {
               },
               {
                 //'> :where(.area), > :where(.component), > :where(.form-item), > :where(.form-wrapper), > :where(.fieldset-wrapper) :where(.form-item)': {
-                '> :where(.area), > :where(.component), > :where(.form-item, .form-wrapper)': {
+                '> :where(.area), > :where(.component), > :where(.form-item, .form-wrapper), :where(.gap-horizontal-child)': {
                   paddingLeft: value,
                   paddingRight: value,
                 }
