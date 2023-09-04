@@ -1,26 +1,26 @@
 reuseable_anchors:
   width_options: &width_options
     'grow shrink basis-0': distribute automatically
-    'grow-0 shrink-0 basis-full': 100%
-    'grow-0 shrink-0 basis-11/12': 91.67.33% - 11/12
-    'grow-0 shrink-0 basis-9/10': 90% - 9/10
-    'grow-0 shrink-0 basis-5/6': 83.33% - 5/6
-    'grow-0 shrink-0 basis-4/5': 80% - 4/5
-    'grow-0 shrink-0 basis-3/4': 75% - 3/4
-    'grow-0 shrink-0 basis-7/10': 70% - 7/10
-    'grow-0 shrink-0 basis-2/3': 66.67% - 2/3
-    'grow-0 shrink-0 basis-3/5': 60% - 3/5
-    'grow-0 shrink-0 basis-7/12': 58.33% - 7/12
-    'grow-0 shrink-0 basis-1/2': 50% - 1/2
-    'grow-0 shrink-0 basis-5/12': 41.67% - 5/12
-    'grow-0 shrink-0 basis-2/5': 40% - 2/5
-    'grow-0 shrink-0 basis-1/3': 33.33% - 1/3
-    'grow-0 shrink-0 basis-3/10': 30% - 3/10
-    'grow-0 shrink-0 basis-1/4': 25% - 1/4
-    'grow-0 shrink-0 basis-1/5': 20% - 1/5
-    'grow-0 shrink-0 basis-1/6': 16.67% - 1/6
-    'grow-0 shrink-0 basis-1/10': 10% - 1/10
-    'grow-0 shrink-0 basis-1/12': 8.33% - 1/12
+    'grow-0 shrink-0 basis-full max-w-full': 100%
+    'grow-0 shrink-0 basis-11/12 max-w-11/12': 91.67.33% - 11/12
+    'grow-0 shrink-0 basis-9/10 max-w-9/10': 90% - 9/10
+    'grow-0 shrink-0 basis-5/6 max-w-5/6': 83.33% - 5/6
+    'grow-0 shrink-0 basis-4/5 max-w-4/5': 80% - 4/5
+    'grow-0 shrink-0 basis-3/4 max-w-3/4': 75% - 3/4
+    'grow-0 shrink-0 basis-7/10 max-w-7/10': 70% - 7/10
+    'grow-0 shrink-0 basis-2/3 max-w-2/3': 66.67% - 2/3
+    'grow-0 shrink-0 basis-3/5 max-w-3/5': 60% - 3/5
+    'grow-0 shrink-0 basis-7/12 max-w-7/12': 58.33% - 7/12
+    'grow-0 shrink-0 basis-1/2 max-w-1/2': 50% - 1/2
+    'grow-0 shrink-0 basis-5/12 max-w-5/12': 41.67% - 5/12
+    'grow-0 shrink-0 basis-2/5 max-w-2/5': 40% - 2/5
+    'grow-0 shrink-0 basis-1/3 max-w-1/3': 33.33% - 1/3
+    'grow-0 shrink-0 basis-3/10 max-w-3/10': 30% - 3/10
+    'grow-0 shrink-0 basis-1/4 max-w-1/4': 25% - 1/4
+    'grow-0 shrink-0 basis-1/5 max-w-1/5': 20% - 1/5
+    'grow-0 shrink-0 basis-1/6 max-w-1/6': 16.67% - 1/6
+    'grow-0 shrink-0 basis-1/10 max-w-1/10': 10% - 1/10
+    'grow-0 shrink-0 basis-1/12 max-w-1/12': 8.33% - 1/12
     'grow-0 shrink basis-0': as narrow as possible
     'grow-0 shrink-0 basis-full max-w-screen-lg': laptop width
     'grow-0 shrink-0 basis-full max-w-screen-md': tablet landscape width
@@ -340,7 +340,7 @@ options:
     description: 'Only for screens larger than selected above. On smaller screens all columns are fullwidth and stacked below each other.'
     prefix:
       label: 'Column width'
-    otherwise_classes: 'grow-0 shrink-0 basis-full'
+    otherwise_classes: 'grow-0 shrink-0 basis-full max-w-full'
     classes:
       label: 'Column width'
       form_api:

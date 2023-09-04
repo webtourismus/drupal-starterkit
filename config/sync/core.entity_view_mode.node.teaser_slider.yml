@@ -1,0 +1,10 @@
+uuid: 63dce4b5-7fbb-41e0-aaf3-a93706366ccb
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+id: node.teaser_slider
+label: 'Teaser (Slider)'
+targetEntityType: node
+cache: true

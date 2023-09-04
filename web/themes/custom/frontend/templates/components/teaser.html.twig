@@ -41,7 +41,9 @@
  ##}
 
 {% set bundle = entity.getReferencedEntity.bundle ?? entity.bundle() %}
-{% set multiple_images = (entity.getTeaserImagesField.getValue|length >= 2) %}
+{% set multiple_images = (content[entity.getTeaserImagesField.getName]|children|length >= 2) and
+                         (content[entity.getTeaserImagesField.getName]['#third_party_settings']['field_formatter_range']['limit'] ?? 9999 >= 2)
+%}
 {% set splidejs_config = {
     'arrows': (true and multiple_images),
     'pagination': (false and multiple_images),
@@ -54,6 +56,7 @@
 
 {% set texts_attributes = create_attribute({'class': ['teaserable-texts']}) %}
 {% set title_attributes = create_attribute({'class': ['teaserable-title']}) %}
+{% set product_attributes = create_attribute({'class': ['teaserable-product']}) %}
 
 {% set text_wrapper_attributes = create_attribute({'class': ['teaserable-text-wrapper']}) %}
 {% set link_wrapper_attributes = create_attribute({'class': ['teaserable-link-wrapper']}) %}
@@ -95,14 +98,23 @@
             {% if entity.getActionUrl('readmore') %}
               <a {{ title_link_attributes }}>
             {% endif %}
-            {{ entity.getTeaserTitleField.0.value }}
+            {{ content[entity.getTeaserTitleField.getName] }}
             {% if entity.getActionUrl('readmore') %}
               </a>
             {% endif %}
           </h3>
         {% endblock %}
+        {% block text_product %}
+          {% if entity.getProductFieldNames %}
+            <div {{ product_attributes }}>
+              {% for product_field in entity.getProductFieldNames %}
+                {{ content[product_field] }}
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endblock %}
         {% block text_running %}
-          {{ content|without(entity.getTeaserImagesField.getName, entity.getTeaserTitleField.getName)|without(entity.getActionFieldnames) }}
+          {{ content|without(entity.getTeaserImagesField.getName, entity.getTeaserTitleField.getName)|without(entity.getActionFieldnames)|without(entity.getProductFieldNames) }}
         {% endblock %}
       </div>
       {% endblock %}
