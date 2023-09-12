@@ -1,0 +1,5 @@
+{% for item in items %}
+  {% set item = item|add('content.#options.attributes.class', 'btn-outline') %}
+  {{ item.content }}
+{% endfor %}
+

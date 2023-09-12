@@ -1,0 +1,16 @@
+{% extends "@frontend/components/field-splidejs-slider.html.twig" %}
+
+{% block container %}
+  {% set multiple = items|children|length >= 2 ? true : false %}
+  {% set splidejs_config = splidejs_config|set('type', 'fade')
+                                          |set('rewind', true)
+                                          |set('arrows', true and multiple)
+                                          |set('pagination', false and multiple)
+                                          |set('autoplay', true)
+                                          |set('interval', 10000)
+                                          |set('speed', 2000)
+                                          |set('pauseOnHover', false)
+                                          |set('pauseOnFocus', false)
+  %}
+  {{ parent() }}
+{% endblock %}

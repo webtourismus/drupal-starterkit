@@ -2,8 +2,25 @@ uuid: d9bdd07f-7803-42b0-ae67-6f400dd74579
 langcode: de
 status: true
 dependencies:
+  config:
+    - core.entity_view_mode.media.16_9
+    - core.entity_view_mode.media.1_1
+    - core.entity_view_mode.media.1_2
+    - core.entity_view_mode.media.2_1
+    - core.entity_view_mode.media.2_3
+    - core.entity_view_mode.media.3_1
+    - core.entity_view_mode.media.3_2
+    - core.entity_view_mode.media.3_4
+    - core.entity_view_mode.media.4_3
+    - core.entity_view_mode.media.4_5
+    - core.entity_view_mode.media.9_16
+    - core.entity_view_mode.media.full_hd
+    - core.entity_view_mode.media.inline
+    - core.entity_view_mode.media.original
+    - core.entity_view_mode.media.scale
   module:
     - codemirror_editor
+    - designsystem
     - editor
     - linkit
     - media
@@ -18,23 +35,40 @@ filters:
     status: true
     weight: -50
     settings:
-      allowed_html: '<br class id data-*> <p class id data-*> <span class id data-*> <a class id data-* target rel href> <div class id data-*> <ul class id data-*> <ol class id data-* reversed start> <li class id data-*> <strong class id data-*> <em class id data-*> <u class id data-*> <drupal-media data-entity-type data-entity-uuid alt id class>'
+      allowed_html: '<br class id data-*> <p class id data-*> <span class id data-*> <a class id data-* target rel href> <div class id data-*> <ul class id data-*> <ol class id data-* reversed start> <li class id data-*> <strong class id data-*> <em class id data-*> <u class id data-*> <drupal-media data-entity-type data-entity-uuid alt id class data-view-mode data-align>'
       filter_html_help: false
       filter_html_nofollow: false
   media_embed:
     id: media_embed
     provider: media
     status: true
-    weight: -47
+    weight: -48
     settings:
-      default_view_mode: default
-      allowed_view_modes: {  }
-      allowed_media_types: {  }
+      default_view_mode: original
+      allowed_view_modes:
+        '16_9': '16_9'
+        '1_1': '1_1'
+        '1_2': '1_2'
+        '2_1': '2_1'
+        '2_3': '2_3'
+        '3_1': '3_1'
+        '3_2': '3_2'
+        '3_4': '3_4'
+        '4_3': '4_3'
+        '4_5': '4_5'
+        '9_16': '9_16'
+        full_hd: full_hd
+        inline: inline
+        original: original
+        scale: scale
+      allowed_media_types:
+        image: image
+        vector_image: vector_image
   filter_htmlcorrector:
     id: filter_htmlcorrector
     provider: filter
     status: true
-    weight: -48
+    weight: -35
     settings: {  }
   codemirror_editor:
     id: codemirror_editor
@@ -68,7 +102,7 @@ filters:
   filter_align:
     id: filter_align
     provider: filter
-    status: false
+    status: true
     weight: -43
     settings: {  }
   filter_autop:
@@ -98,13 +132,25 @@ filters:
   token_filter:
     id: token_filter
     provider: token_filter
-    status: false
-    weight: 0
+    status: true
+    weight: -36
     settings:
-      replace_empty: '0'
+      replace_empty: '1'
   filter_image_lazy_load:
     id: filter_image_lazy_load
     provider: filter
-    status: true
-    weight: -43
+    status: false
+    weight: -47
+    settings: {  }
+  header1:
+    id: header1
+    provider: designsystem
+    status: false
+    weight: -38
+    settings: {  }
+  responsive_table:
+    id: responsive_table
+    provider: designsystem
+    status: false
+    weight: -37
     settings: {  }

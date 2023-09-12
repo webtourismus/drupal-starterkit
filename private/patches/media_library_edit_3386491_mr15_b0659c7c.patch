@@ -1,0 +1,36 @@
+From b0659c7c2744ee7798a4a048c9303e2219c6640e Mon Sep 17 00:00:00 2001
+From: Reinhard Hutter <17421-hudri@users.noreply.drupalcode.org>
+Date: Mon, 11 Sep 2023 14:23:00 +0000
+Subject: [PATCH] Closes #3386491
+
+---
+ css/media_library_edit.admin.css | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+diff --git a/css/media_library_edit.admin.css b/css/media_library_edit.admin.css
+index 0a163d4..9d13e91 100644
+--- a/css/media_library_edit.admin.css
++++ b/css/media_library_edit.admin.css
+@@ -8,7 +8,7 @@
+   margin: 5px;
+   padding: 0;
+   transition: 0.2s border-color;
+-  color: transparent;
++  color: transparent !important;
+   border: 2px solid #ccc;
+   border-radius: 20px;
+   background: url(../icons/pencil.svg) #fff center no-repeat;
+@@ -17,10 +17,6 @@
+   box-sizing: border-box;
+ }
+
+-.media-library-edit__link:hover {
+-   color: transparent;
+-}
+-
+ .media-library-edit__modal::before {
+   content: '';
+   width: 100vw;
+--
+GitLab
+

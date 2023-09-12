@@ -80,16 +80,17 @@ function frontend_theme_suggestions_field_alter(array &$suggestions, array $vari
   }
 
   if (isset($variables['element']['#teaser_fieldname'])) {
+    $teaserField = $variables['element']['#teaser_fieldname'];
     if ($variables['element']['#object'] instanceof ParagraphTeaserableInterface) {
       $targetEntity = $variables['element']['#object']->getReferencedEntity();
     }
     if (empty($targetEntity)) {
       $targetEntity = $variables['element']['#object'];
     }
-    array_splice($suggestions, -1, 0, "teaserfield__{$targetEntity->bundle()}__{$variables['element']['#teaser_fieldname']}");
-    $suggestions[] = "teaserfield__{$targetEntity->bundle()}__{$variables['element']['#teaser_fieldname']}__{$viewMode}";
-    array_splice($suggestions, 3, 0, "teaserfield__{$variables['element']['#teaser_fieldname']}__{$viewMode}");
-    array_splice($suggestions, 2, 0, "teaserfield__{$variables['element']['#teaser_fieldname']}");
+    array_splice($suggestions, -1, 0, "field__teaserable__{$targetEntity->bundle()}__{$teaserField}");
+    $suggestions[] = "field__teaserable__{$targetEntity->bundle()}__{$teaserField}__{$viewMode}";
+    array_splice($suggestions, 3, 0, "field__teaserable__{$teaserField}__{$viewMode}");
+    array_splice($suggestions, 2, 0, "field__teaserable__{$teaserField}");
   }
 }
 

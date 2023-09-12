@@ -16,6 +16,7 @@ settings:
       - '|'
       - heading
       - style
+      - alignment
       - '|'
       - bold
       - italic
@@ -29,11 +30,18 @@ settings:
       - outdent
       - indent
       - '|'
+      - drupalMedia
       - specialCharacters
       - horizontalLine
       - '|'
       - sourceEditing
   plugins:
+    ckeditor5_alignment:
+      enabled_alignments:
+        - center
+        - justify
+        - left
+        - right
     ckeditor5_heading:
       enabled_headings:
         - heading1
@@ -84,4 +92,6 @@ settings:
     linkit_extension:
       linkit_enabled: true
       linkit_profile: backend
+    media_media:
+      allow_view_mode_override: true
 image_upload: {  }

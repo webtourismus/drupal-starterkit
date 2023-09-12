@@ -1,10 +1,15 @@
 {##
+ ######################################################################
+ # TEASER
+ ######################################################################
  #
  # Shared teaserable base template for teaserable entities like icon or
  # linkblock paragraphs and any node type in a teaser-like display mode.
  #
- # Available functions:
- # ====================
+ # @see \Drupal\ebr_teaser\Entity\TeaserableInterface for more information.
+ #
+ # Always available functions:
+ # ===========================
  # - entity.getTeaserTitleField(): ?FieldItemList
  # - entity.getTeaserSubtitleField(): ?FieldItemList
  # - entity.getTeaserImagesField(): ?FieldItemList
@@ -34,26 +39,53 @@
  # This semantic field name is normalized, no matter if the field is from a
  # referenced entity, or from its own entity.
  #
+ ######################################################################
+ # ACTIONS
+ ######################################################################
  #
+ # Entites can implement the Actionable Interface to provide Call-to-Action links.
  #
- # @see \Drupal\landle\Entity\TeaserableInterface for more information.
+ # @see \Drupal\ebr\Entity\ActionableInterface for more information.
+ #
+ # (Referenced) Bundle specific "actions":
+ # =======================================
+ # - entity.getActionFieldNames(): Array<string>
+ # - entity.getActionLabel($actionId): TranslatableMarkup|string|NULL
+ # - entity.getActionFieldUrl($actionId): ?Url
+ # - entity.getRenderedAction($actionId, $viewMode): ?Array
+ #
+ # Default in node.page: readmore
+ # Default in node.room: readmore, booking, enquiry
+ # Default in node.package: readmore, booking, enquiry
+ # Default in paragraph: readmore + potentionally more actions from referenced entity
+ #
+ ######################################################################
+ # PRODUCT FIELDS
+ ######################################################################
+ #
+ # Entites can implement the Productable Interface to nominate fields
+ # for use in teaserable templates.
+ #
+ # @see \Drupal\ebr\Entity\ProductableInterface for more information.
+ #
+ # (Referenced) Bundle specific "product fields":
+ # ==============================================
+ # - entity.getProductFieldNames(): Array<string>
+ # - entity.getProdcutFieldLabel($fieldName): TranslatableMarkup|string|NULL
+ # - entity.getProductField($fieldName): ?FieldItemList
+ # - entity.getRenderedProductField($fieldName, $viewMode): ?Array
+ #
+ # Default in node.room: field_price, field_occupancy_std, field_occupancy_std, field_occupancy_max
+ # Default in node.package: field_price, field_minlos, field_mealplan
+ # Default in paragraph: none, but potentionally product fields from referenced entity
  #
  ##}
 
-{% set bundle = entity.getReferencedEntity.bundle ?? entity.bundle() %}
-{% set multiple_images = (content[entity.getTeaserImagesField.getName]|children|length >= 2) and
-                         (content[entity.getTeaserImagesField.getName]['#third_party_settings']['field_formatter_range']['limit'] ?? 9999 >= 2)
-%}
-{% set splidejs_config = {
-    'arrows': (true and multiple_images),
-    'pagination': (false and multiple_images),
-    'drag': (true and multiple_images),
-} %}
-{% set images_attributes = create_attribute({
-  'class': ['teaserable-images', 'splide'],
-  'data-splide': splidejs_config|json_encode(constant('JSON_UNESCAPED_SLASHES'))
-}) %}
+{% set entity = paragraph ?? node %}
+{% set reference = entity.getReferencedEntity ?? entity %}
+{% set bundle = entity.bundle() %}
 
+{% set images_attributes = create_attribute({'class': ['teaserable-images']}) %}
 {% set texts_attributes = create_attribute({'class': ['teaserable-texts']}) %}
 {% set title_attributes = create_attribute({'class': ['teaserable-title']}) %}
 {% set product_attributes = create_attribute({'class': ['teaserable-product']}) %}
@@ -79,13 +111,7 @@
 <div {{ attributes }}>
   {% block images %}
   <div {{ images_attributes }}>
-    {{ {'#theme': 'splidejs_arrows'}|add_suggestion(bundle) }}
-
-    <div class="splide__track">
-      <div class="splide__list">
-        {{ content[entity.getTeaserImagesField.getName]|add_suggestion('teaserable-images-slider') }}
-      </div>
-    </div>
+    {{ content[entity.getTeaserImagesField.getName] }}
   </div>
   {% endblock %}
 
@@ -94,15 +120,17 @@
       {% block text_wrapper %}
       <div {{ text_wrapper_attributes }}>
         {% block text_title %}
-          <h3 {{ title_attributes }}>
-            {% if entity.getActionUrl('readmore') %}
-              <a {{ title_link_attributes }}>
-            {% endif %}
-            {{ content[entity.getTeaserTitleField.getName] }}
-            {% if entity.getActionUrl('readmore') %}
-              </a>
-            {% endif %}
-          </h3>
+          {% if entity.getTeaserTitleField.0.value and not(paragraph.isFieldSuppressed('field_title') ?? false) %}
+            <h3 {{ title_attributes }}>
+              {% if entity.getActionUrl('readmore') %}
+                <a {{ title_link_attributes }}>
+              {% endif %}
+              {{ entity.getTeaserTitleField.0.value }}
+              {% if entity.getActionUrl('readmore') %}
+                </a>
+              {% endif %}
+            </h3>
+          {% endif %}
         {% endblock %}
         {% block text_product %}
           {% if entity.getProductFieldNames %}

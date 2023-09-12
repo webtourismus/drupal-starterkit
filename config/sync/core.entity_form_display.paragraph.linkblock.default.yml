@@ -17,6 +17,7 @@ dependencies:
     - designsystem
     - field_group
     - media_library
+    - media_library_edit
     - text
     - view_mode_switch
 third_party_settings:
@@ -94,7 +95,9 @@ content:
     region: content
     settings:
       media_types: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      media_library_edit:
+        show_edit: '1'
   field_link:
     type: linkit_attributes_2columns
     weight: 9
@@ -113,6 +116,7 @@ content:
         aria-label: 0
         title: 0
       linkit_auto_link_text: 0
+      widget_default_open: expandIfValuesSet
     third_party_settings: {  }
   field_subtitle:
     type: text_textarea

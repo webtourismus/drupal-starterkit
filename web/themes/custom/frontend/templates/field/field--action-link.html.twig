@@ -1,4 +1,7 @@
 {% for item in items %}
+  {##
+   # Example: Add icons to buttons
+   #
   {% set title = {
     '#type': 'inline_template',
     '#template': '{{ original_title }} {{ icon|raw }}',
@@ -9,6 +12,9 @@
 
   } %}
   {% set item = item|set('content.#title', title) %}
+   #
+   # End example
+   ##}
   {{ item.content }}
 {% endfor %}
 

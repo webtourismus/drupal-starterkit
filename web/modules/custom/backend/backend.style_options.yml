@@ -21,7 +21,7 @@ reuseable_anchors:
     'grow-0 shrink-0 basis-1/6 max-w-1/6': 16.67% - 1/6
     'grow-0 shrink-0 basis-1/10 max-w-1/10': 10% - 1/10
     'grow-0 shrink-0 basis-1/12 max-w-1/12': 8.33% - 1/12
-    'grow-0 shrink basis-0': as narrow as possible
+    'grow-0 shrink basis-0 max-w-full': as narrow as possible
     'grow-0 shrink-0 basis-full max-w-screen-lg': laptop width
     'grow-0 shrink-0 basis-full max-w-screen-md': tablet landscape width
     'grow-0 shrink-0 basis-full max-w-screen-sm': tablet portrait width
@@ -486,6 +486,7 @@ contexts:
         gallery_width_md: true
         gallery_width_lg: true
         justify_content: true
+        fluid_gap_horizontal: true
   layout:
     _defaults:
       options:

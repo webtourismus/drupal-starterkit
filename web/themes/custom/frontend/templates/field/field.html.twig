@@ -55,7 +55,7 @@
         {% for item in items %}
           {# try to avoid unnecessary wrappers and only render them when actually used #}
           {% if item.attributes is not empty %}
-            <div{{item.attributes}}>
+            <div {{item.attributes}}>
           {% endif %}
           {{ item.content }}
           {% if item.attributes is not empty %}

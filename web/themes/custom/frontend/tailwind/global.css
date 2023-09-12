@@ -147,6 +147,6 @@
     @apply btn text-currentcolor bg-transparent border-currentcolor hocus:text-flashy !important;
   }
   .link-decorated {
-    @apply font-weight-bold;
+    @apply font-weight-thick;
   }
 }

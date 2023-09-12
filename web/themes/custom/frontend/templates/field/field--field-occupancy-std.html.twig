@@ -1,0 +1,15 @@
+{% extends '@frontend/field/field.html.twig' %}
+
+{% set node = element['#object'] %}
+{% set std = node.field_occupancy_std.0.value|default(0) %}
+{% set max = node.field_occupancy_max.0.value|default(-1) %}
+
+{% block items %}
+  {% if std %}
+    {{ std }}
+    {% if max > std %}
+    - {{ max }}
+    {% endif %}
+    {{ 'persons'|t }}
+  {% endif %}
+{% endblock %}

@@ -3,6 +3,19 @@ langcode: de
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.media.16_9
+    - core.entity_view_mode.media.1_1
+    - core.entity_view_mode.media.1_2
+    - core.entity_view_mode.media.2_1
+    - core.entity_view_mode.media.2_3
+    - core.entity_view_mode.media.3_1
+    - core.entity_view_mode.media.3_2
+    - core.entity_view_mode.media.3_4
+    - core.entity_view_mode.media.4_3
+    - core.entity_view_mode.media.4_5
+    - core.entity_view_mode.media.9_16
+    - core.entity_view_mode.media.full_hd
+    - core.entity_view_mode.media.inline
     - core.entity_view_mode.media.original
     - core.entity_view_mode.media.scale
   module:
@@ -22,17 +35,30 @@ filters:
     status: true
     weight: -50
     settings:
-      allowed_html: '<br class id data-*> <p class id data-*> <h1 class id data-*> <h2 class id data-*> <h3 class id data-*> <h4 class id data-*> <h5 class id data-*> <h6 class id data-*> <span class id data-*> <a class id data-* target rel href> <table class id data-*> <div class id data-*> <ul class id data-*> <ol class id data-* reversed start> <li class id data-*> <strong class id data-*> <em class id data-*> <u class id data-*> <thead class id data-*> <tbody class id data-*> <tr class id data-*> <th class id data-* rowspan colspan> <td class id data-* rowspan colspan> <drupal-media data-entity-type data-entity-uuid alt class id> <blockquote> <hr> <tfoot> <caption>'
+      allowed_html: '<br class id data-*> <p class id data-*> <h1 class id data-*> <h2 class id data-*> <h3 class id data-*> <h4 class id data-*> <h5 class id data-*> <h6 class id data-*> <span class id data-*> <a class id data-* target rel href> <table class id data-*> <div class id data-*> <ul class id data-*> <ol class id data-* reversed start> <li class id data-*> <strong class id data-*> <em class id data-*> <u class id data-*> <thead class id data-*> <tbody class id data-*> <tr class id data-*> <th class id data-* rowspan colspan> <td class id data-* rowspan colspan> <drupal-media data-entity-type data-entity-uuid alt class id data-view-mode data-align> <blockquote> <hr> <tfoot> <caption>'
       filter_html_help: false
       filter_html_nofollow: false
   media_embed:
     id: media_embed
     provider: media
     status: true
-    weight: -47
+    weight: -48
     settings:
       default_view_mode: original
       allowed_view_modes:
+        '16_9': '16_9'
+        '1_1': '1_1'
+        '1_2': '1_2'
+        '2_1': '2_1'
+        '2_3': '2_3'
+        '3_1': '3_1'
+        '3_2': '3_2'
+        '3_4': '3_4'
+        '4_3': '4_3'
+        '4_5': '4_5'
+        '9_16': '9_16'
+        full_hd: full_hd
+        inline: inline
         original: original
         scale: scale
       allowed_media_types:
@@ -42,13 +68,13 @@ filters:
     id: filter_htmlcorrector
     provider: filter
     status: true
-    weight: -48
+    weight: -35
     settings: {  }
   codemirror_editor:
     id: codemirror_editor
     provider: codemirror_editor
     status: false
-    weight: -45
+    weight: -44
     settings:
       lineWrapping: false
       lineNumbers: true
@@ -57,7 +83,7 @@ filters:
     id: filter_url
     provider: filter
     status: false
-    weight: -40
+    weight: -39
     settings:
       filter_url_length: 72
   linkit:
@@ -71,54 +97,60 @@ filters:
     id: editor_file_reference
     provider: editor
     status: false
-    weight: -44
+    weight: -43
     settings: {  }
   filter_align:
     id: filter_align
     provider: filter
-    status: false
-    weight: -43
+    status: true
+    weight: -42
     settings: {  }
   filter_autop:
     id: filter_autop
     provider: filter
     status: false
-    weight: -42
+    weight: -41
     settings: {  }
   filter_caption:
     id: filter_caption
     provider: filter
     status: false
-    weight: -41
+    weight: -40
     settings: {  }
   filter_html_escape:
     id: filter_html_escape
     provider: filter
     status: false
-    weight: -46
+    weight: -45
     settings: {  }
   filter_html_image_secure:
     id: filter_html_image_secure
     provider: filter
     status: false
-    weight: -39
+    weight: -38
     settings: {  }
   token_filter:
     id: token_filter
     provider: token_filter
-    status: false
-    weight: 0
+    status: true
+    weight: -36
     settings:
-      replace_empty: '0'
+      replace_empty: '1'
   responsive_table:
     id: responsive_table
     provider: designsystem
     status: true
-    weight: 0
+    weight: -46
     settings: {  }
   filter_image_lazy_load:
     id: filter_image_lazy_load
     provider: filter
-    status: true
-    weight: -43
+    status: false
+    weight: -47
+    settings: {  }
+  header1:
+    id: header1
+    provider: designsystem
+    status: false
+    weight: -37
     settings: {  }

@@ -1,0 +1,34 @@
+{% extends 'field.html.twig' %}
+
+{% set multiple_images = (items|children|length >= 2) %}
+{% set splidejs_config = {
+  'type': 'loop',
+  'arrows': (true and multiple_images),
+  'pagination': (false and multiple_images),
+  'drag': (true and multiple_images),
+} %}
+
+{% block container %}
+  {% set attributes = attributes.addClass('splide') %}
+  {% set attributes = attributes.setAttribute('data-splide', splidejs_config|json_encode(constant('JSON_UNESCAPED_SLASHES'))) %}
+  {{ parent() }}
+{% endblock %}
+
+{% block items %}
+  {% block arrows %}
+    {% if (splidejs_config.arrows ?? true) %}
+      {# Add suggestions as needed. notice that these suggestions are not shown as HTML comments. #}
+      {{ {'#theme': 'splidejs_arrows'}|add_suggestion(element['#bundle']) }}
+    {% endif %}
+  {% endblock arrows %}
+  <div class="splide__track"><div class="splide__list">
+  {% for item in items %}
+    <div{{ item.attributes.addClass('splide__slide') }}>{{ item.content }}</div>
+  {% endfor %}
+  </div></div>
+  {% block pagination %}
+    {% if (splidejs_config.pagination ?? false) %}
+      <ul class="splide__pagination"></ul>
+    {% endif %}
+  {% endblock %}
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends "field.html.twig" %}
+
+{% block container %}
+  {% set attributes = attributes.addClass('cs-darkimg text-align-center absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2  sm:min-w-[600px] max-w-[90vh]') %}
+  {{ parent() }}
+{% endblock %}

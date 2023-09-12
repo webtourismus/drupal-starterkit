@@ -19,63 +19,6 @@
   /**
    * ###################################################################################################################
    * ###################################################################################################################
-   * Animations
-   * ###################################################################################################################
-   * ###################################################################################################################
-   */
-   @media (prefers-reduced-motion: no-preference) {
-    :where(html:not(.no-js)) [data-aos^='fade'],
-    :where(html:not(.no-js)) [data-aos^='zoom'],
-    :where(html:not(.no-js) [data-aos='children-sideward']) > :first-child,
-    :where(html:not(.no-js) [data-aos='children-sideward']) > :last-child {
-      opacity: 0;
-      transition-property: opacity, transform;
-      pointer-events: none;
-    }
-    :where([data-aos^='fade']).aos-animate,
-    :where([data-aos^='zoom']).aos-animate,
-    :where([data-aos='children-sideward'].aos-animate) > :first-child,
-    :where([data-aos='children-sideward'].aos-animate) > :last-child {
-      opacity: 1;
-      transform: none;
-      pointer-events: auto;
-    }
-    [data-aos='fade-up'] {
-      transform: translate3d(0, 100px, 0);
-    }
-    [data-aos='fade-down'] {
-      transform: translate3d(0, -100px, 0);
-    }
-    [data-aos='fade-left'] {
-      transform: translate3d(100px, 0, 0);
-    }
-    [data-aos='fade-right'] {
-      transform: translate3d(-100px, 0, 0);
-    }
-    :where([data-aos='children-sideward']) > :first-child {
-      transform: translate3d(-100px, 0, 0);
-    }
-    :where([data-aos='children-sideward']) > :last-child {
-      transform: translate3d(100px, 0, 0);
-    }
-    [data-aos='zoom-in'] {
-      transform: scale(.8);
-    }
-  }
-  @media (prefers-reduced-motion) {
-    [data-aos^='fade'],
-    [data-aos^='zoom'],
-    :where([data-aos='children-sideward']) > :first-child,
-    :where([data-aos='children-sideward']) > :last-child {
-      opacity: 1;
-      transform: none;
-      pointer-events: auto;
-    }
-  }
-
-  /**
-   * ###################################################################################################################
-   * ###################################################################################################################
    * All regions inside a layout starting with name "grid" are assumed to be single component regions with
    * a fixed height and top & bottom aligned borders
    * ###################################################################################################################
@@ -85,7 +28,7 @@
     &.paragraph--type--image img,
     &.paragraph--type--icon img,
     &.paragraph--type--icon svg,
-    &.paragraph--type--linkblock .teaserable-image-container img {
+    &.paragraph--type--linkblock .teaserable-images img {
       width: 100%;
       height: var(--grid-img-height);
       object-fit: cover;
@@ -95,10 +38,20 @@
   /**
    * ###################################################################################################################
    * ###################################################################################################################
-   * SVGs inline in running text
+   * Images, SVG, Banner
    * ###################################################################################################################
    * ###################################################################################################################
    */
+  :where(.paragraph--type--banner_image) > .field--name--field_media_image :where(img),
+  .paragraph--type--banner_video :where(video) {
+    width: 100%;
+
+    :where(.node--banner--banner_lg) & {
+      object-fit: cover;
+      height: calc(var(--vh100, 100vh) - var(--fixed-footer, 0px) - var(--fixed-header, 0px) - var(--drupal-displace-offset-top, 0px));
+    }
+  }
+
   .inline-svg {
     @apply inline-block h-[1em] align-[-1.25em];
   }
