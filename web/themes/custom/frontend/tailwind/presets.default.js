@@ -166,7 +166,7 @@ module.exports = {
           },
         });
 
-        addVariant('admin', ['.is-admin &']);
+        addVariant('backend', ['.is-backend &']);
 
         addVariant('frontend', ['.is-frontend &']);
 
