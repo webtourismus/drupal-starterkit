@@ -1171,7 +1171,7 @@ display:
       menu:
         type: normal
         title: Seiten
-        description: /libraries/fa6/svgs/regular/file.svg
+        description: 'before:![mask-image:url(/libraries/fa6/svgs/regular/file.svg)]'
         weight: 0
         expanded: true
         menu_name: editor

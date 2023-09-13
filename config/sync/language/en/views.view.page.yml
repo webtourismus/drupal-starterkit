@@ -48,12 +48,9 @@ display:
             label: Language
           group_info:
             label: Language
-            description: ''
         internal_id:
           expose:
             label: 'Internal ID'
-            description: ''
-            placeholder: ''
           group_info:
             label: 'special pages'
             group_items:

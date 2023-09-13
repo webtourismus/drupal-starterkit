@@ -12,7 +12,7 @@ template: false
 archive: false
 id: table
 title: 'Tisch reservieren'
-description: '<p>/libraries/fa6/svgs/regular/chair.svg</p>'
+description: '<p>class="before:![mask-image:url(/libraries/fa6/svgs/regular/chair.svg)]"</p>'
 categories: {  }
 elements: |-
   persons:

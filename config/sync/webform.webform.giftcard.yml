@@ -12,7 +12,7 @@ template: false
 archive: false
 id: giftcard
 title: Gutscheine
-description: '<p>/libraries/fa6/svgs/regular/gift-card.svg</p>'
+description: '<p>class="before:![mask-image:url(/libraries/fa6/svgs/regular/gift-card.svg)]"</p>'
 categories: {  }
 elements: |-
   value:

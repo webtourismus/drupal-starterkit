@@ -25,7 +25,5 @@ layout_density: default
 show_description_toggle: false
 show_user_theme_settings: false
 tailwind_jit:
-  compile_html_requests: 1
-  html_input_file: modules/contrib/gin_custom/tailwind/admin.css
-  compile_ajax_requests: 1
-  ajax_input_file: modules/contrib/gin_custom/tailwind/admin.css
+  compile_html_requests: 0
+  compile_ajax_requests: 0

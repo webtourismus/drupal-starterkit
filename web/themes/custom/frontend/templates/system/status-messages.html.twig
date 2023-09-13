@@ -1,0 +1,22 @@
+<div data-drupal-messages class="messages-container">
+{% for type, messages in message_list %}
+  {% if type == error %}
+    <div role="alert" aria-label="{{ status_headings[type] }}" {{ attributes|without('role', 'aria-label') }}>
+  {% else %}
+    <div role="contentinfo" aria-label="{{ status_headings[type] }}" {{ attributes|without('role', 'aria-label') }}>
+  {% endif %}
+    {% if status_headings[type] %}
+      <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
+    {% endif %}
+    {% if messages|length > 1 %}
+      <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      {{ messages|first }}
+    {% endif %}
+  </div>
+{% endfor %}
+</div>

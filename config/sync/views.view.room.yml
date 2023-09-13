@@ -1088,7 +1088,7 @@ display:
       menu:
         type: normal
         title: Zimmer
-        description: /libraries/fa6/svgs/regular/bed.svg
+        description: 'before:![mask-image:url(/libraries/fa6/svgs/regular/bed.svg)]'
         weight: 10
         expanded: true
         menu_name: editor

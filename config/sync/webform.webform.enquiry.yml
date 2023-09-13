@@ -12,7 +12,7 @@ template: false
 archive: false
 id: enquiry
 title: Anfrage
-description: '<p>/libraries/fa6/svgs/regular/envelope.svg</p>'
+description: '<p>class="before:![mask-image:url(/libraries/fa6/svgs/regular/envelope.svg)]"</p>'
 categories: {  }
 elements: |-
   text_mydata:

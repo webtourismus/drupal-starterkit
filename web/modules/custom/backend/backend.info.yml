@@ -4,6 +4,7 @@ package: Design system
 type: module
 core_version_requirement: ^10
 'interface translation project': backend
-'interface translation server pattern': modules/contrib/backend/translations/backend.%language.po
+'interface translation server pattern': modules/custom/backend/translations/backend.%language.po
 dependencies:
   - designsystem:designsystem
+  - tailwind_jit:tailwind_jit
