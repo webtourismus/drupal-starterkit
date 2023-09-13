@@ -8,7 +8,7 @@ id: paragraph.text.status
 field_name: status
 entity_type: paragraph
 bundle: text
-label: Veröffentlicht
+label: veröffentlicht
 description: ''
 required: false
 translatable: false

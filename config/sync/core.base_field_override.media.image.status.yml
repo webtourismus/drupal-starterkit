@@ -8,7 +8,7 @@ id: media.image.status
 field_name: status
 entity_type: media
 bundle: image
-label: Published
+label: veröffentlicht
 description: ''
 required: false
 translatable: false

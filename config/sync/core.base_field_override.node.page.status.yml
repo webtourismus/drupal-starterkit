@@ -8,7 +8,7 @@ id: node.page.status
 field_name: status
 entity_type: node
 bundle: page
-label: Published
+label: veröffentlicht
 description: ''
 required: false
 translatable: false

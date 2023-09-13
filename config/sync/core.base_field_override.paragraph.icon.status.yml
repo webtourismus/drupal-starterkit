@@ -8,7 +8,7 @@ id: paragraph.icon.status
 field_name: status
 entity_type: paragraph
 bundle: icon
-label: Veröffentlicht
+label: veröffentlicht
 description: ''
 required: false
 translatable: false

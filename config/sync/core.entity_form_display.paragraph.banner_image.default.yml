@@ -24,7 +24,7 @@ third_party_settings:
       weight: 2
       format_type: html_element
       format_settings:
-        classes: 'grid grid-cols-1 sm:grid-cols-2 gap-4'
+        classes: 'grid grid-cols-1 sm:grid-cols-[max-content_max-content] gap-4 mt-4 items-center'
         show_empty_fields: false
         id: ''
         element: div

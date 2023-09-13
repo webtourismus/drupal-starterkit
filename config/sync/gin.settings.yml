@@ -26,4 +26,6 @@ show_description_toggle: false
 show_user_theme_settings: false
 tailwind_jit:
   compile_html_requests: 0
+  html_input_file: ''
   compile_ajax_requests: 0
+  ajax_input_file: ''

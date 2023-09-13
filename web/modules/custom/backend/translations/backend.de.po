@@ -157,6 +157,9 @@ msgstr "kein Abstand"
 msgid "thin"
 msgstr "dünn"
 
+msgid "large"
+msgstr "groß"
+
 msgid "very large"
 msgstr "riesig"
 

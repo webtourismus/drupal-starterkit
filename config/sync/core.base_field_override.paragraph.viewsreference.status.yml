@@ -8,7 +8,7 @@ id: paragraph.viewsreference.status
 field_name: status
 entity_type: paragraph
 bundle: viewsreference
-label: Veröffentlicht
+label: veröffentlicht
 description: ''
 required: false
 translatable: false

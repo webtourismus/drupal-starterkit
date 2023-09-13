@@ -8,7 +8,7 @@ id: media.remote_video.status
 field_name: status
 entity_type: media
 bundle: remote_video
-label: Published
+label: veröffentlicht
 description: ''
 required: false
 translatable: false

@@ -8,7 +8,7 @@ id: block_content.image.status
 field_name: status
 entity_type: block_content
 bundle: image
-label: Published
+label: veröffentlicht
 description: ''
 required: false
 translatable: false
