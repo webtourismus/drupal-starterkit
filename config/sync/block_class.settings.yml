@@ -17,3 +17,6 @@ weight_id: null
 filter_html_clean_css_identifier: ''
 maxlength_attributes: 4000
 maxlength_id: 255
+attribute_keys_stored: '[]'
+attribute_value_stored: '[]'
+attributes_inline: '[]'

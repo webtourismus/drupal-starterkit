@@ -204,39 +204,6 @@ module.exports = {
 
         matchUtilities(
           {
-            'property-custom': (value) => ({
-              '--property-custom': value
-            }),
-          },
-          {
-            values: theme('spacing')
-          }
-        );
-
-        matchUtilities(
-          {
-            'property-gap-vertical': (value) => ({
-              '--gap-vertical': value
-            }),
-          },
-          {
-            values: theme('spacing')
-          }
-        );
-
-        matchUtilities(
-          {
-            'property-gap-horizontal': (value) => ({
-              '--gap-horizontal': value
-            }),
-          },
-          {
-            values: theme('spacing')
-          }
-        );
-
-        matchUtilities(
-          {
             'gap-vertical': (value) => ({
               'row-gap': value,
               '--gap-vertical': value,
@@ -261,7 +228,6 @@ module.exports = {
                 }
               },
               {
-                //'> :where(.area), > :where(.component), > :where(.form-item), > :where(.form-wrapper), > :where(.fieldset-wrapper) :where(.form-item)': {
                 '> :where(.area), > :where(.component), > :where(.form-item, .form-wrapper), :where(.gap-horizontal-child)': {
                   paddingLeft: value,
                   paddingRight: value,

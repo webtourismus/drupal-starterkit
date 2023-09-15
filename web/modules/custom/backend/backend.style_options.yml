@@ -157,7 +157,7 @@ options:
             ':input[name=''layout_paragraphs[config][layout][layout_width_predefined_options][html_attribute]'']':
               value: ''
     value_preg_replace:
-      pattern: '/^(\d+)(\.[0-9]+)?(px|%|rem|em|vw))$/'
+      pattern: '/^(\d+)(\.[0-9]+)?(px|%|rem|em|vw)$/'
       replacement: 'max-w-[${0}]'
     weight: -890
   layout_padding_side:

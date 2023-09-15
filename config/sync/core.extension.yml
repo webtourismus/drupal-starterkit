@@ -123,6 +123,7 @@ module:
   pathauto: 1
   content_translation: 10
   views: 10
+  cookies_filter: 11
   cookies_geolocation: 11
   cookies_gtag: 11
   cookies_video: 11

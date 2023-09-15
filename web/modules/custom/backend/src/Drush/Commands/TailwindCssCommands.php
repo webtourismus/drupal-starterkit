@@ -32,15 +32,20 @@ final class TailwindCssCommands extends DrushCommands {
    */
   #[CLI\Command(name: 'backend:css', aliases: ['css'])]
   #[CLI\Usage(name: 'backend:css', description: 'Compile TailwindCSS for Gin admin theme.')]
-  public function backendCss() {
-    $inputFile = '/modules/custom/backend/tailwind/gin-custom.css';
-    $outputFile = '/sites/default/files/gin-custom.css';
+  #[CLI\Option(name: 'input', description: 'Uncompiled TailwindCSS input file.')]
+  #[CLI\Option(name: 'output', description: 'Compiled plain CSS output file.')]
+  #[CLI\Option(name: 'minify', description: 'Minify compiled CSS.')]
+  public function backendCss($options = [
+    'input' => '/modules/custom/backend/tailwind/gin-custom.css',
+    'output' => '/sites/default/files/gin-custom.css',
+    'minify' => TRUE,
+  ]) {
+    $inputFullPath = realpath(DRUPAL_ROOT . $options['input']);
+    $outputFullPath = realpath(DRUPAL_ROOT . $options['output']);
+    $minify = $options['minify'] ? '--minify' : '';
 
-    $inputParamenter = realpath(DRUPAL_ROOT . $inputFile);
-    $outputParamenter = realpath(DRUPAL_ROOT . $outputFile);
-
-    $this->io()->text("Compiling '{$inputFile}' to '{$outputFile}'");
-    $returnCode = $this->compiler->runCompiler(" --input={$inputParamenter} --output={$outputParamenter} --minify", $output, $message);
+    $this->io()->text("Compiling '{$options['input']}' to '{$options['output']}'");
+    $returnCode = $this->compiler->runCompiler(" --input={$inputFullPath} --output={$outputFullPath} {$minify}", $output, $message);
     if ($returnCode) {
       $this->io()->error('An error has occured.');
       $this->io()->text($output);

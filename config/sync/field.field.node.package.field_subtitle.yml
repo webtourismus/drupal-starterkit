@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_subtitle
+    - filter.format.plain_text
     - node.type.package
   module:
     - allowed_formats
@@ -30,5 +31,5 @@ default_value: {  }
 default_value_callback: ''
 settings:
   allowed_formats:
-    - basic_html
+    - plain_text
 field_type: text_long

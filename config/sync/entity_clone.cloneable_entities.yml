@@ -11,3 +11,4 @@ cloneable_entities:
   - webform
   - paragraph
   - paragraphs_library_item
+  - cookies_service_filter

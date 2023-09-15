@@ -45,7 +45,7 @@
 
   /* responsive remote videos */
   :where(.field--name--field_media_oembed_video) iframe {
-    @apply w-full aspect-video;
+    @apply w-full aspect-[16/9];
   }
   /* undo preflight, style icons within links/buttons as inline graphic */
   a > svg {

@@ -1,0 +1,15 @@
+{% extends 'field.html.twig' %}
+{% block items %}
+	{% for item in items %}
+		{% set item = item|set('content.#attributes.height', 'auto') %}
+		{% set item = item|set('content.#attributes.width', '100%') %}
+		{# try to avoid unnecessary wrappers and only render them when actually used #}
+		{% if item.attributes is not empty %}
+			<div {{item.attributes}}>
+			{% endif %}
+			{{ item.content }}
+			{% if item.attributes is not empty %}
+			</div>
+		{% endif %}
+	{% endfor %}
+{% endblock %}

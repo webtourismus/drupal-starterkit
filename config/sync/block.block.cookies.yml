@@ -8,8 +8,8 @@ dependencies:
     - frontend
 id: cookies
 theme: frontend
-region: footer
-weight: -3
+region: content
+weight: 0
 provider: null
 plugin: cookies_ui_block
 settings:
