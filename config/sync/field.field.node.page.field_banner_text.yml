@@ -4,14 +4,12 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_banner_text
+    - filter.format.banner_html
     - node.type.page
   module:
-    - allowed_formats
     - field_config_cardinality
     - text
 third_party_settings:
-  allowed_formats:
-    allowed_formats: {  }
   field_config_cardinality:
     cardinality_config: '1'
     cardinality_label_config: false
@@ -22,7 +20,7 @@ id: node.page.field_banner_text
 field_name: field_banner_text
 entity_type: node
 bundle: page
-label: 'Banner text'
+label: 'Banner Text'
 description: ''
 required: false
 translatable: true

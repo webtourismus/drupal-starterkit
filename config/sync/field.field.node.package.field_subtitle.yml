@@ -7,12 +7,9 @@ dependencies:
     - filter.format.plain_text
     - node.type.package
   module:
-    - allowed_formats
     - field_config_cardinality
     - text
 third_party_settings:
-  allowed_formats:
-    allowed_formats: {  }
   field_config_cardinality:
     cardinality_config: '1'
     cardinality_label_config: false

@@ -7,6 +7,7 @@ catch (err) {}
 frontendConfig.content = [
   '../config/sync/*.yml',
   './modules/contrib/designsystem/src/Plugin/Field/FieldWidget/LinkitAttributes2Columns.php',
+  './modules/contrib/designsystem/src/Plugin/StyleOption/ResponsiveClass.php',
   './modules/contrib/ebr/modules/ebr_stable_media/src/Plugin/Derivative/StableMediaEditLinkDeriver.php',
   './modules/contrib/ebr/modules/ebr_popup/src/Plugin/Derivative/PopupEditLinkDeriver.php',
   './modules/contrib/gin_custom/src/Plugin/Derivative/WebformSubmissionLinkDeriver.php',
@@ -17,24 +18,29 @@ frontendConfig.content = [
   './modules/custom/backend/backend.links.menu.yml',
 ];
 
-/* column layouts use dynamically generated breakpoint prefixes for the column widths. */
+/* style option "column_width" uses dynamically generated breakpoint prefixes for the column widths. */
 frontendConfig.safelist = frontendConfig.safelist ?? [];
+let screens = [
+  ...Object.keys(frontendConfig?.theme?.screens ?? frontendConfig?.presets[0]?.theme?.screens ?? {}),
+  ...Object.keys(frontendConfig?.theme?.extend?.screens ?? {}),
+];
+let maxScreens = screens.map(screen => 'max-' + screen);
 frontendConfig.safelist.push(
   {
     pattern: /basis-.+/,
-    variants: ['sm', 'md', 'lg', 'max-sm', 'max-md', 'max-lg'],
+    variants: [...screens, ...maxScreens],
   },
   {
-    pattern: /grow.*/,
-    variants: ['sm', 'md', 'lg', 'max-sm', 'max-md', 'max-lg'],
+    pattern: /grow(-0)?/,
+    variants: [...screens, ...maxScreens],
   },
   {
-    pattern: /shrink.*/,
-    variants: ['sm', 'md', 'lg', 'max-sm', 'max-md', 'max-lg'],
+    pattern: /shrink(-0)?/,
+    variants: [...screens, ...maxScreens],
   },
   {
     pattern: /max-w-.+/,
-    variants: ['sm', 'md', 'lg', 'max-sm', 'max-md', 'max-lg'],
+    variants: [...screens, ...maxScreens],
   },
 );
 

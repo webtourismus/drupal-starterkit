@@ -4,13 +4,18 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_subtitle
+    - filter.format.plain_text
     - paragraphs.paragraphs_type.icon
   module:
-    - allowed_formats
+    - field_config_cardinality
     - text
 third_party_settings:
-  allowed_formats:
-    allowed_formats: {  }
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
 id: paragraph.icon.field_subtitle
 field_name: field_subtitle
 entity_type: paragraph

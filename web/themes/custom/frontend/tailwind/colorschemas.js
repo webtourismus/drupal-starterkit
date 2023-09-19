@@ -217,7 +217,7 @@ const colorschemas = plugin(
     );
 
     addComponents({
-      '[class^="cs-"], [class*=" cs-"]': {
+      '[class^="cs-"], [class*=" cs-"], [class*=":cs-"]': {
         '--color-background': 'rgb(var(--rgb-color-background))',
         '--color-foreground': 'rgb(var(--rgb-color-foreground))',
         '--color-onforeground': 'rgb(var(--rgb-color-onforeground))',

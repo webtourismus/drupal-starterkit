@@ -1,1 +1,3 @@
 label: 'Standard occupancy'
+settings:
+  suffix: ' person| persons'
