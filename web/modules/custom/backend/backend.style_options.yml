@@ -1,6 +1,6 @@
 reuseable_anchors:
   width_options: &width_options
-    'grow shrink basis-0': distribute automatically
+    'grow shrink basis-0 max-w-full': distribute automatically
     'grow-0 shrink-0 basis-full max-w-full': 100%
     'grow-0 shrink-0 basis-11/12 max-w-11/12': 91.67.33% - 11/12
     'grow-0 shrink-0 basis-9/10 max-w-9/10': 90% - 9/10
@@ -421,6 +421,23 @@ options:
     options: *gap_horizontal_options
     default: 'max-sm:gap-horizontal-[4px] md:gap-horizontal-[8px] lg:gap-horizontal-[16px]'
     weight: -870
+  grid_row_height:
+    plugin: html_attribute
+    weight: -878
+    label: 'Fixed height'
+    input_type: select
+    options:
+      '[--grid-row-height:min-content]': Longest text (does not work in combination with images)
+      '[--grid-row-height:200px]': 200px
+      '[--grid-row-height:250px]': 250px
+      '[--grid-row-height:300px]': 300px
+      '[--grid-row-height:350px]': 350px
+      '[--grid-row-height:400px]': 400px
+      '[--grid-row-height:450px]': 450px
+      '[--grid-row-height:500px]': 500px
+      '[--grid-row-height:550px]': 550px
+      '[--grid-row-height:600px]': 600px
+    default: '[--grid-row-height:300px]'
   grid_template_columns_2:
     plugin: html_attribute
     weight: -877
@@ -433,17 +450,43 @@ options:
       'max-sm:grid-cols-1 sm:[grid-template-columns:60%_40%]': 60% / 40%
       'max-sm:grid-cols-1 sm:[grid-template-columns:66.3337%_33.3333%]': 66.67% / 33.33%
     default: 'max-sm:grid-cols-1 sm:[grid-template-columns:50%_50%]'
-  grid_template_columns_3:
-    plugin: html_attribute
+  grid_responsive_columns_2:
+    plugin: responsive_class
     weight: -877
-    label: 'Cell width on large screens'
-    input_type: select
-    options:
-      'max-sm:grid-cols-1 sm:[grid-template-columns:33.3333%_33.3333%_33.3333%]': 33.33% / 33.33% / 33.33%
-      'max-sm:grid-cols-1 sm:[grid-template-columns:40%_30%_30%]': 40% / 30% / 30%
-      'max-sm:grid-cols-1 sm:[grid-template-columns:30%_40%_30%]': 30% / 40% / 30%
-      'max-sm:grid-cols-1 sm:[grid-template-columns:30%_30%_40%]': 30% / 30% / 40%
-    default: 'max-sm:grid-cols-1 sm:[grid-template-columns:33.3333%_33.3333%_33.3333%]'
+    description: 'Only for screens larger than selected above. On smaller screens all columns are fullwidth and stacked below each other.'
+    prefix:
+      label: 'Column width'
+    otherwise_classes: 'grid-cols-1'
+    classes:
+      label: 'Column width'
+      form_api:
+        '#label_attributes':
+          class: 'invisible'
+      input_type: select
+      options:
+        '[grid-template-columns:33.3333%_66.3337%] [grid-auto-rows:var(--grid-row-height)]': 33.33% / 66.67%
+        '[grid-template-columns:40%_60%] [grid-auto-rows:var(--grid-row-height)]': 40% / 60%
+        '[grid-template-columns:50%_50%] [grid-auto-rows:var(--grid-row-height)]': 50% / 50%
+        '[grid-template-columns:60%_40%] [grid-auto-rows:var(--grid-row-height)]': 60% / 40%
+        '[grid-template-columns:66.3337%_33.3333%] [grid-auto-rows:var(--grid-row-height)]': 66.67% / 33.33%
+  grid_responsive_columns_3:
+    plugin: responsive_class
+    weight: -877
+    description: 'Only for screens larger than selected above. On smaller screens all columns are fullwidth and stacked below each other.'
+    prefix:
+      label: 'Column width'
+    otherwise_classes: 'grid-cols-1'
+    classes:
+      label: 'Column width'
+      form_api:
+        '#label_attributes':
+          class: 'invisible'
+      input_type: select
+      options:
+        '[grid-template-columns:33.3333%_33.3333%_33.3333%] [grid-auto-rows:var(--grid-row-height)]': 33.33% / 33.33% / 33.33%
+        '[grid-template-columns:40%_30%_30%] [grid-auto-rows:var(--grid-row-height)]': 40% / 30% / 30%
+        '[grid-template-columns:30%_40%_30%] [grid-auto-rows:var(--grid-row-height)]': 30% / 40% / 30%
+        '[grid-template-columns:30%_30%_40%] [grid-auto-rows:var(--grid-row-height)]': 30% / 30% / 40%
   gallery_width_xs:
     plugin: html_attribute
     attribute_name: 'data-thumbnail-xs'
@@ -671,7 +714,10 @@ contexts:
         layout_gap_vertical:
           layout: true
           regions: false
-        grid_template_columns_2:
+        grid_responsive_columns_2:
+          layout: true
+          regions: false
+        grid_row_height:
           layout: true
           regions: false
     grid_3cells:
@@ -682,7 +728,10 @@ contexts:
         layout_gap_vertical:
           layout: true
           regions: false
-        grid_template_columns_3:
+        grid_responsive_columns_3:
+          layout: true
+          regions: false
+        grid_row_height:
           layout: true
           regions: false
     grid_1lg_2sm:
@@ -696,6 +745,9 @@ contexts:
         grid_template_columns_2:
           layout: true
           regions: false
+        grid_row_height:
+          layout: true
+          regions: false
     grid_2sm_1lg:
       options:
         layout_gap_horizontal:
@@ -705,5 +757,8 @@ contexts:
           layout: true
           regions: false
         grid_template_columns_2:
+          layout: true
+          regions: false
+        grid_row_height:
           layout: true
           regions: false

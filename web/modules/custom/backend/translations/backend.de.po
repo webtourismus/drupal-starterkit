@@ -300,3 +300,9 @@ msgstr "Laptop"
 
 msgid "Layout Settings"
 msgstr "Layout Einstellungen"
+
+msgid "Fixed height"
+msgstr "Feste Höhe"
+
+msgid "Longest text (does not work in combination with images)"
+msgstr "Längster Text (funktioniert nicht in Kombination mit Bildern)"

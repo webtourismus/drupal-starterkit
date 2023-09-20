@@ -1,6 +1,8 @@
 /* Global (admin+frontend) styles */
 
-@font-face { /* ... */ }
+/*
+@font-face { ... }
+*/
 
 @layer components {
   /**
@@ -13,7 +15,7 @@
   /**
    * Font shorthands
    */
-   .font-running {
+  .font-running {
     font: theme('fontWeight.weight-default') 1rem theme('fontFamily.family-running');
   }
   /**
@@ -77,11 +79,12 @@
     @apply text-[0.9rem] sm:text-[0.9rem] text-flashy font-weight-default tracking-[2px] not-italic no-underline uppercase;
   }
   /**
-   * Editorial content from formatted running text fields
+   * Editorial content from formatted running text fields.
+   * Container must be "display: block" to allow collapsing margins on children.
    */
   .ck-content {
     /**
-     * Text flow with collapsing vertical margins (no flex!)
+     * Text flow with collapsing vertical margins
      */
     :where(p, h1, h2, h3, h4, h5, h6, ol, ul, dl, table, blockquote) {
       margin: 1em 0 0.5em 0;
@@ -128,9 +131,9 @@
    * ###################################################################################################################
    */
   /**
-   * It is recommended to use ".btn" as an abstract base class for all button's layout and size,
-   * and apply only colors to the final button styles like ".btn-filled-flashy" etc.
-   * Final button styles are applied !important to work inside admin theme.
+   * It is recommended to use ".btn" as an abstract base class for all button's layout and size.
+   * Then apply only colors to the final link styles like ".btn-filled-flashy" etc.
+   * Final link styles should be applied !important to work inside admin theme.
    *
    * Used in ~/config/sync/editor.editor.*.yml
    */
@@ -147,6 +150,6 @@
     @apply btn text-currentcolor bg-transparent border-currentcolor hocus:text-flashy !important;
   }
   .link-decorated {
-    @apply font-weight-thick;
+    @apply font-weight-thick !important;
   }
 }

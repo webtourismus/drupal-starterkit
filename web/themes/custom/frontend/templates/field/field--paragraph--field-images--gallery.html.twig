@@ -3,7 +3,7 @@
   {% set url = image_uri ? image_uri|image_style('full_hd') : '' %}
   <a href="{{ url }}" target="modal" {{ item.attributes.addClass([
     'gallery-thumbnail',
-    'sub-component',
+    element["#view_mode"] != 'slider' ? 'gap-horizontal-child',
     'component',
   ])|without('href', 'target') }}>
     {{ item.content }}

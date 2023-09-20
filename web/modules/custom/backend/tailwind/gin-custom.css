@@ -8,7 +8,8 @@
 @config "tailwind.config.js";
 
 @tailwind base;
-:where(.ck-content) {
+
+:where(.ck-content), .ck-style-grid__button__preview {
   h1 {
     @apply h1;
   }
@@ -32,6 +33,9 @@
 @tailwind components;
 .ck-editor__editable {
   @apply cs-white;
+}
+.ck-style-grid__button__preview {
+  @apply !cs-white;
 }
 
 @tailwind utilities;

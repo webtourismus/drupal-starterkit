@@ -172,6 +172,6 @@
     }
   },
   "require": {
-    "webtourismus/drupal-metapackage": "^0.9.23"
+    "webtourismus/drupal-metapackage": "^0.9.25"
   }
 }

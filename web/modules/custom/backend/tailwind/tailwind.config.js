@@ -41,7 +41,25 @@ frontendConfig.safelist.push(
   {
     pattern: /max-w-.+/,
     variants: [...screens, ...maxScreens],
-  },
+  }
 );
-
+/* style options "grid_resposive_columns_(2|3)" uses dynamically generated breakpoint prefixes for the column widths. */
+let grid_resposive_columns = [
+  '[grid-template-columns:33.3333%_66.3337%]',
+  '[grid-template-columns:40%_60%]',
+  '[grid-template-columns:50%_50%]',
+  '[grid-template-columns:60%_40%]',
+  '[grid-template-columns:66.3337%_33.3333%]',
+  '[grid-template-columns:33.3333%_33.3333%_33.3333%]',
+  '[grid-template-columns:40%_30%_30%]',
+  '[grid-template-columns:30%_40%_30%]',
+  '[grid-template-columns:30%_30%_40%]',
+  '[grid-auto-rows:var(--grid-row-height)]',
+];
+for (let bp of screens) {
+  frontendConfig.safelist.push(`max-${bp}:grid-cols-1`);
+  for (let cols of grid_resposive_columns) {
+    frontendConfig.safelist.push(`${bp}:${cols}`);
+  }
+}
 module.exports = frontendConfig;

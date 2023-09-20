@@ -1,18 +1,5 @@
 {% extends '@backend/layout/grid.html.twig' %}
 
-{% set xs_grid_template_rows = '' %}
-{% for count_cells in region_attributes %}
-  {% if loop.first %}
-    {% set xs_grid_template_rows = 'max-sm:[grid-template-rows:' %}
-  {% endif %}
-  {% set xs_grid_template_rows = xs_grid_template_rows ~ 'var(--grid-row-height)_' %}
-  {% if loop.last %}
-    {% set xs_grid_template_rows = xs_grid_template_rows|trim('_') ~ ']' %}
-  {% endif %}
-{% endfor %}
 {% set attributes = attributes.addClass([
-  '[--grid-row-height:400px]',
   '[--grid-img-height:var(--grid-row-height)]',
-  xs_grid_template_rows,
-  'sm:[grid-template-rows:var(--grid-row-height)]'
 ]) %}

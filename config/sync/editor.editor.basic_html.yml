@@ -78,21 +78,6 @@ settings:
           label: 'Überschrift 6'
           element: '<p class="h6">'
         -
-          label: 'Schriftgröße klein'
-          element: '<span class="text-smaller">'
-        -
-          label: 'Schriftgröße groß'
-          element: '<span class="text-larger">'
-        -
-          label: 'Schriftgröße je nach Bildschirm'
-          element: '<span class="text-fluid">'
-        -
-          label: 'Schriftfarbe auffällig'
-          element: '<span class="text-flashy">'
-        -
-          label: 'Schriftfarbe blass'
-          element: '<span class="text-pale">'
-        -
           label: 'Button auffällig'
           element: '<a class="btn-filled-flashy">'
         -
@@ -104,6 +89,21 @@ settings:
         -
           label: 'Link dekoriert'
           element: '<a class="link-decorated">'
+        -
+          label: 'kleine Schriftgröße'
+          element: '<span class="text-smaller">'
+        -
+          label: 'große Schriftgröße'
+          element: '<span class="text-larger">'
+        -
+          label: 'stark wachsende Schriftgröße'
+          element: '<span class="text-fluid">'
+        -
+          label: 'auffällige Schriftfarbe'
+          element: '<span class="text-flashy">'
+        -
+          label: 'blasse Schriftfarbe'
+          element: '<span class="text-pale">'
     linkit_extension:
       linkit_enabled: true
       linkit_profile: backend
