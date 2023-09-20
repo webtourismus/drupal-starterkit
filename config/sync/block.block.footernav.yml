@@ -1,22 +1,22 @@
-uuid: 4c29b5cf-208d-442e-8097-839309bfebbe
+uuid: d24a18fd-352e-4dbf-adb0-14bd18313daf
 langcode: de
 status: true
 dependencies:
   config:
-    - system.menu.main
+    - system.menu.footer
   module:
     - system
   theme:
     - frontend
-id: mainnav
+id: footernav
 theme: frontend
-region: header
-weight: -3
+region: footer
+weight: 0
 provider: null
-plugin: 'system_menu_block:main'
+plugin: 'system_menu_block:footer'
 settings:
-  id: 'system_menu_block:main'
-  label: Hauptnavigation
+  id: 'system_menu_block:footer'
+  label: 'Footer Navigation'
   label_display: '0'
   provider: system
   level: 1

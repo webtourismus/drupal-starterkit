@@ -1,0 +1,20 @@
+uuid: e73d7b90-dc99-4f98-804f-055211c2ce46
+langcode: de
+status: true
+dependencies:
+  module:
+    - language
+  theme:
+    - frontend
+id: langswitch
+theme: frontend
+region: header
+weight: -2
+provider: null
+plugin: 'language_block:language_interface'
+settings:
+  id: 'language_block:language_interface'
+  label: Sprachumschalter
+  label_display: '0'
+  provider: language
+visibility: {  }

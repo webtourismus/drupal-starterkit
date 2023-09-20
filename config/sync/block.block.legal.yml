@@ -1,22 +1,22 @@
-uuid: 4c29b5cf-208d-442e-8097-839309bfebbe
+uuid: 90508927-e0ca-4239-8bf3-9a71a79ef594
 langcode: de
 status: true
 dependencies:
   config:
-    - system.menu.main
+    - system.menu.legal
   module:
     - system
   theme:
     - frontend
-id: mainnav
+id: legal
 theme: frontend
-region: header
-weight: -3
+region: footer
+weight: 0
 provider: null
-plugin: 'system_menu_block:main'
+plugin: 'system_menu_block:legal'
 settings:
-  id: 'system_menu_block:main'
-  label: Hauptnavigation
+  id: 'system_menu_block:legal'
+  label: Gesetzliches
   label_display: '0'
   provider: system
   level: 1

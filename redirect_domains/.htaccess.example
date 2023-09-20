@@ -1,2 +1,2 @@
 RewriteEngine On
-RewriteRule ^(.*)$ https://www.MY_DOMAIN_HERE.com/$1 [R=301,L]
+RewriteRule ^(.*)$ https://www.example-domain.com/$1 [R=301,L]

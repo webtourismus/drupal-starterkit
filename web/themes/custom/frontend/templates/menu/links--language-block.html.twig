@@ -1,0 +1,18 @@
+{# used as link text: true => "en", false => "English" #}
+{% set use_short_langcode = true %}
+
+{% block container %}
+  {% if links %}
+    <ul {{ attributes.addClass('langswitch-list') }}>
+      {% for key, item in links %}
+        <li {{ item.attributes.addClass('langswitch-item') }}>
+          {% if use_short_langcode %}
+            {% set item = item|set('link.#title', key) %}
+          {% endif %}
+          {% set item = item|add('link.#options.attributes.class', 'langswitch-link') %}
+          {{ item.link }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}
