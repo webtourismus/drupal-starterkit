@@ -42,6 +42,14 @@ final class TailwindCssCommands extends DrushCommands {
   ]) {
     $inputFullPath = realpath(DRUPAL_ROOT . $options['input']);
     $outputFullPath = realpath(DRUPAL_ROOT . $options['output']);
+    if (!$outputFullPath) {
+      exec('touch ' . DRUPAL_ROOT . $options['output']);
+      $outputFullPath = realpath(DRUPAL_ROOT . $options['output']);
+      if (!$outputFullPath) {
+        $this->io()->error('Unable to read output file destination.');
+      }
+    }
+
     $minify = $options['minify'] ? '--minify' : '';
 
     $this->io()->text("Compiling '{$options['input']}' to '{$options['output']}'");

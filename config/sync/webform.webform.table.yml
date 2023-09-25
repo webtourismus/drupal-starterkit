@@ -1,6 +1,6 @@
 uuid: 710309db-6716-4d48-a3ef-04737703ed5b
 langcode: de
-status: open
+status: closed
 dependencies:
   module:
     - google_tag
