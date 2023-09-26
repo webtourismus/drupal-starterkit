@@ -7,9 +7,9 @@
   'pagination': (false and multiple_images),
   'drag': (true and multiple_images),
 } %}
+{% set attributes = attributes.addClass('splide') %}
 
 {% block container %}
-  {% set attributes = attributes.addClass('splide') %}
   {% set attributes = attributes.setAttribute('data-splide', splidejs_config|json_encode(constant('JSON_UNESCAPED_SLASHES'))) %}
   {{ parent() }}
 {% endblock %}

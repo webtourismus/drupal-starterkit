@@ -1,0 +1,111 @@
+{##
+ ######################################################################
+ # TEASER
+ ######################################################################
+ #
+ # Shared teaserable base template for teaserable entities like icon or
+ # linkblock paragraphs and any node type in a teaser-like display mode.
+ #
+ # @see \Drupal\ebr_teaser\Entity\TeaserableInterface for more information.
+ #
+ # Always available functions:
+ # ===========================
+ # - entity.getTeaserTitleField(): ?FieldItemList
+ # - entity.getTeaserSubtitleField(): ?FieldItemList
+ # - entity.getTeaserImagesField(): ?FieldItemList
+ # - entity.getTeaserTextField(): ?FieldItemList
+ # - entity.getTeaserUrl(): ?Url
+ #
+ # Available only in referencing teaser entities:
+ # ==============================================
+ # - entity.getReferencedEntity(): ?ContentEntity
+ # - entity.getReferencingField(): ?FieldItemList
+ #
+ # Available render arrays:
+ # ========================
+ # - entity.getRenderedTeaserTitle() or content[entity.getRenderedTeaserTitle.getName]
+ # - entity.getRenderedTeaserSubtitle() or content[entity.getRenderedTeaserSubtitle.getName]
+ # - entity.getRenderedTeaserImages() or content[entity.getRenderedTeaserImages.getName]
+ # - entity.getRenderedTeaserText() or content[entity.getRenderedTeaserText.getName]
+ #
+ # Note that the keys in the "content" render array are the names of the referenced field
+ # storages and might be different than the semantic field name. (E.g. a paragraph might have
+ # a "content.field_text" which falls back to a referenced node's "content.body").
+ #
+ # All render arrays provide these helper variables:
+ # =================================================
+ # - content.FIELD['#teaser_fieldname'] ... the semantic field name
+ #
+ # This semantic field name is normalized, no matter if the field is from a
+ # referenced entity, or from its own entity.
+ #
+#}
+
+{% set entity = paragraph %}
+{% set reference = entity.getReferencedEntity ?? entity %}
+{% set bundle = entity.bundle() %}
+
+{% set images_attributes = create_attribute({'class': ['teaserable-images']}) %}
+{% set texts_attributes = create_attribute({'class': ['teaserable-texts']}) %}
+{% set title_attributes = create_attribute({'class': ['teaserable-title']}) %}
+
+{% set text_wrapper_attributes = create_attribute({'class': ['teaserable-text-wrapper']}) %}
+{% set link_wrapper_attributes = create_attribute({'class': ['teaserable-link-wrapper']}) %}
+
+{% if entity.getActionUrl('readmore') %}
+  {% set attributes = attributes.addClass(['teaserable-is-linked']) %}
+  {% set images_attributes = images_attributes.addClass('cursor-pointer').setAttribute('data-js-behavior-linkify', 'readmore') %}
+  {% set title_link_attributes = create_attribute({
+    'href': entity.getActionUrl('readmore').toString,
+    'target': entity.getReferencingField.0.options.attributes.target,
+    'data-action-link-type': 'readmore',
+  }) %}
+{% else %}
+  {% set attributes = attributes.addClass('teaserable-no-link') %}
+{% endif %}
+
+{% block teaserable %}
+  {% set attributes = attributes.addClass(['flex', 'items-center', 'gap-4']) %}
+  {% set images_attributes = attributes.addClass(['grow-0', 'shrink-0']) %}
+  {% if paragraph.field_viewmode.0.value == 'teaser_imgright' %}
+    {% set images_attributes = attributes.addClass('order-2') %}
+  {% endif %}
+  <div {{ attributes }}>
+    {% block images %}
+      <div {{ images_attributes }}>
+        {{ content.field_images }}
+      </div>
+    {% endblock %}
+
+    {% block texts %}
+      <div {{ texts_attributes }}>
+        {% block text_wrapper %}
+          <div {{ text_wrapper_attributes }}>
+            {% block text_title %}
+              {% if entity.getTeaserTitleField.0.value and not(paragraph.isFieldSuppressed('field_title') ?? false) %}
+                <h3 {{ title_attributes }}>
+                  {% if not(paragrah.field_link.isEmpty ?? true) %}
+                    <a {{ title_link_attributes }}>
+                  {% endif %}
+                  {{ entity.getTeaserTitleField.0.value }}
+                  {% if not(paragrah.field_link.isEmpty ?? true) %}
+                    </a>
+                  {% endif %}
+                </h3>
+              {% endif %}
+            {% endblock %}
+            {% block text_running %}
+              {{ content.field_text }}
+            {% endblock %}
+          </div>
+        {% endblock %}
+
+        {% block link_wrapper %}
+          <div {{ link_wrapper_attributes }}>
+            {{ content.field_link }}
+          </div>
+        {% endblock %}
+      </div>
+    {% endblock %}
+  </div>
+{% endblock %}

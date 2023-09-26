@@ -12,28 +12,10 @@
    * ###################################################################################################################
    * ###################################################################################################################
    */
-   [x-cloak] {
+  [x-cloak] {
     display: none !important;
   }
 
-  /**
-   * ###################################################################################################################
-   * ###################################################################################################################
-   * All regions inside a layout starting with name "grid" are assumed to be single component regions with
-   * a fixed height and top & bottom aligned borders
-   * ###################################################################################################################
-   * ###################################################################################################################
-   */
-  :where([class*=component--grid]) {
-    &.paragraph--type--image img,
-    &.paragraph--type--icon img,
-    &.paragraph--type--icon svg,
-    &.paragraph--type--linkblock .teaserable-images img {
-      width: 100%;
-      height: var(--grid-img-height);
-      object-fit: cover;
-    }
-  }
 
   /**
    * ###################################################################################################################
@@ -59,6 +41,35 @@
     @apply inline-svg w-[1.5em];
   }
 
+  :where(.paragraph--type--icon) {
+    :where(.field--view-mode--original) {
+      &.field--bundle--icon {
+        img {
+          width: auto;
+          @apply mx-auto;
+        }
+      }
+    }
+  }
+
+  /**
+   * ###################################################################################################################
+   * ###################################################################################################################
+   * All regions inside a layout starting with name "grid" are assumed to be single component regions with
+   * a fixed height and top & bottom aligned borders
+   * ###################################################################################################################
+   * ###################################################################################################################
+   */
+  :where([class*="component--grid"]) {
+    &.paragraph--type--image img,
+    &.paragraph--type--icon img,
+    &.paragraph--type--icon svg,
+    &.paragraph--type--linkblock .teaserable-images img {
+      width: 100%;
+      height: var(--grid-img-height);
+      object-fit: cover;
+    }
+  }
   /**
    * In admin preview only show the default full view mode
    */

@@ -167,11 +167,11 @@
         "3040427 - Allow callback for Url source": "./private/patches/migrate_plus_3040427_patch42.patch"
       },
       "webtourismus/splidejs": {
-        "priv001 - Custom patch for Webtourismus Drupal admin and frontend theme": "./private/patches/splidejs_private001_v4.1.4.patch"
+        "priv001 - Custom patch for Webtourismus Drupal admin and frontend theme": "./private/patches/splidejs_private001_v4.1.4a.patch"
       }
     }
   },
   "require": {
-    "webtourismus/drupal-metapackage": "^0.9.28"
+    "webtourismus/drupal-metapackage": "^0.9.30"
   }
 }
