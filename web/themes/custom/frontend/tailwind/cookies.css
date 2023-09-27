@@ -1,0 +1,55 @@
+/**
+ * ###################################################################################################################
+ * ###################################################################################################################
+ * Cookie Banner
+ * -------------------------------------------------------------------------------------------------------------------
+ * All styles outside layer because the COOKiES module generated all HTML on clientside.
+ * ###################################################################################################################
+ * ###################################################################################################################
+ */
+ #cookiesjsr {
+  .cookiesjsr-banner, .cookiesjsr-layer, .cookiesjsr-service-group {
+    --color-background: rgb(var(--rgb-color-background));
+    --color-foreground: rgb(var(--rgb-color-foreground));
+    --color-onforeground: rgb(var(--rgb-color-onforeground));
+    --color-flashy: rgb(var(--rgb-color-flashy));
+    --color-onflashy: rgb(var(--rgb-color-onflashy));
+    --color-flashyhocus: rgb(var(--rgb-color-flashyhocus));
+  }
+  .cookiesjsr-banner {
+    @apply cs-neutral-900;
+    --banner-bg-color: var(--color-background);
+    --banner-font-color: var(--color-foreground);
+    --btn-prime-font-color: var(--color-onflashy);
+    --btn-prime-bg-color: var(--color-flashy);
+    --btn-prime-border-color: transparent;
+  }
+  .cookiesjsr-layer {
+    @apply cs-neutral-100;
+    --layer-header-bg-color: var(--color-background);
+    --layer-header-font-color: var(--color-foreground);
+    --layer-body-bg-color: var(--color-background);
+    --layer-footer-bg-color: var(--color-background);
+    --layer-footer-font-color: var(--color-foreground);
+    --btn-inv-font-color: var(--color-foreground);
+    --btn-inv-border-color: var(--color-foreground);
+    --btn-inv-bg-color: transparent;
+    --btn-prime-inv-font-color: var(--color-onflashy);
+    --btn-prime-inv-bg-color: var(--color-flashy);
+    --btn-prime-inv-border-color: transparent;
+  }
+  .cookiesjsr-service-group {
+    @apply cs-white;
+    --layer-tab-bg-color: var(--color-background);
+    --layer-tab-font-color: var(--color-foreground);
+  }
+  .cookiesjsr-service-group.active {
+    @apply cs-neutral-900;
+    --layer-tab-active-bg-color: var(--color-background);
+    --layer-tab-active-font-color: var(--color-foreground);
+    --layer-font-light: var(--color-foreground);
+  }
+  .cookiesjsr-service--description h3 {
+    all: unset;
+  }
+}

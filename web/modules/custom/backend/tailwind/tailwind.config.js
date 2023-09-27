@@ -1,3 +1,17 @@
+/**
+ * ###################################################################################################################
+ * ###################################################################################################################
+ * TailwindCSS config to pre-generate parts of frontend CSS for inclusion by Gin admin theme.
+ * -------------------------------------------------------------------------------------------------------------------
+ * Execute "drush config:export" before executing this command to include changes from Drupal configuration.
+ * Add files to tailwind.config.js#content[] as needed.
+ * Exectute "drush backend:css" or "drush css" to compile into "/sites/default/files/gin_custom.css".
+ * Gin theme will automatically include the compiled file.
+ * ###################################################################################################################
+ * ###################################################################################################################
+ */
+
+
 let frontendConfig = {};
 try {
   frontendConfig = require('../../../../themes/custom/frontend/tailwind/tailwind-nopreflight.config.js');

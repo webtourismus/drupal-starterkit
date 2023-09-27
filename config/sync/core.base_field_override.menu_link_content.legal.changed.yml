@@ -1,0 +1,18 @@
+uuid: d44045c8-d348-4149-b9b0-f323c445494b
+langcode: de
+status: true
+dependencies:
+  config:
+    - system.menu.legal
+id: menu_link_content.legal.changed
+field_name: changed
+entity_type: menu_link_content
+bundle: legal
+label: Geändert
+description: 'Der Zeitpunkt an dem der Menülink zuletzt bearbeitete wurde.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

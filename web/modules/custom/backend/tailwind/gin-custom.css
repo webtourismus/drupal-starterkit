@@ -1,10 +1,19 @@
 /**
+ * ###################################################################################################################
+ * ###################################################################################################################
+ * Frontend TailwindCSS styling to be included by Gin admin theme.
+ * -------------------------------------------------------------------------------------------------------------------
  * Execute "drush config:export" before executing this command to include changes from Drupal configuration.
  * Add files to tailwind.config.js#content[] as needed.
  * Exectute "drush backend:css" or "drush css" to compile into "/sites/default/files/gin_custom.css".
  * Gin theme will automatically include the compiled file.
- **/
-@import "../../../../themes/custom/frontend/tailwind/global.css";
+ * ###################################################################################################################
+ * ###################################################################################################################
+ */
+
+@import "../../../../themes/custom/frontend/tailwind/global-html.css";
+@import "../../../../themes/custom/frontend/tailwind/global-ajax.css";
+
 @config "tailwind.config.js";
 
 @tailwind base;

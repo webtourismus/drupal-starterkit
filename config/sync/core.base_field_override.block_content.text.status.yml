@@ -1,0 +1,22 @@
+uuid: 8157f709-01b9-4f64-9d83-c99ce6211007
+langcode: de
+status: true
+dependencies:
+  config:
+    - block_content.type.text
+id: block_content.text.status
+field_name: status
+entity_type: block_content
+bundle: text
+label: veröffentlicht
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: An
+  off_label: Aus
+field_type: boolean

@@ -1,0 +1,20 @@
+uuid: c7c9ba5a-562d-4f66-80b9-51cc9e259ed9
+langcode: de
+status: true
+dependencies:
+  config:
+    - system.menu.legal
+  module:
+    - metatag
+id: menu_link_content.legal.metatag
+field_name: metatag
+entity_type: menu_link_content
+bundle: legal
+label: 'Metatags (Hidden field for JSON support)'
+description: 'The computed meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag_computed

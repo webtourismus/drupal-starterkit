@@ -1,0 +1,20 @@
+uuid: 28d0a891-661d-4dd0-9858-8c8cb9bd80a7
+langcode: de
+status: true
+dependencies:
+  config:
+    - system.menu.legal
+  module:
+    - menu_item_extras
+id: menu_link_content.legal.view_mode
+field_name: view_mode
+entity_type: menu_link_content
+bundle: legal
+label: Ansichtsmodus
+description: 'Per item view mode selector.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

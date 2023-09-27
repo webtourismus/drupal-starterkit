@@ -1,18 +1,20 @@
 /**
  * ###################################################################################################################
  * ###################################################################################################################
- * Project-specific TailwindCSS styles.
+ * Project specific frontend-only styles (HTML).
  * -------------------------------------------------------------------------------------------------------------------
- * All rules here should be inside a TailwindCSS @layer directive to minimize overhead when styling Ajax requests.
+ * This file is used by the "tailwind_jit" module to include all styles required on the initial page load.
+ * It might also contain styles outside of TailwindCSS @layers for client-side generated HTML.
  * ###################################################################################################################
  * ###################################################################################################################
  */
 
-@layer base {
-  html {
-    @apply text-[16px] sm:text-[18px] /* [--fixed-header:3rem] sm:[--fixed-header:5rem] */;
-  }
-}
-@layer components {
-  .region-header { }
-}
+@import "./base.default.css";
+@import "./components.default.css";
+@import "./utilities.default.css";
+@import "./global-html.css";
+@import "./global-ajax.css";
+@import "./cookies.css";
+@import "./tailwind.css";
+
+@config "tailwind.config.js";

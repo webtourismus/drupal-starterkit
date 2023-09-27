@@ -1,18 +1,17 @@
 /**
  * ###################################################################################################################
  * ###################################################################################################################
- * Project-specific TailwindCSS styles.
+ * Project specific global styles for frontend and admin theme (HTML).
  * -------------------------------------------------------------------------------------------------------------------
- * All rules here should be inside a TailwindCSS @layer directive to minimize overhead when styling Ajax requests.
+ * Rules specified here are either content-independent (like @font-face) or for client-side-rendered content.
+ * Only rules outside of @layer directives are allowed here.
+ * Frontend theme dynamically included these styles via "tailwind_jit" module.
+ * Gin admin theme includes a statically pre-generated "gin-custom.css" (use "drush css" to generate file).
  * ###################################################################################################################
  * ###################################################################################################################
  */
 
-@layer base {
-  html {
-    @apply text-[16px] sm:text-[18px] /* [--fixed-header:3rem] sm:[--fixed-header:5rem] */;
-  }
+@font-face {
+
 }
-@layer components {
-  .region-header { }
-}
+

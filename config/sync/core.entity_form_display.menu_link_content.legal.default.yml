@@ -1,14 +1,14 @@
-uuid: 03823290-9d95-4919-b822-b486f145e32b
+uuid: 973032d2-499f-4604-8c76-c119288d8967
 langcode: de
 status: true
 dependencies:
   config:
-    - system.menu.main
+    - system.menu.legal
   module:
     - linkit_attributes
-id: menu_link_content.main.default
+id: menu_link_content.legal.default
 targetEntityType: menu_link_content
-bundle: main
+bundle: legal
 mode: default
 content:
   enabled:
@@ -56,6 +56,5 @@ content:
 hidden:
   description: true
   langcode: true
-  translation: true
   view_mode: true
   weight: true

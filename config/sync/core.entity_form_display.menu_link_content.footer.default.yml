@@ -1,14 +1,14 @@
-uuid: 03823290-9d95-4919-b822-b486f145e32b
+uuid: a5b4a7ad-b1de-4589-a411-2eada0346afd
 langcode: de
 status: true
 dependencies:
   config:
-    - system.menu.main
+    - system.menu.footer
   module:
     - linkit_attributes
-id: menu_link_content.main.default
+id: menu_link_content.footer.default
 targetEntityType: menu_link_content
-bundle: main
+bundle: footer
 mode: default
 content:
   enabled:

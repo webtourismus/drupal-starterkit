@@ -32,7 +32,7 @@ index 4f6fc27..b049a1a 100644
 @@ -17,6 +17,7 @@
          "drupal/facebook_pixel": "^2.0",
          "drupal/google_analytics": "^4.0",
-         "drupal/google_tag": "^1.0",
+         "drupal/google_tag": "^2.0",
 +        "drupal/geolocation": "^3.12",
          "drupal/media_entity_instagram": "^3.0",
          "drupal/ivw_integration": "^2.0",
@@ -326,7 +326,7 @@ index 0000000..d03741a
 +    },
 +  }
 +})(Drupal, jQuery);
--- 
+--
 GitLab
 
 
@@ -348,13 +348,13 @@ index 299b533..98f1a27 100644
 --- a/modules/cookies_geolocation/cookies_geolocation.install
 +++ b/modules/cookies_geolocation/cookies_geolocation.install
 @@ -2,7 +2,7 @@
- 
+
  /**
   * @file
 - * Installation information for the 'Cookies Video' module.
 + * Installation information for the 'Cookies geolocation' module.
   */
- 
+
  /**
 @@ -18,7 +18,7 @@ function cookies_geolocation_install() {
   */
@@ -616,7 +616,7 @@ index 0000000..50ffbf8
 +  }
 +
 +}
--- 
+--
 GitLab
 
 
@@ -635,8 +635,8 @@ index 50ffbf8..6444766 100644
 +++ b/modules/cookies_geolocation/tests/src/FunctionalJavascript/CookiesGeolocationFunctionalJsTest.php
 @@ -100,19 +100,6 @@ class CookiesGeolocationFunctionalJsTest extends CookiesFunctionalJsTestBase {
    }
- 
- 
+
+
 -  /**
 -   * Tests the CommonMap style.
 -   */
@@ -656,7 +656,7 @@ index 50ffbf8..6444766 100644
 @@ -134,9 +121,9 @@ class CookiesGeolocationFunctionalJsTest extends CookiesFunctionalJsTestBase {
          document.dispatchEvent(new CustomEvent('cookiesjsrSetService', { detail: options }));";
      $this->getSession()->getDriver()->executeScript($script);
- 
+
 -    // Check if map is not shown
 +    // Check if map is shown
      $session->elementExists('css', 'div.field.field--name-field-geolocation div.geolocation-map-wrapper div.geolocation-map-container div.gm-style');
@@ -664,8 +664,8 @@ index 50ffbf8..6444766 100644
 +    // Check if the blocking message does not exist:
      $session->elementNotExists('css', 'div.field.field--name-field-geolocation div.geolocation-map-wrapper + div.cookies-fallback--google_maps');
    }
- 
--- 
+
+--
 GitLab
 
 
@@ -688,13 +688,13 @@ index 6444766..3e1b8c0 100644
        ],
 -    ])->save();
 +    ]);
- 
+
    }
- 
+
 @@ -121,9 +121,9 @@ class CookiesGeolocationFunctionalJsTest extends CookiesFunctionalJsTestBase {
          document.dispatchEvent(new CustomEvent('cookiesjsrSetService', { detail: options }));";
      $this->getSession()->getDriver()->executeScript($script);
- 
+
 -    // Check if map is shown
 +    // Check if map is now loaded
      $session->elementExists('css', 'div.field.field--name-field-geolocation div.geolocation-map-wrapper div.geolocation-map-container div.gm-style');
@@ -702,8 +702,8 @@ index 6444766..3e1b8c0 100644
 +    // Check if the blocking message does no longer exist:
      $session->elementNotExists('css', 'div.field.field--name-field-geolocation div.geolocation-map-wrapper + div.cookies-fallback--google_maps');
    }
- 
--- 
+
+--
 GitLab
 
 
@@ -725,12 +725,12 @@ index 3e1b8c0..3a0bc24 100644
      // Check if the blocking message exist:
      $session->elementExists('css', 'div.field.field--name-field-geolocation div.geolocation-map-wrapper + div.cookies-fallback--google_maps');
 +    $this->createScreenshot(\Drupal::root() . '/sites/default/files/simpletest/google_map_blocked.png');
- 
+
      // Fire consent script, accept all cookies:
      $script = "var options = { all: true };
          document.dispatchEvent(new CustomEvent('cookiesjsrSetService', { detail: options }));";
      $this->getSession()->getDriver()->executeScript($script);
- 
+
 +    // Wait for the Map to be loaded
 +    $session->waitForElementVisible('css', 'div.field.field--name-field-geolocation div.geolocation-map-wrapper div.geolocation-map-container div.gm-style');
      // Check if map is now loaded
@@ -739,8 +739,8 @@ index 3e1b8c0..3a0bc24 100644
      $session->elementNotExists('css', 'div.field.field--name-field-geolocation div.geolocation-map-wrapper + div.cookies-fallback--google_maps');
 +    $this->createScreenshot(\Drupal::root() . '/sites/default/files/simpletest/google_map_loaded.png');
    }
- 
+
  }
--- 
+--
 GitLab
 

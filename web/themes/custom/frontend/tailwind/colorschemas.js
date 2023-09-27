@@ -1,3 +1,73 @@
+/**
+ * ###################################################################################################################
+ * ###################################################################################################################
+ * Colorschema plugin for TailwindCSS.
+ * -------------------------------------------------------------------------------------------------------------------
+ * A colorschema is a set of 6 colors:
+ * - a "foreground" color (e.g. text color)
+ * - a "background" color (e.g. page background or <div> container background)
+ * - a "onforeground" color (foreground color over inverted background [when normal ]
+ *                           e.g. text of secondary/darkgrey button)
+ * - a "flashy" color (e.g. link color, header color or primary button color)
+ * - a "onflashy" color (foreground color over flashy background color, e.g. primary button text)
+ * - a "flashyhocus" color (variation of the flashy color, e.g. hover or focus effects on a link or primary button)
+ * -------------------------------------------------------------------------------------------------------------------
+ * A colorschema has to defined in a tailwind.config.js file:
+ * module.exports = {
+ *   theme: {
+ *     colorschemas: ({theme}) => ({
+ *       'purewhite': {
+ *         background: 'white',
+ *         foreground: '#333333',
+ *         onforeground: 'white',
+ *         flashy: theme('colors.my_primary.DEFAULT'),
+ *         onflashy: 'white',
+ *         flashyhocus: theme('colors.my_primary.500'),
+ *       },
+ *       'greyish': {
+ *         background: '#EEEEEE',
+ *         foreground: '#333333',
+ *         onforeground: 'white',
+ *         flashy: theme('colors.my_primary.DEFAULT'),
+ *         onflashy: 'white',
+ *         flashyhocus: theme('colors.my_primary.700'),
+ *       },
+ *       'turquoise': {
+ *         background: '#22A699',
+ *         foreground: '#F2BE22',
+ *         onforeground: '#22A699',
+ *         flashy: '#F24C3D',
+ *         onflashy: '#FFF5E0',
+ *         flashyhocus: '#E02110'
+ *       },
+ *     }
+ *   }
+ * }
+ * -------------------------------------------------------------------------------------------------------------------
+ * A colorschema can be used by applying its name with the prefix "cs-" to a container's class attribute:
+ * <body class="cs-greyish">
+ *   <p>I'm a boring text.</p>
+ *   <div class="cs-turquise">I'm a fancy text.</div>
+ * </body>
+ *
+ * Elements meant to be affected by colorschemas should be defined using the semantic color names listed above:
+ * a {
+ *   @apply text-flashy hover:text-flashyhocus focus:text-flashyhocus;
+ * }
+ * .button-primary {
+ *   @apply bg-flashy text-onflashy hover:bg-flashyhocus;
+ * }
+ * .button-secondary {
+ *   @apply bg-foreground/80 text-onforeground hover:bg-foreground/90;
+ * }
+ * .button-outline {
+ *   @apply bg-transparent text-foreground border-currentcolor hover:text-flashy;
+ * }
+ * ###################################################################################################################
+ * ###################################################################################################################
+ */
+
+
 const plugin = require('tailwindcss/plugin');
 
 const colorschemas = plugin(

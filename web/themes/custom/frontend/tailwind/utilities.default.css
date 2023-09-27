@@ -1,9 +1,16 @@
+/**
+ * ###################################################################################################################
+ * ###################################################################################################################
+ * Tailwind utility layer
+ * -------------------------------------------------------------------------------------------------------------------
+ * Utility rules should have a specifity of at least 0-1-0 or more, so they overrule base and component styles.
+ * All styles here must be inside a @layer directive.
+ * ###################################################################################################################
+ * ###################################################################################################################
+ */
+
 @tailwind utilities;
 
-/**
-  * Utility rules should have a specifity of at least 0-1-0 or more,
-  * so they overrule base and component styles.
-  */
 @layer utilities {
   /* some default utilties are defined in presets.default.js */
 }
