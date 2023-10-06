@@ -50,10 +50,11 @@
   {{ page_top }}
   {{ page }}
   {{ page_bottom }}
-  <script defer src="/libraries/alpinejs-persist/dist/cdn.min.js"></script>
-  <script defer src="/libraries/alpinejs-intersect/dist/cdn.min.js"></script>
-  <script defer src="/libraries/alpinejs-collapse/dist/cdn.min.js"></script>
-  <script defer src="/libraries/alpinejs/dist/cdn.min.js"></script>
+  {# These scripts are very important for LCP & CLS (perceived pagespeed). Load them first! #}
+  <script src="/libraries/alpinejs-intersect/dist/cdn.min.js"></script>
+  <script src="/libraries/alpinejs-collapse/dist/cdn.min.js"></script>
+  <script src="/libraries/alpinejs/dist/cdn.min.js"></script>
+  {# Default Drupal scripts. #}
   <js-bottom-placeholder token="{{ placeholder_token }}">
 </body>
 </html>

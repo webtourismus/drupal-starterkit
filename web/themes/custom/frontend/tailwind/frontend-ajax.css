@@ -1,10 +1,11 @@
 /**
  * ###################################################################################################################
  * ###################################################################################################################
- * Project specific frontend-only styles (Ajax).
+ * Project specific frontend-only styles (Wrapper for Ajax requests).
  * -------------------------------------------------------------------------------------------------------------------
  * This file is used by the "tailwind_jit" module to dynamically include styles required by subsequent Ajax requests.
  * It must not contain or include styles outside of TailwindCSS @layers.
+ * Typically this files does not contain rules at all, but acts only as a wrapper.
  * ###################################################################################################################
  * ###################################################################################################################
  */
@@ -13,6 +14,6 @@
 @import "./components.default.css";
 @import "./utilities.default.css";
 @import "./global-ajax.css";
-@import "./tailwind.css";
+@import "./frontend.css";
 
 @config "tailwind-nopreflight.config.js";

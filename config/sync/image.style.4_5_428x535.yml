@@ -1,0 +1,23 @@
+uuid: 86a376ae-d446-4d1a-8015-63899d07651f
+langcode: de
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 4_5_428x535
+label: '4:5 (428x535)'
+effects:
+  c62ea9e1-e695-4262-b10a-4e2db224d2b4:
+    uuid: c62ea9e1-e695-4262-b10a-4e2db224d2b4
+    id: image_convert
+    weight: 1
+    data:
+      extension: webp
+  d949e73e-a455-44a6-ab1c-ef7d02f9ca9b:
+    uuid: d949e73e-a455-44a6-ab1c-ef7d02f9ca9b
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 428
+      height: 535
+      crop_type: focal_point

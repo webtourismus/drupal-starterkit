@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - image.style.1_1_1024x1024
-    - image.style.1_1_360x360
+    - image.style.1_1_428x428
     - image.style.1_1_768x768
     - image.style.4_3_1024x768
     - image.style.4_3_1400x1050
@@ -35,7 +35,7 @@ image_style_mappings:
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: 1_1_360x360
+    image_mapping: 1_1_428x428
     breakpoint_id: backend.banner.xxs
     multiplier: 1x
 breakpoint_group: backend.banner

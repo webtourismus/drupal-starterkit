@@ -100,11 +100,8 @@
     :where(:last-child) {
       margin-bottom: 0;
     }
-    /**
-     * List bullets should also work with .text-align-center
-     */
     :where(ol, ul) {
-      @apply pl-0 list-inside;
+      @apply pl-[1em] list-outside;
     }
     :where(ul) {
       @apply list-disc;

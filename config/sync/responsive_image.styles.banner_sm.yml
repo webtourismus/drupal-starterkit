@@ -6,7 +6,7 @@ dependencies:
     - image.style.1_1_1024x1024
     - image.style.3_1_1400x467
     - image.style.3_1_1920x640
-    - image.style.4_5_360x450
+    - image.style.4_5_428x535
     - image.style.4_5_768x960
   module:
     - backend
@@ -37,7 +37,7 @@ image_style_mappings:
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: 4_5_360x450
+    image_mapping: 4_5_428x535
     breakpoint_id: backend.banner.xxs
     multiplier: 1x
 breakpoint_group: backend.banner

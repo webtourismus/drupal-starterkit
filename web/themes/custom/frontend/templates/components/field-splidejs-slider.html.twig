@@ -1,6 +1,14 @@
 {% extends 'field.html.twig' %}
 
-{% set multiple_images = (items|children|length >= 2) %}
+{# individual sub items might be temporary suppressed by seasonal_paragraphs module #}
+{% set image_count = 0 %}
+{% for item in items|children %}
+  {% if item.content|render|striptags('<img><svg><video>') %}
+    {% set image_count = image_count + 1 %}
+  {% endif %}
+{% endfor %}
+
+{% set multiple_images = (image_count >= 2) %}
 {% set splidejs_config = {
   'type': 'loop',
   'arrows': (true and multiple_images),
@@ -23,7 +31,9 @@
   {% endblock arrows %}
   <div class="splide__track"><div class="splide__list">
   {% for item in items %}
-    <div{{ item.attributes.addClass('splide__slide') }}>{{ item.content }}</div>
+    {% if item.content|render|striptags('<img><svg><video>') %}
+      <div{{ item.attributes.addClass('splide__slide') }}>{{ item.content }}</div>
+    {% endif %}
   {% endfor %}
   </div></div>
   {% block pagination %}

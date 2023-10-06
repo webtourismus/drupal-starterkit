@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.paragraph.field_image_ratio
     - paragraphs.paragraphs_type.icon
-    - responsive_image.styles.inline
+    - responsive_image.styles.scale
   module:
     - field_config_cardinality
 third_party_settings:
@@ -25,7 +25,7 @@ required: true
 translatable: false
 default_value:
   -
-    target_uuid: b21ad3a2-ab91-44d8-be55-bd77ed07f443
+    target_uuid: 2d830e80-d67b-47c0-a1d9-c60b4f002def
 default_value_callback: ''
 settings:
   handler: 'config:responsive_image_style'

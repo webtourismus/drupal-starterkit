@@ -1,0 +1,23 @@
+uuid: b767cb2e-2b1b-4eaa-9b7f-345f39d72aa4
+langcode: de
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 1_2_428x856
+label: '1:2 (428x856)'
+effects:
+  76be6c5a-81be-41f8-bfe4-571c75973f89:
+    uuid: 76be6c5a-81be-41f8-bfe4-571c75973f89
+    id: image_convert
+    weight: 1
+    data:
+      extension: webp
+  8c776ee6-7689-4692-954b-b4c12509e4e4:
+    uuid: 8c776ee6-7689-4692-954b-b4c12509e4e4
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 428
+      height: 856
+      crop_type: focal_point

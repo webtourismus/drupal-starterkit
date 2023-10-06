@@ -1,13 +1,13 @@
 backend.banner.xxs:
-  label: 'up to 360px'
+  label: 'up to 428px'
   mediaQuery: ''
   weight: 0
   multipliers:
     - 1x
   group: backend.banner
 backend.banner.xs:
-  label: '361px - 767px'
-  mediaQuery: '(min-width: 361px)'
+  label: '429px - 767px'
+  mediaQuery: '(min-width: 429px)'
   weight: 10
   multipliers:
     - 1x

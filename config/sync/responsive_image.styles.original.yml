@@ -3,7 +3,7 @@ langcode: de
 status: true
 dependencies: {  }
 id: original
-label: Original
+label: 'Original (nicht web-optimiert)'
 image_style_mappings:
   -
     image_mapping_type: image_style

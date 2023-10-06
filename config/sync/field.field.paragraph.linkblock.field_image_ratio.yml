@@ -37,6 +37,7 @@ settings:
       allowed_ids:
         - banner_lg
         - banner_sm
+        - banner_text
         - inline
         - original
 field_type: entity_reference

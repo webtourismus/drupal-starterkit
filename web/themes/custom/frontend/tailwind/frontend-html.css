@@ -1,10 +1,10 @@
 /**
  * ###################################################################################################################
  * ###################################################################################################################
- * Project specific frontend-only styles (HTML).
+ * Project specific frontend-only styles (Wrapper for HTML requests).
  * -------------------------------------------------------------------------------------------------------------------
  * This file is used by the "tailwind_jit" module to include all styles required on the initial page load.
- * It might also contain styles outside of TailwindCSS @layers for client-side generated HTML.
+ * It might also contain additional styles outside of TailwindCSS @layers for client-side generated HTML.
  * ###################################################################################################################
  * ###################################################################################################################
  */
@@ -15,6 +15,10 @@
 @import "./global-html.css";
 @import "./global-ajax.css";
 @import "./cookies.css";
-@import "./tailwind.css";
+@import "./frontend.css";
 
 @config "tailwind.config.js";
+
+/**
+ * Rules for client-side-rendered frontend HTML outside @layer directives should follow here.
+ */
