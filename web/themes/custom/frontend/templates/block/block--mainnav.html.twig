@@ -1,0 +1,28 @@
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.store('mainnav', {
+      subtree: 0,
+      overlay: false,
+      height: window.innerHeight,
+      init: () => {
+        Alpine.effect(() => {
+          document.documentElement.setAttribute('data-mainnav-overlay', Alpine.store('mainnav').overlay);
+        })
+      }
+    });
+  });
+</script>
+
+<div {{ attributes.addClass([]).setAttribute('x-data', "{
+  closeOverlayIfHashlink: (element) => {
+    try {
+      let u = new URL(element.href);
+      if (document.location.pathname == u.pathname && u.hash) {
+        $store.mainnav.overlay = false;
+      }
+    }
+    catch (e) {}
+  }
+}") }}>
+  {{ content }}
+</div>

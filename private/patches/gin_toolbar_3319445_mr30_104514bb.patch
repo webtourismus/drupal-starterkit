@@ -1,8 +1,8 @@
-From a862bc27f28ed29a646c4970e93966e39d006a31 Mon Sep 17 00:00:00 2001
+From 8dcf3b58608608fba72c4e35a372fdb73ff47b11 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?J=C3=BCrgen=20Haas?=
  <21467-jurgenhaas@users.noreply.drupalcode.org>
 Date: Wed, 26 Apr 2023 13:45:02 +0000
-Subject: [PATCH] Issue #3319445: Edit link in breadcrumb region shows even
+Subject: [PATCH 1/2] Issue #3319445: Edit link in breadcrumb region shows even
  when user has no permission
 
 ---
@@ -11,18 +11,18 @@ Subject: [PATCH] Issue #3319445: Edit link in breadcrumb region shows even
  2 files changed, 9 insertions(+), 3 deletions(-)
 
 diff --git a/gin_toolbar.module b/gin_toolbar.module
-index c68670e..5c63afb 100644
+index c66cb55..27eeac2 100644
 --- a/gin_toolbar.module
 +++ b/gin_toolbar.module
-@@ -8,6 +8,7 @@
- use Drupal\Component\Utility\Html;
+@@ -9,6 +9,7 @@ use Drupal\Component\Utility\Html;
  use Drupal\Core\Entity\EntityInterface;
  use Drupal\Core\Routing\RouteMatchInterface;
+ use Drupal\gin\GinNavigation;
 +use Drupal\Core\Url;
- use Drupal\gin_toolbar\Render\Element\GinToolbar;
- use Drupal\gin\GinUserPicture;
  use Drupal\gin\GinSettings;
-@@ -194,8 +195,13 @@ function gin_toolbar_preprocess_toolbar(&$variables) {
+ use Drupal\gin\GinUserPicture;
+ use Drupal\gin_toolbar\Render\Element\GinToolbar;
+@@ -237,8 +238,13 @@ function gin_toolbar_preprocess_toolbar(&$variables) {
      $entity = \Drupal::request()->attributes->get($matches['entity_type_id']);
  
      if ($entity instanceof EntityInterface && $entity->hasLinkTemplate('edit-form')) {
@@ -39,7 +39,7 @@ index c68670e..5c63afb 100644
    }
  }
 diff --git a/templates/toolbar.html.twig b/templates/toolbar.html.twig
-index 53e9496..f6f5e7d 100644
+index f050f4d..758cedb 100644
 --- a/templates/toolbar.html.twig
 +++ b/templates/toolbar.html.twig
 @@ -16,7 +16,7 @@
@@ -51,6 +51,32 @@ index 53e9496..f6f5e7d 100644
                  <a class="gin-breadcrumb__link gin-back-to-admin" href="{{ path('system.admin_content') }}">{{ 'Back to Administration'|t }}</a>
                {% endif %}
              </li>
+-- 
+GitLab
+
+
+From 104514bbbb212d90e036a3213ef69dcc5f82375d Mon Sep 17 00:00:00 2001
+From: Marco Gandi <elgandoz@gmail.com>
+Date: Wed, 26 Jul 2023 17:24:58 +0200
+Subject: [PATCH 2/2] Swap access check from "edit" to "update"
+
+---
+ gin_toolbar.module | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/gin_toolbar.module b/gin_toolbar.module
+index 27eeac2..27fd57f 100644
+--- a/gin_toolbar.module
++++ b/gin_toolbar.module
+@@ -238,7 +238,7 @@ function gin_toolbar_preprocess_toolbar(&$variables) {
+     $entity = \Drupal::request()->attributes->get($matches['entity_type_id']);
+ 
+     if ($entity instanceof EntityInterface && $entity->hasLinkTemplate('edit-form')) {
+-      if ($entity->access('edit')) {
++      if ($entity->access('update')) {
+         $variables['entity_title'] = $entity->label();
+         $variables['entity_edit_url'] = $entity->toUrl('edit-form');
+       }
 -- 
 GitLab
 

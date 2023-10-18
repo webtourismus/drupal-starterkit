@@ -1,14 +1,14 @@
-From 832a2961f254fd19dec3b358a2ad13843d53e577 Mon Sep 17 00:00:00 2001
+From 1dd262b75c8da79b903b567cebbd379efeb4dd03 Mon Sep 17 00:00:00 2001
 From: Dieter Holvoet <dieter.holvoet@gmail.com>
 Date: Thu, 8 Sep 2022 10:08:17 +0200
 Subject: [PATCH 1/4] Show correct entity operation in breadcrumb
 
 ---
- includes/breadcrumb.theme | 140 ++++++++++++++++++++++++--------------
- 1 file changed, 89 insertions(+), 51 deletions(-)
+ includes/breadcrumb.theme | 105 +++++++++++++++++++-------------------
+ 1 file changed, 52 insertions(+), 53 deletions(-)
 
 diff --git a/includes/breadcrumb.theme b/includes/breadcrumb.theme
-index c136c94f..9bd38d33 100644
+index 9e976e5a..3c2d72d1 100644
 --- a/includes/breadcrumb.theme
 +++ b/includes/breadcrumb.theme
 @@ -6,6 +6,7 @@
@@ -19,7 +19,7 @@ index c136c94f..9bd38d33 100644
  use Drupal\Core\Url;
  use Drupal\node\NodeInterface;
  
-@@ -13,67 +14,65 @@ use Drupal\node\NodeInterface;
+@@ -13,72 +14,70 @@ use Drupal\node\NodeInterface;
   * Breadcrumb.
   */
  function gin_preprocess_breadcrumb(&$variables) {
@@ -29,19 +29,34 @@ index c136c94f..9bd38d33 100644
 -      $entity = _gin_get_route_entity();
 -      $entity_id = $entity ? $entity->getEntityTypeId() : NULL;
 -      $url = $entity ? $entity->toUrl() : NULL;
--
++  if (empty($variables['breadcrumb'])) {
++    return;
++  }
+ 
 -      // Back to site item.
 -      if ($key === 0) {
 -        $variables['breadcrumb'][$key]['text'] = t('Back to site');
 -        $variables['breadcrumb'][$key]['attributes']['title'] = t('Return to site content');
--
++  $entity = _gin_get_route_entity();
++  $route_name = \Drupal::routeMatch()->getRouteName();
+ 
 -        // Media handling.
 -        if ($entity_id === 'media' && !\Drupal::config('media.settings')->get('standalone_url')) {
 -          $url = Url::fromRoute('<front>');
 -        }
-+  if (empty($variables['breadcrumb'])) {
-+    return;
-+  }
++  if ($entity !== NULL) {
++    $url = $entity->toUrl();
++    $entity_type_id = $entity->getEntityTypeId();
++    $operation_label = _gin_get_route_entity_operation_label($route_name, $entity);
+ 
+-        // Custom block handling (a custom block cannot be viewed standalone).
+-        if ($entity_id === 'block_content') {
+-          $url = Url::fromRoute('<front>');
+-        }
++    // Media handling.
++    if ($entity_type_id === 'media' && !\Drupal::config('media.settings')->get('standalone_url')) {
++      $url = Url::fromRoute('<front>');
++    }
  
 -        // Check for entity $url.
 -        if ($url && $url->access()) {
@@ -56,16 +71,8 @@ index c136c94f..9bd38d33 100644
 -        // Remove as we already have the back to site link set.
 -        unset($variables['breadcrumb'][$key]);
 -      }
-+  $entity = _gin_get_route_entity();
-+  $route_name = \Drupal::routeMatch()->getRouteName();
-+
-+  if ($entity !== NULL) {
-+    $url = $entity->toUrl();
-+    $entity_type_id = $entity->getEntityTypeId();
-+    $operation_label = _gin_get_route_entity_operation_label($route_name, $entity);
-+
-+    // Media handling.
-+    if ($entity_type_id === 'media' && !\Drupal::config('media.settings')->get('standalone_url')) {
++    // Custom block handling (a custom block cannot be viewed standalone).
++    if ($entity_type_id === 'block_content') {
 +      $url = Url::fromRoute('<front>');
      }
 +  }
@@ -90,8 +97,8 @@ index c136c94f..9bd38d33 100644
 -          'text' => t('Edit') . ' ' . $node->type->entity->label(),
 -          'url' => '',
 -        ];
++      // Check for entity $url.
 +      if (isset($url) && $url->access()) {
-+        // Link to the canonical route of the entity.
 +        $variables['breadcrumb'][$key]['url'] = $url;
 +      }
 +      else {
@@ -109,18 +116,18 @@ index c136c94f..9bd38d33 100644
 +    elseif (isset($url) && $item['url'] === $url->setAbsolute(FALSE)->toString()) {
 +      // Remove as we already have the back to site link set.
 +      unset($variables['breadcrumb'][$key]);
-     }
-   }
- 
++    }
++  }
++
 +  // Adjust breadcrumb for nodes: unset all items, except home link.
 +  if ($entity instanceof NodeInterface) {
 +    foreach ($variables['breadcrumb'] as $key => $item) {
 +      if ($key > 0) {
 +        unset($variables['breadcrumb'][$key]);
 +      }
-+    }
-+  }
-+
+     }
+   }
+ 
 +  // Adjust breadcrumb for entities.
 +  if (isset($operation_label)) {
 +    // Add bundle info.
@@ -136,7 +143,82 @@ index c136c94f..9bd38d33 100644
      foreach ($variables['breadcrumb'] as $key => $item) {
        if ($variables['breadcrumb'][$key]['text'] == '') {
          unset($variables['breadcrumb'][$key]);
-@@ -106,3 +105,42 @@ function _gin_get_route_entity() {
+-- 
+GitLab
+
+
+From 9531a096dc812902d10914a77534ae0f55c4734d Mon Sep 17 00:00:00 2001
+From: Dieter Holvoet <dieter.holvoet@gmail.com>
+Date: Thu, 3 Nov 2022 11:18:02 +0100
+Subject: [PATCH 2/4] Add cacheability metadata
+
+---
+ includes/breadcrumb.theme | 61 ++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 57 insertions(+), 4 deletions(-)
+
+diff --git a/includes/breadcrumb.theme b/includes/breadcrumb.theme
+index 3c2d72d1..6b0672a9 100644
+--- a/includes/breadcrumb.theme
++++ b/includes/breadcrumb.theme
+@@ -5,6 +5,7 @@
+  * breadcrumb.theme
+  */
+ 
++use Drupal\Core\Cache\CacheableMetadata;
+ use Drupal\Core\Entity\ContentEntityInterface;
+ use Drupal\Core\Entity\EntityInterface;
+ use Drupal\Core\Url;
+@@ -18,6 +19,9 @@ function gin_preprocess_breadcrumb(&$variables) {
+     return;
+   }
+ 
++  $cacheability = new CacheableMetadata();
++  $cacheability->addCacheContexts(['route']);
++
+   $entity = _gin_get_route_entity();
+   $route_name = \Drupal::routeMatch()->getRouteName();
+ 
+@@ -26,9 +30,17 @@ function gin_preprocess_breadcrumb(&$variables) {
+     $entity_type_id = $entity->getEntityTypeId();
+     $operation_label = _gin_get_route_entity_operation_label($route_name, $entity);
+ 
++    $url_access = $url->access(NULL, TRUE);
++    $cacheability->addCacheableDependency($url_access);
++
+     // Media handling.
+-    if ($entity_type_id === 'media' && !\Drupal::config('media.settings')->get('standalone_url')) {
+-      $url = Url::fromRoute('<front>');
++    if ($entity_type_id === 'media') {
++      $media_config = \Drupal::config('media.settings');
++      $cacheability->addCacheableDependency($media_config);
++
++      if (!$media_config->get('standalone_url')) {
++        $url = Url::fromRoute('<front>');
++      }
+     }
+ 
+     // Custom block handling (a custom block cannot be viewed standalone).
+@@ -43,8 +55,8 @@ function gin_preprocess_breadcrumb(&$variables) {
+       $variables['breadcrumb'][$key]['text'] = t('Back to site');
+       $variables['breadcrumb'][$key]['attributes']['title'] = t('Return to site content');
+ 
+-      // Check for entity $url.
+-      if (isset($url) && $url->access()) {
++      if (isset($url, $url_access) && $url_access->isAllowed()) {
++        // Link to the canonical route of the entity.
+         $variables['breadcrumb'][$key]['url'] = $url;
+       }
+       else {
+@@ -84,6 +96,8 @@ function gin_preprocess_breadcrumb(&$variables) {
+       }
+     }
+   }
++
++  $cacheability->applyTo($variables);
+ }
+ 
+ /**
+@@ -110,3 +124,42 @@ function _gin_get_route_entity() {
      }
    }
  }
@@ -183,80 +265,7 @@ index c136c94f..9bd38d33 100644
 GitLab
 
 
-From a8a12cf550179560d79e116c5d730397656fc2c7 Mon Sep 17 00:00:00 2001
-From: Dieter Holvoet <dieter.holvoet@gmail.com>
-Date: Thu, 3 Nov 2022 11:18:02 +0100
-Subject: [PATCH 2/4] Add cacheability metadata
-
----
- includes/breadcrumb.theme | 20 +++++++++++++++++---
- 1 file changed, 17 insertions(+), 3 deletions(-)
-
-diff --git a/includes/breadcrumb.theme b/includes/breadcrumb.theme
-index 9bd38d33..922448fa 100644
---- a/includes/breadcrumb.theme
-+++ b/includes/breadcrumb.theme
-@@ -5,6 +5,7 @@
-  * breadcrumb.theme
-  */
- 
-+use Drupal\Core\Cache\CacheableMetadata;
- use Drupal\Core\Entity\ContentEntityInterface;
- use Drupal\Core\Entity\EntityInterface;
- use Drupal\Core\Url;
-@@ -18,6 +19,9 @@ function gin_preprocess_breadcrumb(&$variables) {
-     return;
-   }
- 
-+  $cacheability = new CacheableMetadata();
-+  $cacheability->addCacheContexts(['route']);
-+
-   $entity = _gin_get_route_entity();
-   $route_name = \Drupal::routeMatch()->getRouteName();
- 
-@@ -26,9 +30,17 @@ function gin_preprocess_breadcrumb(&$variables) {
-     $entity_type_id = $entity->getEntityTypeId();
-     $operation_label = _gin_get_route_entity_operation_label($route_name, $entity);
- 
-+    $url_access = $url->access(NULL, TRUE);
-+    $cacheability->addCacheableDependency($url_access);
-+
-     // Media handling.
--    if ($entity_type_id === 'media' && !\Drupal::config('media.settings')->get('standalone_url')) {
--      $url = Url::fromRoute('<front>');
-+    if ($entity_type_id === 'media') {
-+      $media_config = \Drupal::config('media.settings');
-+      $cacheability->addCacheableDependency($media_config);
-+
-+      if (!$media_config->get('standalone_url')) {
-+        $url = Url::fromRoute('<front>');
-+      }
-     }
-   }
- 
-@@ -38,7 +50,7 @@ function gin_preprocess_breadcrumb(&$variables) {
-       $variables['breadcrumb'][$key]['text'] = t('Back to site');
-       $variables['breadcrumb'][$key]['attributes']['title'] = t('Return to site content');
- 
--      if (isset($url) && $url->access()) {
-+      if (isset($url, $url_access) && $url_access->isAllowed()) {
-         // Link to the canonical route of the entity.
-         $variables['breadcrumb'][$key]['url'] = $url;
-       }
-@@ -79,6 +91,8 @@ function gin_preprocess_breadcrumb(&$variables) {
-       }
-     }
-   }
-+
-+  $cacheability->applyTo($variables);
- }
- 
- /**
--- 
-GitLab
-
-
-From 13c3e7a578ec4f269945230d2b48680714b76d2d Mon Sep 17 00:00:00 2001
+From 0cced8266978c163d4db0e1c15cc1c0fc968c24f Mon Sep 17 00:00:00 2001
 From: Dieter Holvoet <dieter.holvoet@gmail.com>
 Date: Thu, 10 Nov 2022 14:33:13 +0100
 Subject: [PATCH 3/4] Fix 'Error: Call to a member function label() on null in
@@ -267,10 +276,10 @@ Subject: [PATCH 3/4] Fix 'Error: Call to a member function label() on null in
  1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/includes/breadcrumb.theme b/includes/breadcrumb.theme
-index 922448fa..81f056f4 100644
+index 6b0672a9..d25c244b 100644
 --- a/includes/breadcrumb.theme
 +++ b/includes/breadcrumb.theme
-@@ -129,9 +129,10 @@ function _gin_get_route_entity() {
+@@ -134,9 +134,10 @@ function _gin_get_route_entity() {
  function _gin_get_route_entity_operation_label(string $route_name, EntityInterface $entity) {
    $entity_type = $entity->getEntityType();
    $type_label = $entity_type->getSingularLabel();
@@ -287,7 +296,7 @@ index 922448fa..81f056f4 100644
 GitLab
 
 
-From 34e15b5d3f99365e73b61df567d042822d4e77c3 Mon Sep 17 00:00:00 2001
+From 759125974012ebc49f71a279e36834c8b0f17636 Mon Sep 17 00:00:00 2001
 From: Dieter Holvoet <dieter.holvoet@gmail.com>
 Date: Wed, 18 Jan 2023 14:57:36 +0100
 Subject: [PATCH 4/4] Add missing access check for edit link in secondary
@@ -298,7 +307,7 @@ Subject: [PATCH 4/4] Add missing access check for edit link in secondary
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/includes/page.theme b/includes/page.theme
-index 747bed27..cef1ec7b 100644
+index 775d71ec..a2be6691 100644
 --- a/includes/page.theme
 +++ b/includes/page.theme
 @@ -30,7 +30,7 @@ function gin_preprocess_page(&$variables) {

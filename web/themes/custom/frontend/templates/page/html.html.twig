@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html{{ html_attributes.addClass('no-js').setAttribute('data-scrolled', 'false') }}>
+<html {{ html_attributes.addClass('no-js')
+  .setAttribute('data-scrolled', 'false')
+  .setAttribute('data-mainnav-overlay', 'false') }}>
 <head>
   <script>
     document.documentElement.classList.remove('no-js');
@@ -51,6 +53,7 @@
   {{ page }}
   {{ page_bottom }}
   {# These scripts are very important for LCP & CLS (perceived pagespeed). Load them first! #}
+  <script src="/libraries/alpinejs-persist/dist/cdn.min.js"></script>
   <script src="/libraries/alpinejs-intersect/dist/cdn.min.js"></script>
   <script src="/libraries/alpinejs-collapse/dist/cdn.min.js"></script>
   <script src="/libraries/alpinejs/dist/cdn.min.js"></script>
