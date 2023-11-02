@@ -14,6 +14,7 @@
 
 # Ignore Drupal's file storage directories
 /private/files/
+!/private/files/.htaccess
 /web/sites/*/files/
 !/web/sites/*/files/gin-custom.css
 

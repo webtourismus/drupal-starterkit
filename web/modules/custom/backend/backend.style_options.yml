@@ -162,11 +162,12 @@ options:
     weight: -890
   layout_padding_side:
     plugin: html_attribute
-    label: 'Min. padding to the side of the screen'
+    label: 'Min. padding to the side of the background color'
     attribute_name: class
     twig_attribute_object: '#bg_wrapper_attributes'
     input_type: select
     options:
+      'px-0': 'no padding'
       'max-sm:px-[8px] sm:px-[12px] lg:px-[32px]':
         - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
         -
@@ -177,7 +178,6 @@ options:
         -
           '%number_with_unit1': '8px'
           '%number_with_unit2': '64px'
-      'px-0': 'no padding'
       'px-[2px]': 'thin'
       'px-[8px]': 8px
       'px-[16px]': 16px
@@ -188,6 +188,34 @@ options:
       'px-[96px]': 96px
     default: 'max-sm:px-[8px] sm:px-[12px] lg:px-[32px]'
     weight: -800
+  layout_margin_side:
+    plugin: html_attribute
+    label: 'Min. padding to the side of the screen'
+    attribute_name: class
+    twig_attribute_object: '#bg_wrapper_attributes'
+    input_type: select
+    options:
+      'mx-0': 'no padding'
+      'max-sm:mx-[8px] sm:mx-[12px] lg:mx-[32px]':
+        - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
+        -
+          '%number_with_unit1': '8px'
+          '%number_with_unit2': '32px'
+      'max-sm:mx-[8px] sm:mx-[12px] lg:mx-[64px]':
+        - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
+        -
+          '%number_with_unit1': '8px'
+          '%number_with_unit2': '64px'
+      'mx-[2px]': 'thin'
+      'mx-[8px]': 8px
+      'mx-[16px]': 16px
+      'mx-[24px]': 24px
+      'mx-[32px]': 32px
+      'mx-[48px]': 48px
+      'mx-[64px]': 64px
+      'mx-[96px]': 96px
+    default: 'mx-0'
+    weight: -795
   layout_gap_horizontal:
     plugin: html_attribute
     label: 'Horizontal padding in between areas'
@@ -444,11 +472,11 @@ options:
     label: 'Cell width on large screens'
     input_type: select
     options:
-      'max-sm:grid-cols-1 sm:[grid-template-columns:33.3333%_66.3337%]': 33.33% / 66.67%
+      'max-sm:grid-cols-1 sm:[grid-template-columns:33.3333%_66.6667%]': 33.33% / 66.67%
       'max-sm:grid-cols-1 sm:[grid-template-columns:40%_60%]': 40% / 60%
       'max-sm:grid-cols-1 sm:[grid-template-columns:50%_50%]': 50% / 50%
       'max-sm:grid-cols-1 sm:[grid-template-columns:60%_40%]': 60% / 40%
-      'max-sm:grid-cols-1 sm:[grid-template-columns:66.3337%_33.3333%]': 66.67% / 33.33%
+      'max-sm:grid-cols-1 sm:[grid-template-columns:66.6667%_33.3333%]': 66.67% / 33.33%
     default: 'max-sm:grid-cols-1 sm:[grid-template-columns:50%_50%]'
   grid_responsive_columns_2:
     plugin: responsive_class
@@ -464,11 +492,11 @@ options:
           class: 'invisible'
       input_type: select
       options:
-        '[grid-template-columns:33.3333%_66.3337%] [grid-auto-rows:var(--grid-row-height)]': 33.33% / 66.67%
+        '[grid-template-columns:33.3333%_66.6667%] [grid-auto-rows:var(--grid-row-height)]': 33.33% / 66.67%
         '[grid-template-columns:40%_60%] [grid-auto-rows:var(--grid-row-height)]': 40% / 60%
         '[grid-template-columns:50%_50%] [grid-auto-rows:var(--grid-row-height)]': 50% / 50%
         '[grid-template-columns:60%_40%] [grid-auto-rows:var(--grid-row-height)]': 60% / 40%
-        '[grid-template-columns:66.3337%_33.3333%] [grid-auto-rows:var(--grid-row-height)]': 66.67% / 33.33%
+        '[grid-template-columns:66.6667%_33.3333%] [grid-auto-rows:var(--grid-row-height)]': 66.67% / 33.33%
   grid_responsive_columns_3:
     plugin: responsive_class
     weight: -877
@@ -548,6 +576,9 @@ contexts:
           layout: true
           regions: false
         layout_padding_side:
+          layout: true
+          regions: false
+        layout_margin_side:
           layout: true
           regions: false
         padding_top:

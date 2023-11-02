@@ -1,8 +1,8 @@
 diff --git a/web/.htaccess b/web/.htaccess
-index 83cb71a..bd27cf6 100644
+index 4031da4..ff17f41 100644
 --- a/web/.htaccess
 +++ b/web/.htaccess
-@@ -18,6 +18,37 @@ Options -Indexes
+@@ -18,10 +18,44 @@ Options -Indexes
  # Set the default handler.
  DirectoryIndex index.php index.html index.htm
  
@@ -40,7 +40,14 @@ index 83cb71a..bd27cf6 100644
  # Add correct encoding for SVGZ.
  AddType image/svg+xml svg svgz
  AddEncoding gzip svgz
-@@ -69,6 +100,15 @@ AddEncoding gzip svgz
+ 
++# Add correct mime type for WebP images
++AddType image/webp .webp
++
+ # Most of the following PHP settings cannot be changed at runtime. See
+ # sites/default/default.settings.php and
+ # Drupal\Core\DrupalKernel::bootEnvironment() for settings that can be
+@@ -60,6 +94,15 @@ AddEncoding gzip svgz
  <IfModule mod_rewrite.c>
    RewriteEngine on
  
@@ -51,12 +58,12 @@ index 83cb71a..bd27cf6 100644
 +  RewriteCond %{HTTP:X-Forwarded-Proto} !https
 +  RewriteCond %{HTTP_HOST} !\.dedi(103|1661)\.your-server\.de$ [NC]
 +  RewriteCond %{REQUEST_FILENAME} !-f
-+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301] 
++  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 +
    # Set "protossl" to "s" if we were accessed via https://.  This is used later
    # if you enable "www." stripping or enforcement, in order to ensure that
    # you don't bounce between http and https.
-@@ -102,9 +142,11 @@ AddEncoding gzip svgz
+@@ -93,9 +136,11 @@ AddEncoding gzip svgz
    # To redirect all users to access the site WITH the 'www.' prefix,
    # (http://example.com/foo will be redirected to http://www.example.com/foo)
    # uncomment the following:

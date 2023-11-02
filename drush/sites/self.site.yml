@@ -1,11 +1,11 @@
 dev:
   root: .
-  uri: 'https://${env.PROJECT_NAME}.dev1.webtourismus.at'
+  uri: https://${env.PROJECT_NAME}.dev1.webtourismus.at
 prod:
   host: ${env.PROD_SSH_HOST}
   user: ${env.PROD_SSH_USER}
   root: /usr/home/${env.PROD_SSH_USER}/public_html
-  uri: '${env.PROD_URI}'
+  uri: ${env.PROD_URI}
   ssh:
     options: '-t -p 222'
   paths:

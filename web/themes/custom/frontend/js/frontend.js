@@ -2,12 +2,6 @@
 
   'use strict';
 
-  document.addEventListener('alpine:init', () => {
-    Alpine.store('scrolled', false); /* @see <data id="scroll_observer"> */
-    Alpine.store('linkify', true); /* @see Drupal.behaviors.linkify */
-    setCurrentBreakpoint(); /* @see <data id="scroll_observer"> */
-  });
-
   Drupal.behaviors.linkify = {
     attach: function (context, settings) {
       once('linkify', '[data-js-behavior-linkify]', context).forEach((element) => {

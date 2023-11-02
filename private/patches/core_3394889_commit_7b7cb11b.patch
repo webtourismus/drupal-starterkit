@@ -1,0 +1,25 @@
+From 7b7cb11b0a2bcc44ac14081bc87614a29ff9186f Mon Sep 17 00:00:00 2001
+From: Reinhard Hutter <17421-hudri@users.noreply.drupalcode.org>
+Date: Wed, 18 Oct 2023 12:17:18 +0000
+Subject: [PATCH] show update message only for UID 1
+
+---
+ core/modules/update/update.module | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/core/modules/update/update.module b/core/modules/update/update.module
+index ef6abc252312..c35912fd32b5 100644
+--- a/core/modules/update/update.module
++++ b/core/modules/update/update.module
+@@ -62,7 +62,7 @@ function update_page_top() {
+   /** @var \Drupal\Core\Routing\AdminContext $admin_context */
+   $admin_context = \Drupal::service('router.admin_context');
+   $route_match = \Drupal::routeMatch();
+-  if ($admin_context->isAdminRoute($route_match->getRouteObject()) && \Drupal::currentUser()->hasPermission('view update notifications')) {
++  if ($admin_context->isAdminRoute($route_match->getRouteObject()) && \Drupal::currentUser()->hasPermission('view update notifications') && \Drupal::currentUser()->id() == 1) {
+     $route_name = \Drupal::routeMatch()->getRouteName();
+     switch ($route_name) {
+       // These pages don't need additional nagging.
+-- 
+GitLab
+

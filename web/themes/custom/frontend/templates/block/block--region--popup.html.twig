@@ -4,21 +4,26 @@
     <div {{ attributes.addClass('cs-neutral-900 fixed top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%] z-modal min-w-[320px] max-w-full sm:max-w-[480px] pt-[40px] pb-[1rem] px-[1rem]') }}
           x-data="{ {{ popup_id }} : $persist(true).using(sessionStorage)}"
           x-show="{{ popup_id }}"
-          x-transition
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0"
+          x-transition:enter-end="opacity-100"
+          x-transition:leave="transition ease-in duration-300"
+          x-transition:leave-start="opacity-100"
+          x-transition:leave-end="opacity-0"
           x-cloak
           {# @click.outside="{{ popup_id }} = false" #}
     >
+      {% block button %}
+        <button class="absolute top-[3px] right-[6px] display-block w-[22px] h-[22px] hocus:text-flashy transition"
+                @click="{{ popup_id }} = false"
+        >
+          {{ source('@fa6/regular/xmark.svg')|add_to_svg('display-block w-full') }}
+        </button>
+      {% endblock %}
+
       {% block content %}
         {{ content }}
       {% endblock content %}
-
-      {% block button %}
-        <button class="absolute top-[10px] right-[10px] display-block w-[30px] h-[30px] hocus:text-flashy transition"
-                @click="{{ popup_id }} = false"
-        >
-          {{ source('@fa6/regular/circle-xmark.svg') }}
-        </button>
-      {% endblock %}
     </div>
   {% else %}
     {% set dummy_force_cache_bubbling = content|render %}

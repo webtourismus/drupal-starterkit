@@ -142,7 +142,8 @@
       "drupal/core": {
         "2546212 - Make field formatter settings translatable": "./private/patches/core_2546212_patch219.patch",
         "3004334 - Hide warning message for hidden untranslatable fields": "./private/patches/core_3004334_patch21.patch",
-        "3345064 - Media library field_widget_id is not unique enough": "./private/patches/core_3345064_patch3.patch"
+        "3345064 - Media library field_widget_id is not unique enough": "./private/patches/core_3345064_patch3.patch",
+        "3394889 - Show update messages only to user ID 1": "./private/patches/core_3394889_commit_7b7cb11b.patch"
       },
       "drupal/field_group": {
         "3208592 - CSS class validation too strict": "./private/patches/field_group_3208592_mr33_758a6fbc.patch"
@@ -174,6 +175,6 @@
     }
   },
   "require": {
-    "webtourismus/drupal-metapackage": "^0.9.36"
+    "webtourismus/drupal-metapackage": "^0.9.40"
   }
 }

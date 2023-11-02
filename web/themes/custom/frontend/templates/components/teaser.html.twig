@@ -90,6 +90,12 @@
 {% set title_attributes = create_attribute({'class': ['teaserable-title']}) %}
 {% set product_attributes = create_attribute({'class': ['teaserable-product']}) %}
 
+{% if bundle == 'icon' %}
+  {# contrary to images SVG icons don't have 100% width all the time #}
+  {% set attributes = attributes.addClass(['flex', 'items-center']) %}
+  {% set images_attributes = images_attributes.addClass(['grow-0', 'shrink-0']) %}
+{% endif %}
+
 {% set text_wrapper_attributes = create_attribute({'class': ['teaserable-text-wrapper']}) %}
 {% set link_wrapper_attributes = create_attribute({'class': ['teaserable-link-wrapper']}) %}
 

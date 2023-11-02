@@ -20,7 +20,7 @@ _core:
 id: media_library
 label: Medienbibliothek
 module: views
-description: 'Medien finden und verwalten.'
+description: 'Medien finden und verwalten. (Disable cache!!!)'
 tag: ''
 base_table: media_field_data
 base_field: mid
@@ -170,7 +170,7 @@ display:
         options:
           perm: 'access media overview'
       cache:
-        type: tag
+        type: none
         options: {  }
       empty:
         area_text_custom:
@@ -564,10 +564,7 @@ display:
         - 'config:core.entity_view_display.media.image.default'
         - 'config:core.entity_view_display.media.image.full'
         - 'config:core.entity_view_display.media.image.full_hd'
-        - 'config:core.entity_view_display.media.image.h300_single'
-        - 'config:core.entity_view_display.media.image.h400_double'
-        - 'config:core.entity_view_display.media.image.h400_single'
-        - 'config:core.entity_view_display.media.image.h600_double'
+        - 'config:core.entity_view_display.media.image.layout_bg'
         - 'config:core.entity_view_display.media.image.linkblock'
         - 'config:core.entity_view_display.media.image.media_library'
         - 'config:core.entity_view_display.media.image.original'
@@ -907,10 +904,7 @@ display:
         - 'config:core.entity_view_display.media.image.default'
         - 'config:core.entity_view_display.media.image.full'
         - 'config:core.entity_view_display.media.image.full_hd'
-        - 'config:core.entity_view_display.media.image.h300_single'
-        - 'config:core.entity_view_display.media.image.h400_double'
-        - 'config:core.entity_view_display.media.image.h400_single'
-        - 'config:core.entity_view_display.media.image.h600_double'
+        - 'config:core.entity_view_display.media.image.layout_bg'
         - 'config:core.entity_view_display.media.image.linkblock'
         - 'config:core.entity_view_display.media.image.media_library'
         - 'config:core.entity_view_display.media.image.original'
@@ -1322,10 +1316,7 @@ display:
         - 'config:core.entity_view_display.media.image.default'
         - 'config:core.entity_view_display.media.image.full'
         - 'config:core.entity_view_display.media.image.full_hd'
-        - 'config:core.entity_view_display.media.image.h300_single'
-        - 'config:core.entity_view_display.media.image.h400_double'
-        - 'config:core.entity_view_display.media.image.h400_single'
-        - 'config:core.entity_view_display.media.image.h600_double'
+        - 'config:core.entity_view_display.media.image.layout_bg'
         - 'config:core.entity_view_display.media.image.linkblock'
         - 'config:core.entity_view_display.media.image.media_library'
         - 'config:core.entity_view_display.media.image.original'

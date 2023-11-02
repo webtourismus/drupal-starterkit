@@ -41,18 +41,29 @@
   <a href="#main" class="visually-hidden focusable skip-link">
     {{ 'Skip to main content'|t }}
   </a>
-  <data id="scroll_observer"
+  <div id="scroll_observer"
         aria-hidden="true"
-        {# height class determines "scrolled down" variable #}
-        class="absolute top-0 left-0 h-[100px] w-px pointer-events-none opacity-0 z-behind"
+        {##
+         # - Set height class `h-[...]` to define when to trigger "scrolled down" effect.
+         # - Use `document.querySelector('#scroll_observer').getBoundingClientRect().width`
+         #   to compute the "fixed top" part of page in pixels (responsive, including admin toolbar).
+         #}
+        class="absolute top-0 left-0 h-[100px] w-[--fixed-top] pointer-events-none opacity-0 z-behind"
         x-data x-init="$store.scrolled=false; "
         x-intersect:enter="$store.scrolled=false"
         x-intersect:leave="$store.scrolled=true"
-        x-effect="document.documentElement.setAttribute('data-scrolled', $store.scrolled);"></data>
+        x-effect="document.documentElement.setAttribute('data-scrolled', $store.scrolled);"></div>
   {{ page_top }}
   {{ page }}
   {{ page_bottom }}
   {# These scripts are very important for LCP & CLS (perceived pagespeed). Load them first! #}
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.store('scrolled', false);
+      Alpine.store('linkify', true);
+      setCurrentBreakpoint();
+    });
+  </script>
   <script src="/libraries/alpinejs-persist/dist/cdn.min.js"></script>
   <script src="/libraries/alpinejs-intersect/dist/cdn.min.js"></script>
   <script src="/libraries/alpinejs-collapse/dist/cdn.min.js"></script>

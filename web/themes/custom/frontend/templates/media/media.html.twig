@@ -1,6 +1,9 @@
 {# removing any wrapper divs makes styling of media entities uniform with (non-reuseable) image fields #}
 
 {# @see core/system/css/components/align.module.css #}
+{% if attributes['data-align'] %}
+  {% set attributes = attributes.addClass('align-' ~ attributes['data-align']) %}
+{% endif %}
 {% set has_ckeditor_alignment = attributes.hasClass('align-left')
                              or attributes.hasClass('align-center')
                              or attributes.hasClass('align-right')
@@ -10,8 +13,9 @@
 
   {% set dummy_ensure_cache_processing = content|render %}
   {% if attributes.hasClass('align-center') %}
-    {# Tailwind pre-flight sets "display: block" on all images. #}
     {% set attributes = attributes.addClass('children:mx-auto') %}
+  {% elseif attributes.hasClass('align-right') %}
+    {% set attributes = attributes.addClass('children:ml-auto') %}
   {% endif %}
   {% set alignment_classes = attributes.class|render %}
   {% for key,item in content|children %}

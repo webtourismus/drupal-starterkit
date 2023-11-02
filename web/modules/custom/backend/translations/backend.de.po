@@ -241,6 +241,9 @@ msgstr "Eine CSS-Längeneinheit eintippen (z.B. \"500px\" oder \"33.33%\")"
 msgid "Min. padding to the side of the screen"
 msgstr "Minimaler Abstand zur seitlichen Bildschirmkante"
 
+msgid "Min. padding to the side of the background color"
+msgstr "Minimaler seitlicher Abstand zur Hintergrundfarbe"
+
 msgid "Unique ID for deep scroll links"
 msgstr "Einzigartige ID für Scroll-Links in tiefe Seitenabschnitte"
 
