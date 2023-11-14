@@ -1,3 +1,8 @@
+{% set paragraph_colorschema = paragraph.getBehaviorSetting('inline_style_options', 'colorschema_paragraph').html_attribute %}
+{% if paragraph_colorschema %}
+  {% set attributes = attributes.addClass('p-4') %}
+{% endif %}
+
 <div {{ attributes }}
      x-data="{
       {%- for text in content.field_accordion|children -%}idx_{{ loop.index }}: {{ loop.index in paragraph.field_accordion_expanded.0.value|split(',') ? 'true' : 'false' }}, {% endfor -%}

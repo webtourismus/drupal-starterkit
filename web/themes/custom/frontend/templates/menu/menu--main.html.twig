@@ -1,11 +1,11 @@
 {# @see "@system/templates/menu.html.twig" #}
 
-{% import _self as menus %}
+{% import _self as menu %}
 
-{{ menus.menu_links(items, attributes, 0, 1) }}
+{{ menu.menu_links(items, attributes, 0, 1) }}
 
 {% macro menu_links(items, attributes, menu_level, currentIdx) %}
-  {% import _self as menus %}
+  {% import _self as menu %}
   {% if items %}
     {% set ul_attributes = create_attribute(attributes.toArray()) %}
     {% if menu_level == 1 %}
@@ -27,7 +27,7 @@
           {% endif %}
           {{ link(item.title, item.url, a_attributes) }}
           {% if item.below %}
-            {{ menus.menu_links(item.below, attributes, menu_level + 1, loop.index) }}
+            {{ menu.menu_links(item.below, attributes, menu_level + 1, loop.index) }}
           {% endif %}
         </li>
       {% endfor %}

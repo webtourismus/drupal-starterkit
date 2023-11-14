@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Drupal\block\Entity\Block;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\ebr_teaser\Entity\ParagraphTeaserableInterface;
+use Drupal\designsystem\DesignHelper;
 
 function frontend_theme_suggestions_block_alter(array &$suggestions, array $variables): void {
   $blockId = NULL;
@@ -72,12 +73,10 @@ function frontend_theme_suggestions_field_alter(array &$suggestions, array $vari
   $entityType = $variables['element']['#entity_type'];
   $bundle = $variables['element']['#bundle'];
   $fieldName = $variables['element']['#field_name'];
-  $viewMode = $variables['element']['#view_mode'];
 
-  if (isset($variables['element']['#view_mode'])) {
-    $suggestions[] = "field__{$entityType}__{$fieldName}__{$bundle}__{$viewMode}";
-    array_splice($suggestions, 2, 0, "field__{$fieldName}__{$viewMode}");
-  }
+  $viewMode = DesignHelper::getRealViewmode($variables);
+  $suggestions[] = "field__{$entityType}__{$fieldName}__{$bundle}__{$viewMode}";
+  array_splice($suggestions, 2, 0, "field__{$fieldName}__{$viewMode}");
 
   if (isset($variables['element']['#teaser_fieldname'])) {
     $teaserField = $variables['element']['#teaser_fieldname'];

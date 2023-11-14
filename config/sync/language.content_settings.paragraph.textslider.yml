@@ -1,18 +1,18 @@
-uuid: 1d2324e5-7e40-4b03-b664-82b3ab6794c2
+uuid: 12b65fc7-66d4-4d29-8919-e878dfcef231
 langcode: de
 status: true
 dependencies:
   config:
-    - paragraphs.paragraphs_type.gallery
+    - paragraphs.paragraphs_type.textslider
   module:
     - content_translation
 third_party_settings:
   content_translation:
-    enabled: false
+    enabled: true
     bundle_settings:
-      untranslatable_fields_hide: '0'
-id: paragraph.gallery
+      untranslatable_fields_hide: '1'
+id: paragraph.textslider
 target_entity_type_id: paragraph
-target_bundle: gallery
+target_bundle: textslider
 default_langcode: de
 language_alterable: false

@@ -49,6 +49,9 @@
   hr {
     @apply border-foreground/20 my-[1rem];
   }
+  :where(.ck-content) th, :where(.ck-content) td {
+    padding: 1rem;
+  }
 
   /* responsive remote videos */
   :where(.field--name--field_media_oembed_video) iframe {

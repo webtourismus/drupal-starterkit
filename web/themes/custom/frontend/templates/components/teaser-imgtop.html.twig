@@ -1,1 +1,16 @@
 {% extends '@frontend/components/teaser.html.twig' %}
+
+{% block teaserable %}
+  {% set attributes = attributes.addClass('grid [grid-template-columns:1fr] [grid-template-rows:min-content_1fr]') %}
+  {{ parent() }}
+{% endblock %}
+
+{% block texts %}
+  {% if paragraph_colorschema %}
+    {% set texts_attributes = texts_attributes.addClass('justify-between') %}
+  {% else %}
+    {% set texts_attributes = texts_attributes.addClass('mt-8') %}
+  {% endif %}
+  {% set text_wrapper_attributes = text_wrapper_attributes.addClass('gap-y-4') %}
+  {{ parent() }}
+{% endblock %}

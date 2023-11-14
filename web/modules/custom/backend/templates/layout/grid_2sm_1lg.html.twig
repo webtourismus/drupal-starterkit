@@ -4,13 +4,13 @@
   <div {{ region_attributes['small_top'].addClass([
     'sm:row-start-1',
     'sm:col-start-1'
-  ]) }}>
+  ])|replace({'&amp;': '&', '&gt;': '>'})|raw }}>
     {{ content.small_top }}
   </div>
   <div {{ region_attributes['small_bottom'].addClass([
     'sm:row-start-2',
     'sm:col-start-1'
-  ]) }}>
+  ])|replace({'&amp;': '&', '&gt;': '>'})|raw }}>
     {{ content.small_bottom }}
   </div>
   <div {{ region_attributes['large'].addClass([
@@ -18,7 +18,7 @@
     'sm:col-start-2',
     'sm:row-span-2',
     'sm:[--grid-img-height:calc(var(--gap-vertical)+2*var(--grid-row-height))]'
-  ]) }}>
+  ])|replace({'&amp;': '&', '&gt;': '>'})|raw }}>
     {{ content.large }}
   </div>
 {% endblock regions %}

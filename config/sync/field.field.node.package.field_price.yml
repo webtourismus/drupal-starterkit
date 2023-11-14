@@ -27,6 +27,6 @@ default_value_callback: ''
 settings:
   min: null
   max: null
-  prefix: ''
-  suffix: €
+  prefix: 'ab '
+  suffix: ' €'
 field_type: float

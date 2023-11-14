@@ -12,6 +12,9 @@
  * - attributes: HTML attributes for the actual layout `<div class="layout ...">`.
  * - region_attributes[]: HTML attributes individual sub-regions of a layout `<div class="area ...">`.
  *
+ * All layout attribute objects are rendered with ampersand `&` and larger than `>` symbols unescaped,
+ * to allow TailwindCSS arbitrary selector class names like `[&>span:text-red]`.
+ *
  * @ingroup themeable
  */
 #}
@@ -21,15 +24,15 @@
 
 {% if content %}
   {% block bg_wrapper %}
-    <div {{ bg_wrapper_attributes }}>
+    <div {{ bg_wrapper_attributes|replace({'&amp;': '&', '&gt;': '>'})|raw }}>
       {{ background_media }}
       {% block width_wrapper %}
-        <div {{ width_wrapper_attributes }}>
+        <div {{ width_wrapper_attributes|replace({'&amp;': '&', '&gt;': '>'})|raw }}>
           {% block layout %}
             <div {{ attributes }}>
               {% block regions %}
                 {% for key, region in content|children %}
-                  <div {{ region_attributes[key] }}>
+                  <div {{ region_attributes[key]|replace({'&amp;': '&', '&gt;': '>'})|raw }}>
                     {% block region %}
                       {{ region }}
                     {% endblock region %}

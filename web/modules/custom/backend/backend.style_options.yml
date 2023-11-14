@@ -1,4 +1,13 @@
 reuseable_anchors:
+  colorschema_filledbg_options: &colorschema_filledbg_options
+    'cs-white': pure white background
+    'cs-neutral-100': light background
+    'cs-neutral-900': dark background
+    'cs-black': pure black background
+    'cs-flashy': flashy background
+  colorschema_images_options: &colorschema_images_options
+    'cs-lightimg': light image as background, black text
+    'cs-darkimg': dark image as background, white text
   width_options: &width_options
     'grow shrink basis-0 max-w-full': distribute automatically
     'grow-0 shrink-0 basis-full max-w-full': 100%
@@ -89,14 +98,19 @@ options:
     twig_attribute_object: '#bg_wrapper_attributes'
     input_type: select
     options:
-      'cs-white': pure white background
-      'cs-neutral-100': light background
-      'cs-neutral-900': dark background
-      'cs-black': pure black background
-      'cs-flashy': flashy background
-      'cs-lightimg': light image as background, black text
-      'cs-darkimg': dark image as background, white text
+      <<: *colorschema_filledbg_options
+      <<: *colorschema_images_options
     weight: -1000
+  colorschema_paragraph:
+    plugin: html_attribute
+    label: 'Colorschema'
+    attribute_name: class
+    input_type: select
+    required: false
+    options: *colorschema_filledbg_options
+    weight: -1000
+    form_api:
+      '#empty_value': ''
   background_media:
     plugin: background_media
     label: 'Background image'
@@ -560,6 +574,18 @@ contexts:
         gallery_width_lg: true
         justify_content: true
         fluid_gap_horizontal: true
+    accordion:
+      options:
+        colorschema_paragraph: true
+    text:
+      options:
+        colorschema_paragraph: true
+    textslider:
+      options:
+        colorschema_paragraph: true
+    linkblock:
+      options:
+        colorschema_paragraph: true
   layout:
     _defaults:
       options:

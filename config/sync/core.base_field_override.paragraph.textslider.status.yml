@@ -1,0 +1,22 @@
+uuid: 38246d72-ddb6-48b1-b54d-d21aa0168219
+langcode: de
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.textslider
+id: paragraph.textslider.status
+field_name: status
+entity_type: paragraph
+bundle: textslider
+label: veröffentlicht
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: An
+  off_label: Aus
+field_type: boolean

@@ -1,2 +1,65 @@
 {% extends '@frontend/components/teaser.html.twig' %}
 
+{% block teaserable %}
+  {##
+   # Hidden logic, assumption:
+   # Left-right-linkblocks are designed to be fullwidth (or at least without any horizontal neighbour)
+   # and therefore are usually placed inside a one column layout. And we assume the column width is "unused"
+   # (left unchanged to default "distribute automatically", which is basically 100% width).
+   #
+   # If the value of stacking breakpoint of the layout column == "distribute automatically",
+   # then we (re-/mis-)use the column's breakpoint as stacking breakpoint for the left-right linkblocks.
+   # This way trained editors can control when the linkblock goes into stacked design.
+   ##}
+  {% set linkblock_bp = 'sm' %}
+  {% if layout.config[layout.region].column_width.responsive_class.classes == 'grow shrink basis-0 max-w-full' %}
+    {% set linkblock_bp = layout.config[layout.region].column_width.responsive_class.prefix %}
+  {% endif %}
+  {% set image_width = '50%' %}
+  {% set attributes = attributes.addClass(
+    "flex",
+    "max-#{linkblock_bp}:flex-col",
+    "max-#{linkblock_bp}:items-stretch",
+    "#{linkblock_bp}:flex-row",
+    "#{linkblock_bp}:flex-nowrap",
+    "#{linkblock_bp}:[--inner-gap-horizontal:32px]",
+    "gap-x-[--inner-gap-horizontal]",
+  ) %}
+  {% if paragraph_colorschema %}
+    {% set attributes = attributes.addClass('gap-y-0') %}
+    {% set texts_attributes = texts_attributes.addClass('self-stretch') %}
+  {% else %}
+    {% set attributes = attributes.addClass('gap-y-6') %}
+  {% endif %}
+  {{ parent() }}
+{% endblock teaserable %}
+
+{% block images %}
+  {% if bundle == 'icon' %}
+    {% set images_attributes = images_attributes.addClass('grow-0', 'shrink-0', 'basis-auto') %}
+  {% else %}
+    {% set images_attributes = images_attributes.addClass(
+      "grow-0",
+      "shrink-0",
+      "#{linkblock_bp}:[flex-basis:calc(#{image_width}-0.5*var(--inner-gap-horizontal))]",
+    ) %}
+  {% endif %}
+  {{ parent() }}
+{% endblock %}
+
+{% block texts %}
+  {% if bundle == 'icon' %}
+    {% set texts_attributes = texts_attributes.addClass('grow-1', 'shrink-1', 'basis-0') %}
+  {% else %}
+    {% set texts_attributes = texts_attributes.addClass(
+      "grow-0",
+      "shrink-0",
+      "#{linkblock_bp}:[flex-basis:calc(100%-#{image_width}-0.5*var(--inner-gap-horizontal))]",
+      'text-center',
+      'justify-center',
+      'gap-4',
+    ) %}
+  {% endif %}
+
+  {{ parent() }}
+{% endblock %}

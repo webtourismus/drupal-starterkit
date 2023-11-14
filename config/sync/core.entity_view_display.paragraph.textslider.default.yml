@@ -1,0 +1,23 @@
+uuid: 16a3037e-1c4c-47e9-a37a-4dc831bfb34d
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.textslider.field_texts
+    - paragraphs.paragraphs_type.textslider
+  module:
+    - text
+id: paragraph.textslider.default
+targetEntityType: paragraph
+bundle: textslider
+mode: default
+content:
+  field_texts:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  seasonal: true

@@ -1,0 +1,5 @@
+{% import "menu.html.twig" as menu %}
+
+{% set attributes = attributes.addClass('flex flex-col items-stretch gap-y-2') %}
+
+{{ menu.menu_links(items, attributes, 0) }}

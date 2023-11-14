@@ -340,7 +340,7 @@ handlers:
       sender_mail: ''
       sender_name: ''
       subject: 'Tisch-Reservierung [webform_submission:values:date] [webform_submission:values:time],  [webform_submission:values:persons] Pers.'
-      body: _default
+      body: '<p>Bitte um Bestätigung der Tisch-Reservierung:</p><p>[webform_submission:values]</p>'
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true

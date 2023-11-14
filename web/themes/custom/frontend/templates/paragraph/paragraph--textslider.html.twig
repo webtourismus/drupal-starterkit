@@ -1,0 +1,56 @@
+{% extends "@frontend/paragraph/paragraph.html.twig" %}
+{% set attributes = attributes.addClass([
+  'splide',
+  'components:w-full',
+  'components:display-block',
+  'relative',
+]) %}
+{% set splidejs_config = {
+  'type': 'loop',
+  'perPage': 1,
+  'arrows': false,
+  'pagination': true,
+} %}
+{% set attributes = attributes.setAttribute('data-splide', splidejs_config|json_encode(constant('JSON_UNESCAPED_SLASHES'))) %}
+{% set item_attributes = create_attribute({'class': ['splide__item', 'textslider-item']}) %}
+{% set pagination_attributes = create_attribute({'class': ['splide__pagination', 'textslider-pagination']}) %}
+{% set paragraph_colorschema = paragraph.getBehaviorSetting('inline_style_options', 'colorschema_paragraph').html_attribute %}
+{% if paragraph_colorschema %}
+  {% set attributes = attributes.addClass('p-4') %}
+{% endif %}
+
+{% block content %}
+  {{ attach_library('designsystem/splidejs') }}
+  {% set layout = _context['#layout_paragraphs'] %}
+
+  {% block arrows %}
+    {% if splidejs_config.arrows %}
+      {{ {'#theme': 'splidejs_arrows'}
+            |add_suggestion('textslider')
+            |add_suggestion('paragraph--' ~ paragraph.id())
+      }}
+    {% endif %}
+  {% endblock %}
+
+  <div class="splide__track">
+    <div class="splide__list">
+      {% block items %}
+        {% for text in content.field_texts|children %}
+          {% block item %}
+            <div {{ item_attributes }}>
+              <div class="ck-content">
+                {{ text }}
+              </div>
+            </div>
+          {% endblock item %}
+        {% endfor %}
+      {% endblock %}
+    </div>
+  </div>
+
+  {% block pagination %}
+    {% if splidejs_config.pagination %}
+      <ul {{ pagination_attributes }}></ul>
+    {% endif %}
+  {% endblock %}
+{% endblock %}

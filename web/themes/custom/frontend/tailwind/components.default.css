@@ -44,16 +44,54 @@
     @apply inline-svg w-[1.5em];
   }
 
-  :where(.paragraph--type--icon) {
-    :where(.field--view-mode--original) {
-      &.field--bundle--icon {
-        img {
-          width: auto;
-          @apply mx-auto;
-        }
-      }
+  .paragraph--type--icon {
+    :where(.field--name--field_media_svg svg, .field--name--field_media_svg img) {
+      @apply mx-auto;
+    }
+    :where(.field--name--field_media_svg.field--view-mode--original img) {
+      width: auto;
     }
   }
+
+  /**
+   * ###################################################################################################################
+   * Splide pagination bullets
+   * (add a div inside a Twig comment with appropriate elements and classes for TailwindCSS discoverability!)
+   * ###################################################################################################################
+   */
+   .splide__pagination {
+    --bullet-width: 14px;
+    --bullet-height: var(--bullet-width);
+    gap: 1rem;
+
+    :where(li) {
+      width: var(--bullet-width);
+      height: var(--bullet-height);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @apply bg-foreground;
+    }
+
+    :where(button) {
+      width: calc(var(--bullet-width) - 2px);
+      height: calc(var(--bullet-height) - 2px);
+      @apply bg-foreground;
+    }
+
+    :where(button[aria-selected="true"]) {
+      @apply bg-onforeground;
+    }
+
+    &:where(:not(.textslider-pagination)) {
+      position: absolute;
+      bottom: 5%;
+      z-index: 10;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
 
   /**
    * ###################################################################################################################

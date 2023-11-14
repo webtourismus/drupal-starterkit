@@ -1,17 +1,16 @@
 {# @see "@system/templates/menu.html.twig" #}
 
-{% macro menu_links(items, attributes, menu_level) %}
-  {% import _self as menus %}
+{% macro menu_links(items, attributes, menu_level, li_classes=[], a_classes=[]) %}
+  {% import _self as menu %}
   {% if items %}
-    {% set ul_attributes = create_attribute(attributes.toArray()) %}
-    <ul {{ ul_attributes }}>
+    <ul {{ attributes }}>
     {% for item in items %}
-      {% set li_attributes = create_attribute(item.attributes.toArray()) %}
+      {% set li_attributes = create_attribute(item.attributes.toArray() ?? []).addClass(li_classes) %}
       <li {{ li_attributes }}>
-        {% set a_attributes = create_attribute(item.url.getOption('attributes') ?? []) %}
+        {% set a_attributes = create_attribute(item.url.getOption('attributes') ?? []).addClass(a_classes) %}
         {{ link(item.title, item.url, a_attributes) }}
         {% if item.below %}
-          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+          {{ menu.menu_links(item.below, attributes, menu_level + 1, li_classes, a_classes) }}
         {% endif %}
       </li>
     {% endfor %}
@@ -19,6 +18,6 @@
   {% endif %}
 {% endmacro %}
 
-{% import _self as menus %}
+{% import _self as menu %}
 
-{{ menus.menu_links(items, attributes, 0) }}
+{{ menu.menu_links(items, attributes, 0) }}

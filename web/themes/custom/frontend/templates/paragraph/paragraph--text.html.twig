@@ -1,0 +1,12 @@
+{% extends "@frontend/paragraph/paragraph.html.twig" %}
+{% set attributes = attributes.addClass([
+  'flex',
+  'flex-col',
+  'align-stretch',
+  'justify-start',
+  'relative',
+]) %}
+{% set paragraph_colorschema = paragraph.getBehaviorSetting('inline_style_options', 'colorschema_paragraph').html_attribute %}
+{% if paragraph_colorschema %}
+  {% set attributes = attributes.addClass('p-4') %}
+{% endif %}

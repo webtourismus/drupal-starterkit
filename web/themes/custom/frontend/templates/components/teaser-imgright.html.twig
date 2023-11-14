@@ -1,2 +1,6 @@
 {% extends '@frontend/components/teaser-imgleft.html.twig' %}
 
+{% block images %}
+  {% set images_attributes = images_attributes.addClass("#{linkblock_bp}:order-2") %}
+  {{ parent() }}
+{% endblock %}

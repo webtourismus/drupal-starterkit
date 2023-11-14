@@ -31,4 +31,4 @@ handlers:
   mail_siteowner:
     settings:
       subject: 'Table booking [webform_submission:values:date] [webform_submission:values:time], [webform_submission:values:persons] pers.'
-      body: '<p>_default</p>'
+      body: '<p>Please confirm this table booking:</p><p>[webform_submission:values]</p>'

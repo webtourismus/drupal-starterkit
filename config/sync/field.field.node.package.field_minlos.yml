@@ -28,5 +28,5 @@ settings:
   min: null
   max: null
   prefix: ''
-  suffix: Nacht|Nächte
+  suffix: ' Nacht| Nächte'
 field_type: integer

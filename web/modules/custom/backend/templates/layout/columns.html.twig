@@ -2,12 +2,12 @@
 
 {% set attributes = attributes.addClass('flex', 'flex-row', 'flex-wrap') %}
 {% for key, region_attribute in region_attributes %}
-  {% set region_attribute = region_attribute.addClass('flex', 'flex-col', 'items-strech') %}
+  {% set region_attribute = region_attribute.addClass('flex', 'flex-col', 'items-stretch') %}
 {% endfor %}
 
 {% block regions %}
   {% for key, region in content|children %}
-    <div {{ region_attributes[key] }}>
+    <div {{ region_attributes[key]|replace({'&amp;': '&', '&gt;': '>'})|raw }}>
       {% block region %}
         {{ region }}
       {% endblock region %}

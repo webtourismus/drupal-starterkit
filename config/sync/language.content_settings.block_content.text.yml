@@ -14,5 +14,5 @@ third_party_settings:
 id: block_content.text
 target_entity_type_id: block_content
 target_bundle: text
-default_langcode: site_default
+default_langcode: de
 language_alterable: false

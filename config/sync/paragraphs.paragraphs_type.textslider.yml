@@ -1,11 +1,11 @@
-uuid: 2a00c3c4-7e19-4187-bb4a-a7307529b7b4
+uuid: d69d60ab-5356-42cb-a8d0-8f8ed75f91ab
 langcode: de
 status: true
 dependencies:
   module:
     - designsystem
-id: text
-label: Text
+id: textslider
+label: Textslider
 icon_uuid: null
 icon_default: null
 description: ''

@@ -1,1 +1,15 @@
 {% extends '@frontend/components/teaser.html.twig' %}
+
+{% block teaserable %}
+  {% set attributes = attributes.addClass('cs-darkimg', 'relative') %}
+  {{ parent() }}
+{% endblock %}
+
+{% block texts %}
+  {% set texts_attributes = texts_attributes.addClass('absolute', 'top-1/2', '-translate-y-1/2', 'w-full', 'px-4') %}
+  {{ parent() }}
+{% endblock %}
+
+{% block link_wrapper %}{% endblock %}
+
+{% block text_product %}{% endblock %}
