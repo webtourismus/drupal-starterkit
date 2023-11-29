@@ -30,13 +30,4 @@
     }
   };
 
-  /*
-  Drupal.behaviors.document_ready_behavior = {
-    attach: function (context, settings) {
-      once('document_ready_behavior', document.documentElement, context).forEach(() => {
-        console.log('This behavior will be fired only once after page load.');
-      });
-    }
-  };
-  */
 }(Drupal, drupalSettings, once));

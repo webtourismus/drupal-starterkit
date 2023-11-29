@@ -83,6 +83,9 @@
       "./vendor/bin/robo kickoff:init-dev",
       "./vendor/bin/robo kickoff:install-drupal",
       "./vendor/bin/robo kickoff:init-git"
+    ],
+    "post-update-cmd": [
+      "cp ./web/modules/contrib/maintenance/src/Robo/RoboFile.php ./"
     ]
   },
   "extra": {
@@ -93,9 +96,6 @@
       "file-mapping": {
         "[web-root]/sites/default/default.settings.php": {
           "append": "./private/scaffold/default.settings.php.append"
-        },
-        "RoboFile.php": {
-          "path": "./web/modules/contrib/maintenance/src/Robo/RoboFile.php"
         }
       }
     },
@@ -172,6 +172,6 @@
     }
   },
   "require": {
-    "webtourismus/drupal-metapackage": "^0.9.41"
+    "webtourismus/drupal-metapackage": "^0.9.45"
   }
 }

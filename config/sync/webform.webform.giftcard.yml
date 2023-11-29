@@ -1,9 +1,7 @@
 uuid: 6c00696a-b1f8-4767-9280-c2a992305a6e
 langcode: de
 status: closed
-dependencies:
-  module:
-    - google_tag
+dependencies: {  }
 weight: 0
 open: null
 close: null
@@ -387,13 +385,4 @@ handlers:
       theme_name: frontend
       parameters: {  }
       debug: false
-  google_tag_purchase_event:
-    id: google_tag_webform_purchase
-    handler_id: google_tag_purchase_event
-    label: 'Google Tag: Purchase event'
-    notes: ''
-    status: true
-    conditions: {  }
-    weight: 0
-    settings: {  }
 variants: {  }
