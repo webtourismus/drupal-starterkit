@@ -17,12 +17,39 @@
     --color-flashyhocus: rgb(var(--rgb-color-flashyhocus));
   }
   .cookiesjsr-banner {
+    width: 100%;
     @apply cs-neutral-900;
     --banner-bg-color: var(--color-background);
     --banner-font-color: var(--color-foreground);
+    --btn-font-color: var(--color-foreground);
+    --btn-bg-color: transparent;
+    --btn-border-color: var(--color-foreground);
     --btn-prime-font-color: var(--color-onflashy);
     --btn-prime-bg-color: var(--color-flashy);
-    --btn-prime-border-color: transparent;
+    --btn-prime-border-color: var(--color-flashy);
+  }
+  .cookiesjsr-banner--action {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.625rem;
+  }
+  .cookiesjsr-btn {
+    width: auto;
+    margin: 0;
+    padding: 0 0.625rem;
+    border-width: 2px;
+    border-style: solid;
+  }
+  .cookiesjsr-btn.save, .cookiesjsr-btn.denyAll, .cookiesjsr-btn.save {
+    color: var(--btn-font-color);
+    background-color: var(--btn-bg-color);
+    border-color: var(--btn-font-color);
+  }
+  .cookiesjsr-btn.allowAll {
+    display: inline-block;
+    color: var(--btn-prime-font-color);
+    background-color: var(--btn-prime-bg-color);
+    border-color: var(--btn-prime-border-color);
   }
   .cookiesjsr-layer {
     @apply cs-neutral-100;
@@ -31,12 +58,19 @@
     --layer-body-bg-color: var(--color-background);
     --layer-footer-bg-color: var(--color-background);
     --layer-footer-font-color: var(--color-foreground);
-    --btn-inv-font-color: var(--color-foreground);
-    --btn-inv-border-color: var(--color-foreground);
-    --btn-inv-bg-color: transparent;
-    --btn-prime-inv-font-color: var(--color-onflashy);
-    --btn-prime-inv-bg-color: var(--color-flashy);
-    --btn-prime-inv-border-color: transparent;
+    --btn-font-color: var(--color-foreground);
+    --btn-bg-color: transparent;
+    --btn-border-color: var(--color-foreground);
+    --btn-prime-font-color: var(--color-onflashy);
+    --btn-prime-bg-color: var(--color-flashy);
+    --btn-prime-border-color: var(--color-flashy);
+  }
+  .cookiesjsr-layer--actions {
+    gap: 0.625rem;
+
+    .cookiesjsr-btn.save {
+      order: -1;
+    }
   }
   .cookiesjsr-service-group {
     @apply cs-white;
@@ -51,5 +85,13 @@
   }
   .cookiesjsr-service--description h3 {
     all: unset;
+  }
+  @media (min-width: 1200px) {
+    .cookiesjsr-banner--action {
+      grid-template-columns: 1fr 1fr;
+    }
+    .cookiesjsr-btn.allowAll {
+      grid-column: 1 / -1;
+    }
   }
 }
