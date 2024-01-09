@@ -4,12 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.text.field_text
-    - field.field.paragraph.text.field_viewmode
     - paragraphs.paragraphs_type.text
   module:
     - allowed_formats
     - text
-    - view_mode_switch
 id: paragraph.text.default
 targetEntityType: paragraph
 bundle: text
@@ -26,12 +24,6 @@ content:
       allowed_formats:
         hide_help: '1'
         hide_guidelines: '1'
-  field_viewmode:
-    type: view_mode_switch
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   created: true
   seasonal: true

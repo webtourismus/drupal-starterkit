@@ -46,8 +46,10 @@ settings:
       enabled_headings:
         - heading1
     ckeditor5_list:
-      reversed: true
-      startIndex: true
+      properties:
+        reversed: true
+        startIndex: true
+      multiBlock: true
     ckeditor5_sourceEditing:
       allowed_tags:
         - '<h1 class id data-*>'
@@ -56,7 +58,7 @@ settings:
         - '<p class id data-*>'
         - '<div class id data-*>'
         - '<ul class id data-*>'
-        - '<ol reversed start class id data-*>'
+        - '<ol class id data-*>'
         - '<li class id data-*>'
         - '<strong class id data-*>'
         - '<em class id data-*>'

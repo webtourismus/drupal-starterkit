@@ -8,6 +8,7 @@
   {% import _self as menu %}
   {% if items %}
     {% set ul_attributes = create_attribute(attributes.toArray()) %}
+    {% set ul_attributes = ul_attributes.setAttribute('data-menu-level', menu_level) %}
     {% if menu_level == 1 %}
       {% set ul_attributes = ul_attributes.addClass([])
         .setAttribute('x-cloak', '')

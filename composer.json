@@ -140,8 +140,8 @@
         "3348475 - Integration with Geolocation field module": "./private/patches/cookies_3348475_mr89_73c5646f.patch"
       },
       "drupal/core": {
-        "2546212 - Make field formatter settings translatable": "./private/patches/core_2546212_patch219.patch",
-        "3004334 - Hide warning message for hidden untranslatable fields": "./private/patches/core_3004334_patch21.patch",
+        "2546212 - Make field formatter settings translatable": "./private/patches/core_2546212_patch269.patch",
+        "3004334 - Hide warning message for hidden untranslatable fields": "./private/patches/core_3004334_minimal_fix_10.2.x.patch",
         "3345064 - Media library field_widget_id is not unique enough": "./private/patches/core_3345064_patch3.patch",
         "3394889 - Show update messages only to user ID 1": "./private/patches/core_3394889_commit_7b7cb11b.patch"
       },
@@ -172,6 +172,6 @@
     }
   },
   "require": {
-    "webtourismus/drupal-metapackage": "^1.0.0"
+    "webtourismus/drupal-metapackage": "^1.0.1"
   }
 }

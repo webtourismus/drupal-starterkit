@@ -6,5 +6,6 @@ dependencies:
     - paragraphs
 id: paragraph.masonry
 label: Mauerwerk
+description: ''
 targetEntityType: paragraph
 cache: true

@@ -1,0 +1,22 @@
+{##
+ # By default we don't need this, because blocks placed in theme regions
+ # get their template suggestions from the core block module.
+ # Therefore by default this is an wrapper-less, content-only template.
+ #
+ # But if custom content block entites are used outside page regions
+ # (e.g. placed in the header of a views page or in an entity reference field),
+ # then the block module does not offer template suggestions for block_content entities.
+ #
+ # In those cases create a corresponding override template in this directory.
+ #
+ # Available variables:
+ # - block_content      the content entity
+ # - id                 numeric block content id
+ # - bundle             entity bundle type
+ # - view_mode          the display mode
+ # - attributes         attributes object with some default classes
+ # - content            the rendered content (Drupal render array)
+ #
+ # @see https://www.drupal.org/project/block_content_template
+ #}
+{{ content }}

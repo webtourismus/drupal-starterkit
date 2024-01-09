@@ -6,5 +6,6 @@ dependencies:
     - media
 id: media.admin_list
 label: 'Admin List'
+description: ''
 targetEntityType: media
 cache: true

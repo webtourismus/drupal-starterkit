@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.paragraph.decorated
     - field.field.paragraph.text.field_text
-    - field.field.paragraph.text.field_viewmode
     - paragraphs.paragraphs_type.text
   module:
     - text
@@ -22,5 +21,4 @@ content:
     weight: 0
     region: content
 hidden:
-  field_viewmode: true
   seasonal: true

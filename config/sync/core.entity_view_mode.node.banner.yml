@@ -6,5 +6,6 @@ dependencies:
     - node
 id: node.banner
 label: 'Banner (viewmode switcher origin)'
+description: ''
 targetEntityType: node
 cache: true

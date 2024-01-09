@@ -6,5 +6,6 @@ dependencies:
     - node
 id: node.banner_scale
 label: 'Banner skalierend'
+description: ''
 targetEntityType: node
 cache: true

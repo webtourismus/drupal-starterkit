@@ -6,5 +6,6 @@ dependencies:
     - paragraphs
 id: paragraph.banner_sm
 label: 'Banner klein'
+description: ''
 targetEntityType: paragraph
 cache: true

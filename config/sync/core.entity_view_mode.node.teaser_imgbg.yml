@@ -6,5 +6,6 @@ dependencies:
     - node
 id: node.teaser_imgbg
 label: 'Teaser (Bild als Hintergrund)'
+description: ''
 targetEntityType: node
 cache: true

@@ -363,6 +363,8 @@ options:
     input_type: textfield
     description: 'For experienced users only. CSS classes provided by <a href="https://tailwindcss.com/docs" target="blank">TailwindCSS.</a>'
     weight: 9100
+    form_api:
+      '#maxlength': 4000
   tailwind_classes_width_wrapper:
     plugin: html_attribute
     label: 'Advanced styling options for the width container'
@@ -371,6 +373,8 @@ options:
     input_type: textfield
     description: 'For experienced users only. CSS classes provided by <a href="https://tailwindcss.com/docs" target="blank">TailwindCSS.</a>'
     weight: 9110
+    form_api:
+      '#maxlength': 4000
   tailwind_classes_layout_and_region:
     plugin: html_attribute
     label: 'Advanced styling options for this container'
@@ -378,6 +382,8 @@ options:
     input_type: textfield
     description: 'For experienced users only. CSS classes provided by <a href="https://tailwindcss.com/docs" target="blank">TailwindCSS.</a>'
     weight: 9120
+    form_api:
+      '#maxlength': 4000
   column_width:
     plugin: responsive_class
     weight: -950

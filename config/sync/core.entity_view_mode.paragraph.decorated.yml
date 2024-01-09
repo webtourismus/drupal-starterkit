@@ -6,5 +6,6 @@ dependencies:
     - paragraphs
 id: paragraph.decorated
 label: Dekoriert
+description: ''
 targetEntityType: paragraph
 cache: true

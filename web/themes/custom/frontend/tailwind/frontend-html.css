@@ -22,3 +22,43 @@
 /**
  * Rules for client-side-rendered frontend HTML outside @layer directives should follow here.
  */
+
+
+/**
+  * ###################################################################################################################
+  * Splide pagination bullets
+  * ###################################################################################################################
+  */
+.splide__pagination {
+  --bullet-width: 14px;
+  --bullet-height: var(--bullet-width);
+  --bullet-border: 2px;
+  gap: 1rem;
+
+  :where(li) {
+    width: var(--bullet-width);
+    height: var(--bullet-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @apply bg-foreground;
+  }
+
+  :where(button) {
+    width: calc(var(--bullet-width) - var(--bullet-border));
+    height: calc(var(--bullet-height) - var(--bullet-border));
+    @apply bg-foreground hocus:bg-onforeground;
+  }
+
+  :where(button[aria-selected="true"]) {
+    @apply bg-onforeground;
+  }
+
+  &:where(:not(.textslider-pagination)) {
+    position: absolute;
+    bottom: 5%;
+    z-index: 10;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

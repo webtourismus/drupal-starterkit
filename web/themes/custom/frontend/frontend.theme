@@ -38,6 +38,11 @@ function frontend_preprocess_block(array &$variables): void {
   _frontend_preprocess_block_menu($variables);
 }
 
+
+/**
+ * Preprocess function for block_content blocks
+ * (placed inside a theme's region with Drupal core's block layout).
+ */
 function _frontend_preprocess_block_blockcontent(array &$variables): void {
   if ($variables['base_plugin_id'] !== 'block_content') {
     return;
@@ -46,6 +51,18 @@ function _frontend_preprocess_block_blockcontent(array &$variables): void {
   // This allows editors to edit and translate block titles.
   if (!empty($variables['label'])) {
     $variables['label'] = $variables['content']['#block_content']->label();
+  }
+}
+
+/**
+ * Preprocess function for block_content entities,
+ * also including block_content entities not placed with Drupal core's block layout.
+ *
+ * @see https://www.drupal.org/project/block_content_template
+ */
+function frontend_preprocess_block_content(&$variables) {
+  if (isset($variables['elements']['#block_content'])) {
+    $variables['block_content'] = $variables['elements']['#block_content'];
   }
 }
 

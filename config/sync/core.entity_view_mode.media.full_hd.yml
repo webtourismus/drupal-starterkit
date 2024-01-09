@@ -6,5 +6,6 @@ dependencies:
     - media
 id: media.full_hd
 label: 'Full HD'
+description: ''
 targetEntityType: media
 cache: true

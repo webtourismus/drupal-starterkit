@@ -29,6 +29,39 @@ name: 'Basic HTML'
 format: basic_html
 weight: 0
 filters:
+  codemirror_editor:
+    id: codemirror_editor
+    provider: codemirror_editor
+    status: false
+    weight: -45
+    settings:
+      lineWrapping: false
+      lineNumbers: true
+      foldGutter: false
+  editor_file_reference:
+    id: editor_file_reference
+    provider: editor
+    status: false
+    weight: -44
+    settings: {  }
+  filter_align:
+    id: filter_align
+    provider: filter
+    status: true
+    weight: -43
+    settings: {  }
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: false
+    weight: -42
+    settings: {  }
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: false
+    weight: -41
+    settings: {  }
   filter_html:
     id: filter_html
     provider: filter
@@ -38,6 +71,50 @@ filters:
       allowed_html: '<br class id data-*> <p class id data-*> <span class id data-*> <a class id data-* target rel href> <div class id data-*> <ul class id data-*> <ol class id data-* reversed start> <li class id data-*> <strong class id data-*> <em class id data-*> <u class id data-*> <drupal-media data-entity-type data-entity-uuid alt id class data-view-mode data-align>'
       filter_html_help: false
       filter_html_nofollow: false
+  filter_html_escape:
+    id: filter_html_escape
+    provider: filter
+    status: false
+    weight: -46
+    settings: {  }
+  filter_html_image_secure:
+    id: filter_html_image_secure
+    provider: filter
+    status: false
+    weight: -39
+    settings: {  }
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: -35
+    settings: {  }
+  filter_image_lazy_load:
+    id: filter_image_lazy_load
+    provider: filter
+    status: false
+    weight: -47
+    settings: {  }
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: false
+    weight: -40
+    settings:
+      filter_url_length: 72
+  header1:
+    id: header1
+    provider: designsystem
+    status: false
+    weight: -38
+    settings: {  }
+  linkit:
+    id: linkit
+    provider: linkit
+    status: true
+    weight: -49
+    settings:
+      title: true
   media_embed:
     id: media_embed
     provider: media
@@ -64,70 +141,11 @@ filters:
       allowed_media_types:
         image: image
         vector_image: vector_image
-  filter_htmlcorrector:
-    id: filter_htmlcorrector
-    provider: filter
-    status: true
-    weight: -35
-    settings: {  }
-  codemirror_editor:
-    id: codemirror_editor
-    provider: codemirror_editor
+  responsive_table:
+    id: responsive_table
+    provider: designsystem
     status: false
-    weight: -45
-    settings:
-      lineWrapping: false
-      lineNumbers: true
-      foldGutter: false
-  filter_url:
-    id: filter_url
-    provider: filter
-    status: false
-    weight: -40
-    settings:
-      filter_url_length: 72
-  linkit:
-    id: linkit
-    provider: linkit
-    status: true
-    weight: -49
-    settings:
-      title: true
-  editor_file_reference:
-    id: editor_file_reference
-    provider: editor
-    status: false
-    weight: -44
-    settings: {  }
-  filter_align:
-    id: filter_align
-    provider: filter
-    status: true
-    weight: -43
-    settings: {  }
-  filter_autop:
-    id: filter_autop
-    provider: filter
-    status: false
-    weight: -42
-    settings: {  }
-  filter_caption:
-    id: filter_caption
-    provider: filter
-    status: false
-    weight: -41
-    settings: {  }
-  filter_html_escape:
-    id: filter_html_escape
-    provider: filter
-    status: false
-    weight: -46
-    settings: {  }
-  filter_html_image_secure:
-    id: filter_html_image_secure
-    provider: filter
-    status: false
-    weight: -39
+    weight: -37
     settings: {  }
   token_filter:
     id: token_filter
@@ -136,21 +154,3 @@ filters:
     weight: -36
     settings:
       replace_empty: '1'
-  filter_image_lazy_load:
-    id: filter_image_lazy_load
-    provider: filter
-    status: false
-    weight: -47
-    settings: {  }
-  header1:
-    id: header1
-    provider: designsystem
-    status: false
-    weight: -38
-    settings: {  }
-  responsive_table:
-    id: responsive_table
-    provider: designsystem
-    status: false
-    weight: -37
-    settings: {  }

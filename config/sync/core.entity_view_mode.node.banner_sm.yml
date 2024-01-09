@@ -6,5 +6,6 @@ dependencies:
     - node
 id: node.banner_sm
 label: 'Banner klein'
+description: ''
 targetEntityType: node
 cache: true

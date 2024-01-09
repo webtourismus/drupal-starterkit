@@ -1,0 +1,12 @@
+diff --git a/core/modules/content_translation/src/ContentTranslationHandler.php b/core/modules/content_translation/src/ContentTranslationHandler.php
+index b4911b60af..20e5ef70ac 100644
+--- a/core/modules/content_translation/src/ContentTranslationHandler.php
++++ b/core/modules/content_translation/src/ContentTranslationHandler.php
+@@ -616,7 +616,6 @@ public function entityFormSharedElements($element, FormStateInterface $form_stat
+             // Hide widgets for untranslatable fields.
+             if ($hide_untranslatable_fields && isset($field_definitions[$key])) {
+               $element[$key]['#access'] = FALSE;
+-              $display_warning = TRUE;
+             }
+           }
+           else {

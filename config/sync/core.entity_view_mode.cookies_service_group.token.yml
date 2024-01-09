@@ -6,5 +6,6 @@ dependencies:
     - cookies
 id: cookies_service_group.token
 label: Token
+description: ''
 targetEntityType: cookies_service_group
 cache: true

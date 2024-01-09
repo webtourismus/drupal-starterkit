@@ -6,5 +6,6 @@ dependencies:
     - node
 id: node.banner_lg
 label: 'Banner groß'
+description: ''
 targetEntityType: node
 cache: true

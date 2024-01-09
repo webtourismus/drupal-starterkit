@@ -6,5 +6,6 @@ dependencies:
     - paragraphs
 id: paragraph.banner_lg
 label: 'Banner groß'
+description: ''
 targetEntityType: paragraph
 cache: true

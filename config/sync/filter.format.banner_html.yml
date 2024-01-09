@@ -29,21 +29,6 @@ name: 'Banner HTML'
 format: banner_html
 weight: 0
 filters:
-  filter_html:
-    id: filter_html
-    provider: filter
-    status: true
-    weight: -50
-    settings:
-      allowed_html: '<br class id data-*> <p class id data-*> <h1 class id data-*> <span class id data-*> <a class id data-* target rel href> <div class id data-*> <ul class id data-*> <ol reversed start class id data-*> <li class id data-*> <strong class id data-*> <em class id data-*> <u class id data-*> <hr class id data-*> <drupal-media data-entity-type data-entity-uuid alt data-view-mode data-align>'
-      filter_html_help: true
-      filter_html_nofollow: false
-  filter_htmlcorrector:
-    id: filter_htmlcorrector
-    provider: filter
-    status: true
-    weight: -45
-    settings: {  }
   codemirror_editor:
     id: codemirror_editor
     provider: codemirror_editor
@@ -53,6 +38,63 @@ filters:
       lineWrapping: false
       lineNumbers: true
       foldGutter: false
+  editor_file_reference:
+    id: editor_file_reference
+    provider: editor
+    status: false
+    weight: -42
+    settings: {  }
+  filter_align:
+    id: filter_align
+    provider: filter
+    status: true
+    weight: -48
+    settings: {  }
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: false
+    weight: -40
+    settings: {  }
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: false
+    weight: -39
+    settings: {  }
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -50
+    settings:
+      allowed_html: '<br class id data-*> <p class id data-*> <h1 class id data-*> <span class id data-*> <a class id data-* target rel href> <div class id data-*> <ul class id data-*> <ol reversed start class id data-*> <li class id data-*> <strong class id data-*> <em class id data-*> <u class id data-*> <hr class id data-*> <drupal-media data-entity-type data-entity-uuid alt data-view-mode data-align>'
+      filter_html_help: true
+      filter_html_nofollow: false
+  filter_html_escape:
+    id: filter_html_escape
+    provider: filter
+    status: false
+    weight: -44
+    settings: {  }
+  filter_html_image_secure:
+    id: filter_html_image_secure
+    provider: filter
+    status: false
+    weight: -37
+    settings: {  }
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: -45
+    settings: {  }
+  filter_image_lazy_load:
+    id: filter_image_lazy_load
+    provider: filter
+    status: false
+    weight: -41
+    settings: {  }
   filter_url:
     id: filter_url
     provider: filter
@@ -60,6 +102,12 @@ filters:
     weight: -38
     settings:
       filter_url_length: 72
+  header1:
+    id: header1
+    provider: designsystem
+    status: false
+    weight: -36
+    settings: {  }
   linkit:
     id: linkit
     provider: linkit
@@ -93,41 +141,11 @@ filters:
       allowed_media_types:
         image: image
         vector_image: vector_image
-  editor_file_reference:
-    id: editor_file_reference
-    provider: editor
+  responsive_table:
+    id: responsive_table
+    provider: designsystem
     status: false
-    weight: -42
-    settings: {  }
-  filter_align:
-    id: filter_align
-    provider: filter
-    status: true
-    weight: -48
-    settings: {  }
-  filter_autop:
-    id: filter_autop
-    provider: filter
-    status: false
-    weight: -40
-    settings: {  }
-  filter_caption:
-    id: filter_caption
-    provider: filter
-    status: false
-    weight: -39
-    settings: {  }
-  filter_html_escape:
-    id: filter_html_escape
-    provider: filter
-    status: false
-    weight: -44
-    settings: {  }
-  filter_html_image_secure:
-    id: filter_html_image_secure
-    provider: filter
-    status: false
-    weight: -37
+    weight: -35
     settings: {  }
   token_filter:
     id: token_filter
@@ -136,21 +154,3 @@ filters:
     weight: -46
     settings:
       replace_empty: '1'
-  filter_image_lazy_load:
-    id: filter_image_lazy_load
-    provider: filter
-    status: false
-    weight: -41
-    settings: {  }
-  header1:
-    id: header1
-    provider: designsystem
-    status: false
-    weight: -36
-    settings: {  }
-  responsive_table:
-    id: responsive_table
-    provider: designsystem
-    status: false
-    weight: -35
-    settings: {  }
