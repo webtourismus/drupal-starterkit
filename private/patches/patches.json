@@ -1,4 +1,5 @@
 {
+  "dummy_documentation": "external patches file is currently not used, reverted back to composer-patches:^1.7 and to internal patch declaration",
   "patches": {
     "drupal/config_entity_reference_selection": {
       "3313803 - Allow to togle between allow-list and block-list": "./private/patches/config_entity_reference_selection_3313803_mr8_0a4c786c.patch"
