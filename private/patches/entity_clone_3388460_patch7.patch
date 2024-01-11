@@ -1,0 +1,13 @@
+diff --git a/src/Form/EntityCloneForm.php b/src/Form/EntityCloneForm.php
+index 7dd6930..cbd7019 100644
+--- a/src/Form/EntityCloneForm.php
++++ b/src/Form/EntityCloneForm.php
+@@ -324,7 +324,7 @@ class EntityCloneForm extends FormBase {
+     $has_content_translation_status_field = $this->moduleHandler->moduleExists('content_translation') && $this->entityDefinitionUpdateManager->getFieldStorageDefinition('content_translation_status', $this->entityTypeDefinition->id());
+     if ($duplicate instanceof EntityPublishedInterface || $has_content_translation_status_field) {
+       if ($duplicate instanceof EntityPublishedInterface) {
+-        $status_field = 'status';
++        $status_field = $duplicate->getEntityType()->getKey('published');
+       }
+       else {
+         $status_field = 'content_translation_status';

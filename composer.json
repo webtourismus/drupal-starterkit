@@ -145,6 +145,9 @@
         "3345064 - Media library field_widget_id is not unique enough": "./private/patches/core_3345064_patch3.patch",
         "3394889 - Show update messages only to user ID 1": "./private/patches/core_3394889_commit_7b7cb11b.patch"
       },
+      "drupal/entity_clone": {
+        "3388460 - Fatal error on cloning a menu link": "./private/patches/entity_clone_3388460_patch7.patch"
+      },
       "drupal/field_group": {
         "3208592 - CSS class validation too strict": "./private/patches/field_group_3208592_mr33_758a6fbc.patch"
       },
