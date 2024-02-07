@@ -1,4 +1,4 @@
-From 1dd262b75c8da79b903b567cebbd379efeb4dd03 Mon Sep 17 00:00:00 2001
+From 53b0792f8f30a1ac59b170eefc11fb2e436d13f8 Mon Sep 17 00:00:00 2001
 From: Dieter Holvoet <dieter.holvoet@gmail.com>
 Date: Thu, 8 Sep 2022 10:08:17 +0200
 Subject: [PATCH 1/4] Show correct entity operation in breadcrumb
@@ -147,7 +147,7 @@ index 9e976e5a..3c2d72d1 100644
 GitLab
 
 
-From 9531a096dc812902d10914a77534ae0f55c4734d Mon Sep 17 00:00:00 2001
+From 49a7662545f6b45131c64a019a0dff93f1675a40 Mon Sep 17 00:00:00 2001
 From: Dieter Holvoet <dieter.holvoet@gmail.com>
 Date: Thu, 3 Nov 2022 11:18:02 +0100
 Subject: [PATCH 2/4] Add cacheability metadata
@@ -265,7 +265,7 @@ index 3c2d72d1..6b0672a9 100644
 GitLab
 
 
-From 0cced8266978c163d4db0e1c15cc1c0fc968c24f Mon Sep 17 00:00:00 2001
+From 278d7e2c5854491a2be290858314d5f00c59947b Mon Sep 17 00:00:00 2001
 From: Dieter Holvoet <dieter.holvoet@gmail.com>
 Date: Thu, 10 Nov 2022 14:33:13 +0100
 Subject: [PATCH 3/4] Fix 'Error: Call to a member function label() on null in
@@ -296,7 +296,7 @@ index 6b0672a9..d25c244b 100644
 GitLab
 
 
-From 759125974012ebc49f71a279e36834c8b0f17636 Mon Sep 17 00:00:00 2001
+From 3d9e901e8869ec4b053308dc49dadda9d7e627d0 Mon Sep 17 00:00:00 2001
 From: Dieter Holvoet <dieter.holvoet@gmail.com>
 Date: Wed, 18 Jan 2023 14:57:36 +0100
 Subject: [PATCH 4/4] Add missing access check for edit link in secondary

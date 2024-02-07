@@ -1,15 +1,15 @@
 {% extends '@frontend/components/teaser.html.twig' %}
 
 {% block teaserable %}
-  {% set attributes = attributes.addClass('cs-darkimg', 'relative') %}
+  {% set attributes = attributes.addClass('[grid-template-columns:1fr]', 'cs-darkimg', 'relative') %}
+  {% set attributes = attributes.removeClass(paragraph_columns.prefix ~ ':' ~ paragraph_columns.classes) %}
+  {% set attributes = attributes.removeClass(paragraph_gap|split(' ')) %}
+  {% set texts_attributes = texts_attributes.addClass('absolute', 'bottom-8', 'w-full', 'px-4', 'text-center') %}
+
   {{ parent() }}
 {% endblock %}
 
-{% block texts %}
-  {% set texts_attributes = texts_attributes.addClass('absolute', 'top-1/2', '-translate-y-1/2', 'w-full', 'px-4') %}
-  {{ parent() }}
-{% endblock %}
-
+{# read more links and product attributes are always suppressed #}
 {% block link_wrapper %}{% endblock %}
 
 {% block text_product %}{% endblock %}

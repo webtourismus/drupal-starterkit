@@ -83,38 +83,45 @@
 
 {% set entity = paragraph ?? node %}
 {% if paragraph %}
-  {% set paragraph_colorschema = paragraph.getBehaviorSetting('inline_style_options', 'colorschema_paragraph').html_attribute %}
   {% set layout = _context['#layout_paragraphs'] %}
+  {# Style options from paragraph behaviors. These need post-processing in view mode child templates. #}
+  {% set paragraph_colorschema = paragraph.getBehaviorSetting('inline_style_options', 'colorschema_paragraph').html_attribute %}
+  {% set paragraph_columns = paragraph.getBehaviorSetting('inline_style_options', 'column_width_paragraph').responsive_class %}
+  {% set paragraph_gap = paragraph.getBehaviorSetting('inline_style_options', 'layout_gap_horizontal').html_attribute %}
 {% endif %}
 {% set reference = entity.getReferencedEntity() ?? entity %}
 {% set bundle = entity.bundle() %}
 
-{% set images_attributes = create_attribute({'class': ['teaserable-images']}) %}
+{% set attributes = attributes.addClass(['grid']) %}
+{% if paragraph_colorschema is empty %}
+  {% set attributes = attributes.addClass(['gap-y-6']) %}
+{% endif %}
+
+{% set images_attributes = create_attribute({'class': ['teaserable-images', 'self-center']}) %}
 {% if entity.bundle() != 'icon' %}
+  {# by default use white foreground (text and arrows) above images #}
   {% set images_attributes = images_attributes.addClass('cs-darkimg') %}
 {% endif %}
 
-{% if bundle == 'icon' %}
-  {# contrary to images SVG icons don't have 100% width all the time #}
-  {% set attributes = attributes.addClass(['flex', 'items-center']) %}
-  {% set images_attributes = images_attributes.addClass(['grow-0', 'shrink-0', 'max-w-full']) %}
-{% endif %}
-
 {% set texts_attributes = create_attribute({
-  'class': ['teaserable-texts', 'flex', 'flex-col', 'items-stretch'],
+  'class': ['teaserable-texts', 'flex', 'flex-row', 'items-stretch'],
 }) %}
-{% if paragraph_colorschema and bundle == 'linkblock' %}
+{% set text_background_attributes = create_attribute({
+  'class': ['teaserable-text-background', 'w-full', 'flex', 'flex-col', 'items-stretch', 'gap-4']
+}) %}
+{% if paragraph_colorschema %}
   {# linkblocks might have a background color, but only for the text area, the cs-class must be moved downwards #}
   {% set attributes = attributes.removeClass(paragraph_colorschema) %}
+  {% set attributes = attributes.removeClass(paragraph_colorschema) %}
   {% if view_mode in ['teaser', 'teaser_imgtop', 'teaser_imgleft', 'teaser_imgright'] %}
-    {% set texts_attributes = texts_attributes.addClass([paragraph_colorschema, 'p-4']) %}
+    {% set text_background_attributes = text_background_attributes.addClass([paragraph_colorschema, 'p-4']) %}
   {% endif %}
 {% endif %}
 {% set text_wrapper_attributes = create_attribute({
   'class': ['teaserable-text-wrapper', 'flex', 'flex-col', 'items-stretch', 'gap-4'],
 }) %}
 
-{% set title_attributes = create_attribute({'class': ['teaserable-title']}) %}
+{% set title_attributes = create_attribute({'class': ['teaserable-title', 'h4']}) %}
 
 {% set product_attributes = create_attribute({
   'class': ['teaserable-product', 'w-full', 'flex', 'flex-wrap', 'gap-4', 'children:w-auto', 'children:nowrap'],
@@ -137,58 +144,69 @@
 
 
 {% block teaserable %}
-  <div {{ attributes }}>
+  {# Hack to render "&" and ">" from Tailwind class names like "[&>.child]:text-center". #}
+  <div class="{{ attributes.class|replace({'&amp;': '&', '&gt;': '>'})|raw }}" {{attributes|without('class')}}>
     {% block images %}
-    <div {{ images_attributes }}>
-      {{ content[entity.getTeaserImagesField.getName] }}
-    </div>
-    {% endblock %}
+      <div {{ images_attributes }}>
+        {{ content[entity.getTeaserImagesField.getName] }}
+      </div>
+    {% endblock images %}
 
     {% block texts %}
       <div {{ texts_attributes }}>
-        {% block text_wrapper %}
-        <div {{ text_wrapper_attributes }}>
-          {% block text_title %}
-            {% if entity.getTeaserTitleField.0.value and not(paragraph.isFieldSuppressed('field_title') ?? false) %}
-              <h3 {{ title_attributes }}>
-                {% if entity.getActionUrl('readmore') %}
-                  <a {{ title_link_attributes }}>
-                {% endif %}
-                {{ entity.getTeaserTitleField.0.value }}
-                {% if entity.getActionUrl('readmore') %}
-                  </a>
-                {% endif %}
-              </h3>
-            {% endif %}
-          {% endblock %}
-          {% block text_product %}
-            {% if entity.getProductFieldnames(view_mode) %}
-              <div {{ product_attributes }}>
-                {% for product_field in entity.getProductFieldnames(view_mode) %}
-                  {{ content[product_field] }}
-                {% endfor %}
-              </div>
-            {% endif %}
-          {% endblock %}
-          {% block text_subtitle %}
-            {{ content[entity.getTeaserSubtitleField.getName] }}
-          {% endblock %}
-          {% block text_running %}
-            {{ content[entity.getTeaserTextField.getName] }}
-          {% endblock %}
-        </div>
-        {% endblock %}
+        {% block text_background %}
+          <div {{ text_background_attributes }}>
 
-        {% block link_wrapper %}
-          {% if entity.getActionFieldnames(view_mode) %}
-            <div {{ link_wrapper_attributes }}>
-              {% for action_link in entity.getActionFieldnames(view_mode) %}
-                {{ content[action_link] }}
-              {% endfor %}
-            </div>
-          {% endif %}
-        {% endblock %}
+            {% block text_wrapper %}
+              <div {{ text_wrapper_attributes }}>
+
+                {% block text_title %}
+                  {% if entity.getTeaserTitleField.0.value and not(paragraph.isFieldSuppressed('field_title') ?? false) %}
+                    <h3 {{ title_attributes }}>
+                      {% if entity.getActionUrl('readmore') %}
+                        <a {{ title_link_attributes }}>
+                      {% endif %}
+                      {{ entity.getTeaserTitleField.0.value }}
+                      {% if entity.getActionUrl('readmore') %}
+                        </a>
+                      {% endif %}
+                    </h3>
+                  {% endif %}
+                {% endblock text_title %}
+
+                {% block text_product %}
+                  {% if entity.getProductFieldnames(view_mode) %}
+                    <div {{ product_attributes }}>
+                      {% for product_field in entity.getProductFieldnames(view_mode) %}
+                        {{ content[product_field] }}
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                {% endblock text_product %}
+
+                {% block text_subtitle %}
+                  {{ content[entity.getTeaserSubtitleField.getName] }}
+                {% endblock text_subtitle %}
+
+                {% block text_running %}
+                  {{ content[entity.getTeaserTextField.getName] }}
+                {% endblock text_running %}
+              </div>
+            {% endblock text_wrapper %}
+
+            {% block link_wrapper %}
+              {% if entity.getActionFieldnames(view_mode) %}
+                <div {{ link_wrapper_attributes }}>
+                  {% for action_link in entity.getActionFieldnames(view_mode) %}
+                    {{ content[action_link] }}
+                  {% endfor %}
+                </div>
+              {% endif %}
+            {% endblock link_wrapper %}
+
+          </div>
+        {% endblock text_background %}
       </div>
-    {% endblock %}
+    {% endblock texts %}
   </div>
-{% endblock %}
+{% endblock teaserable %}

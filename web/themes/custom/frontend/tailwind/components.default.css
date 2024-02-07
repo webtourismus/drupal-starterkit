@@ -49,7 +49,11 @@
       @apply mx-auto;
     }
     :where(.field--name--field_media_svg.field--view-mode--original img) {
-      width: auto;
+      width: fit-content;
+      max-width: none;
+    }
+    :where(.field--name--field_media_svg.field--view-mode--scale img) {
+      width: 100%;
     }
   }
 

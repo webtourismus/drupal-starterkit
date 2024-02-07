@@ -235,7 +235,7 @@ msgstr "max. Tablet Hochformat Breite"
 msgid "Custom layout width"
 msgstr "Eigene Abschnitts-Breite"
 
-msgid "Enter a CSS length unit (e.g. "500px" or "33.33%")."
+msgid "Enter a CSS length unit (e.g. \"500px\" or \"33.33%\")."
 msgstr "Eine CSS-Längeneinheit eintippen (z.B. \"500px\" oder \"33.33%\")"
 
 msgid "Min. padding to the side of the screen"
@@ -259,8 +259,8 @@ msgstr "Fortgeschrittene Style-Option für den Abschnitts-Breiten-Container"
 msgid "Advanced styling options for this container"
 msgstr "Fortgeschrittene Style-Option für diesen Container"
 
-msgid "For experienced users only. CSS classes provided by <a href="https://tailwindcss.com/docs" target="blank">TailwindCSS.</a>"
-msgstr "Nur für fortgeschrittene Benutzer. CSS Klassen von <a href="https://tailwindcss.com/docs" target="blank">TailwindCSS.</a>"
+msgid "For experienced users only. CSS classes provided by <a href=\"https://tailwindcss.com/docs\" target=\"blank\">TailwindCSS.</a>"
+msgstr "Nur für fortgeschrittene Benutzer. CSS Klassen von <a href=\"https://tailwindcss.com/docs\" target=\"blank\">TailwindCSS.</a>"
 
 msgid "Column width on tablet portrait"
 msgstr "Spaltenbreite auf Tablet Hochformat"
@@ -309,3 +309,13 @@ msgstr "Feste Höhe"
 
 msgid "Longest text (does not work in combination with images)"
 msgstr "Längster Text (funktioniert nicht in Kombination mit Bildern)"
+
+msgid "Vertical alignment of text"
+msgstr "Vertikale Ausrichtung des Texts"
+
+msgid "text top, links bottom"
+msgstr "Text oben, Verlinkungen unten"
+
+msgid "Only for designs \"Image left/right\". Only for screens larger than selected above. On smaller screens image and text and stacked below each other."
+msgstr "Nur für Design \"Bild links/rechts\". Nur für Bildschirme größer als oben ausgewählt. Auf kleineren Bildschirmen sind Bild und Text untereinander."
+

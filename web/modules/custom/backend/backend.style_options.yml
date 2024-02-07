@@ -97,6 +97,7 @@ options:
     attribute_name: class
     twig_attribute_object: '#bg_wrapper_attributes'
     input_type: select
+    default: cs-white
     options:
       <<: *colorschema_filledbg_options
       <<: *colorschema_images_options
@@ -567,8 +568,35 @@ options:
     weight: -876
     options: *gallery_thumbnail_options
     default: '1/5'
-
-
+  column_width_paragraph:
+    plugin: responsive_class
+    weight: -877
+    description: 'Only for designs "Image left/right". Only for screens larger than selected above. On smaller screens image and text and stacked below each other.'
+    prefix:
+      label: 'Column width'
+    classes:
+      label: 'Column width'
+      form_api:
+        '#label_attributes':
+          class: 'invisible'
+      input_type: select
+      options:
+        '[grid-template-columns:1fr_2fr]': 33.33% / 66.67%
+        '[grid-template-columns:2fr_3fr]': 40% / 60%
+        '[grid-template-columns:1fr_1fr]': 50% / 50%
+        '[grid-template-columns:3fr_2fr]': 60% / 40%
+        '[grid-template-columns:2fr_1fr]': 66.67% / 33.33%
+  text_alignment_paragraph:
+    plugin: html_attribute
+    label: 'Vertical alignment of text'
+    attribute_name: class
+    input_type: select
+    default: '[&_.teaserable-text-background]:justify-start'
+    options:
+      '[&_.teaserable-text-background]:justify-start': top
+      '[&_.teaserable-text-background]:justify-center': middle
+      '[&_.teaserable-text-background]:justify-end': bottom
+      '[&_.teaserable-text-background]:justify-between': text top, links bottom
 
 contexts:
   paragraphs:
@@ -591,6 +619,9 @@ contexts:
         colorschema_paragraph: true
     linkblock:
       options:
+        column_width_paragraph: true
+        layout_gap_horizontal: true
+        text_alignment_paragraph: true
         colorschema_paragraph: true
   layout:
     _defaults:

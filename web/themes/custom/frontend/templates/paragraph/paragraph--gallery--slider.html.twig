@@ -1,8 +1,10 @@
 {% extends "@frontend/paragraph/paragraph.html.twig" %}
-{% set attributes = attributes.addClass([
+ {# undo negative margin here, only used by grid and masonry, because they have subtiles #}
+ {% set attributes = attributes.addClass([
   'splide',
   'components:w-full',
   'components:display-block',
+  '!mx-0',
 ]) %}
 {% set splidejs_config = {
   'type': 'loop',

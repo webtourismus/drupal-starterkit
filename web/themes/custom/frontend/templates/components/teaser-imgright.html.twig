@@ -1,6 +1,12 @@
 {% extends '@frontend/components/teaser-imgleft.html.twig' %}
 
-{% block images %}
-  {% set images_attributes = images_attributes.addClass("#{linkblock_bp}:order-2") %}
+{% block teaserable %}
+  {% if entity.bundle == 'icon' %}
+    {% set attributes = attributes.addClass('sm:[grid-template-columns:1fr_min-content]') %}
+    {% set images_attributes = images_attributes.addClass('sm:order-last') %}
+  {% else %}
+    {% set images_attributes = images_attributes.addClass(paragraph_columns.prefix ~ ':order-2') %}
+  {% endif %}
+
   {{ parent() }}
 {% endblock %}
