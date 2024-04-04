@@ -36,12 +36,12 @@ content:
     weight: 1
     region: content
   field_link:
-    type: link_separate
+    type: link
     label: above
     settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
+      trim_length: 30
+      url_only: true
+      url_plain: true
       rel: '0'
       target: _blank
     third_party_settings: {  }

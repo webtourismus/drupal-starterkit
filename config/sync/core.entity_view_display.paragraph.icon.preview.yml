@@ -15,7 +15,7 @@ dependencies:
     - paragraphs.paragraphs_type.icon
   module:
     - field_formatter_range
-    - linkit
+    - link
     - text
 id: paragraph.icon.preview
 targetEntityType: paragraph
@@ -36,15 +36,14 @@ content:
     weight: 0
     region: content
   field_link:
-    type: linkit
-    label: hidden
+    type: link
+    label: above
     settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
+      trim_length: 30
+      url_only: true
+      url_plain: true
       rel: '0'
       target: _blank
-      linkit_profile: backend
     third_party_settings: {  }
     weight: 4
     region: content

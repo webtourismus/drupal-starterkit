@@ -40,6 +40,7 @@
 }
 
 @tailwind components;
+
 .ck-editor__editable {
   @apply cs-white;
 }

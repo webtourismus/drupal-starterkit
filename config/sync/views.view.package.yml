@@ -971,12 +971,12 @@ display:
             field_images: field_images
             title: title
             operations: operations
-            status: status
+            field_price: field_price
             internal_notes: internal_notes
-            field_category: field_category
+            status: status
             changed: changed
             field_weight_value: field_weight_value
-          default: changed
+          default: field_weight_value
           info:
             field_weight:
               sortable: false
@@ -1007,10 +1007,10 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            status:
-              sortable: true
+            field_price:
+              sortable: false
               default_sort_order: asc
-              align: views-align-center
+              align: ''
               separator: ''
               empty_column: false
               responsive: ''
@@ -1021,8 +1021,10 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_category:
-              align: ''
+            status:
+              sortable: true
+              default_sort_order: asc
+              align: views-align-center
               separator: ''
               empty_column: false
               responsive: ''
