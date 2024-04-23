@@ -154,7 +154,7 @@
       "drupal/gin": {
         "3270626 - Use Gin's edit form for taxonomy terms": "./private/patches/gin_3270626_mr237_6796ae46.patch",
         "3281343 - Use Gin's edit form for media enities": "./private/patches/gin_3281343_patch11.patch",
-        "3281984 - Secondary Toolbar breadcrumb shows edit label all node routes": "./private/patches/gin_3281984_cherrypick_for_rc9.patch"
+        "3281984 - Secondary Toolbar breadcrumb shows edit label all node routes": "./private/patches/gin_3281984_cherrypick_for_rc10.patch"
       },
       "drupal/gin_toolbar": {
         "3319445 - The breadcrumb shows Edit label when user has no permission": "./private/patches/gin_toolbar_3319445_mr30_104514bb.patch"
@@ -179,6 +179,6 @@
     }
   },
   "require": {
-    "webtourismus/drupal-metapackage": "^1.0.8"
+    "webtourismus/drupal-metapackage": "^1.0.9"
   }
 }
