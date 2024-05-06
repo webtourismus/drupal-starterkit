@@ -1,1 +1,23 @@
 {% extends '@frontend/components/teaser-imgright.html.twig' %}
+
+{##
+ # Emulate all style options of "left/right"-linkblock paragraph in a "left/right"-node teaser.
+ #
+ # @see node--teaser-imgleft.html.twig (should be the same)
+ ##}
+
+{% set paragraph_colorschema = '' %}
+
+{% set layout_gap_horizontal = ['max-sm:gap-horizontal-[4px]', 'sm:gap-horizontal-[8px]', 'lg:gap-horizontal-[16px]'] %}
+{% set attributes = attributes.addClass(layout_gap_horizontal) %}
+
+{% set text_alignment_paragraph = '[&_.teaserable-text-background]:justify-center' %}
+{% set attributes = attributes.addClass(text_alignment_paragraph) %}
+
+{# this is an responsive class attribute, the prefix is needed for imgright variant #}
+{% set paragraph_columns = {
+  'classes': 'md:[grid-template-columns:1fr_1fr]',
+  'prefix': 'md',
+} %}
+{% set attributes = attributes.addClass(paragraph_columns.classes) %}
+

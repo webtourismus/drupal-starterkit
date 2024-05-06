@@ -21,6 +21,12 @@
     display: none !important;
   }
 
+  /**
+   * Remove the 1px glitch at the bottom of the page caused by Drupal system messages placeholder div
+   */
+  :where(#drupal-live-announce).visually-hidden {
+    inset: -100vh auto auto -100vw;
+  }
 
   /**
    * ###################################################################################################################
@@ -33,7 +39,7 @@
 
     :where(.node--banner--banner_lg) & {
       object-fit: cover;
-      height: calc(var(--vh100, 100vh) - var(--fixed-footer, 0px) - var(--fixed-header, 0px) - var(--drupal-displace-offset-top, 0px));
+      height: calc(100svh - var(--fixed-footer, 0px) - var(--fixed-header, 0px) - var(--drupal-displace-offset-top, 0px));
     }
   }
 

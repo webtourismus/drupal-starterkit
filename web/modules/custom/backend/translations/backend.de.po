@@ -319,3 +319,8 @@ msgstr "Text oben, Verlinkungen unten"
 msgid "Only for designs \"Image left/right\". Only for screens larger than selected above. On smaller screens image and text and stacked below each other."
 msgstr "Nur für Design \"Bild links/rechts\". Nur für Bildschirme größer als oben ausgewählt. Auf kleineren Bildschirmen sind Bild und Text untereinander."
 
+msgid "Book with best price guarantee"
+msgstr "Buchen mit Bestpreis-Garantie"
+
+msgid "Check availability"
+msgstr "Verfügbarkeit prüfen"
