@@ -44,7 +44,7 @@
   }
 
   .inline-svg {
-    @apply inline-block h-[1em] align-[-1.25em];
+    @apply inline-block h-[1em] align-[-0.125em];
   }
   .inline-svg-fw {
     @apply inline-svg w-[1.5em];

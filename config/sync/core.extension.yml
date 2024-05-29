@@ -39,6 +39,7 @@ module:
   ebr_stable_media: 0
   ebr_teaser: 0
   editor: 0
+  editor_advanced_link: 0
   entity_clone: 0
   entity_reference_revisions: 0
   entity_usage: 0

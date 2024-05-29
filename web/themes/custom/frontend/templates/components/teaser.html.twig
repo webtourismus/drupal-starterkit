@@ -129,7 +129,7 @@
 
 {% set link_wrapper_attributes = create_attribute({'class': ['teaserable-link-wrapper', 'flex', 'items-center', 'gap-2']}) %}
 
-{% if entity.getActionUrl('readmore') %}
+{% if entity.getActionUrl('readmore').toString %}
   {% set attributes = attributes.addClass(['teaserable-is-linked']) %}
   {% set images_attributes = images_attributes.addClass('cursor-pointer').setAttribute('data-js-behavior-linkify', 'readmore') %}
   {% set title_link_attributes = create_attribute({
@@ -163,11 +163,11 @@
                 {% block text_title %}
                   {% if entity.getTeaserTitleField.0.value and not(paragraph.isFieldSuppressed('field_title') ?? false) %}
                     <h3 {{ title_attributes }}>
-                      {% if entity.getActionUrl('readmore') %}
+                      {% if entity.getActionUrl('readmore').toString %}
                         <a {{ title_link_attributes }}>
                       {% endif %}
                       {{ entity.getTeaserTitleField.0.value }}
-                      {% if entity.getActionUrl('readmore') %}
+                      {% if entity.getActionUrl('readmore').toString %}
                         </a>
                       {% endif %}
                     </h3>
