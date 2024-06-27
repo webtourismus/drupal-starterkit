@@ -1,0 +1,9 @@
+uuid: 2a50fbdf-3e8b-442d-92dd-2b80fb1b758a
+langcode: de
+status: true
+dependencies: {  }
+name: Ausstattung
+vid: amenity
+description: null
+weight: 0
+new_revision: false

@@ -1,4 +1,3 @@
-langcode: de
 logo:
   use_default: false
   path: modules/contrib/gin_custom/images/webtourismus_logo.svg

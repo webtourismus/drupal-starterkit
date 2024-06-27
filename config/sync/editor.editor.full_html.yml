@@ -231,4 +231,5 @@ settings:
       linkit_profile: backend
     media_media:
       allow_view_mode_override: true
-image_upload: {  }
+image_upload:
+  status: false

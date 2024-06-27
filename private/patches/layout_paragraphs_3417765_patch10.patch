@@ -1,0 +1,32 @@
+diff --git a/js/builder.es6.js b/js/builder.es6.js
+index f6d5aa3..b2576f4 100644
+--- a/js/builder.es6.js
++++ b/js/builder.es6.js
+@@ -43,9 +43,9 @@
+       const viewPortHeight =
+         window.innerHeight || document.documentElement.clientHeight;
+       if (bounding.bottom > viewPortHeight) {
+-        const $dialog = $('.ui-dialog-content', dialog);
+-        const pos = $dialog.dialog('option', 'position');
+-        $dialog.dialog('option', 'position', pos);
++        var $dialog = $('.ui-dialog-content', dialog);
++        var height = viewPortHeight - 200;
++        $dialog.dialog('option', 'height', height);
+       }
+     });
+   }
+diff --git a/js/builder.js b/js/builder.js
+index b2d96ea..23927fd 100644
+--- a/js/builder.js
++++ b/js/builder.js
+@@ -30,8 +30,8 @@
+       var viewPortHeight = window.innerHeight || document.documentElement.clientHeight;
+       if (bounding.bottom > viewPortHeight) {
+         var $dialog = $('.ui-dialog-content', dialog);
+-        var pos = $dialog.dialog('option', 'position');
+-        $dialog.dialog('option', 'position', pos);
++        var height = viewPortHeight - 200;
++        $dialog.dialog('option', 'height', height);
+       }
+     });
+   }

@@ -1,0 +1,142 @@
+From c87d8c9e3338abcc7e01bc34b3af6850ac25b20a Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?J=C3=BCrgen=20Haas?=
+ <21467-jurgenhaas@users.noreply.drupalcode.org>
+Date: Wed, 26 Apr 2023 13:45:02 +0000
+Subject: [PATCH 1/4] Issue #3319445: Edit link in breadcrumb region shows even
+ when user has no permission
+
+---
+ gin_toolbar.module          | 10 ++++++++--
+ templates/toolbar.html.twig |  2 +-
+ 2 files changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/gin_toolbar.module b/gin_toolbar.module
+index 3fb44b4..c29b390 100644
+--- a/gin_toolbar.module
++++ b/gin_toolbar.module
+@@ -9,6 +9,7 @@ use Drupal\Component\Utility\Html;
+ use Drupal\Core\Entity\EntityInterface;
+ use Drupal\Core\Routing\RouteMatchInterface;
+ use Drupal\gin\GinNavigation;
++use Drupal\Core\Url;
+ use Drupal\gin\GinSettings;
+ use Drupal\gin\GinUserPicture;
+ use Drupal\gin_toolbar\Render\Element\GinToolbar;
+@@ -212,8 +213,13 @@ function gin_toolbar_preprocess_toolbar(&$variables) {
+     $entity = \Drupal::request()->attributes->get($matches['entity_type_id']);
+ 
+     if ($entity instanceof EntityInterface && $entity->hasLinkTemplate('edit-form')) {
+-      $variables['entity_title'] = $entity->label();
+-      $variables['entity_edit_url'] = $entity->toUrl('edit-form');
++      if ($entity->access('edit')) {
++        $variables['entity_title'] = $entity->label();
++        $variables['entity_edit_url'] = $entity->toUrl('edit-form');
++      }
++      elseif (Url::fromRoute('system.admin_content')->access(\Drupal::currentUser())) {
++        $variables['access_admin_content'] = TRUE;
++      }
+     }
+   }
+ }
+diff --git a/templates/toolbar.html.twig b/templates/toolbar.html.twig
+index f050f4d..758cedb 100644
+--- a/templates/toolbar.html.twig
++++ b/templates/toolbar.html.twig
+@@ -16,7 +16,7 @@
+             <li class="gin-breadcrumb__item">
+               {% if entity_edit_url and entity_title %}
+                 <a class="gin-breadcrumb__link gin-back-to-admin" href="{{ entity_edit_url }}">{{ 'Edit %title'|t({ '%title': entity_title }) }}</a>
+-              {% else %}
++              {% elseif access_admin_content %}
+                 <a class="gin-breadcrumb__link gin-back-to-admin" href="{{ path('system.admin_content') }}">{{ 'Back to Administration'|t }}</a>
+               {% endif %}
+             </li>
+-- 
+GitLab
+
+
+From e49951059b0d7ff3f87362bcd2f74c39ad0c2737 Mon Sep 17 00:00:00 2001
+From: Marco Gandi <elgandoz@gmail.com>
+Date: Wed, 26 Jul 2023 17:24:58 +0200
+Subject: [PATCH 2/4] Swap access check from "edit" to "update"
+
+---
+ gin_toolbar.module | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/gin_toolbar.module b/gin_toolbar.module
+index c29b390..543a50a 100644
+--- a/gin_toolbar.module
++++ b/gin_toolbar.module
+@@ -213,7 +213,7 @@ function gin_toolbar_preprocess_toolbar(&$variables) {
+     $entity = \Drupal::request()->attributes->get($matches['entity_type_id']);
+ 
+     if ($entity instanceof EntityInterface && $entity->hasLinkTemplate('edit-form')) {
+-      if ($entity->access('edit')) {
++      if ($entity->access('update')) {
+         $variables['entity_title'] = $entity->label();
+         $variables['entity_edit_url'] = $entity->toUrl('edit-form');
+       }
+-- 
+GitLab
+
+
+From 5322c0f679f37b95ae2c47adbae195a62824ff69 Mon Sep 17 00:00:00 2001
+From: Liam Morland <liam@openplus.ca>
+Date: Fri, 8 Mar 2024 12:26:47 -0500
+Subject: [PATCH 3/4] Sort 'use' statements
+
+---
+ gin_toolbar.module | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/gin_toolbar.module b/gin_toolbar.module
+index 543a50a..2395816 100644
+--- a/gin_toolbar.module
++++ b/gin_toolbar.module
+@@ -8,11 +8,11 @@
+ use Drupal\Component\Utility\Html;
+ use Drupal\Core\Entity\EntityInterface;
+ use Drupal\Core\Routing\RouteMatchInterface;
+-use Drupal\gin\GinNavigation;
+ use Drupal\Core\Url;
++use Drupal\gin_toolbar\Render\Element\GinToolbar;
++use Drupal\gin\GinNavigation;
+ use Drupal\gin\GinSettings;
+ use Drupal\gin\GinUserPicture;
+-use Drupal\gin_toolbar\Render\Element\GinToolbar;
+ 
+ /**
+  * Implements hook_preprocess_HOOK() for html.
+-- 
+GitLab
+
+
+From 5f184e556dc37f7d4c034898f0d4715fd44e9faf Mon Sep 17 00:00:00 2001
+From: Liam Morland <liam@openplus.ca>
+Date: Fri, 8 Mar 2024 12:31:32 -0500
+Subject: [PATCH 4/4] Sort 'use' statements
+
+---
+ gin_toolbar.module | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/gin_toolbar.module b/gin_toolbar.module
+index 2395816..86e6505 100644
+--- a/gin_toolbar.module
++++ b/gin_toolbar.module
+@@ -9,10 +9,10 @@ use Drupal\Component\Utility\Html;
+ use Drupal\Core\Entity\EntityInterface;
+ use Drupal\Core\Routing\RouteMatchInterface;
+ use Drupal\Core\Url;
+-use Drupal\gin_toolbar\Render\Element\GinToolbar;
+ use Drupal\gin\GinNavigation;
+ use Drupal\gin\GinSettings;
+ use Drupal\gin\GinUserPicture;
++use Drupal\gin_toolbar\Render\Element\GinToolbar;
+ 
+ /**
+  * Implements hook_preprocess_HOOK() for html.
+-- 
+GitLab
+

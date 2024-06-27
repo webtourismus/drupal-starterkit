@@ -1,0 +1,16 @@
+uuid: 5fde5a99-9157-4113-817f-670e16263a20
+langcode: de
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.amenity
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.amenity
+target_entity_type_id: taxonomy_term
+target_bundle: amenity
+default_langcode: site_default
+language_alterable: false

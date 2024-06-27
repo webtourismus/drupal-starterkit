@@ -1,6 +1,5 @@
 _core:
   default_config_hash: vaRIb4e_4378IzQXF4dy-aSEAZ4O3D9iC7LW89rHPSw
-langcode: de
 role_menu_pairs:
   -
     role: editor

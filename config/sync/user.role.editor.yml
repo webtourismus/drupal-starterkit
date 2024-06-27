@@ -5,6 +5,7 @@ dependencies:
   config:
     - filter.format.basic_html
     - filter.format.full_html
+    - taxonomy.vocabulary.amenity
     - taxonomy.vocabulary.media
     - taxonomy.vocabulary.page
   module:
@@ -90,6 +91,7 @@ permissions:
   - 'configure cookies widget texts'
   - 'create content translations'
   - 'create media'
+  - 'create terms in amenity'
   - 'create terms in media'
   - 'create terms in page'
   - 'create url aliases'
@@ -98,12 +100,14 @@ permissions:
   - 'delete any webform submission'
   - 'delete content translations'
   - 'delete own files'
+  - 'delete terms in amenity'
   - 'delete terms in media'
   - 'delete terms in page'
   - 'edit any webform submission'
   - 'edit entity business rules internal_id field'
   - 'edit entity business rules remote_datasource field'
   - 'edit entity business rules remote_id field'
+  - 'edit terms in amenity'
   - 'edit terms in media'
   - 'edit terms in page'
   - 'notify of path changes'
@@ -112,6 +116,7 @@ permissions:
   - 'take_ownership_on_clone file entity'
   - 'take_ownership_on_clone media entity'
   - 'take_ownership_on_clone node entity'
+  - 'translate amenity taxonomy_term'
   - 'translate any entity'
   - 'translate configuration'
   - 'translate editable entities'

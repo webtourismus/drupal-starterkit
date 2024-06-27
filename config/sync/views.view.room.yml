@@ -669,7 +669,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'access content'
+          perm: 'access content overview'
       cache:
         type: tag
         options: {  }
@@ -1182,6 +1182,10 @@ display:
         type: none
         options:
           offset: 0
+      access:
+        type: perm
+        options:
+          perm: 'access content'
       empty: {  }
       sorts:
         field_weight_value:
@@ -1371,6 +1375,7 @@ display:
           hide_empty: false
       defaults:
         empty: false
+        access: false
         fields: false
         sorts: false
         filters: false

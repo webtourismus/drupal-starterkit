@@ -1,6 +1,5 @@
 _core:
   default_config_hash: AXUBMTvVtpcNp0jKjDaWjSHqMy6HjuUf7j4yVbXgazI
-langcode: de
 local_task_enabled_entity_types:
   - block_content
   - media

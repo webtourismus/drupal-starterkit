@@ -1,6 +1,5 @@
 _core:
   default_config_hash: wNpilbhustdj8tLBsYJ6GPdxS5lUKU5rRei_XxSyd3A
-langcode: de
 google_map_api_key: AIzaSyD0HKg_ijcM0TxThm0sJ2TJxR9gqXuSwmg
 google_map_api_server_key: ''
 use_current_language: false

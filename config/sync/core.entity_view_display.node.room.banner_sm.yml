@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.banner_sm
     - field.field.node.room.body
+    - field.field.node.room.field_amenity
     - field.field.node.room.field_banner
     - field.field.node.room.field_banner_text
     - field.field.node.room.field_banner_viewmode
@@ -93,6 +94,7 @@ content:
     region: content
 hidden:
   body: true
+  field_amenity: true
   field_banner_text: true
   field_banner_viewmode: true
   field_category: true

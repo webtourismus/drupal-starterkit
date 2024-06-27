@@ -1,0 +1,20 @@
+uuid: 12a3378d-9022-4d82-9d7a-2ce687aaf87f
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_amenity
+field_name: field_amenity
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

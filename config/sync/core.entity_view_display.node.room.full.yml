@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.room.body
+    - field.field.node.room.field_amenity
     - field.field.node.room.field_banner
     - field.field.node.room.field_banner_text
     - field.field.node.room.field_banner_viewmode
@@ -20,7 +21,7 @@ dependencies:
     - field.field.node.room.field_weight
     - node.type.room
   module:
-    - ebr
+    - field_formatter_range
     - layout_paragraphs
     - link
     - metatag
@@ -30,6 +31,19 @@ targetEntityType: node
 bundle: room
 mode: full
 content:
+  field_amenity:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings:
+      field_formatter_range:
+        order: 0
+        limit: 0
+        offset: 0
+    weight: 3
+    region: content
   field_pagebuilder:
     type: layout_paragraphs
     label: hidden
@@ -37,7 +51,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
   field_seo:
     type: metatag_empty_formatter

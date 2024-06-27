@@ -1,0 +1,46 @@
+uuid: 2cfaf26d-d4c2-4631-ba2b-7657b20b1ba8
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.amenity.field_icon
+    - taxonomy.vocabulary.amenity
+  module:
+    - svg_image_field
+id: taxonomy_term.amenity.default
+targetEntityType: taxonomy_term
+bundle: amenity
+mode: default
+content:
+  field_icon:
+    type: svg_image_field_widget
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_max_width: 50
+      preview_image_max_height: 50
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 2
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  description: true
+  internal_id: true
+  langcode: true
+  path: true
+  remote_datasource: true
+  remote_id: true
+  translation: true
