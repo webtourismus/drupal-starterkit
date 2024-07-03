@@ -154,8 +154,7 @@
       "drupal/gin": {
         "3270626 - Use Gin's edit form for taxonomy terms": "./private/patches/gin_3270626_cherrypick_for_rc11.patch",
         "3281343 - Use Gin's edit form for media enities": "./private/patches/gin_3281343_patch11.patch",
-        "3281984 - Secondary Toolbar breadcrumb shows edit label all node routes": "./private/patches/gin_3281984_cherrypick_for_rc11.patch",
-        "3455080 - Save button missing in modal for editing media": "https://www.drupal.org/files/issues/2024-06-21/3455080-16-rc11.patch"
+        "3281984 - Secondary Toolbar breadcrumb shows edit label all node routes": "./private/patches/gin_3281984_cherrypick_for_rc11.patch"
       },
       "drupal/layout_paragraphs": {
         "3350168 - LP Builder doesn't set admin route context": "./private/patches/layout_paragraphs_3350168_mr118_696e1e59.patch",
@@ -174,6 +173,6 @@
     }
   },
   "require": {
-    "webtourismus/drupal-metapackage": "^1.1.8"
+    "webtourismus/drupal-metapackage": "^1.1.10"
   }
 }

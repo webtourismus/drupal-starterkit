@@ -33,6 +33,10 @@
    * Images, SVG, Banner
    * ###################################################################################################################
    */
+  :where(.field--entity--node.field--name--field_banner:not(.is-initialized)) .splide__slide {
+    @apply w-full; /* prevents CLS in hero banner */
+  }
+
   :where(.paragraph--type--banner_image) > .field--name--field_media_image :where(img),
   .paragraph--type--banner_video :where(video) {
     width: 100%;

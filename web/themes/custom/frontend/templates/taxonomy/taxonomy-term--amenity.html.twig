@@ -1,0 +1,10 @@
+{% block wrapper %}
+<div {{ attributes.addClass('grid lg:[grid-template-columns:120px_1fr] [grid-template-columns:50px_1fr] max-sm:[grid-template-columns:30px_1fr] max-sm:[grid-template-rows:30px] [grid-template-rows:50px] lg:[grid-template-rows:40px] gap-4') }}>
+  <div class="flex justify-center items-stretch children:w-full children:h-full images:display-block images:object-contain images:w-full images:h-full images:invert">
+    {{ content.field_icon.0 }}
+  </div>
+  <div class="flex justify-start items-center max-sm:text-[14px]">
+    {{ name }}
+  </div>
+</div>
+{% endblock wrapper %}
