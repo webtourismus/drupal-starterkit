@@ -25,15 +25,23 @@ dependencies:
     - layout_paragraphs
     - link
     - metatag
+    - text
     - user
 id: node.room.full
 targetEntityType: node
 bundle: room
 mode: full
 content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
   field_amenity:
     type: entity_reference_entity_view
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: false
@@ -42,7 +50,29 @@ content:
         order: 0
         limit: 0
         offset: 0
-    weight: 3
+    weight: 8
+    region: content
+  field_images:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: '16_9'
+      link: false
+    third_party_settings:
+      field_formatter_range:
+        order: 0
+        limit: 0
+        offset: 0
+    weight: 4
+    region: content
+  field_occupancy_std:
+    type: number_integer
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 2
     region: content
   field_pagebuilder:
     type: layout_paragraphs
@@ -51,10 +81,39 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 4
+    weight: 9
+    region: content
+  field_price:
+    type: number_decimal
+    label: hidden
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_roomsize:
+    type: number_decimal
+    label: hidden
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 0
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
     region: content
   field_seo:
     type: metatag_empty_formatter
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_subtitle:
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -70,7 +129,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 1
+    weight: 6
     region: content
   link_enquiry:
     type: link
@@ -82,7 +141,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 2
+    weight: 7
     region: content
   links:
     settings: {  }
@@ -142,17 +201,11 @@ content:
     weight: 27
     region: content
 hidden:
-  body: true
   field_banner: true
   field_banner_text: true
   field_banner_viewmode: true
   field_category: true
-  field_images: true
   field_occupancy_max: true
-  field_occupancy_std: true
-  field_price: true
-  field_roomsize: true
-  field_subtitle: true
   field_weight: true
   langcode: true
   link_readmore: true

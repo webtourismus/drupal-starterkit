@@ -35,7 +35,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 6
+    weight: 5
     region: content
   field_images:
     type: entity_reference_entity_view
@@ -48,15 +48,6 @@ content:
         order: 0
         limit: 1
         offset: 0
-    weight: 5
-    region: content
-  field_occupancy_max:
-    type: number_integer
-    label: hidden
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
     weight: 4
     region: content
   field_occupancy_std:
@@ -66,7 +57,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 3
+    weight: 1
     region: content
   field_price:
     type: number_decimal
@@ -74,10 +65,10 @@ content:
     settings:
       thousand_separator: ''
       decimal_separator: .
-      scale: 2
+      scale: 0
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 1
+    weight: 3
     region: content
   field_roomsize:
     type: number_decimal
@@ -107,7 +98,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 8
+    weight: 7
     region: content
   link_enquiry:
     type: link
@@ -119,7 +110,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 9
+    weight: 8
     region: content
   link_readmore:
     type: link
@@ -131,7 +122,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 7
+    weight: 6
     region: content
   links:
     settings: {  }
@@ -189,6 +180,7 @@ hidden:
   field_banner_text: true
   field_banner_viewmode: true
   field_category: true
+  field_occupancy_max: true
   field_pagebuilder: true
   field_seo: true
   field_weight: true
