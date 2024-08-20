@@ -25,21 +25,21 @@ content:
     region: content
   field_media_video_file:
     type: file_video
-    label: visually_hidden
+    label: hidden
     settings:
       controls: true
       autoplay: false
       loop: false
       multiple_file_display_type: sources
       muted: false
-      width: 640
-      height: 480
+      width: 1920
+      height: 1080
     third_party_settings: {  }
     weight: 1
     region: content
   name:
     type: string
-    label: visually_hidden
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }

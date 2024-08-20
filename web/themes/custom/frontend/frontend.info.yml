@@ -4,7 +4,7 @@ base theme: false
 description: The design of this website's frontend.
 logo: 'webtourismus-logo.svg'
 screenshot: 'images/webtourismus_theme_logo.svg'
-core_version_requirement: ^10
+core_version_requirement: ^10.3 || ^11
 features: {}
 dependencies:
   - backend:backend

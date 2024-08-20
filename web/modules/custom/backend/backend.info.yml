@@ -2,7 +2,7 @@ name: Backend
 description: Frontend companion module and acting as bridge between admin theme and frontend theme.
 package: Design system
 type: module
-core_version_requirement: ^10
+core_version_requirement: ^10.3 || ^11
 'interface translation project': backend
 'interface translation server pattern': modules/custom/backend/translations/backend.%language.po
 dependencies:

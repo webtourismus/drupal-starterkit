@@ -18,7 +18,7 @@ elements: |-
     '#wrapper_attributes':
       class:
         - basis-full
-    '#text': '<h3>Meine Daten</h3>'
+    '#text': '<h4>Meine Daten</h4>'
     '#format': full_html
   title:
     '#type': select
@@ -87,7 +87,7 @@ elements: |-
     '#wrapper_attributes':
       class:
         - basis-full
-    '#text': '<h3>Reisedaten</h3>'
+    '#text': '<h4>Reisedaten</h4>'
     '#format': full_html
   dates:
     '#type': flatpickr
@@ -140,7 +140,7 @@ elements: |-
     '#wrapper_attributes':
       class:
         - basis-full
-    '#text': '<h3>Ich interessiere mich für...</h3>'
+    '#text': '<h4>Ich interessiere mich für...</h4>'
     '#format': full_html
   room_quantity:
     '#type': number

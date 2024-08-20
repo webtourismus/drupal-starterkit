@@ -1,7 +1,7 @@
 title: Enquiry
 elements: |
   text_mydata:
-    '#text': '<h3>My data</h3>'
+    '#text': '<h4>My data</h4>'
   title:
     '#title': Title
   firstname:
@@ -24,7 +24,7 @@ elements: |
     '#title': Email
     '#description': '<p>required</p>'
   text_travel:
-    '#text': '<h3>Travel data</h3>'
+    '#text': '<h4>Travel data</h4>'
   dates:
     '#title': 'Arrival - Departure'
   adults:
@@ -34,7 +34,7 @@ elements: |
   children_age:
     '#title': 'Age of children'
   text_interested:
-    '#text': "<h3>I'm interested in...</h3>"
+    '#text': "<h4>I'm interested in...</h4>"
   room_quantity:
     '#title': 'No. rooms'
   room:

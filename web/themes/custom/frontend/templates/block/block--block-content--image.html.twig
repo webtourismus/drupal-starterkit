@@ -8,7 +8,7 @@
     {% set wrapper_attributes = create_attribute({'class': wrapper_classes}) %}
     <div {{ wrapper_attributes.addClass('imageblock-nolink') }}>
   {% else %}
-    {% set wrapper_attributes = create_attribute(content.field_link.0['#options'].attributes) %}
+    {% set wrapper_attributes = create_attribute(content.field_link.0['#options'].attributes ?? []) %}
     <a href="{{ block_content.field_link.0.url.toString }}" {{ wrapper_attributes.addClass(wrapper_classes).addClass('imageblock-linked') }}>
   {% endif %}
 

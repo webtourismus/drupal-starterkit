@@ -17,7 +17,7 @@ mode: banner_lg
 content:
   field_media_video_file:
     type: file_video
-    label: visually_hidden
+    label: hidden
     settings:
       controls: false
       autoplay: true

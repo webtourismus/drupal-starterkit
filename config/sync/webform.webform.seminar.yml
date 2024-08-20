@@ -18,7 +18,7 @@ elements: |-
     '#wrapper_attributes':
       class:
         - basis-full
-    '#text': '<h3>Seminardaten</h3>'
+    '#text': '<h4>Seminardaten</h4>'
     '#format': full_html
   date:
     '#type': flatpickr
@@ -77,7 +77,7 @@ elements: |-
     '#wrapper_attributes':
       class:
         - basis-full
-    '#text': '<h3>Kontaktdaten</h3>'
+    '#text': '<h4>Kontaktdaten</h4>'
     '#format': full_html
   title:
     '#type': select

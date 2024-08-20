@@ -7,6 +7,7 @@ dependencies:
     - media.type.vector_image
   module:
     - content_translation
+    - field_config_cardinality
     - svg_image_field
 third_party_settings:
   content_translation:
@@ -14,6 +15,12 @@ third_party_settings:
       file: file
       alt: '0'
       title: '0'
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
 _core:
   default_config_hash: hpI_MrSmo4Du9EyXVH3KBf9tBJaTKsV3boNlclUxj-E
 id: media.vector_image.field_media_svg
@@ -31,7 +38,7 @@ settings:
   handler_settings: {  }
   file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: svg
-  max_filesize: ''
+  max_filesize: '8 MB'
   alt_field: true
   alt_field_required: false
   title_field: false

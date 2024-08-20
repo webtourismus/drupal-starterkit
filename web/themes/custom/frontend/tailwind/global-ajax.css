@@ -66,22 +66,22 @@
    * Used in ~/config/sync/editor.editor.banner_html.yml
    */
   .h1 {
-    @apply text-[2.75rem] sm:text-[3.5rem] text-flashy font-weight-thick tracking-normal not-italic no-underline normal-case;
+    @apply text-[2.75rem] sm:text-[3.5rem] text-flashy font-weight-thick leading-tight tracking-normal not-italic no-underline normal-case;
   }
   .h2 {
-    @apply text-[2.25rem] sm:text-[2.75rem] text-flashy font-weight-default tracking-normal not-italic no-underline normal-case;
+    @apply text-[2.25rem] sm:text-[2.75rem] text-flashy font-weight-default leading-tight tracking-normal not-italic no-underline normal-case;
   }
   .h3 {
-    @apply text-[2rem] sm:text-[2.25rem] text-foreground font-weight-default tracking-normal not-italic underline normal-case;
+    @apply text-[2rem] sm:text-[2.25rem] text-foreground font-weight-default leading-normal tracking-normal not-italic underline normal-case;
   }
   .h4 {
-    @apply text-[1.5rem] sm:text-[1.5rem] text-foreground font-weight-default tracking-normal italic underline normal-case;
+    @apply text-[1.5rem] sm:text-[1.5rem] text-foreground font-weight-default leading-normal tracking-normal italic underline normal-case;
   }
   .h5 {
-    @apply text-[1rem] sm:text-[1rem] text-foreground font-weight-thick tracking-[2px] not-italic no-underline uppercase;
+    @apply text-[1rem] sm:text-[1rem] text-foreground font-weight-thick leading-normal tracking-[2px] not-italic no-underline uppercase;
   }
   .h6 {
-    @apply text-[0.9rem] sm:text-[0.9rem] text-flashy font-weight-default tracking-[2px] not-italic no-underline uppercase;
+    @apply text-[0.9rem] sm:text-[0.9rem] text-flashy font-weight-default leading-normal tracking-[2px] not-italic no-underline uppercase;
   }
   /**
    * Editorial content from formatted running text fields.

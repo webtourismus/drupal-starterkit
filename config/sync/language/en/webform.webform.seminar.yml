@@ -1,7 +1,7 @@
 title: 'Seminar enquiry'
 elements: |
   text_seminar:
-    '#text': '<h3>Seminar data</h3>'
+    '#text': '<h4>Seminar data</h4>'
   date:
     '#title': Date
     '#description': '<p>You can select multiple days.</p>'
@@ -23,7 +23,7 @@ elements: |
       kino: 'Cinema seating'
       kreis: 'Circle of chairs'
   text_contact:
-    '#text': '<h3>Contact data</h3>'
+    '#text': '<h4>Contact data</h4>'
   title:
     '#title': Title
   firstname:

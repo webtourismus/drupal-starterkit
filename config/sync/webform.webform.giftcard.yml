@@ -33,7 +33,7 @@ elements: |-
     '#wrapper_attributes':
       class:
         - basis-full
-    '#text': '<h3>Anschrift</h3>'
+    '#text': '<h4>Anschrift</h4>'
     '#format': full_html
   title:
     '#type': select
