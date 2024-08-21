@@ -81,6 +81,7 @@
     "post-create-project-cmd": [
       "touch ./.env && chmod 644 ./.env",
       "./vendor/bin/robo kickoff:init-dev",
+      "Composer\\Config::disableProcessTimeout",
       "./vendor/bin/robo kickoff:install-drupal",
       "./vendor/bin/robo kickoff:init-git"
     ],
