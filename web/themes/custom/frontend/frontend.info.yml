@@ -16,9 +16,10 @@ regions:
   html_head: HTML Head
   header: Header
   # header_banner: Banner
-  # header_mainnav: Main navigation
+  # header_mainnav: Hauptnavigation
   content: Content
   footer: Footer
-  # footer_bottom: Footer bottom
+  # footer_bottom: Footer unten
+  # footer_fixed: Fixierter Footer (Handy)
   popup: Popup
   invisible: Invisible region

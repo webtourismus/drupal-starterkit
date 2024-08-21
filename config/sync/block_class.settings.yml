@@ -4,6 +4,7 @@ langcode: de
 maxlength_block_class_field: 4000
 field_type: textfield
 default_case: standard
+block_classes_stored: {  }
 enable_attributes: true
 enable_auto_complete: true
 qty_classes_per_block: 10

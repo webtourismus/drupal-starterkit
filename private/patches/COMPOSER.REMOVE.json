@@ -1,0 +1,24 @@
+{
+  "documentation": {
+    "description": "Entries listed here will be removed from the project's composer.json file.",
+    "requirement": "Only works on Webtourismus dev server. Only works with webtourismus/drupal-starterkit projects.",
+    "usage": "Add thing to remove to 'remove' section in this file. Then run 'robo sync' inside the target project directory.",
+    "limitation": "Currently only patches are supported. Might be extented in the future (e.g. repo entries).",
+    "@see": "/RoboFile.php::sync()"
+  },
+  "remove": {
+    "extra": {
+      "patches": {
+        "example_vendor/example_package": {
+          "example_key": "When running 'robo sync', the patch with the key 'example_key' will be removed from the composer.json patches section of example_vendor/example_package."
+        },
+        "drupal/viewsreference": {
+          "3402036 - Config schema for enable_settings incorrect": "Fixed in v2.0-beta8"
+        },
+        "drupal/layout_paragraphs": {
+          "3417765 - Large modal exceeds viewport height without scrollbar": "Fixed in v2.0.7"
+        }
+      }
+    }
+  }
+}
