@@ -57,7 +57,7 @@
    * This style should only change the color of a text
    */
   .text-pale {
-    opacity: 0.8;
+    @apply opacity-80;
   }
   /**
    * Headlines

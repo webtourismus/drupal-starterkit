@@ -176,11 +176,19 @@ module.exports = {
           },
         });
 
+        addVariant('mouse', '@media (pointer: fine) and (hover: hover)');
+
+        addVariant('touch', '@media (pointer: coarse), (hover: none)');
+
         addVariant('backend', ['.is-backend &']);
 
         addVariant('frontend', ['.is-frontend &']);
 
         addVariant('frontpage', ['.is-frontpage &']);
+
+        addVariant('summer', '.season-summer &');
+
+        addVariant('winter', '.season-winter &');
 
         addVariant('not-scrolled', ['[data-scrolled=false] &']);
 

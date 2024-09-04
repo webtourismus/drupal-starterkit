@@ -35,7 +35,7 @@
   --bullet-border: 2px;
   gap: 1rem;
 
-  :where(li) {
+  li {
     width: var(--bullet-width);
     height: var(--bullet-height);
     display: flex;
@@ -44,17 +44,18 @@
     @apply bg-foreground;
   }
 
-  :where(button) {
+  button {
     width: calc(var(--bullet-width) - var(--bullet-border));
     height: calc(var(--bullet-height) - var(--bullet-border));
     @apply bg-foreground hocus:bg-onforeground;
+    
+    &[aria-selected="true"] {
+      @apply bg-onforeground;
+    }
   }
 
-  :where(button[aria-selected="true"]) {
-    @apply bg-onforeground;
-  }
 
-  &:where(:not(.textslider-pagination)) {
+  :not(.textslider-pagination) {
     position: absolute;
     bottom: 5%;
     z-index: 10;

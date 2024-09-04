@@ -94,6 +94,7 @@
 
 {% set attributes = attributes.addClass(['grid']) %}
 {% if paragraph_colorschema is empty %}
+  {# when no background color on textbox, then add whitespace between image and text #}
   {% set attributes = attributes.addClass(['gap-y-6']) %}
 {% endif %}
 
@@ -112,16 +113,15 @@
 {% if paragraph_colorschema %}
   {# linkblocks might have a background color, but only for the text area, the cs-class must be moved downwards #}
   {% set attributes = attributes.removeClass(paragraph_colorschema) %}
-  {% set attributes = attributes.removeClass(paragraph_colorschema) %}
   {% if view_mode in ['teaser', 'teaser_imgtop', 'teaser_imgleft', 'teaser_imgright'] %}
-    {% set text_background_attributes = text_background_attributes.addClass([paragraph_colorschema, 'p-4']) %}
+    {% set text_background_attributes = text_background_attributes.addClass([paragraph_colorschema, 'px-4', 'py-8', 'lg:px-8']) %}
   {% endif %}
 {% endif %}
 {% set text_wrapper_attributes = create_attribute({
   'class': ['teaserable-text-wrapper', 'flex', 'flex-col', 'items-stretch', 'gap-4'],
 }) %}
 
-{% set title_attributes = create_attribute({'class': ['teaserable-title', 'h4']}) %}
+{% set title_attributes = create_attribute({'class': ['teaserable-title']}) %}
 
 {% set product_attributes = create_attribute({
   'class': ['teaserable-product', 'w-full', 'flex', 'flex-wrap', 'gap-4', 'children:w-auto', 'children:nowrap'],

@@ -17,6 +17,9 @@
         },
         "drupal/layout_paragraphs": {
           "3417765 - Large modal exceeds viewport height without scrollbar": "Fixed in v2.0.7"
+        },
+        "drupal/media_library_edit": {
+          "3386491 - Link text not transparent in modal windows": "Fixed in v3.0.4"
         }
       }
     }
