@@ -200,6 +200,10 @@ module.exports = {
 
         addVariant('large-banner', ['.node--banner--banner_lg &']);
 
+        addVariant('overlay-open', ['[data-mainnav-overlay=true] &']);
+
+        addVariant('overlay-close', ['[data-mainnav-overlay=false] &']);
+
         addVariant('hocus', ['&:hover', '&:focus']);
 
         addVariant('children', ['& > *']);

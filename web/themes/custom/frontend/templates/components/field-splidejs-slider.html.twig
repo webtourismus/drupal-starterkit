@@ -33,8 +33,10 @@
   {% for item in items %}
     {% if item.content|render|striptags('<img><svg><video>') %}
       {% set video_duration = item.content['#paragraph'].field_video_length.value * 1000 ?? null %}
-      <div{{ item.attributes.addClass('splide__slide')
-                 .setAttribute(video_duration ? 'data-splide-interval' : null, video_duration) }}>
+      {% if video_duration %}
+        {% set item = item|set('attributes.data-splide-interval', video_duration) %}
+      {% endif %}
+      <div {{ item.attributes.addClass('splide__slide') }}>
         {{ item.content }}
       </div>
     {% endif %}

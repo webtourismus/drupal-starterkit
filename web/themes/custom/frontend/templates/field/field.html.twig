@@ -57,7 +57,9 @@
           {% if item.attributes is not empty %}
             <div {{item.attributes}}>
           {% endif %}
-          {{ item.content }}
+          {% block item %}
+            {{ item.content }}
+          {% endblock %}
           {% if item.attributes is not empty %}
             </div>
           {% endif %}

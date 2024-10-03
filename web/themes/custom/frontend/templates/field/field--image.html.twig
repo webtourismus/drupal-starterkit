@@ -1,0 +1,4 @@
+{% extends "@frontend/field/field.html.twig" %}
+{% block item %}
+	{{ item.content|set("#item_attributes.draggable", "false")|add("#item_attributes.class", "select-none") }}
+{% endblock %}

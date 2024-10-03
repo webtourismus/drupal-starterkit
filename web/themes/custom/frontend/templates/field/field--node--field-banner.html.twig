@@ -1,7 +1,16 @@
 {% extends "@frontend/components/field-splidejs-slider.html.twig" %}
 
 {% block container %}
-  {% set multiple = items|children|length >= 2 ? true : false %}
+  {% set number_of_slides = 0 %}
+  {% for item in items|children %}
+    {% set slide =  item.content|render|trim %}
+    {% if slide %}
+      {% set number_of_slides = number_of_slides + 1 %}
+    {% endif %}
+  {% endfor %}
+
+
+  {% set multiple = number_of_slides >= 2 ? true : false %}
   {% set splidejs_config = splidejs_config|set('type', 'fade')
                                           |set('rewind', true)
                                           |set('arrows', true and multiple)
