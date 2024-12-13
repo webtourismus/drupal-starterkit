@@ -111,6 +111,7 @@ module:
   translation_views: 0
   twig_field: 0
   twig_tweak: 0
+  ultimate_cron: 0
   update: 0
   user: 0
   view_mode_switch: 0
@@ -125,6 +126,7 @@ module:
   menu_admin_per_menu: 1
   pathauto: 1
   content_translation: 10
+  formdazzle: 10
   views: 10
   cookies_filter: 11
   cookies_geolocation: 11

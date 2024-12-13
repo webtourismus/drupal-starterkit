@@ -1,0 +1,17 @@
+uuid: 06e49517-f878-4b72-bfa5-efa05ea88baf
+langcode: de
+status: true
+dependencies:
+  module:
+    - seasonal_paragraphs
+title: 'Default cron handler'
+id: seasonal_paragraphs_cron
+weight: 0
+module: seasonal_paragraphs
+callback: 'seasonal_paragraphs#cron'
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

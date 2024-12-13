@@ -153,9 +153,9 @@
         "3208592 - CSS class validation too strict": "./private/patches/field_group_3208592_mr33_758a6fbc.patch"
       },
       "drupal/gin": {
-        "3270626 - Use Gin's edit form for taxonomy terms": "./private/patches/gin_3270626_mr_112_for_rc13.patch",
+        "3270626 - Use Gin's edit form for taxonomy terms": "./private/patches/gin_3270626_mr237_for_rc15.patch",
         "3281343 - Use Gin's edit form for media enities": "./private/patches/gin_3281343_patch11.patch",
-        "3281984 - Secondary Toolbar breadcrumb shows edit label all node routes": "./private/patches/gin_3281984_cherrypick_for_rc11.patch"
+        "3281984 - Secondary Toolbar breadcrumb shows edit label all node routes": "./private/patches/gin_3281984_cherrypick_for_rc15.patch"
       },
       "drupal/gin_toolbar": {
         "3319445 - The breadcrumb shows Edit label when user has no permission": "./private/patches/gin_toolbar_3319445_mr47_3c271ade.patch"
@@ -173,6 +173,6 @@
     }
   },
   "require": {
-    "webtourismus/drupal-metapackage": "^1.2.8"
+    "webtourismus/drupal-metapackage": "^1.3.0"
   }
 }

@@ -7,6 +7,7 @@ dependencies:
     - image.style.16_9_1400x788
     - image.style.16_9_1920x1080
     - image.style.16_9_360x203
+    - image.style.16_9_512x288
     - image.style.16_9_768x432
 id: '16_9'
 label: '16:9'
@@ -20,6 +21,7 @@ image_style_mappings:
         - 16_9_1400x788
         - 16_9_1920x1080
         - 16_9_360x203
+        - 16_9_512x288
         - 16_9_768x432
     breakpoint_id: responsive_image.viewport_sizing
     multiplier: 1x

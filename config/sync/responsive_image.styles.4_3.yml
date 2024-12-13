@@ -7,6 +7,7 @@ dependencies:
     - image.style.4_3_1400x1050
     - image.style.4_3_1920x1440
     - image.style.4_3_360x270
+    - image.style.4_3_512x384
     - image.style.4_3_768x576
 id: '4_3'
 label: '4:3'
@@ -20,6 +21,7 @@ image_style_mappings:
         - 4_3_1400x1050
         - 4_3_1920x1440
         - 4_3_360x270
+        - 4_3_512x384
         - 4_3_768x576
     breakpoint_id: responsive_image.viewport_sizing
     multiplier: 1x

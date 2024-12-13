@@ -104,6 +104,7 @@ permissions:
   - 'delete terms in media'
   - 'delete terms in page'
   - 'edit any webform submission'
+  - 'edit behavior plugin settings'
   - 'edit entity business rules internal_id field'
   - 'edit entity business rules remote_datasource field'
   - 'edit entity business rules remote_id field'

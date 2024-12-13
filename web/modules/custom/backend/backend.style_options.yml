@@ -53,6 +53,11 @@ reuseable_anchors:
       -
         '%number_with_unit1': '8px'
         '%number_with_unit2': '64px'
+    'max-sm:gap-horizontal-[4px] sm:gap-horizontal-[8px] md:gap-horizontal-[16px] lg:gap-horizontal-[96px]':
+      - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
+      -
+        '%number_with_unit1': '8px'
+        '%number_with_unit2': '96px'
     'gap-horizontal-0': 'no padding'
     'gap-horizontal-px': 'thin'
     'gap-horizontal-[4px]': 8px
@@ -63,16 +68,21 @@ reuseable_anchors:
     'gap-horizontal-[32px]': 64px
     'gap-horizontal-[48px]': 96px
   gap_vertical_options: &gap_vertical_options
-    'max-sm:gap-vertical-[8px] sm:gap-vertical-[12px] lg:gap-vertical-[32px]':
+    'max-sm:gap-vertical-[8px] sm:gap-vertical-[16px] lg:gap-vertical-[32px]':
       - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
       -
         '%number_with_unit1': '8px'
         '%number_with_unit2': '32px'
-    'max-sm:gap-vertical-[8px] sm:gap-vertical-[12px] lg:gap-vertical-[64px]':
+    'max-sm:gap-vertical-[8px] sm:gap-vertical-[16px] lg:gap-vertical-[64px]':
       - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
       -
         '%number_with_unit1': '8px'
         '%number_with_unit2': '64px'
+    'max-sm:gap-vertical-[8px] sm:gap-vertical-[16px] md:gap-vertical-[32px] lg:gap-vertical-[96px]':
+      - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
+      -
+        '%number_with_unit1': '8px'
+        '%number_with_unit2': '96px'
     'gap-vertical-0': 'no padding'
     'gap-vertical-[2px]': 'thin'
     'gap-vertical-[8px]': 8px
@@ -183,16 +193,21 @@ options:
     input_type: select
     options:
       'px-0': 'no padding'
-      'max-sm:px-[8px] sm:px-[12px] lg:px-[32px]':
+      'max-sm:px-[8px] sm:px-[16px] lg:px-[32px]':
         - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
         -
           '%number_with_unit1': '8px'
           '%number_with_unit2': '32px'
-      'max-sm:px-[8px] sm:px-[12px] lg:px-[64px]':
+      'max-sm:px-[8px] sm:px-[16px] lg:px-[64px]':
         - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
         -
           '%number_with_unit1': '8px'
           '%number_with_unit2': '64px'
+      'max-sm:px-[8px] sm:px-[16px] md:px-[32px] lg:px-[96px]':
+        - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
+        -
+          '%number_with_unit1': '8px'
+          '%number_with_unit2': '96px'
       'px-[2px]': 'thin'
       'px-[8px]': 8px
       'px-[16px]': 16px
@@ -201,7 +216,7 @@ options:
       'px-[48px]': 48px
       'px-[64px]': 64px
       'px-[96px]': 96px
-    default: 'max-sm:px-[8px] sm:px-[12px] lg:px-[32px]'
+    default: 'max-sm:px-[8px] sm:px-[16px] lg:px-[32px]'
     weight: -800
   layout_margin_side:
     plugin: html_attribute
@@ -211,16 +226,21 @@ options:
     input_type: select
     options:
       'mx-0': 'no padding'
-      'max-sm:mx-[8px] sm:mx-[12px] lg:mx-[32px]':
+      'max-sm:mx-[8px] sm:mx-[16px] lg:mx-[32px]':
         - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
         -
           '%number_with_unit1': '8px'
           '%number_with_unit2': '32px'
-      'max-sm:mx-[8px] sm:mx-[12px] lg:mx-[64px]':
+      'max-sm:mx-[8px] sm:mx-[16px] lg:mx-[64px]':
         - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
         -
           '%number_with_unit1': '8px'
           '%number_with_unit2': '64px'
+      'max-sm:mx-[8px] sm:mx-[16px] lg:mx-[32px] lg:mx-[96px]':
+        - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
+        -
+          '%number_with_unit1': '8px'
+          '%number_with_unit2': '96px'
       'mx-[2px]': 'thin'
       'mx-[8px]': 8px
       'mx-[16px]': 16px
@@ -254,12 +274,17 @@ options:
     attribute_name: class
     input_type: select
     options:
-      'max-sm:pt-[8px] sm:pt-[12px] lg:pt-[32px]':
+      'max-sm:pt-[8px] sm:pt-[16px] lg:pt-[32px]':
         - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
         -
           '%number_with_unit1': '8px'
           '%number_with_unit2': '32px'
-      'max-sm:pt-[8px] sm:pt-[12px] lg:pt-[64px]':
+      'max-sm:pt-[8px] sm:pt-[16px] lg:pt-[64px]':
+        - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
+        -
+          '%number_with_unit1': '8px'
+          '%number_with_unit2': '64px'
+      'max-sm:pt-[8px] sm:pt-[16px] md:pt-[32px] lg:pt-[96px]':
         - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
         -
           '%number_with_unit1': '8px'
@@ -283,16 +308,21 @@ options:
     attribute_name: class
     input_type: select
     options:
-      'max-sm:pb-[8px] sm:pb-[12px] lg:pb-[32px]':
+      'max-sm:pb-[8px] sm:pb-[16px] lg:pb-[32px]':
         - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
         -
           '%number_with_unit1': '8px'
           '%number_with_unit2': '32px'
-      'max-sm:pb-[8px] sm:pb-[12px] lg:pb-[64px]':
+      'max-sm:pb-[8px] sm:pb-[16px] lg:pb-[64px]':
         - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
         -
           '%number_with_unit1': '8px'
           '%number_with_unit2': '64px'
+      'max-sm:pb-[8px] sm:pb-[16px] md:pb-[32px] lg:pb-[96px]':
+        - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
+        -
+          '%number_with_unit1': '8px'
+          '%number_with_unit2': '96px'
       'pb-0': 'no padding'
       'pb-[2px]': 'thin'
       'pb-[8px]': 8px
@@ -586,6 +616,7 @@ options:
         '[grid-template-columns:1fr_1fr]': 50% / 50%
         '[grid-template-columns:3fr_2fr]': 60% / 40%
         '[grid-template-columns:2fr_1fr]': 66.67% / 33.33%
+      default: '[grid-template-columns:1fr_1fr]'
   text_alignment_paragraph:
     plugin: html_attribute
     label: 'Vertical alignment of text'

@@ -10,3 +10,4 @@ cloneable_entities:
   - user
   - webform
   - paragraph
+  - ultimate_cron_job

@@ -11,9 +11,9 @@ theme: frontend
 region: popup
 weight: 0
 provider: null
-plugin: 'block_content:7365cd3f-672c-47a7-b561-5c672953ee62'
+plugin: 'block_content:8365cd3f-672c-47a7-b561-5c672953ee62'
 settings:
-  id: 'block_content:7365cd3f-672c-47a7-b561-5c672953ee62'
+  id: 'block_content:8365cd3f-672c-47a7-b561-5c672953ee62'
   label: 'Startseite Popup'
   label_display: '0'
   provider: block_content

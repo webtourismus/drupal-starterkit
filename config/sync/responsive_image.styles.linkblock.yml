@@ -3,10 +3,9 @@ langcode: de
 status: true
 dependencies:
   config:
-    - image.style.16_9_1024x576
     - image.style.1_1_428x428
-    - image.style.1_1_768x768
-    - image.style.4_3_768x576
+    - image.style.1_1_512x512
+    - image.style.4_3_512x384
   module:
     - backend
 _core:
@@ -16,22 +15,22 @@ label: 'Linkblock (responsiv, nach Bildschirm)'
 image_style_mappings:
   -
     image_mapping_type: image_style
-    image_mapping: 16_9_1024x576
+    image_mapping: 4_3_512x384
     breakpoint_id: backend.banner.lg
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: 4_3_768x576
+    image_mapping: 4_3_512x384
     breakpoint_id: backend.banner.md
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: 1_1_768x768
+    image_mapping: 1_1_512x512
     breakpoint_id: backend.banner.sm
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: 1_1_768x768
+    image_mapping: 1_1_428x428
     breakpoint_id: backend.banner.xs
     multiplier: 1x
   -
@@ -40,4 +39,4 @@ image_style_mappings:
     breakpoint_id: backend.banner.xxs
     multiplier: 1x
 breakpoint_group: backend.banner
-fallback_image_style: 16_9_1024x576
+fallback_image_style: 4_3_512x384
