@@ -24,6 +24,14 @@
         }
       }
     },
+    "webtourismus/drupal-metapackage": {
+      "type": "vcs",
+      "url": "https://bitbucket.org/webtourismus/drupal-metapackage.git"
+    },
+    "webtourismus/deepl": {
+      "type": "vcs",
+      "url": "https://bitbucket.org/webtourismus/deepl.git"
+    },
     "webtourismus/designsystem": {
       "type": "vcs",
       "url": "https://bitbucket.org/webtourismus/designsystem.git"
@@ -47,10 +55,6 @@
     "webtourismus/maintenance": {
       "type": "vcs",
       "url": "https://bitbucket.org/webtourismus/maintenance.git"
-    },
-    "webtourismus/drupal-metapackage": {
-      "type": "vcs",
-      "url": "https://bitbucket.org/webtourismus/drupal-metapackage.git"
     },
     "webtourismus/seasonal_paragraphs": {
       "type": "vcs",
@@ -173,6 +177,6 @@
     }
   },
   "require": {
-    "webtourismus/drupal-metapackage": "^1.3.0"
+    "webtourismus/drupal-metapackage": "^1.4.0"
   }
 }
