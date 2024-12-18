@@ -20,6 +20,9 @@
         },
         "drupal/media_library_edit": {
           "3386491 - Link text not transparent in modal windows": "Fixed in v3.0.4"
+        },
+        "drupal/gin": {
+          "3281984 - Secondary Toolbar breadcrumb shows edit label all node routes": "Fixed in v3.0.0-rc16"
         }
       }
     }
