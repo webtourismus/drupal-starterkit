@@ -162,7 +162,7 @@ display:
           submit_button: Filtern
           reset_button: true
           reset_button_label: Zurücksetzen
-          exposed_sorts_label: 'Sortieren nach'
+          exposed_sorts_label: Sortierung
           expose_sort_order: false
           sort_asc_label: Aufsteigend
           sort_desc_label: Absteigend
@@ -263,7 +263,7 @@ display:
               authenticated: authenticated
           is_grouped: true
           group_info:
-            label: veröffentlicht
+            label: Veröffentlicht
             description: ''
             identifier: status
             optional: true
@@ -274,7 +274,7 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: veröffentlicht
+                title: Veröffentlicht
                 operator: '='
                 value: '1'
               2:

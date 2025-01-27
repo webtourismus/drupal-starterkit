@@ -475,8 +475,8 @@ display:
           total_pages: 0
           id: 0
           tags:
-            next: 'Nächste Seite ›'
-            previous: '‹ Vorherige Seite'
+            next: 'Weiter ›'
+            previous: '‹ Zurück'
           expose:
             items_per_page: false
             items_per_page_label: 'Elemente pro Seite'
@@ -491,7 +491,7 @@ display:
           submit_button: Filtern
           reset_button: true
           reset_button_label: Zurücksetzen
-          exposed_sorts_label: 'Sortieren nach'
+          exposed_sorts_label: Sortierung
           expose_sort_order: true
           sort_asc_label: Aufsteigend
           sort_desc_label: Absteigend
@@ -1011,8 +1011,8 @@ display:
           total_pages: 0
           id: 0
           tags:
-            next: 'Nächste Seite ›'
-            previous: '‹ Vorherige Seite'
+            next: 'Weiter ›'
+            previous: '‹ Zurück'
           expose:
             items_per_page: false
             items_per_page_label: 'Elemente pro Seite'

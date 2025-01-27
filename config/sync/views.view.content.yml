@@ -164,7 +164,7 @@ display:
           settings:
             format: custom
             format_custom_false: Versteckt
-            format_custom_true: veröffentlicht
+            format_custom_true: Veröffentlicht
         changed:
           id: changed
           table: node_field_data
@@ -252,8 +252,8 @@ display:
           pagination_heading_level: h4
           items_per_page: 50
           tags:
-            next: 'Nächste Seite ›'
-            previous: '‹ Vorherige Seite'
+            next: 'Weiter ›'
+            previous: '‹ Zurück'
             first: '« Anfang'
             last: 'Ende »'
       exposed_form:
@@ -262,7 +262,7 @@ display:
           submit_button: Filtern
           reset_button: true
           reset_button_label: Zurücksetzen
-          exposed_sorts_label: 'Sortieren nach'
+          exposed_sorts_label: Sortierung
           expose_sort_order: true
           sort_asc_label: Aufsteigend
           sort_desc_label: Absteigend
@@ -409,7 +409,7 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: veröffentlicht
+                title: Veröffentlicht
                 operator: '='
                 value: '1'
               2:

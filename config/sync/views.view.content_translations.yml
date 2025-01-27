@@ -428,7 +428,7 @@ display:
           submit_button: Filtern
           reset_button: true
           reset_button_label: Zurücksetzen
-          exposed_sorts_label: 'Sortieren nach'
+          exposed_sorts_label: Sortierung
           expose_sort_order: true
           sort_asc_label: Aufsteigend
           sort_desc_label: Absteigend
@@ -594,7 +594,7 @@ display:
           exposed: true
           expose:
             operator_id: ''
-            label: Outdated
+            label: Veraltet
             description: ''
             use_operator: false
             operator: translation_outdated_op

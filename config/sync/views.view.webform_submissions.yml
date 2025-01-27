@@ -381,7 +381,7 @@ display:
           submit_button: Filtern
           reset_button: true
           reset_button_label: Zurücksetzen
-          exposed_sorts_label: 'Sortieren nach'
+          exposed_sorts_label: Sortierung
           expose_sort_order: true
           sort_asc_label: Aufsteigend
           sort_desc_label: Absteigend
@@ -1018,7 +1018,7 @@ display:
           entity_type: webform_submission
           entity_field: completed
           plugin_id: field
-          label: Completed
+          label: Abgeschlossen
           exclude: false
           alter:
             alter_text: false
@@ -1958,7 +1958,7 @@ display:
           entity_type: webform_submission
           entity_field: completed
           plugin_id: field
-          label: Completed
+          label: Abgeschlossen
           exclude: false
           alter:
             alter_text: false
@@ -2810,7 +2810,7 @@ display:
           entity_type: webform_submission
           entity_field: completed
           plugin_id: field
-          label: Completed
+          label: Abgeschlossen
           exclude: false
           alter:
             alter_text: false

@@ -13,6 +13,3 @@ admin_compact_mode: false
 weight_select_max: 100
 default_langcode: de
 mail_notification: ''
-summer_season:
-  from: '2000-04-01'
-  to: '2000-09-30'
