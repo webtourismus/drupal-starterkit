@@ -288,7 +288,7 @@ options:
         - 'growing from %number_with_unit1 on mobile to %number_with_unit2 on PC'
         -
           '%number_with_unit1': '8px'
-          '%number_with_unit2': '64px'
+          '%number_with_unit2': '96px'
       'pt-0': 'no padding'
       'pt-[2px]': 'thin'
       'pt-[8px]': 8px

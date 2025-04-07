@@ -5,7 +5,7 @@ index 4031da4..ff17f41 100644
 @@ -18,10 +18,44 @@ Options -Indexes
  # Set the default handler.
  DirectoryIndex index.php index.html index.htm
- 
+
 +<IfModule mod_deflate.c>
 +  # Compress HTML, CSS, JavaScript, Text, XML and fonts
 +  AddOutputFilterByType DEFLATE application/javascript
@@ -40,7 +40,7 @@ index 4031da4..ff17f41 100644
  # Add correct encoding for SVGZ.
  AddType image/svg+xml svg svgz
  AddEncoding gzip svgz
- 
+
 +# Add correct mime type for WebP images
 +AddType image/webp .webp
 +
@@ -50,13 +50,13 @@ index 4031da4..ff17f41 100644
 @@ -60,6 +94,15 @@ AddEncoding gzip svgz
  <IfModule mod_rewrite.c>
    RewriteEngine on
- 
+
 +  # To redirect all users to access the site WITH the secure 'https://' protocol,
 +  # (http://www.example.com/foo will be redirected to https://www.example.com/foo)
 +  # uncomment the following:
 +  RewriteCond %{HTTPS} off
 +  RewriteCond %{HTTP:X-Forwarded-Proto} !https
-+  RewriteCond %{HTTP_HOST} !\.dedi(103|1661)\.your-server\.de$ [NC]
++  RewriteCond %{HTTP_HOST} !\.dedi(103|1661|3828)\.your-server\.de$ [NC]
 +  RewriteCond %{REQUEST_FILENAME} !-f
 +  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 +
@@ -73,7 +73,7 @@ index 4031da4..ff17f41 100644
 +  RewriteCond %{HTTP_HOST} .
 +  RewriteCond %{HTTP_HOST} !^www\. [NC]
 +  RewriteCond %{HTTP_HOST} !\.[^\.]+\.webtourismus\.at$ [NC]
-+  RewriteCond %{HTTP_HOST} !\.dedi(103|1661)\.your-server\.de$ [NC]
++  RewriteCond %{HTTP_HOST} !\.dedi(103|1661|3828)\.your-server\.de$ [NC]
 +  RewriteRule ^ http%{ENV:protossl}://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
    #
    # To redirect all users to access the site WITHOUT the 'www.' prefix,

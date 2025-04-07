@@ -40,5 +40,8 @@ desktop.ini
 /web/.php-ini
 /web/.php-version
 
+# Ignore the .htaccess to avoid noise from Hetzner konsoleH modifying this file.
+/web/.htaccess
+
 # .gitkeep files ensure the existance of a directory path itself in empty or ignored directories
 !.gitkeep

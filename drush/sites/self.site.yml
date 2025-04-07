@@ -1,6 +1,12 @@
 dev:
-  root: .
+  host: dedi3828.your-server.de
+  user: wtdev1
+  root: /usr/home/wtdev1/public_html/${env.PROJECT_NAME}
   uri: https://${env.PROJECT_NAME}.dev1.webtourismus.at
+  ssh:
+    options: '-t -p 222'
+  paths:
+    drush-script: /usr/home/wtdev1/public_html/${env.PROJECT_NAME}/vendor/bin/drush
 prod:
   host: ${env.PROD_SSH_HOST}
   user: ${env.PROD_SSH_USER}

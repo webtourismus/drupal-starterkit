@@ -3,9 +3,11 @@
 declare(strict_types=1);
 
 use Drupal\block\Entity\Block;
+use Drupal\block_content\Entity\BlockContent;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\ebr_teaser\Entity\ParagraphTeaserableInterface;
 use Drupal\designsystem\DesignHelper;
+use Drupal\system\Entity\Menu;
 
 function frontend_theme_suggestions_block_alter(array &$suggestions, array $variables): void {
   $blockId = NULL;
@@ -31,6 +33,12 @@ function frontend_theme_suggestions_block_alter(array &$suggestions, array $vari
 
   if ($region) {
     array_splice($suggestions, 1, 0, "block__region__{$region}");
+  }
+  // Move the "block__system_menu_block" back down to index 1.
+  $posSystemMenuBlock = array_search('block__system_menu_block', $suggestions);
+  if ($posSystemMenuBlock !== false && $posSystemMenuBlock !== 1) {
+    $sugSystemMenuBlock = array_splice($suggestions, $posSystemMenuBlock, 1);
+    array_splice($suggestions, 1, 0, $sugSystemMenuBlock);
   }
 }
 function frontend_preprocess_block(array &$variables): void {
@@ -61,8 +69,16 @@ function _frontend_preprocess_block_blockcontent(array &$variables): void {
  * @see https://www.drupal.org/project/block_content_template
  */
 function frontend_preprocess_block_content(&$variables) {
-  if (isset($variables['elements']['#block_content'])) {
-    $variables['block_content'] = $variables['elements']['#block_content'];
+  if ($variables['base_plugin_id'] !== 'block_content') {
+    return;
+  }
+
+  // Convention: The content entity object should be available under the entity type's machine name.
+  $variables['block_content'] = $variables['elements']['#block_content'];
+  // Convention: If a block label is visible, we want the label of the content entity,
+  // not the label of the block config entity for easier translatability.
+  if ($variables['content']['#block_content'] instanceof BlockContent) {
+    $variables['label'] = $variables['content']['#block_content']->label();
   }
 }
 
@@ -77,6 +93,12 @@ function _frontend_preprocess_block_menu(array &$variables): void {
   if ($region) {
     $variables['content']['#attributes']['data-drupal-region'] = $region;
     $variables['content']['#cache']['tags'][] = "block:{$blockId}";
+  }
+  $menu = Menu::load($variables['derivative_plugin_id']);
+  // Convention: If a block label is visible, we want the label of the menu entity,
+  // not the label of the block config entity for easier translatability.
+  if ($menu instanceof Menu) {
+    $variables['label'] = $menu->label();
   }
 }
 

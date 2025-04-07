@@ -61,6 +61,7 @@ $settings['trusted_host_patterns'] = [
   '\.webtourismus\.at$',
   '\.dedi103\.your-server\.de$',
   '\.dedi1661\.your-server\.de$',
+  '\.dedi3828\.your-server\.de$',
 ];
 
 /**

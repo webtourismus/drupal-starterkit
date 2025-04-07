@@ -3,10 +3,13 @@
     "description": "Entries listed here will be removed from the project's composer.json file.",
     "requirement": "Only works on Webtourismus dev server. Only works with webtourismus/drupal-starterkit projects.",
     "usage": "Add thing to remove to 'remove' section in this file. Then run 'robo sync' inside the target project directory.",
-    "limitation": "Currently only patches are supported. Might be extented in the future (e.g. repo entries).",
+    "limitation": "Currently only repos and patches are supported. Might be extented in the future (e.g. config or other extra's).",
     "@see": "/RoboFile.php::sync()"
   },
   "remove": {
+    "repositories": {
+      "example_repo": "When running 'robo sync', the repo with the key 'example_repo' will be removed from the composer.json repositories section."
+    },
     "extra": {
       "patches": {
         "example_vendor/example_package": {

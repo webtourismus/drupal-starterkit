@@ -2,6 +2,10 @@
   <div {{ attributes }}>
     {% block label %}
       {% if label %}
+        {##
+         # If available, we use label of the content entity (not block config entity) for easier translatability.
+         # @see frontend.theme::frontend_preprocess_block().
+         #}
         <h3 {{ title_attributes }}>{{ label }}</h3>
       {% endif %}
     {% endblock label %}
