@@ -26,39 +26,39 @@
     },
     "webtourismus/deepl": {
       "type": "vcs",
-      "url": "https://bitbucket.org/webtourismus/deepl.git"
+      "url": "https://github.com/webtourismus/deepl.git"
     },
     "webtourismus/designsystem": {
       "type": "vcs",
-      "url": "https://bitbucket.org/webtourismus/designsystem.git"
+      "url": "https://github.com/webtourismus/designsystem.git"
     },
     "webtourismus/ebr": {
       "type": "vcs",
-      "url": "https://bitbucket.org/webtourismus/ebr.git"
+      "url": "https://github.com/webtourismus/ebr.git"
     },
     "webtourismus/fa6": {
       "type": "vcs",
-      "url": "https://bitbucket.org/webtourismus/fa6.git"
+      "url": "https://github.com/webtourismus/fa6.git"
     },
     "webtourismus/gin_custom": {
       "type": "vcs",
-      "url": "https://bitbucket.org/webtourismus/gin_custom.git"
+      "url": "https://github.com/webtourismus/gin_custom.git"
     },
     "webtourismus/mailjet_iframe": {
       "type": "vcs",
-      "url": "https://bitbucket.org/webtourismus/mailjet_iframe.git"
+      "url": "https://github.com/webtourismus/mailjet_iframe.git"
     },
     "webtourismus/maintenance": {
       "type": "vcs",
-      "url": "https://bitbucket.org/webtourismus/maintenance.git"
+      "url": "https://github.com/webtourismus/maintenance.git"
     },
     "webtourismus/drupal-metapackage": {
       "type": "vcs",
-      "url": "https://bitbucket.org/webtourismus/drupal-metapackage.git"
+      "url": "https://github.com/webtourismus/drupal-metapackage.git"
     },
     "webtourismus/seasonal_paragraphs": {
       "type": "vcs",
-      "url": "https://bitbucket.org/webtourismus/seasonal_paragraphs.git"
+      "url": "https://github.com/webtourismus/seasonal_paragraphs.git"
     }
   },
   "minimum-stability": "dev",
@@ -176,6 +176,6 @@
     }
   },
   "require": {
-    "webtourismus/drupal-metapackage": "^1.5.0"
+    "webtourismus/drupal-metapackage": "^1.6.0"
   }
 }
