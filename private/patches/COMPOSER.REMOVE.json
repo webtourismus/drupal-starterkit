@@ -2,18 +2,22 @@
   "documentation": {
     "description": "Entries listed here will be removed from the project's composer.json file.",
     "requirement": "Only works on Webtourismus dev server. Only works with webtourismus/drupal-starterkit projects.",
-    "usage": "Add thing to remove to 'remove' section in this file. Then run 'robo sync' inside the target project directory.",
-    "limitation": "Currently only repos and patches are supported. Might be extented in the future (e.g. config or other extra's).",
-    "@see": "/RoboFile.php::sync()"
+    "usage": "Add thing to remove to 'remove' section in this file. Then run 'robo update' inside the target project directory.",
+    "limitation": "Currently only repos, required packages and patches are supported. Might be extented in the future (e.g. scripts or other extra sections).",
+    "@see": "/RoboFile.php::update()"
   },
   "remove": {
     "repositories": {
-      "example_repo": "When running 'robo sync', the repo with the key 'example_repo' will be removed from the composer.json repositories section."
+      "example_repo": "When running 'robo update', the repo with the key 'example_repo' will be removed from the composer.json repositories section."
+    },
+    "require": {
+      "example_vendor/example_package": "When running 'robo update', the package with name 'example_vendor/example_package' will be removed from the composer.json required section.",
+      "drupal_modules/warning": "Mind that this is the last step of a multi-step process! Modules must be deactivated first - on all environments - before physically deleting them with composer."
     },
     "extra": {
       "patches": {
         "example_vendor/example_package": {
-          "example_key": "When running 'robo sync', the patch with the key 'example_key' will be removed from the composer.json patches section of example_vendor/example_package."
+          "example_key": "When running 'robo update', the patch with the key 'example_key' will be removed from the composer.json patches section of example_vendor/example_package."
         },
         "drupal/viewsreference": {
           "3402036 - Config schema for enable_settings incorrect": "Fixed in v2.0-beta8"

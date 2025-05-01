@@ -1,51 +1,6 @@
---- a/web/.htaccess	2025-01-07 00:26:38.000000000 +0100
-+++ b/web/.htaccess	2025-04-29 16:22:38.343135352 +0200
-@@ -18,10 +18,44 @@
- # Set the default handler.
- DirectoryIndex index.php index.html index.htm
-
-+<IfModule mod_deflate.c>
-+  # Compress HTML, CSS, JavaScript, Text, XML and fonts
-+  AddOutputFilterByType DEFLATE application/javascript
-+  AddOutputFilterByType DEFLATE application/rss+xml
-+  AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
-+  AddOutputFilterByType DEFLATE application/x-font
-+  AddOutputFilterByType DEFLATE application/x-font-opentype
-+  AddOutputFilterByType DEFLATE application/x-font-otf
-+  AddOutputFilterByType DEFLATE application/x-font-truetype
-+  AddOutputFilterByType DEFLATE application/x-font-ttf
-+  AddOutputFilterByType DEFLATE application/x-javascript
-+  AddOutputFilterByType DEFLATE application/xhtml+xml
-+  AddOutputFilterByType DEFLATE application/xml
-+  AddOutputFilterByType DEFLATE font/opentype
-+  AddOutputFilterByType DEFLATE font/otf
-+  AddOutputFilterByType DEFLATE font/ttf
-+  AddOutputFilterByType DEFLATE image/svg+xml
-+  AddOutputFilterByType DEFLATE image/x-icon
-+  AddOutputFilterByType DEFLATE text/css
-+  AddOutputFilterByType DEFLATE text/html
-+  AddOutputFilterByType DEFLATE text/javascript
-+  AddOutputFilterByType DEFLATE text/plain
-+  AddOutputFilterByType DEFLATE text/xml
-+
-+  # Remove browser bugs (only needed for really old browsers)
-+  BrowserMatch ^Mozilla/4 gzip-only-text/html
-+  BrowserMatch ^Mozilla/4\.0[678] no-gzip
-+  BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
-+  Header append Vary User-Agent
-+</IfModule>
-+
- # Add correct encoding for SVGZ.
- AddType image/svg+xml svg svgz
- AddEncoding gzip svgz
-
-+# Add correct mime type for WebP images
-+AddType image/webp .webp
-+
- # Most of the following PHP settings cannot be changed at runtime. See
- # sites/default/default.settings.php and
- # Drupal\Core\DrupalKernel::bootEnvironment() for settings that can be
-@@ -60,6 +94,19 @@
+--- a/web/.htaccess	2025-04-02 23:04:03.000000000 +0200
++++ b/web/.htaccess	2025-05-01 16:03:32.837242595 +0200
+@@ -63,6 +63,19 @@
  <IfModule mod_rewrite.c>
    RewriteEngine on
 
@@ -65,7 +20,7 @@
    # Set "protossl" to "s" if we were accessed via https://.  This is used later
    # if you enable "www." stripping or enforcement, in order to ensure that
    # you don't bounce between http and https.
-@@ -93,9 +140,11 @@
+@@ -96,9 +109,11 @@
    # To redirect all users to access the site WITH the 'www.' prefix,
    # (http://example.com/foo will be redirected to http://www.example.com/foo)
    # uncomment the following:

@@ -69,7 +69,7 @@ function _frontend_preprocess_block_blockcontent(array &$variables): void {
  * @see https://www.drupal.org/project/block_content_template
  */
 function frontend_preprocess_block_content(&$variables) {
-  if ($variables['base_plugin_id'] !== 'block_content') {
+  if (empty($variables['elements']['#block_content'] ?? NULL)) {
     return;
   }
 
@@ -77,8 +77,8 @@ function frontend_preprocess_block_content(&$variables) {
   $variables['block_content'] = $variables['elements']['#block_content'];
   // Convention: If a block label is visible, we want the label of the content entity,
   // not the label of the block config entity for easier translatability.
-  if ($variables['content']['#block_content'] instanceof BlockContent) {
-    $variables['label'] = $variables['content']['#block_content']->label();
+  if ($variables['block_content'] instanceof BlockContent) {
+    $variables['label'] = $variables['block_content']->label();
   }
 }
 

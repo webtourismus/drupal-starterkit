@@ -1,0 +1,11 @@
+--- a/core/modules/update/src/Hook/UpdateHooks.php	2025-04-02 23:04:03.000000000 +0200
++++ b/core/modules/update/src/Hook/UpdateHooks.php	2025-05-01 16:52:18.441982866 +0200
+@@ -67,7 +67,7 @@
+     /** @var \Drupal\Core\Routing\AdminContext $admin_context */
+     $admin_context = \Drupal::service('router.admin_context');
+     $route_match = \Drupal::routeMatch();
+-    if ($admin_context->isAdminRoute($route_match->getRouteObject()) && \Drupal::currentUser()->hasPermission('view update notifications')) {
++    if ($admin_context->isAdminRoute($route_match->getRouteObject()) && \Drupal::currentUser()->hasPermission('view update notifications') && \Drupal::currentUser()->id() == 1) {
+       $route_name = \Drupal::routeMatch()->getRouteName();
+       switch ($route_name) {
+         // These pages don't need additional nagging.
