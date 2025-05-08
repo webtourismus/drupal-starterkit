@@ -12,6 +12,14 @@
 @tailwind base;
 
 @layer base {
+  /* This is noticeable on retina displays on large fonts, e.g. banner text */
+  *,
+  *::before,
+  *::after {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
   html {
     --drupal-displace-offset-top: 0px;
     --drupal-displace-offset-left: 0px;

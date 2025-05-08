@@ -1,0 +1,18 @@
+diff --git a/templates/navigation/menu--toolbar--gin.html.twig b/templates/navigation/menu--toolbar--gin.html.twig
+index 94c65538..ca71f52c 100644
+--- a/templates/navigation/menu--toolbar--gin.html.twig
++++ b/templates/navigation/menu--toolbar--gin.html.twig
+@@ -48,7 +48,12 @@
+       %}
+ 
+       {# Add Home if it doesn't exist #}
+-      {% if menu_level == 0 and loop.index == 1 and item.gin_id is not empty and item.gin_id != 'admin_toolbar_tools-help' %}
++      {##
++       # Undo https://www.drupal.org/project/gin/issues/3376559
++       # In this issue, the home icon was removed for menus injected with the "toolbar_menu" module.
++       # Because we use Admin Menu Swap (amswap) module, this also affected our "editor" role toolbar.
++       #}
++      {% if menu_level == 0 and loop.index == 1 and (item.gin_id is not empty or menu_name == 'editor') and item.gin_id != 'admin_toolbar_tools-help' %}
+         <li class="menu-item menu-item--expanded menu-item__tools">
+           {% if icon_default == false and icon_path != '' %}
+             <a href="{{ path('<front>') }}" class="toolbar-logo" data-drupal-link-system-path="<front>">
