@@ -48,14 +48,14 @@
     width: calc(var(--bullet-width) - var(--bullet-border));
     height: calc(var(--bullet-height) - var(--bullet-border));
     @apply bg-foreground hocus:bg-onforeground;
-    
+
     &[aria-selected="true"] {
       @apply bg-onforeground;
     }
   }
 
 
-  :not(.textslider-pagination) {
+  &:not(.textslider-pagination) {
     position: absolute;
     bottom: 5%;
     z-index: 10;
