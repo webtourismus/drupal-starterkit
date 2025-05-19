@@ -11,6 +11,7 @@ dependencies:
 libraries:
   - designsystem/glightbox
   - designsystem/splide
+  - designsystem/splide-custom
   - frontend/base
 regions:
   html_head: HTML Head
