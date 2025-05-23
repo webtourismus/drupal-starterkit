@@ -11,7 +11,7 @@
   {% for text in content.field_accordion|children %}
     {% set current_idx_is_visible = loop.index in paragraph.field_accordion_expanded.0.value|split(',') %}
     <div class="accordion-item mb-[1rem] last:mb-0" id="accordion-item-{{ paragraph.id() }}-{{ loop.index }}">
-      <button class="accordion-header btn-outline w-full !justify-start !text-left px-[8px] py-[4px]"
+      <button class="accordion-header btn-outline w-full !justify-start !text-left px-[8px] py-[8px]"
               id="accordion-header-{{ paragraph.id() }}-{{ loop.index }}"
               @click="idx_{{ loop.index }} = !idx_{{ loop.index }}"
               aria-controls="accordion-body-{{ paragraph.id() }}-{{ loop.index }}"
