@@ -32,7 +32,7 @@
           "3281984 - Secondary Toolbar breadcrumb shows edit label all node routes": "Fixed in v3.0.0-rc16"
         },
         "drupal/gin_toolbar": {
-          "3319445 - The breadcrumb shows Edit label when user has no permission": "Fixed in 3.0.1"
+          "3319445 - The breadcrumb shows Edit label when user has no permission": "Fixed in 2.1.0"
         }
       }
     }
