@@ -166,9 +166,6 @@
         "3281343 - Use Gin's edit form for media enities": "./private/patches/gin_3281343_patch11.patch",
         "priv001 - Undo gin issue 3376559 (Home link when using toolbar_menu module) due amswap module": "./private/patches/gin_priv001_v4.0.6.patch"
       },
-      "drupal/gin_toolbar": {
-        "3319445 - The breadcrumb shows Edit label when user has no permission": "./private/patches/gin_toolbar_3319445_mr47_3c271ade.patch"
-      },
       "drupal/layout_paragraphs": {
         "3350168 - LP Builder doesn't set admin route context": "./private/patches/layout_paragraphs_3350168_mr118_696e1e59.patch",
         "3371332 - Show layout categories in section UI": "./private/patches/layout_paragraphs_3371332_mr133_ac3ca5ab.patch"
