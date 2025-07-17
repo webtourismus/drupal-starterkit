@@ -147,10 +147,11 @@
         "3313803 - Allow to togle between allow-list and block-list": "./private/patches/config_entity_reference_selection_3313803_mr8_0a4c786c.patch"
       },
       "drupal/cookies": {
-        "3348475 - Integration with Geolocation field module": "./private/patches/cookies_3348475_mr89_for_d11.patch"
+        "3348475 - Integration with Geolocation field module": "./private/patches/cookies_3348475_mr89_for_d11.patch",
+        "3535527 - Fixed cookies": "./private/patches/cookies_3535527_fix-submitConfigurationForm-void.patch"
       },
       "drupal/core": {
-        "2546212 - Make field formatter settings translatable": "./private/patches/core_2546212_patch322.patch",
+        "2546212 - Make field formatter settings translatable": "./private/patches/core_2546212_mr_4294_9bf775cb8a3123f1ca2f9fd62ee45d47ed743cad.patch",
         "3004334 - Hide warning message for hidden untranslatable fields": "./private/patches/core_3004334_minimal_fix_10.2.x.patch",
         "3345064 - Media library field_widget_id is not unique enough": "./private/patches/core_3345064_patch3.patch",
         "3394889 - Show update messages only to user ID 1": "./private/patches/core_3394889_patch4.patch"
