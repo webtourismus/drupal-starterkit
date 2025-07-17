@@ -26,6 +26,7 @@ content:
       muted: true
       width: 1920
       height: 1080
+      playsinline: false
     third_party_settings: {  }
     weight: 0
     region: content
