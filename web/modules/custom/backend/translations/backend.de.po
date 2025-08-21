@@ -139,8 +139,8 @@ msgstr "unten"
 msgid "Vertical alignment of content blocks in this area"
 msgstr "Vertikale Ausrichtung der Inhalts-Blöcke innerhalb der Spalte"
 
-msgid "growing from %number_with_unit1 on mobile to %number_with_unit2 on PC"
-msgstr "wachsend von %number_with_unit1 am Handy bis zu %number_with_unit2 am PC"
+msgid "%number_with_unit1 on mobile and %number_with_unit2 on PC"
+msgstr "%number_with_unit1 am Handy und %number_with_unit2 am PC"
 
 msgid "Horizontal padding in between areas"
 msgstr "Horizontaler Abstand zwischen den Spalten"
@@ -153,6 +153,15 @@ msgstr "Nur wirksam auf kleinen Bildschirmen, wenn die Spalten untereinander sta
 
 msgid "no padding"
 msgstr "kein Abstand"
+
+msgid "10% display height"
+msgstr "10% der Bildschirmhöhe"
+
+msgid "20% display height"
+msgstr "20% der Bildschirmhöhe"
+
+msgid "30% display height"
+msgstr "30% der Bildschirmhöhe"
 
 msgid "thin"
 msgstr "dünn"
