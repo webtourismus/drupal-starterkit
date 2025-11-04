@@ -1,10 +1,13 @@
-uuid: 4de92afb-dbd4-49e3-a5be-1b7ef8290ed0
-langcode: de
+uuid: null
+langcode: en
 status: true
-dependencies: {  }
-_core:
-  default_config_hash: oEkOcTltDf_GFU7lBKzy6LUI62opCyY719ApJNb6FqI
-name: 'Webformular (Standard) - NICHT ÄNDERN'
+dependencies:
+  enforced:
+    module:
+      - webform
+name: 'Webform (Default) - DO NOT EDIT'
 format: webform_default
 weight: 100
+roles:
+  - authenticated
 filters: {  }

@@ -9,6 +9,9 @@
   'cursor-pointer',
   'hocus:scale-125',
   'transition',
+  'opacity-100',
+  'disabled:opacity-0',
+  'disabled:pointer-events-none',
 ] %}
 {% set prev_button_attributes = create_attribute({'class': default_button_classes}).addClass('left-2', 'splide__arrow--prev') %}
 {% set next_button_attributes = create_attribute({'class': default_button_classes}).addClass('right-2', 'splide__arrow--next') %}

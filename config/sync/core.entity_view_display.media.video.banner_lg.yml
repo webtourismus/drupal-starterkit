@@ -24,9 +24,9 @@ content:
       loop: true
       multiple_file_display_type: sources
       muted: true
+      playsinline: true
       width: 1920
       height: 1080
-      playsinline: false
     third_party_settings: {  }
     weight: 0
     region: content

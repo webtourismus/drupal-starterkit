@@ -359,6 +359,7 @@ handlers:
       attachments: false
       twig: false
       theme_name: frontend
+      langcode: ''
       parameters: {  }
       debug: false
   mail_siteowner:
@@ -396,6 +397,7 @@ handlers:
       attachments: false
       twig: false
       theme_name: frontend
+      langcode: ''
       parameters: {  }
       debug: false
 variants: {  }
