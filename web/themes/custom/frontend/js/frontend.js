@@ -19,7 +19,9 @@
             /* don't trigger on SVG nodes of splide control elements */
             event.target?.ownerSVGElement?.getAttribute('class')?.includes('splide') ||
             /* other scripts that might want to interfere with linkify */
-            Alpine.store('linkify') == false
+            Alpine.store('linkify') == false ||
+            /* disable click on a-tags inside. */
+            event.target?.getAttribute('href')
           ) {
             return;
           }
