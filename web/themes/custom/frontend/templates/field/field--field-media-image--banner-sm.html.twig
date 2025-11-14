@@ -1,0 +1,5 @@
+{% extends "@frontend/field/field--image.html.twig" %}
+
+{% block item %}
+	{{ item.content|set("#item_attributes.fetchpriority", "high") }}
+{% endblock %}
