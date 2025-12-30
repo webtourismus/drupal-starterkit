@@ -196,7 +196,7 @@
     }
   },
   "require": {
-    "webtourismus/drupal-metapackage": "^1.6.15"
+    "webtourismus/drupal-metapackage": "^1.6.16"
   },
   "require-dev": {
     "mglaman/phpstan-drupal": "^2.0",
