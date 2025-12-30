@@ -176,9 +176,6 @@
       },
       "drupal/migrate_plus": {
         "3040427 - Allow callback for Url source": "./private/patches/migrate_plus_3040427_patch42.patch"
-      },
-      "drupal/webform": {
-        "3556348 - Fix declaration issue": "./private/patches/webform_3556348-webform_6.3.0-beta5.patch"
       }
     }
   },

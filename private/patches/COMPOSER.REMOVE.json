@@ -33,6 +33,9 @@
         },
         "drupal/gin_toolbar": {
           "3319445 - The breadcrumb shows Edit label when user has no permission": "Fixed in 2.1.0"
+        },
+        "drupal/webform": {
+            "3556348 - Fix declaration issue": "./private/patches/webform_3556348-webform_6.3.0-beta5.patch"
         }
       }
     }
