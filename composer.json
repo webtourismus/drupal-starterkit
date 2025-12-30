@@ -28,7 +28,7 @@
         "type": "package",
         "package": {
             "name": "js-cookie/js-cookie",
-            "version": "3.0.5",
+            "version": "v3.0.5",
             "type": "drupal-library",
             "extra": {
                 "installer-name": "js-cookie"
@@ -196,7 +196,7 @@
     }
   },
   "require": {
-    "webtourismus/drupal-metapackage": "^1.6.16"
+    "webtourismus/drupal-metapackage": "^1.6.17"
   },
   "require-dev": {
     "mglaman/phpstan-drupal": "^2.0",
