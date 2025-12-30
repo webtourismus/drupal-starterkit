@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "bmewburn.vscode-intelephense-client",
+    "mblode.twig-language-2",
+    "andrewdavidblum.drupal-smart-snippets",
+    "redhat.vscode-yaml",
+    "editorconfig.editorconfig",
+    "usernamehw.errorlens",
+    "ionutvmi.path-autocomplete",
+    "mikestead.dotenv",
+  ],
+  "unwantedRecommendations": [
+    "esbenp.prettier-vscode",
+    "eamodio.gitlens",
+    "ms-azuretools.vscode-docker",
+    "ritwickdey.liveserver",
+  ],
+}

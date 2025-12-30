@@ -1,0 +1,30 @@
+includes:
+  - vendor/mglaman/phpstan-drupal/extension.neon
+
+parameters:
+  level: 6
+
+  paths:
+    - web/modules/custom
+    - web/themes/custom
+
+  excludePaths:
+    - */tests/*
+    - */vendor/*
+    - */node_modules/*
+    - */sites/default/files/*
+
+  treatPhpDocTypesAsCertain: false
+
+  ignoreErrors:
+    # Drupal magic methods & properties
+    - '#Call to an undefined method Drupal\\.*#'
+    - '#Access to an undefined property Drupal\\.*#'
+
+    # Entity Field API magic
+    - '#Property .* does not exist on Drupal\\Core\\Entity\\EntityInterface#'
+
+    # Render arrays are dynamic
+    - '#Offset .* does not exist on array#'
+
+  reportUnmatchedIgnoredErrors: false

@@ -1,0 +1,73 @@
+{
+  /* =========================
+   * PERFORMANCE (REMOTE SSH)
+   * ========================= */
+  "files.exclude": {
+    "**/vendor": true,
+    "**/node_modules": true,
+    "**/sites/default/files": true
+  },
+  "search.exclude": {
+    "**/vendor": true,
+    "**/node_modules": true
+  },
+  /* =========================
+   * PHP / DRUPAL
+   * ========================= */
+  "php.validate.executablePath": "/usr/bin/php",
+  "intelephense.environment.phpVersion": "8.3",
+  "intelephense.files.maxSize": 5000000,
+  "intelephense.diagnostics.enable": true,
+  /* =========================
+   * FORMATTING – GLOBAL
+   * ========================= */
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  /* =========================
+   * PHP (PSR-12 / Drupal)
+   * ========================= */
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
+    "editor.tabSize": 2
+  },
+  /* =========================
+   * TWIG (DRUPAL SAFE)
+   * ========================= */
+  "[twig]": {
+    "editor.defaultFormatter": "mblode.twig-language-2",
+    "editor.tabSize": 2,
+    "editor.formatOnSave": false
+  },
+  /* =========================
+   * YAML (routing, services)
+   * ========================= */
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.tabSize": 2
+  },
+  /* =========================
+   * JSON / JSON-LD (Schema.org)
+   * ========================= */
+  "[json]": {
+    "editor.tabSize": 2
+  },
+  /* =========================
+   * PATH AUTOCOMPLETE
+   * ========================= */
+  "path-autocomplete.extensionOnImport": true,
+  /* =========================
+   * DRUPAL AI / CURSOR
+   * ========================= */
+  "cursor.chat.contextFiles": true,
+  /* =========================
+   * PHPSTAN
+   * ========================= */
+  "phpstan.configFile": "phpstan.neon",
+  /* =========================
+   * TAILWIND CSS
+   * ========================= */
+  "tailwindCSS.experimental.configFile": "web/themes/custom/frontend/tailwind/tailwind.config.js"
+}
