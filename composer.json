@@ -24,21 +24,21 @@
         }
       }
     },
-    "js-cookie/js-cookie": {
-      "type": "package",
-      "package": {
-        "name": "js-cookie/js-cookie",
-        "version": "3.0.5",
-        "type": "drupal-library",
-        "extra": {
-          "installer-name": "js-cookie"
-        },
-        "source": {
-          "url": "https://github.com/js-cookie/js-cookie.git",
-          "type": "git",
-          "reference": "3.0.5"
+    "js-cookie": {
+        "type": "package",
+        "package": {
+            "name": "js-cookie/js-cookie",
+            "version": "3.0.5",
+            "type": "drupal-library",
+            "extra": {
+                "installer-name": "js-cookie"
+            },
+            "dist": {
+                "url": "https://registry.npmjs.org/js-cookie/-/js-cookie-3.0.5.tgz",
+                "type": "tar"
+            },
+            "license": "MIT"
         }
-      }
     },
     "webtourismus/deepl": {
       "type": "vcs",
@@ -196,7 +196,7 @@
     }
   },
   "require": {
-    "webtourismus/drupal-metapackage": "^1.6.14"
+    "webtourismus/drupal-metapackage": "^1.6.15"
   },
   "require-dev": {
     "mglaman/phpstan-drupal": "^2.0",
