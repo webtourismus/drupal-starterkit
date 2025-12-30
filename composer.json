@@ -8,19 +8,18 @@
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         },
-        "jjj/chosen": {
+        "noli42/chosen": {
             "type": "package",
             "package": {
-                "name": "jjj/chosen",
-                "version": "2.2.1",
+                "name": "noli42/chosen",
+                "version": "3.0.0",
                 "type": "drupal-library",
                 "extra": {
                     "installer-name": "chosen"
                 },
-                "source": {
-                    "url": "https://github.com/JJJ/chosen.git",
-                    "type": "git",
-                    "reference": "2.2.1"
+                "dist": {
+                    "url": "https://github.com/noli42/chosen/releases/download/3.0.0/chosen-assets-v3.0.0.zip",
+                    "type": "zip"
                 }
             }
         },
@@ -196,6 +195,6 @@
         }
     },
     "require": {
-        "webtourismus/drupal-metapackage": "^1.7.0"
+        "webtourismus/drupal-metapackage": "^1.7.1"
     }
 }
