@@ -32,7 +32,7 @@
       "3386491 - Link text not transparent in modal windows": "./private/patches/media_library_edit_3386491_mr15_b0659c7c.patch"
     },
     "drupal/migrate_plus": {
-      "3040427 - Allow callback for Url source": "./private/patches/migrate_plus_3040427_patch42.patch"
+      "3040427 - Allow callback for Url source": "./private/patches/migrate_plus_3040427_patch66.patch"
     },
     "webtourismus/splidejs": {
       "priv001 - Custom patch for Webtourismus Drupal admin and frontend theme": "./private/patches/splidejs_private001_v4.1.4a.patch"
