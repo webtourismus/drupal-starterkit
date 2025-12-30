@@ -31,9 +31,6 @@
         "drupal/media_library_edit": {
           "3386491 - Link text not transparent in modal windows": "Fixed in v3.0.4"
         },
-        "drupal/migrate_plus": {
-          "3040427 - Allow callback for Url source": "./private/patches/migrate_plus_3040427_patch42.patch"
-        },
         "drupal/viewsreference": {
           "3402036 - Config schema for enable_settings incorrect": "Fixed in v2.0-beta8"
         },
