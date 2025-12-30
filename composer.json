@@ -24,6 +24,22 @@
         }
       }
     },
+    "js-cookie/js-cookie": {
+      "type": "package",
+      "package": {
+        "name": "js-cookie/js-cookie",
+        "version": "3.0.5",
+        "type": "drupal-library",
+        "extra": {
+          "installer-name": "js-cookie"
+        },
+        "source": {
+          "url": "https://github.com/js-cookie/js-cookie.git",
+          "type": "git",
+          "reference": "3.0.5"
+        }
+      }
+    },
     "webtourismus/deepl": {
       "type": "vcs",
       "url": "https://github.com/webtourismus/deepl.git"
@@ -43,6 +59,10 @@
     "webtourismus/gin_custom": {
       "type": "vcs",
       "url": "https://github.com/webtourismus/gin_custom.git"
+    },
+    "webtourismus/js-cookie": {
+      "type": "vcs",
+      "url": "https://github.com/webtourismus/js-cookie.git"
     },
     "webtourismus/mailjet_iframe": {
       "type": "vcs",
