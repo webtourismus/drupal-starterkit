@@ -9,7 +9,7 @@
       "3535527 - Fixed cookies": "./private/patches/cookies_3535527_fix-submitConfigurationForm-void.patch"
     },
     "drupal/core": {
-      "2546212 - Make field formatter settings translatable": "./private/patches/core_2546212_mr_4294_9bf775cb8a3123f1ca2f9fd62ee45d47ed743cad.patch",
+      "2546212 - Make field formatter settings translatable": "./private/patches/core_2546212_patch336.patch",
       "3004334 - Hide warning message for hidden untranslatable fields": "./private/patches/core_3004334_minimal_fix_10.2.x.patch",
       "3345064 - Media library field_widget_id is not unique enough": "./private/patches/core_3345064_patch3.patch",
       "3394889 - Show update messages only to user ID 1": "./private/patches/core_3394889_patch4.patch"
