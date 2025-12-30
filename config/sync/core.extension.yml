@@ -22,7 +22,6 @@ module:
   config_translation: 0
   config_update: 0
   config_update_ui: 0
-  cookies: 0
   crop: 0
   ctools: 0
   ctools_block: 0
@@ -128,10 +127,6 @@ module:
   content_translation: 10
   formdazzle: 10
   views: 10
-  cookies_filter: 11
-  cookies_geolocation: 11
-  cookies_gtag: 11
-  cookies_video: 11
   paragraphs: 11
   minimal: 1000
 theme:

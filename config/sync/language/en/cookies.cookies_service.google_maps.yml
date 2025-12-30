@@ -1,7 +1,0 @@
-label: 'Google Maps'
-placeholderMainText: 'This content is blocked because Google Maps cookies have not been accepted.'
-placeholderAcceptText: 'Only accept Google Maps cookies.'
-processor: Google
-processorUrl: 'https://www.google.com/maps'
-processorPrivacyPolicyUrl: 'https://policies.google.com/privacy'
-processorCookiePolicyUrl: 'https://policies.google.com/technologies/cookies'

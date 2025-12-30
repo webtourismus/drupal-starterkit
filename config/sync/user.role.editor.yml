@@ -15,7 +15,6 @@ dependencies:
     - block_permissions
     - config_translation
     - content_translation
-    - cookies
     - ebr
     - entity_clone
     - entity_usage
@@ -59,7 +58,6 @@ permissions:
   - 'administer block types'
   - 'administer blocks'
   - 'administer blocks provided by block_content'
-  - 'administer blocks provided by cookies'
   - 'administer blocks provided by core'
   - 'administer blocks provided by ctools'
   - 'administer blocks provided by ctools_block'
@@ -88,7 +86,6 @@ permissions:
   - 'clone node entity'
   - 'clone paragraph entity'
   - 'clone taxonomy_term entity'
-  - 'configure cookies widget texts'
   - 'create content translations'
   - 'create media'
   - 'create terms in amenity'
@@ -112,6 +109,7 @@ permissions:
   - 'edit terms in media'
   - 'edit terms in page'
   - 'notify of path changes'
+  - 'rebuild node access permissions'
   - 'revert all revisions'
   - 'select account cancellation method'
   - 'take_ownership_on_clone file entity'
