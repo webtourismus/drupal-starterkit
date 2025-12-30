@@ -19,8 +19,11 @@
         "example_vendor/example_package": {
           "example_key": "When running 'robo update', the patch with the key 'example_key' will be removed from the composer.json patches section of example_vendor/example_package."
         },
-        "drupal/viewsreference": {
-          "3402036 - Config schema for enable_settings incorrect": "Fixed in v2.0-beta8"
+        "drupal/gin": {
+          "3281984 - Secondary Toolbar breadcrumb shows edit label all node routes": "Fixed in v3.0.0-rc16"
+        },
+        "drupal/gin_toolbar": {
+          "3319445 - The breadcrumb shows Edit label when user has no permission": "Fixed in 2.1.0"
         },
         "drupal/layout_paragraphs": {
           "3417765 - Large modal exceeds viewport height without scrollbar": "Fixed in v2.0.7"
@@ -28,17 +31,14 @@
         "drupal/media_library_edit": {
           "3386491 - Link text not transparent in modal windows": "Fixed in v3.0.4"
         },
-        "drupal/gin": {
-          "3281984 - Secondary Toolbar breadcrumb shows edit label all node routes": "Fixed in v3.0.0-rc16"
+        "drupal/migrate_plus": {
+          "3040427 - Allow callback for Url source": "./private/patches/migrate_plus_3040427_patch42.patch"
         },
-        "drupal/gin_toolbar": {
-          "3319445 - The breadcrumb shows Edit label when user has no permission": "Fixed in 2.1.0"
+        "drupal/viewsreference": {
+          "3402036 - Config schema for enable_settings incorrect": "Fixed in v2.0-beta8"
         },
         "drupal/webform": {
           "3556348 - Fix declaration issue": "./private/patches/webform_3556348-webform_6.3.0-beta5.patch"
-        },
-        "drupal/migrate_plus": {
-          "3040427 - Allow callback for Url source": "./private/patches/migrate_plus_3040427_patch42.patch"
         }
       }
     }
