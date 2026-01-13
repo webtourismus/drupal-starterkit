@@ -187,7 +187,7 @@
                 "3371332 - Show layout categories in section UI": "./private/patches/layout_paragraphs_3371332_mr133_ac3ca5ab.patch"
             },
             "drupal/migrate_plus": {
-                "3040427 - Allow callback for Url source": "./private/patches/migrate_plus_3040427_patch69.patch"
+                "3040427 - Allow callback for Url source": "./private/patches/migrate_plus_3040427_patch66.patch"
             },
             "webtourismus/splidejs": {
                 "priv001 - Custom patch for Webtourismus Drupal admin and frontend theme": "./private/patches/splidejs_private001_v4.1.4a.patch"
@@ -195,6 +195,6 @@
         }
     },
     "require": {
-        "webtourismus/drupal-metapackage": "^1.7.1"
+        "webtourismus/drupal-metapackage": "^1.7.2"
     }
 }
