@@ -1,16 +1,16 @@
 diff --git a/src/Plugin/migrate/source/Url.php b/src/Plugin/migrate/source/Url.php
-index c4bba41..74b75e6 100644
 --- a/src/Plugin/migrate/source/Url.php
-+++ b/src/Plugin/migrate/source/Url.php
-@@ -4,11 +4,50 @@ declare(strict_types = 1);
- 
++++ b/src/Plugin/migrate/source/Url.php	(date 1753029926139)
+@@ -4,13 +4,51 @@
+
  namespace Drupal\migrate_plus\Plugin\migrate\source;
- 
-+use Drupal\migrate\Annotation\MigrateSource;
+
++use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
+ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
  use Drupal\migrate_plus\DataParserPluginInterface;
  use Drupal\migrate\Plugin\MigrationInterface;
-+use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
- 
+ use Drupal\migrate_plus\DataParserPluginManager;
+
  /**
 - * Source plugin for retrieving data via URLs.
 + * Source plugin to provide a list of source URLs.
@@ -30,23 +30,23 @@ index c4bba41..74b75e6 100644
 + *
 + * @code
 + * source:
-+ *   plugin: url
-+ *   urls: https://example.com/jsonapi/node/article
-+ *   data_fetcher_plugin: http
-+ *   data_parser_plugin: json
-+ *   item_selector: data
++ * plugin: url
++ * urls: https://example.com/jsonapi/node/article
++ * data_fetcher_plugin: http
++ * data_parser_plugin: json
++ * item_selector: data
 + * @endcode
 + *
 + * The above will import articles from a single URL endpoint.
 + *
 + * @code
 + * source:
-+ *   plugin: url
-+ *   urls:
-+ *      callback: my_module_get_urls_to_import
-+ *   data_fetcher_plugin: http
-+ *   data_parser_plugin: json
-+ *   item_selector: data
++ * plugin: url
++ * urls:
++ * callback: my_module_get_urls_to_import
++ * data_fetcher_plugin: http
++ * data_parser_plugin: json
++ * item_selector: data
 + * @endcode
 + *
 + * The above will call the function my_module_get_urls_to_import() which should
@@ -54,13 +54,7 @@ index c4bba41..74b75e6 100644
   *
   * @MigrateSource(
   *   id = "url"
-@@ -32,11 +71,23 @@ class Url extends SourcePluginExtension {
- 
-   /**
-    * {@inheritdoc}
-+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-    */
-   public function __construct(array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration) {
+@@ -45,6 +83,17 @@
      if (!is_array($configuration['urls'])) {
        $configuration['urls'] = [$configuration['urls']];
      }
@@ -76,47 +70,9 @@ index c4bba41..74b75e6 100644
 +      }
 +    }
      parent::__construct($configuration, $plugin_id, $plugin_definition, $migration);
- 
+
      $this->sourceUrls = $configuration['urls'];
-@@ -50,13 +101,13 @@ class Url extends SourcePluginExtension {
-    */
-   public function __toString(): string {
-     // This could cause a problem when using a lot of urls, may need to hash.
--    $urls = implode(', ', $this->sourceUrls);
--    return $urls;
-+    return implode(', ', $this->sourceUrls);
-   }
- 
-   /**
-    * Returns the initialized data parser plugin.
-    *
-+   * @return \Drupal\migrate_plus\DataParserPluginInterface
-    *   The data parser plugin.
-    */
-   public function getDataParserPlugin(): DataParserPluginInterface {
-@@ -69,6 +120,7 @@ class Url extends SourcePluginExtension {
-   /**
-    * Creates and returns a filtered Iterator over the documents.
-    *
-+   * @return \Drupal\migrate_plus\DataParserPluginInterface
-    *   An iterator over the documents providing source rows that match the
-    *   configured item_selector.
-    */
-@@ -76,4 +128,14 @@ class Url extends SourcePluginExtension {
-     return $this->getDataParserPlugin();
-   }
- 
-+  /**
-+   * Returns source URLs.
-+   *
-+   * @return array
-+   *   The list of source Urls.
-+   */
-+  public function getSourceUrls(): array {
-+    return $this->sourceUrls;
-+  }
-+
- }
+
 diff --git a/src/Plugin/migrate_plus/data_parser/Json.php b/src/Plugin/migrate_plus/data_parser/Json.php
 index c4d100e..0512354 100755
 --- a/src/Plugin/migrate_plus/data_parser/Json.php
@@ -124,7 +80,7 @@ index c4d100e..0512354 100755
 @@ -48,6 +48,12 @@ class Json extends DataParserPluginBase implements ContainerFactoryPluginInterfa
        return $this->selectByDepth($source_data);
      }
- 
+
 +    // Treat source data as a single object to import if itemSelector is
 +    // explicitly set to FALSE.
 +    if ($this->itemSelector === FALSE) {
