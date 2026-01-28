@@ -1,0 +1,8 @@
+uuid: d79bdc22-5993-4e92-965e-f4fe66b1482c
+langcode: de
+status: true
+dependencies: {  }
+id: text_with_image
+label: 'Text mit Bild'
+revision: false
+description: null

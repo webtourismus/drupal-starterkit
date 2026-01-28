@@ -1,0 +1,91 @@
+uuid: c4f03e52-bbbb-443e-8eed-339515424020
+langcode: de
+status: true
+dependencies:
+  config:
+    - block_content.type.text_with_image
+    - field.field.block_content.text_with_image.body
+    - field.field.block_content.text_with_image.field_image
+    - field.field.block_content.text_with_image.field_link
+  module:
+    - ebr_popup
+    - linkit_attributes
+    - media_library
+    - text
+id: block_content.text_with_image.default
+targetEntityType: block_content
+bundle: text_with_image
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 1
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_image:
+    type: media_library_widget
+    weight: 2
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_link:
+    type: linkit_attributes
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      linkit_profile: backend
+      linkit_auto_link_text: false
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+        title: false
+      widget_default_open: expandIfValuesSet
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  internal_id:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  uuid:
+    type: uuid
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  remote_datasource: true
+  remote_id: true
+  seasonal: true
+  translation: true

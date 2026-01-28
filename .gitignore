@@ -46,6 +46,6 @@ desktop.ini
 # .gitkeep files ensure the existance of a directory path itself in empty or ignored directories
 !.gitkeep
 
-# Ignore the gtm settings.
-google_tag.container.*
-google_tag.settings.yml
+# Ignore gtm dev and prod
+config/sync/google_tag.container.GTM-*.yml
+config/sync/google_tag.settings.yml

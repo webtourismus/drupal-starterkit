@@ -1,6 +1,7 @@
 {% extends "block--block-content.html.twig" %}
 
 {% set default_wrapper_classes = ['imageblock', 'w-full'] %}
+
 {% if block_content.field_link.isEmpty %}
   {% set wrapper_attributes = create_attribute({'class': default_wrapper_classes}) %}
   {% set wrapper_attributes = wrapper_attributes.addClass('imageblock-linked') %}

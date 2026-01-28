@@ -1,7 +1,7 @@
 {% block wrapper %}
   {% if block_content.isPublished %}
     {% set popup_id = block_content.internal_id.0.value %}
-    <div {{ attributes.addClass('cs-neutral-900 fixed top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%] z-modal min-w-[320px] max-w-full sm:max-w-[480px] pt-[40px] pb-[1rem] px-[1rem]') }}
+    <div {{ attributes.addClass('cs-neutral-900 fixed top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%] z-modal min-w-[340px] sm:max-w-[680px] flex items-stretch images:h-full images:object-cover images:aspect-[3/4]') }}
           x-data="{ {{ popup_id }} : $persist(true).using(sessionStorage)}"
           x-show="{{ popup_id }}"
           x-transition:enter="transition ease-out duration-300"
@@ -14,7 +14,7 @@
           {# @click.outside="{{ popup_id }} = false" #}
     >
       {% block button %}
-        <button class="absolute top-[3px] right-[6px] display-block w-[22px] h-[22px] hocus:text-flashy transition"
+        <button class="absolute top-2 left-2 display-block w-[22px] h-[22px] hocus:text-flashy transition"
                 @click="{{ popup_id }} = false"
         >
           {{ source('@fa6/regular/xmark.svg')|add_to_svg('display-block w-full') }}

@@ -1,0 +1,23 @@
+uuid: 512cd55d-0b58-45bd-adcf-03b3d9ef53d8
+langcode: de
+status: true
+dependencies:
+  content:
+    - 'block_content:text_with_image:25f48dd0-d5ab-4d95-bc34-2c1d55b8c02a'
+  module:
+    - block_content
+  theme:
+    - frontend
+id: frontend_startseitepopup
+theme: frontend
+region: popup
+weight: 0
+provider: null
+plugin: 'block_content:25f48dd0-d5ab-4d95-bc34-2c1d55b8c02a'
+settings:
+  id: 'block_content:25f48dd0-d5ab-4d95-bc34-2c1d55b8c02a'
+  label: 'Startseite Popup'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility: {  }

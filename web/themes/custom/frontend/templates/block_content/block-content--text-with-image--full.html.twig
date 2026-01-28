@@ -1,0 +1,27 @@
+{% set dummy_trigger_cache = content|render %}
+
+{{ content.body }}
+
+{% if not (block_content.field_image.isEmpty) %}
+  {% set image_wrapper_classes = ['max-sm:hidden', 'imageblock', 'w-full', 'children:h-full', 'sm:min-w-[340px]'] %}
+
+  {% if block_content.field_link.isEmpty %}
+    {% set image_wrapper_attributes = create_attribute({'class': image_wrapper_classes}) %}
+
+    <div {{ image_wrapper_attributes.addClass('imageblock-nolink') }}>
+  {% else %}
+    {% set image_wrapper_attributes = create_attribute(block_content.field_link.0.value['options']['attributes']|default([])) %}
+    {% set image_wrapper_attributes = image_wrapper_attributes.addClass(image_wrapper_classes) %}
+    {% set image_wrapper_attributes = image_wrapper_attributes.addClass(['imageblock-linked', 'children:h-full']) %}
+
+    <a href="{{ block_content.field_link.0.url.toString }}" {{ image_wrapper_attributes }}>
+  {% endif %}
+
+  {{ content.field_image }}
+
+  {% if block_content.field_link.isEmpty %}
+    </div>
+  {% else %}
+    </a>
+  {% endif %}
+{% endif %}

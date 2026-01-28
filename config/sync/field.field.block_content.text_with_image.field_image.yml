@@ -1,0 +1,40 @@
+uuid: 07abb464-0f24-4a12-a097-5fec4c864011
+langcode: de
+status: true
+dependencies:
+  config:
+    - block_content.type.text_with_image
+    - field.storage.block_content.field_image
+    - media.type.image
+    - media.type.vector_image
+  module:
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: block_content.text_with_image.field_image
+field_name: field_image
+entity_type: block_content
+bundle: text_with_image
+label: Image
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+      vector_image: vector_image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: image
+field_type: entity_reference

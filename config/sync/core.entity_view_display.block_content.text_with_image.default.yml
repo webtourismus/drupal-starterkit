@@ -1,0 +1,49 @@
+uuid: a48453d6-0feb-46e6-af4b-ef8d091bfb63
+langcode: de
+status: true
+dependencies:
+  config:
+    - block_content.type.text_with_image
+    - field.field.block_content.text_with_image.body
+    - field.field.block_content.text_with_image.field_image
+    - field.field.block_content.text_with_image.field_link
+  module:
+    - linkit
+    - text
+id: block_content.text_with_image.default
+targetEntityType: block_content
+bundle: text_with_image
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: original
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_link:
+    type: linkit
+    label: hidden
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+      linkit_profile: backend
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  seasonal: true

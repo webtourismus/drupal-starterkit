@@ -1,0 +1,34 @@
+uuid: f437a81f-43a7-4cbc-abd8-e901aecdac87
+langcode: de
+status: true
+dependencies:
+  config:
+    - block_content.type.text_with_image
+    - field.storage.block_content.body
+    - filter.format.full_html
+  module:
+    - field_config_cardinality
+    - text
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: block_content.text_with_image.body
+field_name: body
+entity_type: block_content
+bundle: text_with_image
+label: Text
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats:
+    - full_html
+field_type: text_with_summary
