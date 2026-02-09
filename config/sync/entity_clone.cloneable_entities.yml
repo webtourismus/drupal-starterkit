@@ -10,5 +10,3 @@ cloneable_entities:
   - user
   - webform
   - paragraph
-  - cookies_service
-  - cookies_service_group

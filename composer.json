@@ -1,200 +1,196 @@
 {
-  "name": "webtourismus/drupal-starterkit",
-  "description": "Opininated project template based on drupal/core-recommended",
-  "type": "project",
-  "license": "GPL-2.0-or-later",
-  "repositories": {
-    "drupal": {
-      "type": "composer",
-      "url": "https://packages.drupal.org/8"
-    },
-    "noli42/chosen": {
-      "type": "package",
-      "package": {
-        "name": "noli42/chosen",
-        "version": "3.0.0",
-        "type": "drupal-library",
-        "extra": {
-          "installer-name": "chosen"
+    "name": "webtourismus/drupal-starterkit",
+    "description": "Opininated project template based on drupal/core-recommended",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
         },
-        "dist": {
-          "url": "https://github.com/noli42/chosen/releases/download/3.0.0/chosen-assets-v3.0.0.zip",
-          "type": "zip"
+        "noli42/chosen": {
+            "type": "package",
+            "package": {
+                "name": "noli42/chosen",
+                "version": "3.0.0",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "chosen"
+                },
+                "dist": {
+                    "url": "https://github.com/noli42/chosen/releases/download/3.0.0/chosen-assets-v3.0.0.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        "js-cookie": {
+            "type": "package",
+            "package": {
+                "name": "js-cookie/js-cookie",
+                "version": "v3.0.5",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "js-cookie"
+                },
+                "dist": {
+                    "url": "https://registry.npmjs.org/js-cookie/-/js-cookie-3.0.5.tgz",
+                    "type": "tar"
+                },
+                "license": "MIT"
+            }
+        },
+        "webtourismus/deepl": {
+            "type": "vcs",
+            "url": "https://github.com/webtourismus/deepl.git"
+        },
+        "webtourismus/designsystem": {
+            "type": "vcs",
+            "url": "https://github.com/webtourismus/designsystem.git"
+        },
+        "webtourismus/ebr": {
+            "type": "vcs",
+            "url": "https://github.com/webtourismus/ebr.git"
+        },
+        "webtourismus/fa6": {
+            "type": "vcs",
+            "url": "https://github.com/webtourismus/fa6.git"
+        },
+        "webtourismus/gin_custom": {
+            "type": "vcs",
+            "url": "https://github.com/webtourismus/gin_custom.git"
+        },
+        "webtourismus/mailjet_iframe": {
+            "type": "vcs",
+            "url": "https://github.com/webtourismus/mailjet_iframe.git"
+        },
+        "webtourismus/maintenance": {
+            "type": "vcs",
+            "url": "https://github.com/webtourismus/maintenance.git"
+        },
+        "webtourismus/drupal-metapackage": {
+            "type": "vcs",
+            "url": "https://github.com/webtourismus/drupal-metapackage.git"
+        },
+        "webtourismus/seasonal_paragraphs": {
+            "type": "vcs",
+            "url": "https://github.com/webtourismus/seasonal_paragraphs.git"
         }
-      }
     },
-    "js-cookie": {
-      "type": "package",
-      "package": {
-        "name": "js-cookie/js-cookie",
-        "version": "v3.0.5",
-        "type": "drupal-library",
-        "extra": {
-          "installer-name": "js-cookie"
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "drupal/core-composer-scaffold": true,
+            "phpstan/extension-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "cweagans/composer-patches": true,
+            "php-http/discovery": true,
+            "php-tuf/composer-integration": true
         },
-        "dist": {
-          "url": "https://registry.npmjs.org/js-cookie/-/js-cookie-3.0.5.tgz",
-          "type": "tar"
+        "sort-packages": true
+    },
+    "autoload": {
+        "files": [
+            "load.environment.php"
+        ]
+    },
+    "scripts": {
+        "post-drupal-scaffold-cmd": [
+            "patch -p1 < ./private/scaffold/htaccess.patch"
+        ],
+        "post-create-project-cmd": [
+            "touch ./.env && chmod 644 ./.env",
+            "./vendor/bin/robo kickoff:init-dev",
+            "Composer\\Config::disableProcessTimeout",
+            "./vendor/bin/robo kickoff:install-drupal",
+            "./vendor/bin/robo kickoff:init-git"
+        ],
+        "post-update-cmd": [
+            "cp ./web/modules/contrib/maintenance/src/Robo/RoboFile.php ./"
+        ]
+    },
+    "extra": {
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            },
+            "file-mapping": {
+                "[web-root]/sites/default/default.settings.php": {
+                    "append": "./private/scaffold/default.settings.php.append"
+                }
+            }
         },
-        "license": "MIT"
-      }
-    },
-    "webtourismus/deepl": {
-      "type": "vcs",
-      "url": "https://github.com/webtourismus/deepl.git"
-    },
-    "webtourismus/designsystem": {
-      "type": "vcs",
-      "url": "https://github.com/webtourismus/designsystem.git"
-    },
-    "webtourismus/ebr": {
-      "type": "vcs",
-      "url": "https://github.com/webtourismus/ebr.git"
-    },
-    "webtourismus/fa6": {
-      "type": "vcs",
-      "url": "https://github.com/webtourismus/fa6.git"
-    },
-    "webtourismus/gin_custom": {
-      "type": "vcs",
-      "url": "https://github.com/webtourismus/gin_custom.git"
-    },
-    "webtourismus/mailjet_iframe": {
-      "type": "vcs",
-      "url": "https://github.com/webtourismus/mailjet_iframe.git"
-    },
-    "webtourismus/maintenance": {
-      "type": "vcs",
-      "url": "https://github.com/webtourismus/maintenance.git"
-    },
-    "webtourismus/drupal-metapackage": {
-      "type": "vcs",
-      "url": "https://github.com/webtourismus/drupal-metapackage.git"
-    },
-    "webtourismus/seasonal_paragraphs": {
-      "type": "vcs",
-      "url": "https://github.com/webtourismus/seasonal_paragraphs.git"
-    }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "config": {
-    "allow-plugins": {
-      "composer/installers": true,
-      "drupal/core-composer-scaffold": true,
-      "phpstan/extension-installer": true,
-      "dealerdirect/phpcodesniffer-composer-installer": true,
-      "cweagans/composer-patches": true,
-      "php-http/discovery": true,
-      "php-tuf/composer-integration": true
-    },
-    "sort-packages": true
-  },
-  "autoload": {
-    "files": [
-      "load.environment.php"
-    ]
-  },
-  "scripts": {
-    "post-drupal-scaffold-cmd": [
-      "patch -p1 < ./private/scaffold/htaccess.patch"
-    ],
-    "post-create-project-cmd": [
-      "touch ./.env && chmod 644 ./.env",
-      "./vendor/bin/robo kickoff:init-dev",
-      "Composer\\Config::disableProcessTimeout",
-      "./vendor/bin/robo kickoff:install-drupal",
-      "./vendor/bin/robo kickoff:init-git"
-    ],
-    "post-update-cmd": [
-      "cp ./web/modules/contrib/maintenance/src/Robo/RoboFile.php ./"
-    ]
-  },
-  "extra": {
-    "drupal-scaffold": {
-      "locations": {
-        "web-root": "web/"
-      },
-      "file-mapping": {
-        "[web-root]/sites/default/default.settings.php": {
-          "append": "./private/scaffold/default.settings.php.append"
+        "installer-paths": {
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/Commands/contrib/{$name}": [
+                "type:drupal-drush"
+            ],
+            "web/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "web/profiles/custom/{$name}": [
+                "type:drupal-custom-profile"
+            ],
+            "web/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ],
+            "recipes/{$name}": [
+                "type:drupal-recipe"
+            ]
+        },
+        "enable-patching": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "patches": {
+            "drupal/config_entity_reference_selection": {
+                "3313803 - Allow to togle between allow-list and block-list": "./private/patches/config_entity_reference_selection_3313803_mr8_0a4c786c.patch"
+            },
+            "drupal/core": {
+                "2546212 - Make field formatter settings translatable": "./private/patches/core_2546212_patch336.patch",
+                "3004334 - Hide warning message for hidden untranslatable fields": "./private/patches/core_3004334_minimal_fix_10.2.x.patch",
+                "3345064 - Media library field_widget_id is not unique enough": "./private/patches/core_3345064_patch3.patch",
+                "3394889 - Show update messages only to user ID 1": "./private/patches/core_3394889_patch4.patch"
+            },
+            "drupal/entity_clone": {
+                "3388460 - Fatal error on cloning a menu link": "./private/patches/entity_clone_3388460_patch7.patch"
+            },
+            "drupal/field_group": {
+                "3208592 - CSS class validation too strict": "./private/patches/field_group_3208592_mr33_758a6fbc.patch"
+            },
+            "drupal/gin": {
+                "priv001 - Undo gin issue 3376559 (Home link when using toolbar_menu module) due amswap module": "./private/patches/gin_priv001_v4.0.6.patch",
+                "3270626 - Use Gin's edit form for taxonomy terms": "./private/patches/gin_3270626_mr237_for_rc15.patch",
+                "3281343 - Use Gin's edit form for media enities": "./private/patches/gin_3281343_patch11.patch"
+            },
+            "drupal/layout_paragraphs": {
+                "3350168 - LP Builder doesn't set admin route context": "./private/patches/layout_paragraphs_3350168_mr118_696e1e59.patch",
+                "3371332 - Show layout categories in section UI": "./private/patches/layout_paragraphs_3371332_mr133_ac3ca5ab.patch"
+            },
+            "drupal/migrate_plus": {
+                "3040427 - Allow callback for Url source": "./private/patches/migrate_plus_3040427_patch66.patch"
+            },
+            "webtourismus/splidejs": {
+                "priv001 - Custom patch for Webtourismus Drupal admin and frontend theme": "./private/patches/splidejs_private001_v4.1.4a.patch"
+            }
         }
-      }
     },
-    "installer-paths": {
-      "web/core": [
-        "type:drupal-core"
-      ],
-      "web/libraries/{$name}": [
-        "type:drupal-library"
-      ],
-      "web/modules/contrib/{$name}": [
-        "type:drupal-module"
-      ],
-      "web/profiles/contrib/{$name}": [
-        "type:drupal-profile"
-      ],
-      "web/themes/contrib/{$name}": [
-        "type:drupal-theme"
-      ],
-      "drush/Commands/contrib/{$name}": [
-        "type:drupal-drush"
-      ],
-      "web/modules/custom/{$name}": [
-        "type:drupal-custom-module"
-      ],
-      "web/profiles/custom/{$name}": [
-        "type:drupal-custom-profile"
-      ],
-      "web/themes/custom/{$name}": [
-        "type:drupal-custom-theme"
-      ],
-      "recipes/{$name}": [
-        "type:drupal-recipe"
-      ]
-    },
-    "enable-patching": true,
-    "patchLevel": {
-      "drupal/core": "-p2"
-    },
-    "patches": {
-      "drupal/config_entity_reference_selection": {
-        "3313803 - Allow to togle between allow-list and block-list": "./private/patches/config_entity_reference_selection_3313803_mr8_0a4c786c.patch"
-      },
-      "drupal/cookies": {
-        "3348475 - Integration with Geolocation field module": "./private/patches/cookies_3348475_mr89_for_d11.patch",
-        "3535527 - Fixed cookies": "./private/patches/cookies_3535527_fix-submitConfigurationForm-void.patch"
-      },
-      "drupal/core": {
-        "2546212 - Make field formatter settings translatable": "./private/patches/core_2546212_patch336.patch",
-        "3004334 - Hide warning message for hidden untranslatable fields": "./private/patches/core_3004334_minimal_fix_10.2.x.patch",
-        "3345064 - Media library field_widget_id is not unique enough": "./private/patches/core_3345064_patch3.patch",
-        "3394889 - Show update messages only to user ID 1": "./private/patches/core_3394889_patch4.patch"
-      },
-      "drupal/entity_clone": {
-        "3388460 - Fatal error on cloning a menu link": "./private/patches/entity_clone_3388460_patch7.patch"
-      },
-      "drupal/field_group": {
-        "3208592 - CSS class validation too strict": "./private/patches/field_group_3208592_mr33_758a6fbc.patch"
-      },
-      "drupal/gin": {
-        "priv001 - Undo gin issue 3376559 (Home link when using toolbar_menu module) due amswap module": "./private/patches/gin_priv001_v4.0.6.patch",
-        "3270626 - Use Gin's edit form for taxonomy terms": "./private/patches/gin_3270626_mr237_for_rc15.patch",
-        "3281343 - Use Gin's edit form for media enities": "./private/patches/gin_3281343_patch11.patch"
-      },
-      "drupal/layout_paragraphs": {
-        "3350168 - LP Builder doesn't set admin route context": "./private/patches/layout_paragraphs_3350168_mr118_696e1e59.patch",
-        "3371332 - Show layout categories in section UI": "./private/patches/layout_paragraphs_3371332_mr133_ac3ca5ab.patch"
-      },
-      "drupal/migrate_plus": {
-        "3040427 - Allow callback for Url source": "./private/patches/migrate_plus_3040427_patch66.patch"
-      },
-      "webtourismus/splidejs": {
-        "priv001 - Custom patch for Webtourismus Drupal admin and frontend theme": "./private/patches/splidejs_private001_v4.1.4a.patch"
-      }
+    "require": {
+        "webtourismus/drupal-metapackage": "^1.7.2"
     }
-  },
-  "require": {
-    "webtourismus/drupal-metapackage": "^1.7.2"
-  }
 }
