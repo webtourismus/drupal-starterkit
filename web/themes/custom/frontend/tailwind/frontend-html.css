@@ -22,7 +22,6 @@
  * Rules for client-side-rendered frontend HTML outside @layer directives should follow here.
  */
 
-
 /**
   * ###################################################################################################################
   * Splide pagination bullets
@@ -52,7 +51,6 @@
       @apply bg-onforeground;
     }
   }
-
 
   &:not(.textslider-pagination) {
     position: absolute;
