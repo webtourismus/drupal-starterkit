@@ -34,10 +34,6 @@ content:
             reset_zoom: true
             min_zoom: null
           map_center_id: fit_bounds
-        client_location:
-          enable: false
-          weight: 0
-          map_center_id: client_location
         fixed_boundaries:
           enable: false
           weight: 0
@@ -47,6 +43,17 @@ content:
             north: ''
             east: ''
           map_center_id: fixed_boundaries
+        client_location:
+          enable: false
+          weight: 0
+          map_center_id: client_location
+        ipstack:
+          enable: false
+          weight: 0
+          settings:
+            location_option_id: ipstack
+            access_key: ''
+          map_center_id: location_plugins
         fixed_value:
           enable: false
           weight: 0
@@ -54,13 +61,6 @@ content:
             location_option_id: fixed_value
             latitude: null
             longitude: null
-          map_center_id: location_plugins
-        ipstack:
-          enable: false
-          weight: 0
-          settings:
-            location_option_id: ipstack
-            access_key: ''
           map_center_id: location_plugins
       map_provider_id: google_maps
       map_provider_settings:
@@ -89,19 +89,6 @@ content:
               polygon: false
               fillColor: '#FF0000'
               fillOpacity: '0.35'
-            enabled: false
-          geolocation_google_maps_control_directions:
-            weight: 0
-            settings:
-              position: RIGHT_CENTER
-              behavior: default
-              origin_source: exposed
-              origin_static_value: ''
-              destination_source: exposed
-              destination_static_value: ''
-              travel_mode: exposed
-              directions_container: below
-              directions_container_custom_id: ''
             enabled: false
           map_disable_tilt:
             weight: 0
@@ -292,6 +279,19 @@ content:
             settings:
               marker_zoom_anchor_id: ''
             enabled: false
+          geolocation_google_maps_control_directions:
+            weight: 0
+            settings:
+              position: RIGHT_CENTER
+              behavior: default
+              origin_source: exposed
+              origin_static_value: ''
+              destination_source: exposed
+              destination_static_value: ''
+              travel_mode: exposed
+              directions_container: below
+              directions_container_custom_id: ''
+            enabled: false
           spiderfying:
             weight: 0
             settings:
@@ -307,6 +307,8 @@ content:
               spiralLengthStart: 11
               spiralLengthFactor: 4
               legWeight: 1.5
+              spiralIconWidth: 23
+              spiralIconHeight: 32
             enabled: false
           google_maps_layer_traffic:
             weight: 0
@@ -315,7 +317,7 @@ content:
             weight: 0
             enabled: false
         type: HYBRID
-        zoom: 10
+        zoom: 15
         minZoom: 0
         maxZoom: 20
         height: 500px
