@@ -1,0 +1,30 @@
+uuid: a879fb0c-3dc0-4c09-9eca-49edd4d80c47
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_accordion_is_faq
+    - paragraphs.paragraphs_type.accordion
+  module:
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: paragraph.accordion.field_accordion_is_faq
+field_name: field_accordion_is_faq
+entity_type: paragraph
+bundle: accordion
+label: 'FAQ Schema aktiv'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: An
+  off_label: Aus
+field_type: boolean

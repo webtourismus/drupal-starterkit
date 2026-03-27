@@ -1,16 +1,40 @@
-<div class="frontend">
-  <header class="frontend-header" id="top">
-    {{ page.header }}
-  </header>
+{% block content %}
+  <div class="frontend">
+    <header class="frontend-header" id="top">
+      {{ page.header }}
+    </header>
 
-  <main class="frontend-main" id="main">
-    {{ page.content }}
-  </main>
+    <main class="frontend-main" id="main">
+      {{ page.content }}
+    </main>
 
-  <footer class="frontend-footer">
-    {{ page.footer }}
-  </footer>
+    <footer class="frontend-footer">
+      {{ page.footer }}
+    </footer>
 
-  {{ page.popup }}
-  {{ page.invisible }}
-</div>
+    {{ page.popup }}
+    {{ page.invisible }}
+  </div>
+
+  <script>
+    window.faqBlocks = window.faqBlocks || [];
+
+    if (0 < window.faqBlocks.length) {
+      // Create faq data.
+      const faqData = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": window.faqBlocks
+      };
+
+      // Create and append a new script element
+      const scriptElement = document.createElement('script');
+      scriptElement.type = 'application/ld+json';
+      scriptElement.innerHTML = JSON.stringify(faqData);
+      document.head.appendChild(scriptElement);
+    }
+  </script>
+{% endblock %}
+
+{% block schemaOrg %}
+{% endblock %}

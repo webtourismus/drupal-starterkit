@@ -41,21 +41,19 @@
   {% endfor %}
 </div>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {%- for text in content.field_accordion|children -%}
-      {
-        "@type": "Question",
-        "name": "{{ paragraph.field_accordion[loop.index0].summary }}",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "{{ paragraph.field_accordion[loop.index0].value|striptags }}"
-        }
-      }{% if not loop.last %},{% endif %}
-    {%- endfor -%}
-  ]
-}
-</script>
+{% if '1' == paragraph.field_accordion_is_faq.value %}
+  <script>
+    window.faqBlocks = window.faqBlocks || [];
+
+    {% for text in content.field_accordion|children %}
+        window.faqBlocks.push({
+          "@type": "Question",
+          "name": "{{ paragraph.field_accordion[loop.index0].summary }}",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "{{ paragraph.field_accordion[loop.index0].value|striptags }}"
+          }
+        });
+    {% endfor %}
+  </script>
+{% endif %}

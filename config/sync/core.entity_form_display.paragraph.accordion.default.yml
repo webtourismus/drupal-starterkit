@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.accordion.field_accordion
     - field.field.paragraph.accordion.field_accordion_expanded
+    - field.field.paragraph.accordion.field_accordion_is_faq
     - paragraphs.paragraphs_type.accordion
   module:
     - allowed_formats
@@ -16,7 +17,7 @@ mode: default
 content:
   field_accordion:
     type: text_textarea_with_summary
-    weight: 0
+    weight: 1
     region: content
     settings:
       rows: 9
@@ -29,11 +30,18 @@ content:
         hide_guidelines: '1'
   field_accordion_expanded:
     type: string_textfield
-    weight: 1
+    weight: 2
     region: content
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_accordion_is_faq:
+    type: boolean_checkbox
+    weight: 0
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
 hidden:
   created: true

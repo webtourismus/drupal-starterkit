@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.accordion.field_accordion
     - field.field.paragraph.accordion.field_accordion_expanded
+    - field.field.paragraph.accordion.field_accordion_is_faq
     - paragraphs.paragraphs_type.accordion
   module:
     - text
@@ -19,6 +20,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_accordion_is_faq:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 1
     region: content
 hidden:
   field_accordion_expanded: true

@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.paragraph.preview
     - field.field.paragraph.accordion.field_accordion
     - field.field.paragraph.accordion.field_accordion_expanded
+    - field.field.paragraph.accordion.field_accordion_is_faq
     - paragraphs.paragraphs_type.accordion
   module:
     - text
@@ -24,4 +25,5 @@ content:
     region: content
 hidden:
   field_accordion_expanded: true
+  field_accordion_is_faq: true
   seasonal: true
