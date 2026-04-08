@@ -12,6 +12,7 @@
 @tailwind components;
 
 @layer components {
+
   /**
    * ###################################################################################################################
    * AlpineJS
@@ -34,10 +35,11 @@
    * ###################################################################################################################
    */
   :where(.field--entity--node.field--name--field_banner:not(.is-initialized)) .splide__slide {
-    @apply w-full; /* prevents CLS in hero banner */
+    @apply w-full;
+    /* prevents CLS in hero banner */
   }
 
-  :where(.paragraph--type--banner_image) > .field--name--field_media_image :where(img),
+  :where(.paragraph--type--banner_image)>.field--name--field_media_image :where(img),
   .paragraph--type--banner_video :where(video) {
     width: 100%;
 
@@ -50,6 +52,7 @@
   .inline-svg {
     @apply inline-block h-[1em] align-[-0.125em];
   }
+
   .inline-svg-fw {
     @apply inline-svg w-[1.5em];
   }
@@ -58,10 +61,12 @@
     :where(.field--name--field_media_svg svg, .field--name--field_media_svg img) {
       @apply mx-auto;
     }
+
     :where(.field--name--field_media_svg.field--view-mode--original img) {
       width: fit-content;
       max-width: none;
     }
+
     :where(.field--name--field_media_svg.field--view-mode--scale img) {
       width: 100%;
     }
@@ -74,6 +79,7 @@
    * ###################################################################################################################
    */
   :where([class*="component--grid"]) {
+
     &.paragraph--type--image img,
     &.paragraph--type--icon img,
     &.paragraph--type--icon svg,
@@ -92,16 +98,43 @@
   .messages-container {
     @apply p-4 sm:px-8 sm:py-4 max-w-[90%] mx-auto;
   }
+
   .messages-container a {
     @apply underline decoration-currentcolor decoration-dotted hocus:decoration-solid;
   }
-  .messages-container > * + * {
+
+  .messages-container>*+* {
     @apply mt-4;
   }
+
   .messages-container [role=alert] {
     @apply bg-[#f39b9d] text-[#583333] rounded-md p-4;
   }
+
   .messages-container [role=contentinfo] {
     @apply bg-[#83c5f1] text-[#122b3c] rounded-md p-4;
+  }
+
+  /**
+   * ###################################################################################################################
+   * Drupal Sizes
+   * ###################################################################################################################
+   */
+  .top-drupal {
+    top: var(--drupal-displace-offset-top, 0px);
+  }
+
+  .left-drupal {
+    left: var(--drupal-displace-offset-left, 0px);
+  }
+
+  .w-drupal {
+    width: calc(100vw - var(--drupal-displace-offset-left, 0px));
+    width: calc(100svw - var(--drupal-displace-offset-left, 0px));
+  }
+
+  .h-drupal {
+    height: calc(100vh - var(--drupal-displace-offset-top, 0px));
+    height: calc(100svh - var(--drupal-displace-offset-top, 0px));
   }
 }

@@ -1,29 +1,42 @@
 {% block wrapper %}
   {% if block_content.isPublished %}
     {% set popup_id = block_content.internal_id.0.value %}
-    <div {{ attributes.addClass('cs-neutral-900 fixed top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%] z-modal min-w-[340px] sm:max-w-[680px] flex items-stretch images:h-full images:object-cover images:aspect-[3/4]') }}
-          x-data="{ {{ popup_id }} : $persist(true).using(sessionStorage)}"
-          x-show="{{ popup_id }}"
-          x-transition:enter="transition ease-out duration-300"
-          x-transition:enter-start="opacity-0"
-          x-transition:enter-end="opacity-100"
-          x-transition:leave="transition ease-in duration-300"
-          x-transition:leave-start="opacity-100"
-          x-transition:leave-end="opacity-0"
-          x-cloak
-          {# @click.outside="{{ popup_id }} = false" #}
-    >
-      {% block button %}
-        <button class="absolute top-2 left-2 display-block w-[22px] h-[22px] hocus:text-flashy transition"
-                @click="{{ popup_id }} = false"
-        >
-          {{ source('@fa6/regular/xmark.svg')|add_to_svg('display-block w-full') }}
-        </button>
-      {% endblock %}
 
-      {% block content %}
-        {{ content }}
-      {% endblock content %}
+    <div x-data="{ {{ popup_id }} : $persist(true).using(sessionStorage)}">
+      <div class="fixed top-drupal left-drupal w-drupal h-drupal bg-black/30 z-modal"
+           x-show="{{ popup_id }}"
+           x-transition:enter="transition ease-out duration-300"
+           x-transition:enter-start="opacity-0"
+           x-transition:enter-end="opacity-100"
+           x-transition:leave="transition ease-in duration-300"
+           x-transition:leave-start="opacity-100"
+           x-transition:leave-end="opacity-0"
+           x-cloak
+           @click="{{ popup_id }} = false">
+      </div>
+
+      <div {{ attributes.addClass('cs-neutral-900 fixed top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%] z-modal min-w-[340px] sm:max-w-[680px] flex items-stretch images:h-full images:object-cover images:aspect-[3/4]') }}
+            x-show="{{ popup_id }}"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+            x-cloak
+      >
+        {% block button %}
+          <button class="absolute top-2 left-2 display-block w-[22px] h-[22px] hocus:text-flashy transition"
+                  @click="{{ popup_id }} = false"
+          >
+            {{ source('@fa6/regular/xmark.svg')|add_to_svg('display-block w-full') }}
+          </button>
+        {% endblock %}
+
+        {% block content %}
+          {{ content }}
+        {% endblock content %}
+      </div>
     </div>
   {% else %}
     {% set dummy_force_cache_bubbling = content|render %}
