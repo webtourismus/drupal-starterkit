@@ -1,13 +1,11 @@
-uuid: 6ab3ab56-a389-4c53-8a85-b7885ca7408b
+uuid: 6af4e920-5948-46ae-980c-87ad6133d67f
 langcode: de
 status: true
 dependencies:
   config:
-    - field.storage.node.field_pagebuilder
-    - node.type.room
-    - paragraphs.paragraphs_type.banner_image
-    - paragraphs.paragraphs_type.banner_video
+    - field.storage.paragraph.field_reviews
     - paragraphs.paragraphs_type.review
+    - paragraphs.paragraphs_type.reviews
   module:
     - entity_reference_revisions
     - field_config_cardinality
@@ -18,13 +16,13 @@ third_party_settings:
     unlimited_not_required: ''
     limited_not_required: ''
     limited_required: ''
-id: node.room.field_pagebuilder
-field_name: field_pagebuilder
-entity_type: node
-bundle: room
-label: 'Seite bauen'
+id: paragraph.reviews.field_reviews
+field_name: field_reviews
+entity_type: paragraph
+bundle: reviews
+label: Bewertungen
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -32,40 +30,38 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      banner_image: banner_image
-      banner_video: banner_video
       review: review
-    negate: 1
+    negate: 0
     target_bundles_drag_drop:
       accordion:
-        weight: -18
+        weight: 19
         enabled: false
       banner_image:
-        weight: -29
-        enabled: true
+        weight: 20
+        enabled: false
       banner_video:
-        weight: -28
-        enabled: true
+        weight: 21
+        enabled: false
       code:
-        weight: -22
+        weight: 22
         enabled: false
       gallery:
-        weight: -23
+        weight: 23
         enabled: false
       icon:
-        weight: -19
+        weight: 24
         enabled: false
       image:
-        weight: -26
+        weight: 25
         enabled: false
       layout:
-        weight: -17
+        weight: 26
         enabled: false
       linkblock:
-        weight: -25
+        weight: 27
         enabled: false
       map:
-        weight: -20
+        weight: 28
         enabled: false
       review:
         weight: 29
@@ -74,18 +70,18 @@ settings:
         weight: 18
         enabled: false
       text:
-        weight: -27
+        weight: 30
         enabled: false
       textslider:
         weight: 31
         enabled: false
       video:
-        weight: -16
+        weight: 32
         enabled: false
       viewsreference:
-        weight: -24
+        weight: 33
         enabled: false
       webform:
-        weight: -21
+        weight: 34
         enabled: false
 field_type: entity_reference_revisions

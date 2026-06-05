@@ -2,6 +2,8 @@ uuid: 37d644e3-b5ef-4a6a-a7c5-ba64c421b991
 langcode: de
 status: true
 dependencies:
+  config:
+    - node.type.room
   module:
     - language
     - node
@@ -13,7 +15,6 @@ selection_criteria:
   40676dad-2f59-459f-93ae-42f2f0c312a1:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 40676dad-2f59-459f-93ae-42f2f0c312a1
     context_mapping:
       node: node
     bundles:
@@ -21,7 +22,6 @@ selection_criteria:
   3f220074-6204-4d8e-adb3-f496bde63ffa:
     id: language
     negate: false
-    uuid: 3f220074-6204-4d8e-adb3-f496bde63ffa
     context_mapping:
       language: 'node:langcode:language'
     langcodes:

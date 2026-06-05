@@ -1,0 +1,32 @@
+uuid: 935da932-87d8-44ab-a4e7-85dc54631b03
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_review_text
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.review
+  module:
+    - field_config_cardinality
+    - text
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: paragraph.review.field_review_text
+field_name: field_review_text
+entity_type: paragraph
+bundle: review
+label: Bewertung
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

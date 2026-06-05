@@ -1,0 +1,14 @@
+uuid: dce9a081-3fe0-43b8-9b83-ce6811b26302
+langcode: de
+status: true
+dependencies:
+  module:
+    - designsystem
+id: reviews
+label: Bewertungen
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins:
+  inline_style_options:
+    enabled: true

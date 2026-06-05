@@ -1,0 +1,19 @@
+{% extends '@frontend/paragraph/paragraph.html.twig' %}
+
+{% block content %}
+    <div class="flex items-center justify-center flex-nowrap gap-1 mb-4">
+      {% for int in range(content.field_review_min_rating.0['#markup'], content.field_review_rating.0['#markup']) %}
+        {{ source('@fa6/solid/star.svg')|add_to_svg('w-5 h-5 text-flashy') }}
+      {% endfor %}
+    </div>
+
+    <div class="ck-content text-center mb-8">
+      {{ content.field_review_text }}
+    </div>
+
+    <div class="flex items-center justify-center gap-2">
+      <strong>{{ content.field_review_author }}</strong>
+      <span>-</span>
+      {{ content.field_review_date }}
+    </div>
+{% endblock %}

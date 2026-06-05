@@ -32,6 +32,7 @@
   --bullet-height: var(--bullet-width);
   --bullet-border: 2px;
   gap: 1rem;
+  margin-top: 1rem;
 
   li {
     width: var(--bullet-width);
@@ -58,5 +59,6 @@
     z-index: 10;
     left: 50%;
     transform: translateX(-50%);
+    margin-top: 0;
   }
 }

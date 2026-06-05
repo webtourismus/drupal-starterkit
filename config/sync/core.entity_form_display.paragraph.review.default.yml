@@ -1,0 +1,67 @@
+uuid: 4cdfcf50-195e-4fa0-80b2-536f5d5b32e3
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.review.field_review_author
+    - field.field.paragraph.review.field_review_date
+    - field.field.paragraph.review.field_review_max_rating
+    - field.field.paragraph.review.field_review_min_rating
+    - field.field.paragraph.review.field_review_rating
+    - field.field.paragraph.review.field_review_text
+    - paragraphs.paragraphs_type.review
+  module:
+    - datetime
+    - text
+id: paragraph.review.default
+targetEntityType: paragraph
+bundle: review
+mode: default
+content:
+  field_review_author:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_review_date:
+    type: datetime_default
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_review_max_rating:
+    type: number
+    weight: 5
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_review_min_rating:
+    type: number
+    weight: 4
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_review_rating:
+    type: number
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_review_text:
+    type: text_textarea
+    weight: 0
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  seasonal: true
+  status: true

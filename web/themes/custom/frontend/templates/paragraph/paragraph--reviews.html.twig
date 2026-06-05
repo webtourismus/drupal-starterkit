@@ -1,0 +1,36 @@
+{% extends "@frontend/paragraph/paragraph--textslider.html.twig" %}
+
+{% block content %}
+  {{ parent() }}
+
+  {% for review in content.field_reviews|children %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "{{ paragraph.field_reviews[loop.index0].entity.field_review_author.value }}"
+        },
+        "datePublished": "{{ paragraph.field_reviews[loop.index0].entity.field_review_date.value }}",
+        "reviewBody": "{{ paragraph.field_reviews[loop.index0].entity.field_review_text.value|striptags }}",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "{{ paragraph.field_reviews[loop.index0].entity.field_review_rating.value }}",
+          "bestRating": "{{ paragraph.field_reviews[loop.index0].entity.field_review_max_rating.value }}",
+          "worstRating": "{{ paragraph.field_reviews[loop.index0].entity.field_review_min_rating.value }}"
+        }
+      }
+    </script>
+  {% endfor %}
+{% endblock %}
+
+{% block items %}
+    {% for review in content.field_reviews|children %}
+        {% block item %}
+            <div {{ item_attributes }}>
+                {{ review }}
+            </div>
+        {% endblock item %}
+    {% endfor %}
+{% endblock %}

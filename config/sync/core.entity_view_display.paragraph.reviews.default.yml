@@ -1,0 +1,25 @@
+uuid: ee12b8aa-7ce9-43ba-8ec7-e2d9f75e7bba
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.reviews.field_reviews
+    - paragraphs.paragraphs_type.reviews
+  module:
+    - entity_reference_revisions
+id: paragraph.reviews.default
+targetEntityType: paragraph
+bundle: reviews
+mode: default
+content:
+  field_reviews:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  seasonal: true

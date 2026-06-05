@@ -1,0 +1,20 @@
+uuid: 54540a00-28d1-49a9-94c2-fff450ae57ab
+langcode: de
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_review_max_rating
+field_name: field_review_max_rating
+entity_type: paragraph
+type: decimal
+settings:
+  precision: 10
+  scale: 1
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,32 @@
+uuid: 7ecd7efc-0dfe-4746-ac0e-e44bfb845fe4
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_review_rating
+    - paragraphs.paragraphs_type.review
+  module:
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: paragraph.review.field_review_rating
+field_name: field_review_rating
+entity_type: paragraph
+bundle: review
+label: Rating
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

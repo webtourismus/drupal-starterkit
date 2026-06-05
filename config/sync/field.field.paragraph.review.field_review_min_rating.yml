@@ -1,0 +1,34 @@
+uuid: d4632f75-2b0c-4a3e-bf38-ef6f45f39c27
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_review_min_rating
+    - paragraphs.paragraphs_type.review
+  module:
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: paragraph.review.field_review_min_rating
+field_name: field_review_min_rating
+entity_type: paragraph
+bundle: review
+label: 'Minimales Rating'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 1.0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

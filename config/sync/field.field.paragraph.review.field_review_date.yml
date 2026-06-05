@@ -1,0 +1,29 @@
+uuid: 36e9d32f-f860-4a5d-ae30-99200406a2b4
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_review_date
+    - paragraphs.paragraphs_type.review
+  module:
+    - datetime
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: paragraph.review.field_review_date
+field_name: field_review_date
+entity_type: paragraph
+bundle: review
+label: Datum
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

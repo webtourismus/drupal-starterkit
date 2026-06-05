@@ -7,6 +7,7 @@ dependencies:
     - node.type.page
     - paragraphs.paragraphs_type.banner_image
     - paragraphs.paragraphs_type.banner_video
+    - paragraphs.paragraphs_type.review
   module:
     - entity_reference_revisions
     - field_config_cardinality
@@ -33,6 +34,7 @@ settings:
     target_bundles:
       banner_image: banner_image
       banner_video: banner_video
+      review: review
     negate: 1
     target_bundles_drag_drop:
       accordion:
@@ -46,9 +48,6 @@ settings:
         enabled: true
       code:
         weight: -22
-        enabled: false
-      from_library:
-        weight: 20
         enabled: false
       gallery:
         weight: -23
@@ -68,8 +67,17 @@ settings:
       map:
         weight: -20
         enabled: false
+      review:
+        weight: 29
+        enabled: true
+      reviews:
+        weight: 18
+        enabled: false
       text:
         weight: -27
+        enabled: false
+      textslider:
+        weight: 31
         enabled: false
       video:
         weight: -16

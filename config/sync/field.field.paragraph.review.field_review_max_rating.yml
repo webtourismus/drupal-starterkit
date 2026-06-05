@@ -1,0 +1,34 @@
+uuid: 174606ae-3553-423b-a2b9-1dead9d4e588
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_review_max_rating
+    - paragraphs.paragraphs_type.review
+  module:
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: paragraph.review.field_review_max_rating
+field_name: field_review_max_rating
+entity_type: paragraph
+bundle: review
+label: 'Maximales Rating'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 5.0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

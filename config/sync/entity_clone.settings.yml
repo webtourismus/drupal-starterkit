@@ -24,28 +24,29 @@ form_settings:
     disable: false
     hidden: true
   crop:
-    hidden: true
     default_value: false
     disable: false
+    hidden: true
   media:
-    hidden: true
     default_value: false
     disable: false
+    hidden: true
   path_alias:
-    hidden: true
     default_value: false
     disable: false
+    hidden: true
   redirect:
-    hidden: true
     default_value: false
     disable: false
+    hidden: true
   webform_submission:
-    hidden: true
     default_value: false
     disable: false
+    hidden: true
   paragraph:
     default_value: true
-    hidden: true
     disable: false
+    hidden: true
 no_suffix: false
 take_ownership: true
+handle_bundles: false

@@ -14,14 +14,10 @@
 </script>
 
 <div {{ attributes.addClass([]).setAttribute('x-data', "{
-  closeOverlayIfHashlink: (element) => {
-    try {
-      let u = new URL(element.href);
-      if (document.location.pathname == u.pathname && u.hash) {
-        $store.mainnav.overlay = false;
-      }
-    }
-    catch (e) {}
+  init() {
+    window.addEventListener('hashchange', function() {
+      $store.mainnav.overlay = false;
+    });
   }
 }") }}>
   {{ content }}

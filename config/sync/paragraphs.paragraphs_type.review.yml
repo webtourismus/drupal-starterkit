@@ -1,0 +1,10 @@
+uuid: bbc7ec90-f2b4-4b6f-8fb2-d0a2799c5374
+langcode: de
+status: true
+dependencies: {  }
+id: review
+label: Bewertung
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

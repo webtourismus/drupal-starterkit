@@ -1,0 +1,19 @@
+uuid: 2d32b5f0-7af0-4ed8-a102-92109cb61cb7
+langcode: de
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_review_text
+field_name: field_review_text
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

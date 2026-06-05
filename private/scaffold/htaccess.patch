@@ -1,6 +1,24 @@
---- a/web/.htaccess	2025-04-02 23:04:03.000000000 +0200
-+++ b/web/.htaccess	2025-05-01 16:03:32.837242595 +0200
-@@ -63,6 +63,19 @@
+--- a/web/core/assets/scaffold/files/htaccess
++++ b/web/.htaccess
+@@ -1,7 +1,6 @@
+ #
+ # Apache/PHP/Drupal settings:
+ #
+-
+ # Protect files and directories from prying eyes.
+ <FilesMatch "\.(engine|inc|install|make|module|profile|po|sh|.*sql|theme|twig|tpl(\.php)?|xtmpl|yml)(~|\.sw[op]|\.bak|\.orig|\.save)?$|^(\.(?!well-known).*|Entries.*|Repository|Root|Tag|Template|composer\.(json|lock)|web\.config|yarn\.lock|package\.json)$|^#.*#$|\.php(~|\.sw[op]|\.bak|\.orig|\.save)$">
+   <IfModule mod_authz_core.c>
+@@ -25,6 +24,9 @@ AddEncoding gzip svgz
+ # Add correct encoding for webp.
+ AddType image/webp .webp
+
++# Add correct encoding for .txt
++AddType "text/plain; charset=UTF-8" .txt
++
+ # Most of the following PHP settings cannot be changed at runtime. See
+ # sites/default/default.settings.php and
+ # Drupal\Core\DrupalKernel::bootEnvironment() for settings that can be
+@@ -63,6 +65,19 @@ AddType image/webp .webp
  <IfModule mod_rewrite.c>
    RewriteEngine on
 
@@ -20,7 +38,7 @@
    # Set "protossl" to "s" if we were accessed via https://.  This is used later
    # if you enable "www." stripping or enforcement, in order to ensure that
    # you don't bounce between http and https.
-@@ -96,9 +109,11 @@
+@@ -96,9 +111,11 @@ AddType image/webp .webp
    # To redirect all users to access the site WITH the 'www.' prefix,
    # (http://example.com/foo will be redirected to http://www.example.com/foo)
    # uncomment the following:
