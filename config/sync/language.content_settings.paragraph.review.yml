@@ -1,0 +1,18 @@
+uuid: 15b97e61-3f1f-4897-976b-2a515a44aaa6
+langcode: de
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.review
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '1'
+id: paragraph.review
+target_entity_type_id: paragraph
+target_bundle: review
+default_langcode: de
+language_alterable: false

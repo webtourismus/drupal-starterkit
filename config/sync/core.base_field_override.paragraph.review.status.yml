@@ -1,0 +1,22 @@
+uuid: e9121d8f-13ec-4065-bfc4-b743129deb9d
+langcode: de
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.review
+id: paragraph.review.status
+field_name: status
+entity_type: paragraph
+bundle: review
+label: Veröffentlicht
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: An
+  off_label: Aus
+field_type: boolean

@@ -1,0 +1,18 @@
+uuid: 289a868b-26bc-412d-80f3-36f9792be224
+langcode: de
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.review
+id: paragraph.review.created
+field_name: created
+entity_type: paragraph
+bundle: review
+label: 'Geschrieben am'
+description: 'Der Zeitpunkt, zu dem der Seitenabschnittstyp erstellt wurde.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

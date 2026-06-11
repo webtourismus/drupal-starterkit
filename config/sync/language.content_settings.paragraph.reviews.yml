@@ -1,9 +1,9 @@
-uuid: 8b1dec5f-acd1-4b8d-8728-e93e8ca4a802
+uuid: 81fc5905-e721-45dc-b6e3-a536b90153a7
 langcode: de
 status: true
 dependencies:
   config:
-    - block_content.type.text_with_image
+    - paragraphs.paragraphs_type.reviews
   module:
     - content_translation
 third_party_settings:
@@ -11,8 +11,8 @@ third_party_settings:
     enabled: true
     bundle_settings:
       untranslatable_fields_hide: '0'
-id: block_content.text_with_image
-target_entity_type_id: block_content
-target_bundle: text_with_image
-default_langcode: site_default
+id: paragraph.reviews
+target_entity_type_id: paragraph
+target_bundle: reviews
+default_langcode: de
 language_alterable: false
