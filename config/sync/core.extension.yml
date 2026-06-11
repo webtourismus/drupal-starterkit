@@ -109,7 +109,6 @@ module:
   token: 0
   token_filter: 0
   toolbar: 0
-  translation_views: 0
   twig_field: 0
   twig_tweak: 0
   ultimate_cron: 0

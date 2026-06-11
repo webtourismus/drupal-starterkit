@@ -1,0 +1,123 @@
+diff --git a/config/schema/layout_paragraphs.schema.yml b/config/schema/layout_paragraphs.schema.yml
+index 9bdcf25..7a92631 100644
+--- a/config/schema/layout_paragraphs.schema.yml
++++ b/config/schema/layout_paragraphs.schema.yml
+@@ -107,6 +107,9 @@ paragraphs.behavior.settings.layout_paragraphs:
+     enabled:
+       type: boolean
+       label: 'Use as a Layout Section'
++    group_by_categories:
++      type: boolean
++      label: 'Group layouts by categories'
+     available_layouts:
+       type: sequence
+       label: 'Available Layouts'
+diff --git a/css/layout-select.css b/css/layout-select.css
+index bfbd164..9b68502 100644
+--- a/css/layout-select.css
++++ b/css/layout-select.css
+@@ -3,6 +3,9 @@
+   flex-wrap: wrap;
+   justify-content: flex-start;
+ }
++.layout-select__group {
++  flex-basis: 100%;
++}
+ .layout-select__item {
+   flex: 0 1 150px;
+   margin-right: 10px;
+diff --git a/src/Element/LayoutSelect.php b/src/Element/LayoutSelect.php
+index e5ed138..5cf6781 100644
+--- a/src/Element/LayoutSelect.php
++++ b/src/Element/LayoutSelect.php
+@@ -19,12 +19,14 @@ use Drupal\Component\Render\FormattableMarkup;
+  *   '#title' => t('Choose a layout'),
+  *   '#options' => ['layout1', 'layout2'],
+  *   '#default_value' => 'layout1',
++ *   '#group_by_categories' => true,
+  * ];
+  * @endcode
+  *
+  * @RenderElement("layout_select")
+  */
+-class LayoutSelect extends Radios {
++class LayoutSelect extends Radios
++{
+
+   /**
+    * The layout plugin manager service.
+@@ -36,7 +38,8 @@ class LayoutSelect extends Radios {
+   /**
+    * {@inheritdoc}
+    */
+-  public function getInfo() {
++  public function getInfo()
++  {
+     $info = parent::getInfo();
+     $info += [
+       '#width' => 40,
+@@ -56,9 +59,18 @@ class LayoutSelect extends Radios {
+     FormStateInterface $form_state,
+     &$complete_form,
+   ) {
++    $currentCategory = FALSE;
+     foreach (Element::children($element) as $key) {
+       $layout_name = $key;
++      /** @var \Drupal\Core\Layout\LayoutDefinition $definition */
+       $definition = \Drupal::service('plugin.manager.core.layout')->getDefinition($layout_name);
++      $elementCategory = (string) $definition->getCategory();
++      if ($element['#group_by_categories'] && $currentCategory != $elementCategory) {
++        $element[$key]['#prefix'] = new FormattableMarkup('<h4 class="layout-select__group">@category</h4>', [
++          '@category' => $elementCategory
++        ]);
++        $currentCategory = $elementCategory;
++      }
+       $icon = $definition->getIcon($element['#width'], $element['#height'], $element['#stroke_width'], $element['#padding']);
+       $rendered_icon = \Drupal::service('renderer')->render($icon);
+       $element[$key]['#icon'] = $icon;
+@@ -74,5 +86,4 @@ class LayoutSelect extends Radios {
+     $element['#wrapper_attributes'] = ['class' => ['layout-select']];
+     return $element;
+   }
+-
+ }
+diff --git a/src/Plugin/paragraphs/Behavior/LayoutParagraphsBehavior.php b/src/Plugin/paragraphs/Behavior/LayoutParagraphsBehavior.php
+index 585928a..0e08251 100644
+--- a/src/Plugin/paragraphs/Behavior/LayoutParagraphsBehavior.php
++++ b/src/Plugin/paragraphs/Behavior/LayoutParagraphsBehavior.php
+@@ -168,6 +168,7 @@ class LayoutParagraphsBehavior extends ParagraphsBehaviorBase {
+         ],
+       ],
+       '#weight' => 0,
++      '#group_by_categories' => $this->configuration['group_by_categories'],
+     ];
+     if ($plugin_form) {
+       $form['config'] = [
+@@ -243,6 +244,7 @@ class LayoutParagraphsBehavior extends ParagraphsBehaviorBase {
+   public function defaultConfiguration() {
+     return [
+       'available_layouts' => [],
++      'group_by_categories' => FALSE,
+     ];
+   }
+
+@@ -261,6 +263,11 @@ class LayoutParagraphsBehavior extends ParagraphsBehaviorBase {
+       '#size' => count($options) < 8 ? count($options) * 2 : 10,
+       '#required' => FALSE,
+     ];
++    $form['group_by_categories'] = [
++      '#title' => $this->t('Group layouts by categories'),
++      '#type' => 'checkbox',
++      '#default_value' => $this->configuration['group_by_categories']
++    ];
+     return $form;
+   }
+
+@@ -282,6 +289,7 @@ class LayoutParagraphsBehavior extends ParagraphsBehaviorBase {
+       $layout = $this->layoutPluginManager->getDefinition($layout_name);
+       $this->configuration['available_layouts'][$layout_name] = $layout->getLabel();
+     }
++    $this->configuration['group_by_categories'] = $form_state->getValue('group_by_categories');
+   }
+
+   /**
