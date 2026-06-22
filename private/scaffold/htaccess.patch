@@ -53,3 +53,11 @@
    #
    # To redirect all users to access the site WITHOUT the 'www.' prefix,
    # (http://www.example.com/foo will be redirected to http://example.com/foo)
+@@ -199,4 +199,6 @@ AddType "text/plain; charset=UTF-8" .txt
+   Header always set X-Content-Type-Options nosniff
+   # Disable Proxy header, since it's an attack vector.
+   RequestHeader unset Proxy
++  # HSTS from google.
++  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+ </IfModule>
+
