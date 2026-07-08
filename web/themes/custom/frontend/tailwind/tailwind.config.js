@@ -37,7 +37,7 @@ module.exports = {
      * - The colorschema keys "white" (with pure white bg), "black" (with pure black bg),
      *   "lightimg" and "darkimg" (with transparent bg and light/dark fg) should always exist.
      */
-    colorschemas: ({theme}) => ({
+    colorschemas: ({ theme }) => ({
       white: {
         background: 'white', /* this line should not be changed */
         foreground: 'black',

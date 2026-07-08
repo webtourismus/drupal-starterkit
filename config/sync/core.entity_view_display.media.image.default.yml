@@ -6,6 +6,7 @@ dependencies:
     - field.field.media.image.field_category
     - field.field.media.image.field_copyright
     - field.field.media.image.field_media_image
+    - image.style.w1920
     - media.type.image
   module:
     - image
@@ -19,7 +20,7 @@ content:
     label: above
     settings:
       image_link: ''
-      image_style: ''
+      image_style: w1920
       image_loading:
         attribute: lazy
     third_party_settings: {  }
