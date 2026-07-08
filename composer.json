@@ -181,7 +181,8 @@
       },
       "drupal/layout_paragraphs": {
         "3350168 - LP Builder doesn't set admin route context": "./private/patches/layout_paragraphs_3350168_mr118_696e1e59.patch",
-        "3371332 - Show layout categories in section UI": "./private/patches/layout_paragraphs_3371332_custom.patch"
+        "3371332 - Show layout categories in section UI": "./private/patches/layout_paragraphs_3371332_custom.patch",
+        "priv002 - Use renderInIsolation in builder to avoid recursive rendering on Drupal 11.4": "./private/patches/layout_paragraphs_render_in_isolation.patch"
       },
       "drupal/migrate_plus": {
         "3040427 - Allow callback for Url source": "./private/patches/migrate_plus_3040427_custom.patch"

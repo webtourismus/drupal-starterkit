@@ -1,0 +1,30 @@
+diff --git a/src/Element/LayoutParagraphsBuilder.php b/src/Element/LayoutParagraphsBuilder.php
+--- a/src/Element/LayoutParagraphsBuilder.php
++++ b/src/Element/LayoutParagraphsBuilder.php
+@@ -244,9 +244,14 @@
+     $entity->_layoutParagraphsBuilder = TRUE;
+     $view_builder = $this->entityTypeManager->getViewBuilder($entity->getEntityTypeId());
+     $build = $view_builder->view($entity, $preview_view_mode, $entity->language()->getId());
+-    $build['#post_render'] = [
+-      [$this, 'postRenderComponent'],
+-    ];
++    // Nested components are rendered twice by the layout template (content|render
++    // and per-region output). Attaching #post_render triggers Drupal's recursive
++    // render protection on the second pass with Drupal 11.4+.
++    if (!$component->getParentUuid()) {
++      $build['#post_render'] = [
++        [$this, 'postRenderComponent'],
++      ];
++    }
+     $build['#attributes']['data-uuid'] = $entity->uuid();
+     $build['#attributes']['data-type'] = $entity->bundle();
+     $build['#attributes']['data-lpb-ui-id'] = $entity->uuid() ?? 'new-' . $entity->bundle();
+@@ -617,7 +622,7 @@
+    *   The markup object.
+    */
+   public function doRender(array $render_array) {
+-    return $this->renderer->render($render_array);
++    return $this->renderer->renderInIsolation($render_array);
+   }
+ 
+   /**
