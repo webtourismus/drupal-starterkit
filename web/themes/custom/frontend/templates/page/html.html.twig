@@ -28,6 +28,20 @@
     }
     setCurrentBreakpoint();
   </script>
+
+  <script type="text/javascript">
+    document.addEventListener('splide:mounted', function(event) {
+      event.detail.splide.on('active', function (Slide) {
+        var slide = Slide.slide;
+        var video = slide.querySelector('video');
+
+        if (video) {
+          video.currentTime = 0;
+        }
+      });
+    });
+  </script>
+
   <head-placeholder token="{{ placeholder_token }}">
   <title>{{ head_title|safe_join(' | ') }}</title>
   <css-placeholder token="{{ placeholder_token }}">
