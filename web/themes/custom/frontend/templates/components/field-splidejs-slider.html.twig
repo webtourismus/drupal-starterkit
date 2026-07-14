@@ -18,7 +18,12 @@
 {% set attributes = attributes.addClass('splide') %}
 
 {% block container %}
+  {% if items|first.content['#paragraph'].field_video_length.value %}
+    {% set splidejs_config = splidejs_config|merge({'interval': (items|first.content['#paragraph'].field_video_length.value * 1000)}) %}
+  {% endif %}
+
   {% set attributes = attributes.setAttribute('data-splide', splidejs_config|json_encode(constant('JSON_UNESCAPED_SLASHES'))) %}
+
   {{ parent() }}
 {% endblock %}
 
