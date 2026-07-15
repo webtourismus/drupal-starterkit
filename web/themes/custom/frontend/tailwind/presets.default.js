@@ -139,7 +139,7 @@ module.exports = {
   plugins: [
     require('@tailwindcss/aspect-ratio'),
     require('./colorschemas.js'),
-    plugin (
+    plugin(
       function ({ addBase, addUtilities, addVariant, matchUtilities, matchComponents, theme, e }) {
 
         addBase({
@@ -223,6 +223,8 @@ module.exports = {
         addVariant('components-even', ['& :where(.component:nth-child(even))']);
 
         addVariant('images', ['& img', '& svg']);
+
+        addVariant('videos', ['& video']);
 
         matchUtilities(
           {

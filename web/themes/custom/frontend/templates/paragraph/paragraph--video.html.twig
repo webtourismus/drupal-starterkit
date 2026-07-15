@@ -1,0 +1,12 @@
+{% extends '@frontend/paragraph/paragraph.html.twig' %}
+
+{% set attributes = attributes.addClass([
+  'overflow-hidden',
+  'videos:w-full',
+  'videos:object-cover',
+  'videos:aspect-[' ~ (content.field_video_format.0['#markup'])|default('16/9') ~ ']'
+]) %}
+
+{% block content %}
+  {{ content.field_video }}
+{% endblock %}
