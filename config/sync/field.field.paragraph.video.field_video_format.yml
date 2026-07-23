@@ -1,0 +1,31 @@
+uuid: 6562a709-a66e-46f7-9b5b-be59531d810f
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_video_format
+    - paragraphs.paragraphs_type.video
+  module:
+    - field_config_cardinality
+    - options
+third_party_settings:
+  field_config_cardinality:
+    cardinality_config: '1'
+    cardinality_label_config: false
+    unlimited_not_required: ''
+    limited_not_required: ''
+    limited_required: ''
+id: paragraph.video.field_video_format
+field_name: field_video_format
+entity_type: paragraph
+bundle: video
+label: 'Video Format'
+description: 'Wirkt sich nicht auf Remote-Videos aus.'
+required: true
+translatable: false
+default_value:
+  -
+    value: 16/9
+default_value_callback: ''
+settings: {  }
+field_type: list_string
