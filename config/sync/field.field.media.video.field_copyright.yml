@@ -5,6 +5,11 @@ dependencies:
   config:
     - field.storage.media.field_copyright
     - media.type.video
+  module:
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    display_all_field_instances: false
 id: media.video.field_copyright
 field_name: field_copyright
 entity_type: media

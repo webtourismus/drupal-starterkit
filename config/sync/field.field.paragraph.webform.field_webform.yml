@@ -6,7 +6,11 @@ dependencies:
     - field.storage.paragraph.field_webform
     - paragraphs.paragraphs_type.webform
   module:
+    - field_config_cardinality
     - webform
+third_party_settings:
+  field_config_cardinality:
+    display_all_field_instances: false
 id: paragraph.webform.field_webform
 field_name: field_webform
 entity_type: paragraph

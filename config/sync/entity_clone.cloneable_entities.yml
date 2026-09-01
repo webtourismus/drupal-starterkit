@@ -10,3 +10,5 @@ cloneable_entities:
   - user
   - webform
   - paragraph
+  - key_config_override
+  - key

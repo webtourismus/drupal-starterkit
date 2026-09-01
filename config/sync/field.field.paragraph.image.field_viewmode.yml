@@ -7,7 +7,11 @@ dependencies:
     - field.storage.paragraph.field_viewmode
     - paragraphs.paragraphs_type.image
   module:
+    - field_config_cardinality
     - view_mode_switch
+third_party_settings:
+  field_config_cardinality:
+    display_all_field_instances: false
 id: paragraph.image.field_viewmode
 field_name: field_viewmode
 entity_type: paragraph

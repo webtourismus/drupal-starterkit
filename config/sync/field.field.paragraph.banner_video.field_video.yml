@@ -6,6 +6,11 @@ dependencies:
     - field.storage.paragraph.field_video
     - media.type.video
     - paragraphs.paragraphs_type.banner_video
+  module:
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    display_all_field_instances: false
 id: paragraph.banner_video.field_video
 field_name: field_video
 entity_type: paragraph

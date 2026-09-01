@@ -6,7 +6,11 @@ dependencies:
     - field.storage.paragraph.field_code
     - paragraphs.paragraphs_type.code
   module:
+    - field_config_cardinality
     - twig_field
+third_party_settings:
+  field_config_cardinality:
+    display_all_field_instances: false
 id: paragraph.code.field_code
 field_name: field_code
 entity_type: paragraph

@@ -6,6 +6,11 @@ dependencies:
     - field.storage.media.field_category
     - media.type.document
     - taxonomy.vocabulary.media
+  module:
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    display_all_field_instances: false
 id: media.document.field_category
 field_name: field_category
 entity_type: media

@@ -18,6 +18,7 @@ third_party_settings:
   field_config_cardinality:
     cardinality_config: '1'
     cardinality_label_config: false
+    display_all_field_instances: false
     unlimited_not_required: ''
     limited_not_required: ''
     limited_required: ''

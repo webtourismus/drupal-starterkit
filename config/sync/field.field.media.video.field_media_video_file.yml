@@ -6,7 +6,11 @@ dependencies:
     - field.storage.media.field_media_video_file
     - media.type.video
   module:
+    - field_config_cardinality
     - file
+third_party_settings:
+  field_config_cardinality:
+    display_all_field_instances: false
 id: media.video.field_media_video_file
 field_name: field_media_video_file
 entity_type: media

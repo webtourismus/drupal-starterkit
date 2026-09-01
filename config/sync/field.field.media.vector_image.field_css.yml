@@ -5,6 +5,11 @@ dependencies:
   config:
     - field.storage.media.field_css
     - media.type.vector_image
+  module:
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    display_all_field_instances: false
 id: media.vector_image.field_css
 field_name: field_css
 entity_type: media

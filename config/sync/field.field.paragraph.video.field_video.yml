@@ -7,6 +7,11 @@ dependencies:
     - media.type.remote_video
     - media.type.video
     - paragraphs.paragraphs_type.video
+  module:
+    - field_config_cardinality
+third_party_settings:
+  field_config_cardinality:
+    display_all_field_instances: false
 id: paragraph.video.field_video
 field_name: field_video
 entity_type: paragraph
