@@ -39,6 +39,13 @@ function backend_theme_registry_alter(&$theme_registry)
         'preprocess functions' => $theme_registry[$baseHook]['preprocess functions'],
       ];
 
+      // Drupal 11 moved template_preprocess_* into "initial preprocess".
+      // Suggestions registered here must inherit it, otherwise variables like
+      // $variables['paragraph'] stay null and later preprocess hooks fatally fail.
+      if (!empty($theme_registry[$baseHook]['initial preprocess'])) {
+        $templateOverride['initial preprocess'] = $theme_registry[$baseHook]['initial preprocess'];
+      }
+
       $theme_registry[$theme] = $templateOverride;
     }
   }
