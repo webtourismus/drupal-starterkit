@@ -16,7 +16,7 @@
 $databases['default']['default'] = [
   'database' => $_ENV['DB_NAME'],
   'username' => $_ENV['DB_USER'],
-  'password' => $_ENV['DB_PASS'],
+  'password' => $_ENV['DB_PASS_NEW_UPDATE'],
   'prefix' => '',
   'host' => $_ENV['DB_HOST'] ?? 'localhost',
   'port' => $_ENV['DB_PORT'] ?? 3306,
