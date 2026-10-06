@@ -129,8 +129,7 @@
   }
 
   .w-drupal {
-    width: calc(100vw - var(--drupal-displace-offset-left, 0px));
-    width: calc(100svw - var(--drupal-displace-offset-left, 0px));
+    width: calc(100% - var(--drupal-displace-offset-left, 0px));
   }
 
   .h-drupal {
