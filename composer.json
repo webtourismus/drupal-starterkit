@@ -98,7 +98,7 @@
   },
   "scripts": {
     "post-drupal-scaffold-cmd": [
-      "patch -p1 < ./private/scaffold/htaccess.patch"
+      "patch -p1 --forward --batch < ./private/scaffold/htaccess.patch || true"
     ],
     "post-create-project-cmd": [
       "touch ./.env && chmod 644 ./.env",
