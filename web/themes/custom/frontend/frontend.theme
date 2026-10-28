@@ -149,7 +149,7 @@ function frontend_preprocess_menu(array &$variables): void {
   }
 }
 
-function _frontend_preprocess_menu_items(array &$items, string $name, int $level, string $region=NULL): void {
+function _frontend_preprocess_menu_items(array &$items, string $name, int $level, ?string $region = NULL): void {
   foreach($items as $idx => $item) {
     $items[$idx]['attributes'] = \Drupal::service('designsystem.helper')->toAttributeObject($items[$idx]['attributes']);
     $linkAttributes = \Drupal::service('designsystem.helper')->toAttributeObject($items[$idx]['url']->getOption('attributes'));
