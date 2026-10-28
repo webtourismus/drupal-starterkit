@@ -1,0 +1,25 @@
+uuid: f2216c41-292a-4b55-b18a-f204a67c7f71
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+  enforced:
+    module:
+      - schema_org
+_core:
+  default_config_hash: 1QGtIFev3-AgI5JDsnZfkS4idg8cqa--6bPLDrtcPc0
+id: node.field_schema_bed_count
+field_name: field_schema_bed_count
+entity_type: node
+type: integer
+settings:
+  unsigned: true
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

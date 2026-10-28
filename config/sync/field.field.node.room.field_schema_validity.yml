@@ -1,0 +1,26 @@
+uuid: f327c38e-a0ca-4980-a848-122d07caa938
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_schema_validity
+    - node.type.room
+  module:
+    - datetime_range
+  enforced:
+    module:
+      - schema_org
+_core:
+  default_config_hash: vO15HTkIg2lR3i-8tM7ImU6BP1QRyG82_lekGBJ0E3w
+id: node.room.field_schema_validity
+field_name: field_schema_validity
+entity_type: node
+bundle: room
+label: Gültigkeit
+description: 'Zeitraum, in dem Preis bzw. Angebot gültig ist (schema.org validFrom/validThrough). Leer lassen, wenn unbegrenzt.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

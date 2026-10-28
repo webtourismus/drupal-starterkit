@@ -1,0 +1,26 @@
+uuid: 14e9df60-f7c4-4404-9753-83063304d17b
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_schema_pets
+    - node.type.room
+  module:
+    - options
+  enforced:
+    module:
+      - schema_org
+_core:
+  default_config_hash: 9KhfMKlnwBp3vN8WcD_lElCzAi-id9kVRfkZCF_PUxo
+id: node.room.field_schema_pets
+field_name: field_schema_pets
+entity_type: node
+bundle: room
+label: 'Haustiere erlaubt'
+description: 'Leer lassen, um die Einstellung des Hotels zu verwenden.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

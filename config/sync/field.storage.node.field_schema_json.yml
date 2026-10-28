@@ -1,0 +1,24 @@
+uuid: eb62438f-8fbb-4604-a1d1-b96988872483
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+  enforced:
+    module:
+      - schema_org
+_core:
+  default_config_hash: d2E2qBKnrt1HiPIL7X32KTuLzjEWuvLDnDlBK6Qr9G4
+id: node.field_schema_json
+field_name: field_schema_json
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

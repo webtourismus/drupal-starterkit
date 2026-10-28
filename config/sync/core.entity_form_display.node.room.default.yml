@@ -15,12 +15,20 @@ dependencies:
     - field.field.node.room.field_pagebuilder
     - field.field.node.room.field_price
     - field.field.node.room.field_roomsize
+    - field.field.node.room.field_schema_bed_count
+    - field.field.node.room.field_schema_bed_type
+    - field.field.node.room.field_schema_json
+    - field.field.node.room.field_schema_pets
+    - field.field.node.room.field_schema_price_unit
+    - field.field.node.room.field_schema_smoking
+    - field.field.node.room.field_schema_validity
     - field.field.node.room.field_seo
     - field.field.node.room.field_subtitle
     - field.field.node.room.field_weight
     - node.type.room
   module:
     - allowed_formats
+    - datetime_range
     - field_group
     - layout_paragraphs
     - media_library
@@ -38,6 +46,7 @@ third_party_settings:
         - group_base_data
         - group_banner
         - group_full_content
+        - group_schema
       label: Container
       region: content
       parent_name: ''
@@ -155,6 +164,27 @@ third_party_settings:
         id: ''
         description: ''
         required_fields: false
+    group_schema:
+      children:
+        - field_schema_bed_type
+        - field_schema_bed_count
+        - field_schema_smoking
+        - field_schema_pets
+        - field_schema_price_unit
+        - field_schema_validity
+        - field_schema_json
+      label: Schema.org
+      region: content
+      parent_name: group_container
+      weight: 100
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: true
+        id: ''
+        formatter: closed
+        description: 'Zusätzliche Daten für Suchmaschinen und KI-Assistenten (schema.org). Nicht auf der Website sichtbar.'
+        required_fields: false
 id: node.room.default
 targetEntityType: node
 bundle: room
@@ -239,7 +269,7 @@ content:
       media_types: {  }
     third_party_settings:
       media_library_edit:
-        show_edit: '1'
+        show_edit: true
   field_occupancy_max:
     type: number
     weight: 23
@@ -277,6 +307,51 @@ content:
     region: content
     settings:
       placeholder: ''
+    third_party_settings: {  }
+  field_schema_bed_count:
+    type: number
+    weight: 101
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_schema_bed_type:
+    type: options_select
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_schema_json:
+    type: string_textarea
+    weight: 106
+    region: content
+    settings:
+      rows: 6
+      placeholder: '{"award": "…"}'
+    third_party_settings: {  }
+  field_schema_pets:
+    type: options_select
+    weight: 103
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_schema_price_unit:
+    type: options_select
+    weight: 104
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_schema_smoking:
+    type: options_select
+    weight: 102
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_schema_validity:
+    type: daterange_default
+    weight: 105
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_seo:
     type: metatag_firehose

@@ -1,0 +1,25 @@
+uuid: b4918977-540f-4c8e-927a-043de896c50d
+langcode: de
+status: true
+dependencies:
+  module:
+    - datetime_range
+    - node
+  enforced:
+    module:
+      - schema_org
+_core:
+  default_config_hash: NXEJjWWSZqjLWiC6hgkAXmQEJ2t_0RKHNVwfYz3QezU
+id: node.field_schema_validity
+field_name: field_schema_validity
+entity_type: node
+type: daterange
+settings:
+  datetime_type: date
+module: datetime_range
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

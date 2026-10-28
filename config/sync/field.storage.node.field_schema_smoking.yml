@@ -1,0 +1,32 @@
+uuid: 0c00d5ad-9e2a-4c80-ade1-356fa8d91616
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+    - options
+  enforced:
+    module:
+      - schema_org
+_core:
+  default_config_hash: YDZxbNX1Ld8C-pwtQ7ME75zpA9UYzq7VpGrLE7uq1Jw
+id: node.field_schema_smoking
+field_name: field_schema_smoking
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'yes'
+      label: Ja
+    -
+      value: 'no'
+      label: Nein
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

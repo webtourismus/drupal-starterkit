@@ -16,6 +16,13 @@ dependencies:
     - field.field.node.room.field_pagebuilder
     - field.field.node.room.field_price
     - field.field.node.room.field_roomsize
+    - field.field.node.room.field_schema_bed_count
+    - field.field.node.room.field_schema_bed_type
+    - field.field.node.room.field_schema_json
+    - field.field.node.room.field_schema_pets
+    - field.field.node.room.field_schema_price_unit
+    - field.field.node.room.field_schema_smoking
+    - field.field.node.room.field_schema_validity
     - field.field.node.room.field_seo
     - field.field.node.room.field_subtitle
     - field.field.node.room.field_weight
@@ -104,6 +111,13 @@ hidden:
   field_pagebuilder: true
   field_price: true
   field_roomsize: true
+  field_schema_bed_count: true
+  field_schema_bed_type: true
+  field_schema_json: true
+  field_schema_pets: true
+  field_schema_price_unit: true
+  field_schema_smoking: true
+  field_schema_validity: true
   field_seo: true
   field_subtitle: true
   field_weight: true
