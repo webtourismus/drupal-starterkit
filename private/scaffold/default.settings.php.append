@@ -29,15 +29,27 @@ $databases['default']['default'] = [
 ];
 
 /**
- * Assume an unsafe environment by default
+ * Environment: "dev" or "prod", set by ENV in the project's .env file.
+ *
+ * Without ENV, DDEV projects default to "dev" and everything else to "prod",
+ * so a missing or incomplete .env never runs a live site in dev mode. Stage
+ * servers get ENV="dev" from "robo kickoff:init-dev".
  */
-$_ENV['ENV'] = $_ENV['ENV'] ?? 'prod';
+$_ENV['ENV'] = $_ENV['ENV'] ?? (getenv('IS_DDEV_PROJECT') === 'true' ? 'dev' : 'prod');
 
 /**
- * Enable assetions only on dev environments
+ * Enable assertions only on dev environments.
+ *
+ * Replaces assert_options(), which is deprecated since PHP 8.3. With
+ * zend.assertions = -1 in php.ini (production mode), assertions are compiled
+ * out and the setting cannot be changed at runtime.
+ *
  * @see https://www.drupal.org/node/2492225
+ * @see https://www.php.net/manual/en/ini.core.php#ini.zend.assertions
  */
-assert_options(ASSERT_ACTIVE, $_ENV['ENV'] === 'dev');
+if ((int) ini_get('zend.assertions') !== -1) {
+  ini_set('zend.assertions', $_ENV['ENV'] === 'dev' ? '1' : '0');
+}
 
 /**
  * Disable permission hardening to avoid deployment problems
