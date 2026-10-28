@@ -31,6 +31,10 @@ node_modules/
 .gitattributes
 phpcs.xml
 
+# Ignore backups and rejects of failed or fuzzy patches (e.g. htaccess.patch)
+*.orig
+*.rej
+
 # Ignore OS and webhost generated files
 .DS_Store
 ._*
