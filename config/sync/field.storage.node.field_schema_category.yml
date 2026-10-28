@@ -1,0 +1,51 @@
+uuid: d2b4542d-d2f2-4608-bfac-4997c36c2651
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+    - options
+  enforced:
+    module:
+      - schema_org
+id: node.field_schema_category
+field_name: field_schema_category
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: wellness
+      label: 'Wellness & Spa'
+    -
+      value: ski
+      label: 'Skifahren & Wintersport'
+    -
+      value: hiking
+      label: 'Wandern & Bergsport'
+    -
+      value: bike
+      label: 'Radfahren & Mountainbike'
+    -
+      value: golf
+      label: Golf
+    -
+      value: culinary
+      label: 'Kulinarik & Genuss'
+    -
+      value: culture
+      label: 'Kultur & Events'
+    -
+      value: holidays
+      label: 'Feiertage (Weihnachten, Silvester, Ostern)'
+    -
+      value: short_break
+      label: Kurzurlaub
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

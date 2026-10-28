@@ -13,6 +13,9 @@ dependencies:
     - field.field.node.package.field_minlos
     - field.field.node.package.field_pagebuilder
     - field.field.node.package.field_price
+    - field.field.node.package.field_schema_audience
+    - field.field.node.package.field_schema_category
+    - field.field.node.package.field_schema_inclusions
     - field.field.node.package.field_schema_json
     - field.field.node.package.field_schema_price_unit
     - field.field.node.package.field_schema_validity
@@ -144,6 +147,9 @@ third_party_settings:
         weight: 0
     group_schema:
       children:
+        - field_schema_category
+        - field_schema_audience
+        - field_schema_inclusions
         - field_schema_price_unit
         - field_schema_validity
         - field_schema_json
@@ -268,9 +274,29 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_schema_audience:
+    type: options_buttons
+    weight: 101
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_schema_category:
+    type: options_buttons
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_schema_inclusions:
+    type: string_textfield
+    weight: 102
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_schema_json:
     type: string_textarea
-    weight: 106
+    weight: 105
     region: content
     settings:
       rows: 6
@@ -278,13 +304,13 @@ content:
     third_party_settings: {  }
   field_schema_price_unit:
     type: options_select
-    weight: 104
+    weight: 103
     region: content
     settings: {  }
     third_party_settings: {  }
   field_schema_validity:
     type: daterange_default
-    weight: 105
+    weight: 104
     region: content
     settings: {  }
     third_party_settings: {  }
