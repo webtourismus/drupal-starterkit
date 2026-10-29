@@ -39,6 +39,10 @@
         "license": "MIT"
       }
     },
+    "webtourismus/cookie_consent": {
+      "type": "vcs",
+      "url": "https://github.com/webtourismus/cookie_consent.git"
+    },
     "webtourismus/deepl": {
       "type": "vcs",
       "url": "https://github.com/webtourismus/deepl.git"
