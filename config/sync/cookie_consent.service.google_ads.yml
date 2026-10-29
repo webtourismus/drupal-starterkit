@@ -1,0 +1,23 @@
+uuid: e2bd31a5-9b34-4214-95bb-656473e757e5
+langcode: de
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 9MN-nlk_b2CQ3Aj1Tu2hnzrLbYQ7Pdhw_w7LVhCshBk
+id: google_ads
+label: 'Google Ads'
+weight: 0
+category: marketing
+provider: 'Google Ireland Limited'
+purpose: 'Misst, welche Anzeigen zu Anfragen und Buchungen führen, und zeigt Besuchern dieser Website passende Anzeigen.'
+privacy_url: 'https://policies.google.com/privacy'
+cookies:
+  -
+    name: _gcl_au
+    duration: '3 Monate'
+    description: 'Misst Conversions von Anzeigen'
+  -
+    name: _gcl_aw
+    duration: '3 Monate'
+    description: 'Speichert Informationen zu Anzeigenklicks'
+embed_hosts: {  }

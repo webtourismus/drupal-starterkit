@@ -1,0 +1,16 @@
+uuid: a54a4231-0179-4b38-9294-7e89d23be664
+langcode: de
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: V5ihoujrubjkpzkft3BlL81N0bnwoYStCC4eXLglsOQ
+id: vimeo
+label: Vimeo
+weight: 1
+category: external_media
+provider: 'Vimeo.com, Inc.'
+purpose: 'Zeigt eingebettete Videos.'
+privacy_url: 'https://vimeo.com/privacy'
+cookies: {  }
+embed_hosts:
+  - vimeo.com
