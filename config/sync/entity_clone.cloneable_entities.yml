@@ -12,3 +12,4 @@ cloneable_entities:
   - paragraph
   - key_config_override
   - key
+  - cookie_consent_service

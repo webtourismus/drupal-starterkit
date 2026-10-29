@@ -1,0 +1,18 @@
+uuid: 000b7618-2a56-491d-9389-8d9ebc37c08c
+langcode: de
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Bhtj-Tz8pjQqSvKaet26dfWSiggecV4Uu66FqGZdAo4
+id: youtube
+label: YouTube
+weight: 0
+category: external_media
+provider: 'Google Ireland Limited'
+purpose: 'Zeigt eingebettete Videos.'
+privacy_url: 'https://policies.google.com/privacy'
+cookies: {  }
+embed_hosts:
+  - youtube.com
+  - youtube-nocookie.com
+  - youtu.be

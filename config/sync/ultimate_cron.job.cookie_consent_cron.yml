@@ -1,0 +1,17 @@
+uuid: 9cafc7c6-1a72-4818-9c4e-65d11445e60d
+langcode: de
+status: true
+dependencies:
+  module:
+    - cookie_consent
+title: 'Standardverarbeitungsroutine für Cron'
+id: cookie_consent_cron
+weight: 0
+module: cookie_consent
+callback: 'cookie_consent#cron'
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database
