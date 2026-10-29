@@ -11,6 +11,8 @@ dependencies:
     - field.field.node.page.field_category
     - field.field.node.page.field_images
     - field.field.node.page.field_pagebuilder
+    - field.field.node.page.field_schema_json
+    - field.field.node.page.field_schema_page_type
     - field.field.node.page.field_seo
     - field.field.node.page.field_subtitle
     - field.field.node.page.field_weight
@@ -75,6 +77,8 @@ hidden:
   field_banner_viewmode: true
   field_category: true
   field_pagebuilder: true
+  field_schema_json: true
+  field_schema_page_type: true
   field_seo: true
   field_weight: true
   langcode: true

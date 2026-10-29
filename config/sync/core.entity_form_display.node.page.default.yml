@@ -10,6 +10,8 @@ dependencies:
     - field.field.node.page.field_category
     - field.field.node.page.field_images
     - field.field.node.page.field_pagebuilder
+    - field.field.node.page.field_schema_json
+    - field.field.node.page.field_schema_page_type
     - field.field.node.page.field_seo
     - field.field.node.page.field_subtitle
     - field.field.node.page.field_weight
@@ -33,6 +35,7 @@ third_party_settings:
         - group_base_data
         - group_banner
         - group_full_content
+        - group_schema
       label: Container
       region: content
       parent_name: ''
@@ -111,6 +114,22 @@ third_party_settings:
         description: 'Diese Einstellungen werden zum Sortieren und Filtern automatischer Listen verwendet.'
         required_fields: false
         weight: 0
+    group_schema:
+      children:
+        - field_schema_page_type
+        - field_schema_json
+      label: Schema.org
+      region: content
+      parent_name: group_container
+      weight: 100
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: true
+        id: ''
+        formatter: closed
+        description: 'Zusätzliche Daten für Suchmaschinen und KI-Assistenten (schema.org). Nicht auf der Website sichtbar.'
+        required_fields: false
 id: node.page.default
 targetEntityType: node
 bundle: page
@@ -189,7 +208,7 @@ content:
       media_types: {  }
     third_party_settings:
       media_library_edit:
-        show_edit: '1'
+        show_edit: true
   field_pagebuilder:
     type: layout_paragraphs
     weight: 13
@@ -199,6 +218,20 @@ content:
       nesting_depth: 0
       require_layouts: 1
       empty_message: ''
+    third_party_settings: {  }
+  field_schema_json:
+    type: string_textarea
+    weight: 101
+    region: content
+    settings:
+      rows: 6
+      placeholder: '{"award": "…"}'
+    third_party_settings: {  }
+  field_schema_page_type:
+    type: options_select
+    weight: 100
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_seo:
     type: metatag_firehose

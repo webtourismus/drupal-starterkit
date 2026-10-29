@@ -98,6 +98,7 @@ module:
   responsive_favicons: 0
   responsive_image: 0
   schema_org: 0
+  schema_org_llms: 0
   seasonal_paragraphs: 0
   simple_sitemap: 0
   style_options: 0
