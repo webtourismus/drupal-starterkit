@@ -20,6 +20,7 @@ dependencies:
     - core.entity_view_mode.media.scale
   module:
     - codemirror_editor
+    - cookie_consent
     - designsystem
     - editor
     - linkit
@@ -38,6 +39,12 @@ filters:
       lineWrapping: false
       lineNumbers: true
       foldGutter: false
+  cookie_consent_declaration:
+    id: cookie_consent_declaration
+    provider: cookie_consent
+    status: true
+    weight: -36
+    settings: {  }
   editor_file_reference:
     id: editor_file_reference
     provider: editor
@@ -115,6 +122,7 @@ filters:
     weight: -49
     settings:
       title: true
+      media_substitution: metadata
   media_embed:
     id: media_embed
     provider: media
@@ -153,4 +161,4 @@ filters:
     status: true
     weight: -36
     settings:
-      replace_empty: '1'
+      replace_empty: true
