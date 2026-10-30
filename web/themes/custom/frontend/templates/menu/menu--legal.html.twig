@@ -16,8 +16,8 @@
 
       {% if 0 == menu_level and loop.last %}
         <li {{ li_attributes }}>
-            <button type="button" onclick="window.cookiehub.openSettings();" {{ a_attributes }}>
-                Cookies
+            <button type="button" data-cc="show-preferencesModal" {{ a_attributes }}>
+              Cookies
             </button>
         </li>
       {% endif %}
