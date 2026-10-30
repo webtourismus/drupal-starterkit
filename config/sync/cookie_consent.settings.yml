@@ -1,7 +1,7 @@
 _core:
   default_config_hash: G-4qvkii28Do_90Tw9ClQ4R6TZFLBkyNyRObjWQ7bVI
 langcode: de
-enabled: false
+enabled: true
 revision: 1
 expiry_days: 182
 layout: box
