@@ -6,8 +6,8 @@ revision: 1
 expiry_days: 182
 layout: box
 position: 'bottom left'
-privacy_page: ''
-imprint_page: ''
+privacy_page: /datenschutz
+imprint_page: /impressum
 data_layer: dataLayer
 wait_for_update: 500
 ads_data_redaction: true
