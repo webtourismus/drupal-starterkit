@@ -98,6 +98,10 @@
   }
 }
 
+#cc-main .cm--cloud .cm__desc {
+  max-height: none;
+}
+
 .cookie-consent-embed {
   --cookie-consent-embed-bg: theme('colorschemas.white.background');
   --cookie-consent-embed-color: theme('colorschemas.white.foreground');
