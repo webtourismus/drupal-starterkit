@@ -59,6 +59,12 @@ module.exports = {
          * by the designer's handover files.
          */
         'family-decorative': [...defaultTheme.fontFamily.serif],
+        /**
+         * The decorative font-family is optional, and can be contrary to the running font
+         * it should provide only those style+weight variants explicitly specified
+         * by the designer's handover files.
+         */
+        'family-headline': [...defaultTheme.fontFamily.serif],
       },
       fontWeight: {
         /**
