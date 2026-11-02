@@ -70,6 +70,11 @@
     @apply border-foreground/20 my-[1rem];
   }
 
+  /* browsers center <th> by default, the editor's alignment still overrides this */
+  :where(.ck-content) th {
+    text-align: left;
+  }
+
   :where(.ck-content) th,
   :where(.ck-content) td {
     padding: 1rem;
