@@ -62,3 +62,45 @@
     margin-top: 0;
   }
 }
+
+/**
+  * ###################################################################################################################
+  * Cookie banner and blocked embeds (webtourismus/cookie_consent)
+  * -------------------------------------------------------------------------------------------------------------------
+  * Colors of the "white" colorschema, buttons like ".btn-filled-flashy" and ".btn-outline".
+  * The banner is rendered client-side, see https://cookieconsent.orestbida.com/advanced/ui-customization.html
+  * ###################################################################################################################
+  */
+#cc-main {
+  --cc-font-family: theme('fontFamily.family-running');
+  --cc-bg: theme('colorschemas.white.background');
+  --cc-primary-color: theme('colorschemas.white.foreground');
+  --cc-secondary-color: theme('colorschemas.white.foreground');
+  --cc-link-color: theme('colorschemas.white.flashy');
+  --cc-btn-border-radius: 0;
+  --cc-btn-primary-bg: theme('colorschemas.white.flashy');
+  --cc-btn-primary-color: theme('colorschemas.white.onflashy');
+  --cc-btn-primary-border-color: theme('colorschemas.white.flashy');
+  --cc-btn-primary-hover-bg: theme('colorschemas.white.flashyhocus');
+  --cc-btn-primary-hover-color: theme('colorschemas.white.onflashy');
+  --cc-btn-primary-hover-border-color: theme('colorschemas.white.flashyhocus');
+  --cc-btn-secondary-bg: transparent;
+  --cc-btn-secondary-color: theme('colorschemas.white.foreground');
+  --cc-btn-secondary-border-color: theme('colorschemas.white.foreground');
+  --cc-btn-secondary-hover-bg: transparent;
+  --cc-btn-secondary-hover-color: theme('colorschemas.white.flashy');
+  --cc-btn-secondary-hover-border-color: theme('colorschemas.white.flashy');
+  --cc-toggle-on-bg: theme('colorschemas.white.flashy');
+
+  .cm__title,
+  .pm__title {
+    font-family: theme('fontFamily.family-headline', theme('fontFamily.family-running'));
+  }
+}
+
+.cookie-consent-embed {
+  --cookie-consent-embed-bg: theme('colorschemas.white.background');
+  --cookie-consent-embed-color: theme('colorschemas.white.foreground');
+  --cookie-consent-embed-button-bg: theme('colorschemas.white.flashy');
+  --cookie-consent-embed-button-color: theme('colorschemas.white.onflashy');
+}
