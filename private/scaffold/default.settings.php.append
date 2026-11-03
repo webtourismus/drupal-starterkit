@@ -52,6 +52,15 @@ if ((int) ini_get('zend.assertions') !== -1) {
 }
 
 /**
+ * Do not log PHP deprecation notices.
+ *
+ * Drupal's error handler only logs errors enabled in error_reporting(), so
+ * deprecations of contrib or older code on newer PHP versions do not fill the
+ * watchdog table. Real errors and warnings are still logged.
+ */
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+
+/**
  * Disable permission hardening to avoid deployment problems
  */
 $settings['skip_permissions_hardening'] = TRUE;
