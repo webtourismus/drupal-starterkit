@@ -98,6 +98,12 @@
   }
 }
 
+#cc-main .cm__btn,
+#cc-main .pm__btn,
+#cc-main .pm__close-btn {
+  --cc-btn-border-radius: 9999px;
+}
+
 #cc-main .cm--cloud .cm__desc {
   max-height: none;
 }
