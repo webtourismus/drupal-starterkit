@@ -48,4 +48,12 @@
   @apply !cs-white;
 }
 
+/* Gin media library: force 1:1 preview (padding hack + Claro min-height + missing box-sizing). */
+.media-library-item .media-library-item__preview {
+  box-sizing: border-box;
+  aspect-ratio: 1;
+  padding-block-end: 0;
+  min-height: 0;
+}
+
 @tailwind utilities;
