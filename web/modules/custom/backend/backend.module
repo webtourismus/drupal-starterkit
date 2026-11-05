@@ -22,7 +22,7 @@ function backend_theme_registry_alter(&$theme_registry)
   $files = $fs->scanDirectory($modulePath . '/templates', $fileMask, ['recurse' => TRUE]);
 
   foreach ($files as $file) {
-    $template = $fs->basename($file->filename, $extension);
+    $template = basename($file->filename, $extension);
     $theme    = str_replace('-', '_', $template);
     $parts = explode('__', $theme, 2);
     $baseHook = empty($parts[0]) ? null : $parts[0];
