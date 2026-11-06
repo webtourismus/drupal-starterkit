@@ -9,7 +9,6 @@
     {% endif %}
   {% endfor %}
 
-
   {% set multiple = number_of_slides >= 2 ? true : false %}
   {% set splidejs_config = splidejs_config|set('type', 'fade')
                                           |set('rewind', true)

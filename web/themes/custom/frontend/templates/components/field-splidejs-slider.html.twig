@@ -18,9 +18,16 @@
 {% set attributes = attributes.addClass('splide') %}
 
 {% block container %}
-  {% if items|first.content['#paragraph'].field_video_length.value %}
-    {% set splidejs_config = splidejs_config|merge({'interval': (items|first.content['#paragraph'].field_video_length.value * 1000)}) %}
-  {% endif %}
+  {# Splide ignores data-splide-interval on the first slide, so the first visible slide sets the global interval. #}
+  {% set default_interval = splidejs_config.interval ?? 10000 %}
+  {% set first_interval = null %}
+  {% for item in items|children %}
+    {% if first_interval is null and item.content|render|striptags('<img><svg><video>') %}
+      {% set video_length = item.content['#paragraph'].field_video_length.value ?? null %}
+      {% set first_interval = video_length ? video_length * 1000 : default_interval %}
+    {% endif %}
+  {% endfor %}
+  {% set splidejs_config = splidejs_config|merge({'interval': first_interval ?? default_interval}) %}
 
   {% set attributes = attributes.setAttribute('data-splide', splidejs_config|json_encode(constant('JSON_UNESCAPED_SLASHES'))) %}
 
@@ -37,11 +44,8 @@
   <div class="splide__track"><div class="splide__list">
   {% for item in items %}
     {% if item.content|render|striptags('<img><svg><video>') %}
-      {% set video_duration = item.content['#paragraph'].field_video_length.value * 1000 ?? null %}
-
-      {% if video_duration %}
-          {% set item = item|set('attributes.data-splide-interval', video_duration) %}
-      {% endif %}
+      {% set video_length = item.content['#paragraph'].field_video_length.value ?? null %}
+      {% set item = item|set('attributes.data-splide-interval', video_length ? video_length * 1000 : default_interval) %}
 
       <div {{ item.attributes.addClass('splide__slide') }}>
         {{ item.content }}
