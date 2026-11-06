@@ -44,8 +44,9 @@
   <div class="splide__track"><div class="splide__list">
   {% for item in items %}
     {% if item.content|render|striptags('<img><svg><video>') %}
-      {% set video_length = item.content['#paragraph'].field_video_length.value ?? null %}
-      {% set item = item|set('attributes.data-splide-interval', video_length ? video_length * 1000 : default_interval) %}
+      {% set splideInterval = item.content['#paragraph'].field_video_length.value * 1000 %}
+      {% set splideInterval = 0 != splideInterval ? splideInterval : default_interval %}
+      {% set item = item|set('attributes.data-splide-interval', splideInterval) %}
 
       <div {{ item.attributes.addClass('splide__slide') }}>
         {{ item.content }}
