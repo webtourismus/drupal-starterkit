@@ -9,3 +9,5 @@ likert: false
 options: |-
   m: Herr
   f: Frau
+  d: Divers
+  x: 'Keine Anrede'

@@ -1,2 +1,6 @@
 label: Title
-options: "m: Mr.\r\nf: Mrs."
+options: |-
+  m: Mr.
+  f: Mrs.
+  d: Diverse
+  x: 'No salutation'
