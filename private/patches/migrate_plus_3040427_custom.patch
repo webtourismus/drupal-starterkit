@@ -1,18 +1,18 @@
 diff --git a/src/Plugin/migrate/source/Url.php b/src/Plugin/migrate/source/Url.php
-index 1b0a146..d30fab8 100644
+index c1c3256..868d7be 100644
 --- a/src/Plugin/migrate/source/Url.php
 +++ b/src/Plugin/migrate/source/Url.php
 @@ -4,6 +4,7 @@ declare(strict_types=1);
-
+ 
  namespace Drupal\migrate_plus\Plugin\migrate\source;
-
+ 
 +use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
  use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
  use Drupal\migrate\Attribute\MigrateSource;
  use Drupal\migrate\Plugin\MigrationInterface;
 @@ -11,14 +12,52 @@ use Drupal\migrate_plus\DataParserPluginInterface;
  use Drupal\migrate_plus\DataParserPluginManager;
-
+ 
  /**
 - * Source plugin for retrieving data via URLs.
 + * Source plugin to provide a list of source URLs.
@@ -62,19 +62,19 @@ index 1b0a146..d30fab8 100644
 -class Url extends SourcePluginExtension implements ContainerFactoryPluginInterface {
 +class Url extends SourcePluginExtension implements ContainerFactoryPluginInterface
 +{
-
+ 
    /**
     * The source URLs to retrieve.
 @@ -36,6 +75,7 @@ class Url extends SourcePluginExtension implements ContainerFactoryPluginInterfa
-
+ 
    /**
     * {@inheritdoc}
 +   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
     */
    public function __construct(
      array $configuration,
-@@ -47,6 +87,16 @@ class Url extends SourcePluginExtension implements ContainerFactoryPluginInterfa
-     if (!is_array($configuration['urls'])) {
+@@ -51,6 +91,16 @@ class Url extends SourcePluginExtension implements ContainerFactoryPluginInterfa
+     elseif (is_scalar($configuration['urls'])) {
        $configuration['urls'] = [$configuration['urls']];
      }
 +    // Support a callback to return arrays of URLs.
@@ -88,9 +88,9 @@ index 1b0a146..d30fab8 100644
 +      }
 +    }
      parent::__construct($configuration, $plugin_id, $plugin_definition, $migration);
-
+ 
      $this->sourceUrls = $configuration['urls'];
-@@ -55,7 +105,8 @@ class Url extends SourcePluginExtension implements ContainerFactoryPluginInterfa
+@@ -59,7 +109,8 @@ class Url extends SourcePluginExtension implements ContainerFactoryPluginInterfa
    /**
     * {@inheritdoc}
     */
@@ -100,7 +100,7 @@ index 1b0a146..d30fab8 100644
      return new static(
        $configuration,
        $plugin_id,
-@@ -71,18 +122,20 @@ class Url extends SourcePluginExtension implements ContainerFactoryPluginInterfa
+@@ -75,18 +126,20 @@ class Url extends SourcePluginExtension implements ContainerFactoryPluginInterfa
     * @return string
     *   Comma-separated list of URLs being imported.
     */
@@ -112,7 +112,7 @@ index 1b0a146..d30fab8 100644
 -    return $urls;
 +    return implode(', ', $this->sourceUrls);
    }
-
+ 
    /**
     * Returns the initialized data parser plugin.
     *
@@ -125,7 +125,7 @@ index 1b0a146..d30fab8 100644
      if (!isset($this->dataParserPlugin)) {
        $this->dataParserPlugin = $this->parserPluginManager->createInstance($this->configuration['data_parser_plugin'], $this->configuration);
      }
-@@ -92,11 +145,23 @@ class Url extends SourcePluginExtension implements ContainerFactoryPluginInterfa
+@@ -96,11 +149,23 @@ class Url extends SourcePluginExtension implements ContainerFactoryPluginInterfa
    /**
     * Creates and returns a filtered Iterator over the documents.
     *
@@ -138,7 +138,7 @@ index 1b0a146..d30fab8 100644
 +  {
      return $this->getDataParserPlugin();
    }
-
+ 
 +  /**
 +   * Returns source URLs.
 +   *
@@ -157,7 +157,7 @@ index 51b5a1d..cea98a3 100755
 @@ -79,6 +79,12 @@ class Json extends DataParserPluginBase implements ContainerFactoryPluginInterfa
        return $this->sourceData;
      }
-
+ 
 +    // Treat source data as a single object to import if itemSelector is
 +    // explicitly set to FALSE.
 +    if ($this->itemSelector === FALSE) {
