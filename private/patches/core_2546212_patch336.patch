@@ -1,6 +1,6 @@
 diff --git a/core/modules/config_translation/src/Controller/BundleAwareConfigEntityListBuilder.php b/core/modules/config_translation/src/Controller/BundleAwareConfigEntityListBuilder.php
 new file mode 100644
-index 0000000000000000000000000000000000000000..82cfa4c9d08bc5a3fbc848efae86bcd1a6bdfd2f
+index 00000000..82cfa4c9
 --- /dev/null
 +++ b/core/modules/config_translation/src/Controller/BundleAwareConfigEntityListBuilder.php
 @@ -0,0 +1,118 @@
@@ -124,7 +124,7 @@ index 0000000000000000000000000000000000000000..82cfa4c9d08bc5a3fbc848efae86bcd1
 +}
 diff --git a/core/modules/config_translation/src/Controller/ConfigTranslationEntityDisplayListBuilder.php b/core/modules/config_translation/src/Controller/ConfigTranslationEntityDisplayListBuilder.php
 new file mode 100644
-index 0000000000000000000000000000000000000000..b8a63da0f058316cf562a938cc8d2e729152baff
+index 00000000..b8a63da0
 --- /dev/null
 +++ b/core/modules/config_translation/src/Controller/ConfigTranslationEntityDisplayListBuilder.php
 @@ -0,0 +1,142 @@
@@ -271,19 +271,19 @@ index 0000000000000000000000000000000000000000..b8a63da0f058316cf562a938cc8d2e72
 +
 +}
 diff --git a/core/modules/config_translation/src/Controller/ConfigTranslationFieldListBuilder.php b/core/modules/config_translation/src/Controller/ConfigTranslationFieldListBuilder.php
-index e9eef5b28db6f198cd7832bcf80fee0ac24cd87d..f8adc6a6a51c550322bcf3321b139b0c34676ba3 100644
+index e9eef5b2..f8adc6a6 100644
 --- a/core/modules/config_translation/src/Controller/ConfigTranslationFieldListBuilder.php
 +++ b/core/modules/config_translation/src/Controller/ConfigTranslationFieldListBuilder.php
 @@ -3,93 +3,11 @@
  namespace Drupal\config_translation\Controller;
-
+ 
  use Drupal\Core\Entity\EntityInterface;
 -use Drupal\Core\Entity\EntityStorageInterface;
 -use Drupal\Core\Entity\EntityTypeBundleInfoInterface;
 -use Drupal\Core\Entity\EntityTypeInterface;
 -use Drupal\Core\Entity\EntityTypeManagerInterface;
 -use Symfony\Component\DependencyInjection\ContainerInterface;
-
+ 
  /**
   * Defines the config translation list builder for field entities.
   */
@@ -366,24 +366,24 @@ index e9eef5b28db6f198cd7832bcf80fee0ac24cd87d..f8adc6a6a51c550322bcf3321b139b0c
 -    return $this;
 -  }
 +class ConfigTranslationFieldListBuilder extends BundleAwareConfigEntityListBuilder {
-
+ 
    /**
     * {@inheritdoc}
 diff --git a/core/modules/config_translation/src/Hook/ConfigTranslationHooks.php b/core/modules/config_translation/src/Hook/ConfigTranslationHooks.php
-index 21daa8b7a2c953e30384a2a4650dc846e8aa205c..0e4c3b8244274c24ff0b2a71367ec816a3932958 100644
+index 21daa8b7..0e4c3b82 100644
 --- a/core/modules/config_translation/src/Hook/ConfigTranslationHooks.php
 +++ b/core/modules/config_translation/src/Hook/ConfigTranslationHooks.php
 @@ -2,7 +2,9 @@
-
+ 
  namespace Drupal\config_translation\Hook;
-
+ 
 +use Drupal\config_translation\Controller\ConfigTranslationEntityDisplayListBuilder;
  use Drupal\Core\StringTranslation\StringTranslationTrait;
 +use Drupal\Core\Entity\Display\EntityDisplayInterface;
  use Drupal\field\FieldConfigInterface;
  use Drupal\Core\Entity\EntityInterface;
  use Drupal\Core\Config\Entity\ConfigEntityInterface;
-@@ -119,6 +121,9 @@ public function entityTypeAlter(array &$entity_types) : void {
+@@ -119,6 +121,9 @@ class ConfigTranslationHooks {
            // \Drupal\field\Entity\FieldConfig::linkTemplates().
            $entity_type->setLinkTemplate('config-translation-overview', $entity_type->getLinkTemplate('edit-form') . '/translate');
          }
@@ -393,7 +393,7 @@ index 21daa8b7a2c953e30384a2a4650dc846e8aa205c..0e4c3b8244274c24ff0b2a71367ec816
          else {
            $class = 'Drupal\config_translation\Controller\ConfigTranslationEntityListBuilder';
          }
-@@ -136,23 +141,7 @@ public function entityTypeAlter(array &$entity_types) : void {
+@@ -136,23 +141,7 @@ class ConfigTranslationHooks {
    #[Hook('config_translation_info')]
    public function configTranslationInfo(&$info): void {
      $entity_type_manager = \Drupal::entityTypeManager();
@@ -419,26 +419,26 @@ index 21daa8b7a2c953e30384a2a4650dc846e8aa205c..0e4c3b8244274c24ff0b2a71367ec816
      foreach ($entity_type_manager->getDefinitions() as $entity_type_id => $entity_type) {
        // Determine base path for entities automatically if provided via the
 diff --git a/core/modules/config_translation/tests/src/Functional/ConfigTranslationListUiTest.php b/core/modules/config_translation/tests/src/Functional/ConfigTranslationListUiTest.php
-index 1f53468f439c6419cb3ec6b875bf1b0ddcc08069..b77f698f33bcc728cf91a9f3c1e2a5eb766474a8 100644
+index f947edc2..624e3a34 100644
 --- a/core/modules/config_translation/tests/src/Functional/ConfigTranslationListUiTest.php
 +++ b/core/modules/config_translation/tests/src/Functional/ConfigTranslationListUiTest.php
-@@ -5,6 +5,7 @@
+@@ -5,6 +5,7 @@ declare(strict_types=1);
  namespace Drupal\Tests\config_translation\Functional;
-
+ 
  use Drupal\block_content\Entity\BlockContentType;
 +use Drupal\Component\Utility\Html;
  use Drupal\filter\Entity\FilterFormat;
  use Drupal\language\Entity\ConfigurableLanguage;
- use Drupal\shortcut\Entity\ShortcutSet;
-@@ -41,6 +42,7 @@ class ConfigTranslationListUiTest extends BrowserTestBase {
+ use Drupal\taxonomy\Entity\Vocabulary;
+@@ -39,6 +40,7 @@ class ConfigTranslationListUiTest extends BrowserTestBase {
      'image',
      'responsive_image',
      'toolbar',
 +    'layout_builder',
    ];
-
+ 
    /**
-@@ -80,6 +82,9 @@ protected function setUp(): void {
+@@ -77,6 +79,9 @@ class ConfigTranslationListUiTest extends BrowserTestBase {
        'administer image styles',
        'administer responsive images',
        'translate configuration',
@@ -446,12 +446,12 @@ index 1f53468f439c6419cb3ec6b875bf1b0ddcc08069..b77f698f33bcc728cf91a9f3c1e2a5eb
 +      'administer node display',
 +      'administer display modes',
      ];
-
+ 
      // Create and log in user.
-@@ -453,6 +458,121 @@ public function doSettingsPageTest($link): void {
+@@ -426,6 +431,121 @@ class ConfigTranslationListUiTest extends BrowserTestBase {
      $this->assertSession()->responseContains('<th>Language</th>');
    }
-
+ 
 +  /**
 +   * Test entity form translation operation.
 +   */
@@ -570,18 +570,18 @@ index 1f53468f439c6419cb3ec6b875bf1b0ddcc08069..b77f698f33bcc728cf91a9f3c1e2a5eb
    /**
     * Tests if translate link is added to operations in all configuration lists.
     */
-@@ -471,6 +591,8 @@ public function testTranslateOperationInListUi(): void {
+@@ -443,6 +563,8 @@ class ConfigTranslationListUiTest extends BrowserTestBase {
      $this->doResponsiveImageListTest();
      $this->doDateFormatListTest();
      $this->doFieldListTest();
 +    $this->doEntityFormTest();
 +    $this->doViewDisplayTest();
-
+ 
      // Views is tested in
      // Drupal\config_translation\Tests\ConfigTranslationViewListUiTest.
 diff --git a/core/modules/field_ui/src/ConfigTranslation/EntityDisplayMapper.php b/core/modules/field_ui/src/ConfigTranslation/EntityDisplayMapper.php
 new file mode 100644
-index 0000000000000000000000000000000000000000..f53e25990932180f67d1793256c30b15982ba7c6
+index 00000000..f53e2599
 --- /dev/null
 +++ b/core/modules/field_ui/src/ConfigTranslation/EntityDisplayMapper.php
 @@ -0,0 +1,106 @@
@@ -693,7 +693,7 @@ index 0000000000000000000000000000000000000000..f53e25990932180f67d1793256c30b15
 +}
 diff --git a/core/modules/field_ui/src/FormElement/EntityDisplayElement.php b/core/modules/field_ui/src/FormElement/EntityDisplayElement.php
 new file mode 100644
-index 0000000000000000000000000000000000000000..f22b049ff757d864833a9d01c15bdcc419e69d55
+index 00000000..f22b049f
 --- /dev/null
 +++ b/core/modules/field_ui/src/FormElement/EntityDisplayElement.php
 @@ -0,0 +1,126 @@
@@ -824,10 +824,10 @@ index 0000000000000000000000000000000000000000..f22b049ff757d864833a9d01c15bdcc4
 +
 +}
 diff --git a/core/modules/field_ui/src/Hook/FieldUiHooks.php b/core/modules/field_ui/src/Hook/FieldUiHooks.php
-index df0100d932ba83812f0fddda8227f7d9d8b92b5a..69ea7261e5e9435c11f7047e3deb4896c514a5f1 100644
+index e40572f9..d3e1cd4f 100644
 --- a/core/modules/field_ui/src/Hook/FieldUiHooks.php
 +++ b/core/modules/field_ui/src/Hook/FieldUiHooks.php
-@@ -5,6 +5,8 @@
+@@ -5,6 +5,8 @@ namespace Drupal\field_ui\Hook;
  use Drupal\Core\Form\FormStateInterface;
  use Drupal\Core\StringTranslation\StringTranslationTrait;
  use Drupal\Core\Theme\ThemePreprocess;
@@ -836,10 +836,10 @@ index df0100d932ba83812f0fddda8227f7d9d8b92b5a..69ea7261e5e9435c11f7047e3deb4896
  use Drupal\field_ui\Plugin\Derivative\FieldUiLocalTask;
  use Drupal\Core\Entity\EntityFormModeInterface;
  use Drupal\Core\Entity\EntityViewModeInterface;
-@@ -102,6 +104,25 @@ public function theme() : array {
+@@ -103,6 +105,25 @@ class FieldUiHooks {
      ];
    }
-
+ 
 +  /**
 +   * Implements hook_config_schema_info_alter().
 +   */
@@ -862,10 +862,10 @@ index df0100d932ba83812f0fddda8227f7d9d8b92b5a..69ea7261e5e9435c11f7047e3deb4896
    /**
     * Implements hook_entity_type_build().
     */
-@@ -277,4 +298,42 @@ public function formAlter(&$form, FormStateInterface $form_state, $form_id) : vo
+@@ -291,4 +312,42 @@ class FieldUiHooks {
      }
    }
-
+ 
 +  /**
 +   * Implements hook_config_translation_info().
 +   */
@@ -907,7 +907,7 @@ index df0100d932ba83812f0fddda8227f7d9d8b92b5a..69ea7261e5e9435c11f7047e3deb4896
  }
 diff --git a/core/modules/layout_builder/src/FormElement/LayoutBuilderDisplayElement.php b/core/modules/layout_builder/src/FormElement/LayoutBuilderDisplayElement.php
 new file mode 100644
-index 0000000000000000000000000000000000000000..c19d3e3d32987e38d5cfc2c8fc9e86afe61ca297
+index 00000000..c19d3e3d
 --- /dev/null
 +++ b/core/modules/layout_builder/src/FormElement/LayoutBuilderDisplayElement.php
 @@ -0,0 +1,168 @@
@@ -1081,7 +1081,7 @@ index 0000000000000000000000000000000000000000..c19d3e3d32987e38d5cfc2c8fc9e86af
 +}
 diff --git a/core/modules/layout_builder/src/FormElement/LayoutBuilderEntityDisplayElement.php b/core/modules/layout_builder/src/FormElement/LayoutBuilderEntityDisplayElement.php
 new file mode 100644
-index 0000000000000000000000000000000000000000..c2229ca71087f3b48db9b9be2dfc2f68a10634ef
+index 00000000..c2229ca7
 --- /dev/null
 +++ b/core/modules/layout_builder/src/FormElement/LayoutBuilderEntityDisplayElement.php
 @@ -0,0 +1,74 @@
@@ -1160,10 +1160,10 @@ index 0000000000000000000000000000000000000000..c2229ca71087f3b48db9b9be2dfc2f68
 +
 +}
 diff --git a/core/modules/layout_builder/src/Hook/LayoutBuilderHooks.php b/core/modules/layout_builder/src/Hook/LayoutBuilderHooks.php
-index 6dc1b9fa249d14f7d97c05c6d1f8a21d68130165..833312985b4da7e219bf29f875f92b5821e7bb68 100644
+index 6dc1b9fa..83331298 100644
 --- a/core/modules/layout_builder/src/Hook/LayoutBuilderHooks.php
 +++ b/core/modules/layout_builder/src/Hook/LayoutBuilderHooks.php
-@@ -9,6 +9,8 @@
+@@ -9,6 +9,8 @@ use Drupal\Core\Breadcrumb\Breadcrumb;
  use Drupal\Core\Access\AccessResult;
  use Drupal\Core\Session\AccountInterface;
  use Drupal\Core\StringTranslation\StringTranslationTrait;
@@ -1172,10 +1172,10 @@ index 6dc1b9fa249d14f7d97c05c6d1f8a21d68130165..833312985b4da7e219bf29f875f92b58
  use Drupal\layout_builder\InlineBlockEntityOperations;
  use Drupal\layout_builder\Plugin\Block\ExtraFieldBlock;
  use Drupal\Core\Render\Element;
-@@ -425,4 +427,27 @@ public function themeSuggestionsFieldAlter(&$suggestions, array $variables): voi
+@@ -425,4 +427,27 @@ class LayoutBuilderHooks {
      }
    }
-
+ 
 +  /**
 +   * Implements hook_config_schema_info_alter().
 +   */

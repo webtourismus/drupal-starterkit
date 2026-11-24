@@ -24,7 +24,8 @@
           "3535527 - Fixed cookies": "./private/patches/cookies_3535527_fix-submitConfigurationForm-void.patch"
         },
         "drupal/gin": {
-          "3281984 - Secondary Toolbar breadcrumb shows edit label all node routes": "Fixed in v3.0.0-rc16"
+          "3281984 - Secondary Toolbar breadcrumb shows edit label all node routes": "Fixed in v3.0.0-rc16",
+          "3281343 - Use Gin's edit form for media enities": "Replaced by hook_gin_content_form_routes() in webtourismus/gin_custom 1.2.6"
         },
         "drupal/gin_toolbar": {
           "3319445 - The breadcrumb shows Edit label when user has no permission": "Fixed in 2.1.0"

@@ -1,9 +1,9 @@
 diff --git a/layout_paragraphs.services.yml b/layout_paragraphs.services.yml
-index 19a626d9b3514be51c957ccf3384c0b4b7e75ddc..5b5259324710ed62eccec5b41f17c065fa1c579d 100644
+index 9e65e49..4051745 100644
 --- a/layout_paragraphs.services.yml
 +++ b/layout_paragraphs.services.yml
-@@ -26,3 +26,8 @@ services:
-      - '@entity_type.manager'
+@@ -29,3 +29,8 @@ services:
+       - '@entity_type.manager'
      tags:
        - { name: access_check, applies_to: _layout_paragraphs_builder_access }
 +  layout_paragraphs.admin_path.route_subscriber:
@@ -13,7 +13,7 @@ index 19a626d9b3514be51c957ccf3384c0b4b7e75ddc..5b5259324710ed62eccec5b41f17c065
 +      - { name: event_subscriber }
 diff --git a/src/EventSubscriber/LayoutParagraphsAdminRouteSubscriber.php b/src/EventSubscriber/LayoutParagraphsAdminRouteSubscriber.php
 new file mode 100644
-index 0000000000000000000000000000000000000000..7d4e9d3e80ba7409a0ae0cf42ea41b2c1e3323d6
+index 0000000..7d4e9d3
 --- /dev/null
 +++ b/src/EventSubscriber/LayoutParagraphsAdminRouteSubscriber.php
 @@ -0,0 +1,46 @@

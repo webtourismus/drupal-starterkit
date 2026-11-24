@@ -1,16 +1,3 @@
-From 0a4c786c3e4c87b4004175606992d5743675a088 Mon Sep 17 00:00:00 2001
-From: "Webtourismus.at" <entwicklung@webtourismus.at>
-Date: Tue, 25 Oct 2022 12:12:14 +0200
-Subject: [PATCH] Allow to togle between allow-list and block-list
-
----
- ...nfig_entity_reference_selection.schema.yml |  2 ++
- config_entity_reference_selection.install     | 23 +++++++++++++++++++
- .../ConfigEntityReferenceSelection.php        | 22 ++++++++++++++----
- .../EntityReferenceSelectionTest.php          | 12 +++++++++-
- 4 files changed, 54 insertions(+), 5 deletions(-)
- create mode 100644 config_entity_reference_selection.install
-
 diff --git a/config/schema/config_entity_reference_selection.schema.yml b/config/schema/config_entity_reference_selection.schema.yml
 index db5c143..9c59ef0 100644
 --- a/config/schema/config_entity_reference_selection.schema.yml
@@ -54,18 +41,18 @@ index 0000000..07ebbd0
 +  }
 +}
 diff --git a/src/Plugin/EntityReferenceSelection/ConfigEntityReferenceSelection.php b/src/Plugin/EntityReferenceSelection/ConfigEntityReferenceSelection.php
-index 49949e6..e110f0b 100644
+index 0563f1b..2519a29 100644
 --- a/src/Plugin/EntityReferenceSelection/ConfigEntityReferenceSelection.php
 +++ b/src/Plugin/EntityReferenceSelection/ConfigEntityReferenceSelection.php
-@@ -60,6 +60,7 @@ class ConfigEntityReferenceSelection extends DefaultSelection {
-   public function defaultConfiguration() {
+@@ -64,6 +64,7 @@ class ConfigEntityReferenceSelection extends DefaultSelection {
+   public function defaultConfiguration(): array {
      return [
        'filter' => [
 +        'negate' => 0,
          'allowed_ids' => NULL,
        ],
      ] + parent::defaultConfiguration();
-@@ -127,7 +128,8 @@ class ConfigEntityReferenceSelection extends DefaultSelection {
+@@ -131,7 +132,8 @@ class ConfigEntityReferenceSelection extends DefaultSelection {
      if ($target_type = $this->getTargetType()) {
        $allowed = $this->getConfiguration()['filter']['allowed_ids'];
        if (!empty($allowed)) {
@@ -75,7 +62,7 @@ index 49949e6..e110f0b 100644
        }
      }
  
-@@ -143,9 +145,21 @@ class ConfigEntityReferenceSelection extends DefaultSelection {
+@@ -147,9 +149,21 @@ class ConfigEntityReferenceSelection extends DefaultSelection {
      if ($target_type = $this->getTargetType()) {
        if ($options = $this->getOptions()) {
          $plural_label = $target_type->getPluralLabel();
@@ -98,8 +85,8 @@ index 49949e6..e110f0b 100644
 +          '#title' => $this->t('Select @label', [
              '@label' => $plural_label,
            ]),
-           '#options' => $options,
-@@ -185,7 +199,7 @@ class ConfigEntityReferenceSelection extends DefaultSelection {
+           '#options' => OptGroup::flattenOptions($options),
+@@ -189,7 +203,7 @@ class ConfigEntityReferenceSelection extends DefaultSelection {
  
      // Ensure that the allowed_ids sequence is stored without keys.
      $value_path = ['settings', 'handler_settings', 'filter', 'allowed_ids'];
@@ -109,10 +96,10 @@ index 49949e6..e110f0b 100644
      $form_state->setValue($value_path, $without_keys);
    }
 diff --git a/tests/src/Functional/EntityReferenceSelectionTest.php b/tests/src/Functional/EntityReferenceSelectionTest.php
-index 30ec31a..44a1215 100644
+index ef5de41..df3f900 100644
 --- a/tests/src/Functional/EntityReferenceSelectionTest.php
 +++ b/tests/src/Functional/EntityReferenceSelectionTest.php
-@@ -59,6 +59,7 @@ class EntityReferenceSelectionTest extends BrowserTestBase {
+@@ -63,6 +63,7 @@ class EntityReferenceSelectionTest extends BrowserTestBase {
          'handler_settings' => [
            'filter' => [
              'allowed_ids' => [],
@@ -120,7 +107,7 @@ index 30ec31a..44a1215 100644
            ],
          ],
        ],
-@@ -98,6 +99,15 @@ class EntityReferenceSelectionTest extends BrowserTestBase {
+@@ -102,6 +103,15 @@ class EntityReferenceSelectionTest extends BrowserTestBase {
      $assert->optionExists('Actions reference', 'Block the selected user(s)');
      $assert->optionNotExists('Actions reference', 'Cancel the selected user account(s)');
  
@@ -137,6 +124,3 @@ index 30ec31a..44a1215 100644
 +    $assert->optionExists('Actions reference', 'Cancel the selected user account(s)');
 +  }
  }
--- 
-GitLab
-
