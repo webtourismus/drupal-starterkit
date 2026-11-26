@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Drupal\block\Entity\Block;
 use Drupal\block_content\Entity\BlockContent;
+use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\ebr_teaser\Entity\ParagraphTeaserableInterface;
 use Drupal\designsystem\DesignHelper;
@@ -166,4 +167,64 @@ function _frontend_preprocess_menu_items(array &$items, string $name, int $level
       _frontend_preprocess_menu_items($items[$idx]['below'], $name, $level+1, $region);
     }
   }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for paragraph--reviews.html.twig.
+ *
+ * Builds the schema.org data of each review as JSON in PHP, so texts with
+ * quotes or line breaks cannot break it. "itemReviewed" refers to the hotel
+ * of the schema_org module, otherwise Google reports the reviews as invalid.
+ */
+function frontend_preprocess_paragraph__reviews(array &$variables): void {
+  $variables['reviews_schema'] = [];
+  /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
+  $paragraph = $variables['paragraph'];
+  if (!$paragraph->hasField('field_reviews')) {
+    return;
+  }
+
+  $cacheability = new CacheableMetadata();
+  if (\Drupal::hasService('schema_org.graph_builder') && method_exists(\Drupal::service('schema_org.graph_builder'), 'getBusinessReferenceId')) {
+    $itemReviewed = ['@id' => \Drupal::service('schema_org.graph_builder')->getBusinessReferenceId($cacheability)];
+  }
+  else {
+    $siteConfig = \Drupal::config('system.site');
+    $cacheability->addCacheableDependency($siteConfig);
+    $itemReviewed = ['@type' => 'Organization', 'name' => (string) $siteConfig->get('name')];
+  }
+
+  foreach ($paragraph->get('field_reviews')->referencedEntities() as $review) {
+    $cacheability->addCacheableDependency($review);
+    if (!$review->access('view')) {
+      continue;
+    }
+    $text = html_entity_decode(strip_tags((string) $review->get('field_review_text')->value), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $data = [
+      '@context' => 'https://schema.org',
+      '@type' => 'Review',
+      'itemReviewed' => $itemReviewed,
+      'author' => [
+        '@type' => 'Person',
+        'name' => trim((string) $review->get('field_review_author')->value),
+      ],
+      'datePublished' => substr((string) $review->get('field_review_date')->value, 0, 10),
+      'reviewBody' => trim(preg_replace('/\s+/u', ' ', $text)),
+      'reviewRating' => [
+        '@type' => 'Rating',
+        'ratingValue' => (float) $review->get('field_review_rating')->value,
+        'bestRating' => (float) $review->get('field_review_max_rating')->value,
+        'worstRating' => (float) $review->get('field_review_min_rating')->value,
+      ],
+    ];
+    if ($data['author']['name'] === '' || $data['reviewBody'] === '' || empty($data['reviewRating']['bestRating'])) {
+      continue;
+    }
+    if ($data['datePublished'] === '') {
+      unset($data['datePublished']);
+    }
+    // JSON_HEX_TAG keeps "</script>" in a review from ending the script tag.
+    $variables['reviews_schema'][] = json_encode($data, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+  }
+  $cacheability->applyTo($variables);
 }

@@ -3,25 +3,9 @@
 {% block content %}
   {{ parent() }}
 
-  {% for review in content.field_reviews|children %}
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Review",
-        "author": {
-          "@type": "Person",
-          "name": "{{ paragraph.field_reviews[loop.index0].entity.field_review_author.value }}"
-        },
-        "datePublished": "{{ paragraph.field_reviews[loop.index0].entity.field_review_date.value }}",
-        "reviewBody": "{{ paragraph.field_reviews[loop.index0].entity.field_review_text.value|striptags }}",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "{{ paragraph.field_reviews[loop.index0].entity.field_review_rating.value }}",
-          "bestRating": "{{ paragraph.field_reviews[loop.index0].entity.field_review_max_rating.value }}",
-          "worstRating": "{{ paragraph.field_reviews[loop.index0].entity.field_review_min_rating.value }}"
-        }
-      }
-    </script>
+  {# Built in frontend_preprocess_paragraph__reviews(), already JSON-encoded. #}
+  {% for review_schema in reviews_schema %}
+    <script type="application/ld+json">{{ review_schema|raw }}</script>
   {% endfor %}
 {% endblock %}
 
