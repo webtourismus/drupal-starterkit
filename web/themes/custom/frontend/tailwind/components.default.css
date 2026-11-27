@@ -95,24 +95,54 @@
    * System messages
    * ###################################################################################################################
    */
-  .messages-container {
-    @apply p-4 sm:px-8 sm:py-4 max-w-[90%] mx-auto;
+  /*
+   * Toasts in the bottom right corner, outside of the page flow.
+   * [data-drupal-messages] instead of the class: when the page has no server
+   * side messages, Drupal.Message uses the core fallback wrapper.
+   * [data-message-type]: rendered by status-messages.html.twig.
+   * [data-drupal-message-type]: added via JS by Drupal.Message.
+   * z-index just above z-modal (1259), so the popup region does not hide them.
+   */
+  [data-drupal-messages] {
+    @apply fixed bottom-4 right-4 left-4 sm:left-auto z-[1260] sm:w-96 max-h-[calc(100vh-2rem)] overflow-y-auto pointer-events-none;
   }
 
-  .messages-container a {
+  [data-drupal-messages] > div {
+    @apply flex flex-col gap-3;
+  }
+
+  [data-drupal-messages] a {
     @apply underline decoration-currentcolor decoration-dotted hocus:decoration-solid;
   }
 
-  .messages-container>*+* {
-    @apply mt-4;
+  [data-drupal-messages] :is([data-message-type], [data-drupal-message-type]) {
+    @apply pointer-events-auto relative rounded-md p-4 pr-10 shadow-lg transition-all duration-300 bg-[#83c5f1] text-[#122b3c];
   }
 
-  .messages-container [role=alert] {
-    @apply bg-[#f39b9d] text-[#583333] rounded-md p-4;
+  [data-drupal-messages] :is([data-message-type=error], [data-drupal-message-type=error]) {
+    @apply bg-[#f39b9d] text-[#583333];
   }
 
-  .messages-container [role=contentinfo] {
-    @apply bg-[#83c5f1] text-[#122b3c] rounded-md p-4;
+  [data-drupal-messages] .is-hiding {
+    @apply opacity-0 translate-y-2;
+  }
+
+  .messages-container__content {
+    @apply min-w-0 break-words;
+  }
+
+  .messages-container__content ul {
+    @apply list-disc pl-5 space-y-1;
+  }
+
+  .messages-container__close {
+    @apply absolute top-2 right-2 w-7 h-7 flex items-center justify-center rounded text-2xl leading-none opacity-70 hocus:opacity-100 cursor-pointer;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-drupal-messages] :is([data-message-type], [data-drupal-message-type]) {
+      @apply transition-none;
+    }
   }
 
   /**

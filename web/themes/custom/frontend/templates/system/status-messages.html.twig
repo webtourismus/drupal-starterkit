@@ -1,13 +1,25 @@
-<div data-drupal-messages class="messages-container">
+{#
+/**
+ * @file
+ * Status messages as toasts in the bottom right corner (fixed, outside of the
+ * page flow). Status and warning messages fade out after a few seconds, errors
+ * stay until closed. See Drupal.behaviors.messageToasts in js/frontend.js.
+ *
+ * The list wrapper is needed: Drupal.Message (core/drupal.message) appends
+ * messages added via JS to the first child element of [data-drupal-messages].
+ */
+#}
+<div data-drupal-messages class="messages-container"><div class="messages-container__list">
 {% for type, messages in message_list %}
-  {% if type == error %}
-    <div role="alert" aria-label="{{ status_headings[type] }}" {{ attributes|without('role', 'aria-label') }}>
+  {% if type == 'error' %}
+    <div role="alert" aria-label="{{ status_headings[type] }}" data-message-type="{{ type }}" {{ attributes|without('role', 'aria-label') }}>
   {% else %}
-    <div role="contentinfo" aria-label="{{ status_headings[type] }}" {{ attributes|without('role', 'aria-label') }}>
+    <div role="contentinfo" aria-label="{{ status_headings[type] }}" data-message-type="{{ type }}" {{ attributes|without('role', 'aria-label') }}>
   {% endif %}
     {% if status_headings[type] %}
       <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
     {% endif %}
+    <div class="messages-container__content">
     {% if messages|length > 1 %}
       <ul>
         {% for message in messages %}
@@ -17,6 +29,8 @@
     {% else %}
       {{ messages|first }}
     {% endif %}
+    </div>
+    <button type="button" class="messages-container__close" data-message-close aria-label="{{ 'Close'|t }}">&times;</button>
   </div>
 {% endfor %}
-</div>
+</div></div>

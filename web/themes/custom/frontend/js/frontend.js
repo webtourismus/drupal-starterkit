@@ -32,4 +32,84 @@
     }
   };
 
+  /**
+   * Status messages as toasts: close button, auto hide for non-errors.
+   *
+   * Errors stay until closed. The timer pauses while hovered or focused.
+   * Covers messages rendered by status-messages.html.twig ([data-message-type])
+   * and messages added via JS by Drupal.Message ([data-drupal-message-type]).
+   */
+  const TOAST_SELECTOR = '[data-drupal-messages] :is([data-message-type], [data-drupal-message-type])';
+  const TOAST_AUTO_HIDE_MS = 5000;
+
+  const hideToast = (toast) => {
+    if (toast.classList.contains('is-hiding')) {
+      return;
+    }
+    toast.classList.add('is-hiding');
+    // Hidden, not removed: Drupal.Message.remove() throws if its element is
+    // already gone.
+    const done = () => { toast.hidden = true; };
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      done();
+    }
+    else {
+      toast.addEventListener('transitionend', done, {once: true});
+      // Fallback if transitionend doesn't fire.
+      setTimeout(done, 500);
+    }
+  };
+
+  const setupToast = (toast) => {
+    let closeButton = toast.querySelector('[data-message-close]');
+    if (!closeButton) {
+      // Message added via JS: same markup as the twig template.
+      const content = document.createElement('div');
+      content.className = 'messages-container__content';
+      content.append(...toast.childNodes);
+      closeButton = document.createElement('button');
+      closeButton.type = 'button';
+      closeButton.className = 'messages-container__close';
+      closeButton.setAttribute('data-message-close', '');
+      closeButton.setAttribute('aria-label', Drupal.t('Close'));
+      closeButton.innerHTML = '&times;';
+      toast.append(content, closeButton);
+    }
+    closeButton.addEventListener('click', () => hideToast(toast));
+
+    const type = toast.getAttribute('data-message-type') || toast.getAttribute('data-drupal-message-type');
+    if (type === 'error') {
+      return;
+    }
+    let timer = setTimeout(() => hideToast(toast), TOAST_AUTO_HIDE_MS);
+    const pause = () => clearTimeout(timer);
+    const resume = () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => hideToast(toast), TOAST_AUTO_HIDE_MS);
+    };
+    toast.addEventListener('mouseenter', pause);
+    toast.addEventListener('focusin', pause);
+    toast.addEventListener('mouseleave', resume);
+    toast.addEventListener('focusout', resume);
+  };
+
+  Drupal.behaviors.messageToasts = {
+    attach: function (context) {
+      once('message-toast', TOAST_SELECTOR, context).forEach(setupToast);
+
+      // Drupal.Message doesn't attach behaviors to the messages it adds.
+      once('message-toast-observer', 'body', context).forEach((body) => {
+        new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            mutation.addedNodes.forEach((node) => {
+              if (node.nodeType === Node.ELEMENT_NODE && node.matches(TOAST_SELECTOR)) {
+                once('message-toast', node).forEach(setupToast);
+              }
+            });
+          });
+        }).observe(body, {childList: true, subtree: true});
+      });
+    }
+  };
+
 }(Drupal, drupalSettings, once));
